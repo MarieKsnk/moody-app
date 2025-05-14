@@ -160,7 +160,7 @@ exports.Prisma.IngredientScalarFieldEnum = {
   name: 'name'
 };
 
-exports.Prisma.RecipeIngredientScalarFieldEnum = {
+exports.Prisma.IngredientRecipeScalarFieldEnum = {
   id: 'id',
   recipeId: 'recipeId',
   ingredientId: 'ingredientId',
@@ -172,7 +172,7 @@ exports.Prisma.UstensilScalarFieldEnum = {
   name: 'name'
 };
 
-exports.Prisma.RecipeUstensilScalarFieldEnum = {
+exports.Prisma.UstensilRecipeScalarFieldEnum = {
   id: 'id',
   recipeId: 'recipeId',
   ustensilId: 'ustensilId'
@@ -240,9 +240,9 @@ exports.Prisma.ModelName = {
   Recipe: 'Recipe',
   Type: 'Type',
   Ingredient: 'Ingredient',
-  RecipeIngredient: 'RecipeIngredient',
+  IngredientRecipe: 'IngredientRecipe',
   Ustensil: 'Ustensil',
-  RecipeUstensil: 'RecipeUstensil',
+  UstensilRecipe: 'UstensilRecipe',
   Mood: 'Mood',
   MoodRecipe: 'MoodRecipe',
   Diet: 'Diet',

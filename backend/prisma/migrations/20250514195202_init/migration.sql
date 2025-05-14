@@ -54,13 +54,13 @@ CREATE TABLE "Ingredient" (
 );
 
 -- CreateTable
-CREATE TABLE "RecipeIngredient" (
+CREATE TABLE "IngredientRecipe" (
     "id" TEXT NOT NULL,
     "recipeId" TEXT NOT NULL,
     "ingredientId" TEXT NOT NULL,
     "quantity" TEXT NOT NULL,
 
-    CONSTRAINT "RecipeIngredient_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "IngredientRecipe_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -72,12 +72,12 @@ CREATE TABLE "Ustensil" (
 );
 
 -- CreateTable
-CREATE TABLE "RecipeUstensil" (
+CREATE TABLE "UstensilRecipe" (
     "id" TEXT NOT NULL,
     "recipeId" TEXT NOT NULL,
     "ustensilId" TEXT NOT NULL,
 
-    CONSTRAINT "RecipeUstensil_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "UstensilRecipe_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -175,16 +175,16 @@ ALTER TABLE "Recipe" ADD CONSTRAINT "Recipe_userId_fkey" FOREIGN KEY ("userId") 
 ALTER TABLE "Recipe" ADD CONSTRAINT "Recipe_typeId_fkey" FOREIGN KEY ("typeId") REFERENCES "Type"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "RecipeIngredient" ADD CONSTRAINT "RecipeIngredient_recipeId_fkey" FOREIGN KEY ("recipeId") REFERENCES "Recipe"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "IngredientRecipe" ADD CONSTRAINT "IngredientRecipe_recipeId_fkey" FOREIGN KEY ("recipeId") REFERENCES "Recipe"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "RecipeIngredient" ADD CONSTRAINT "RecipeIngredient_ingredientId_fkey" FOREIGN KEY ("ingredientId") REFERENCES "Ingredient"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "IngredientRecipe" ADD CONSTRAINT "IngredientRecipe_ingredientId_fkey" FOREIGN KEY ("ingredientId") REFERENCES "Ingredient"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "RecipeUstensil" ADD CONSTRAINT "RecipeUstensil_recipeId_fkey" FOREIGN KEY ("recipeId") REFERENCES "Recipe"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "UstensilRecipe" ADD CONSTRAINT "UstensilRecipe_recipeId_fkey" FOREIGN KEY ("recipeId") REFERENCES "Recipe"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "RecipeUstensil" ADD CONSTRAINT "RecipeUstensil_ustensilId_fkey" FOREIGN KEY ("ustensilId") REFERENCES "Ustensil"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "UstensilRecipe" ADD CONSTRAINT "UstensilRecipe_ustensilId_fkey" FOREIGN KEY ("ustensilId") REFERENCES "Ustensil"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "MoodRecipe" ADD CONSTRAINT "MoodRecipe_recipeId_fkey" FOREIGN KEY ("recipeId") REFERENCES "Recipe"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

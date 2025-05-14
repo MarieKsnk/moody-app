@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -40,8 +34,8 @@ model Recipe {
   user         User               @relation(fields: [userId], references: [id])
   title        String
   serve        Int?
-  ingredients  RecipeIngredient[]
-  ustensils    RecipeUstensil[]
+  ingredients  IngredientRecipe[]
+  ustensils    UstensilRecipe[]
   description  String?
   instructions String
   typeId       String
@@ -65,10 +59,10 @@ model Type {
 model Ingredient {
   id      String             @id @default(uuid())
   name    String             @unique
-  recipes RecipeIngredient[]
+  recipes IngredientRecipe[]
 }
 
-model RecipeIngredient {
+model IngredientRecipe {
   id           String     @id @default(uuid())
   recipeId     String
   recipe       Recipe     @relation(fields: [recipeId], references: [id])
@@ -80,10 +74,10 @@ model RecipeIngredient {
 model Ustensil {
   id      String           @id @default(uuid())
   name    String           @unique
-  recipes RecipeUstensil[]
+  recipes UstensilRecipe[]
 }
 
-model RecipeUstensil {
+model UstensilRecipe {
   id         String   @id @default(uuid())
   recipeId   String
   recipe     Recipe   @relation(fields: [recipeId], references: [id])

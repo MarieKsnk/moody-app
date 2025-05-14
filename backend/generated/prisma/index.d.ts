@@ -39,20 +39,20 @@ export type Type = $Result.DefaultSelection<Prisma.$TypePayload>
  */
 export type Ingredient = $Result.DefaultSelection<Prisma.$IngredientPayload>
 /**
- * Model RecipeIngredient
+ * Model IngredientRecipe
  * 
  */
-export type RecipeIngredient = $Result.DefaultSelection<Prisma.$RecipeIngredientPayload>
+export type IngredientRecipe = $Result.DefaultSelection<Prisma.$IngredientRecipePayload>
 /**
  * Model Ustensil
  * 
  */
 export type Ustensil = $Result.DefaultSelection<Prisma.$UstensilPayload>
 /**
- * Model RecipeUstensil
+ * Model UstensilRecipe
  * 
  */
-export type RecipeUstensil = $Result.DefaultSelection<Prisma.$RecipeUstensilPayload>
+export type UstensilRecipe = $Result.DefaultSelection<Prisma.$UstensilRecipePayload>
 /**
  * Model Mood
  * 
@@ -265,14 +265,14 @@ export class PrismaClient<
   get ingredient(): Prisma.IngredientDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.recipeIngredient`: Exposes CRUD operations for the **RecipeIngredient** model.
+   * `prisma.ingredientRecipe`: Exposes CRUD operations for the **IngredientRecipe** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more RecipeIngredients
-    * const recipeIngredients = await prisma.recipeIngredient.findMany()
+    * // Fetch zero or more IngredientRecipes
+    * const ingredientRecipes = await prisma.ingredientRecipe.findMany()
     * ```
     */
-  get recipeIngredient(): Prisma.RecipeIngredientDelegate<ExtArgs, ClientOptions>;
+  get ingredientRecipe(): Prisma.IngredientRecipeDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.ustensil`: Exposes CRUD operations for the **Ustensil** model.
@@ -285,14 +285,14 @@ export class PrismaClient<
   get ustensil(): Prisma.UstensilDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.recipeUstensil`: Exposes CRUD operations for the **RecipeUstensil** model.
+   * `prisma.ustensilRecipe`: Exposes CRUD operations for the **UstensilRecipe** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more RecipeUstensils
-    * const recipeUstensils = await prisma.recipeUstensil.findMany()
+    * // Fetch zero or more UstensilRecipes
+    * const ustensilRecipes = await prisma.ustensilRecipe.findMany()
     * ```
     */
-  get recipeUstensil(): Prisma.RecipeUstensilDelegate<ExtArgs, ClientOptions>;
+  get ustensilRecipe(): Prisma.UstensilRecipeDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.mood`: Exposes CRUD operations for the **Mood** model.
@@ -808,9 +808,9 @@ export namespace Prisma {
     Recipe: 'Recipe',
     Type: 'Type',
     Ingredient: 'Ingredient',
-    RecipeIngredient: 'RecipeIngredient',
+    IngredientRecipe: 'IngredientRecipe',
     Ustensil: 'Ustensil',
-    RecipeUstensil: 'RecipeUstensil',
+    UstensilRecipe: 'UstensilRecipe',
     Mood: 'Mood',
     MoodRecipe: 'MoodRecipe',
     Diet: 'Diet',
@@ -836,7 +836,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "role" | "recipe" | "type" | "ingredient" | "recipeIngredient" | "ustensil" | "recipeUstensil" | "mood" | "moodRecipe" | "diet" | "dietRecipe" | "origin" | "originRecipe" | "favorite"
+      modelProps: "user" | "role" | "recipe" | "type" | "ingredient" | "ingredientRecipe" | "ustensil" | "ustensilRecipe" | "mood" | "moodRecipe" | "diet" | "dietRecipe" | "origin" | "originRecipe" | "favorite"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1210,77 +1210,77 @@ export namespace Prisma {
           }
         }
       }
-      RecipeIngredient: {
-        payload: Prisma.$RecipeIngredientPayload<ExtArgs>
-        fields: Prisma.RecipeIngredientFieldRefs
+      IngredientRecipe: {
+        payload: Prisma.$IngredientRecipePayload<ExtArgs>
+        fields: Prisma.IngredientRecipeFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.RecipeIngredientFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload> | null
+            args: Prisma.IngredientRecipeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.RecipeIngredientFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+            args: Prisma.IngredientRecipeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload>
           }
           findFirst: {
-            args: Prisma.RecipeIngredientFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload> | null
+            args: Prisma.IngredientRecipeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.RecipeIngredientFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+            args: Prisma.IngredientRecipeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload>
           }
           findMany: {
-            args: Prisma.RecipeIngredientFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>[]
+            args: Prisma.IngredientRecipeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload>[]
           }
           create: {
-            args: Prisma.RecipeIngredientCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+            args: Prisma.IngredientRecipeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload>
           }
           createMany: {
-            args: Prisma.RecipeIngredientCreateManyArgs<ExtArgs>
+            args: Prisma.IngredientRecipeCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.RecipeIngredientCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>[]
+            args: Prisma.IngredientRecipeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload>[]
           }
           delete: {
-            args: Prisma.RecipeIngredientDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+            args: Prisma.IngredientRecipeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload>
           }
           update: {
-            args: Prisma.RecipeIngredientUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+            args: Prisma.IngredientRecipeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload>
           }
           deleteMany: {
-            args: Prisma.RecipeIngredientDeleteManyArgs<ExtArgs>
+            args: Prisma.IngredientRecipeDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.RecipeIngredientUpdateManyArgs<ExtArgs>
+            args: Prisma.IngredientRecipeUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.RecipeIngredientUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>[]
+            args: Prisma.IngredientRecipeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload>[]
           }
           upsert: {
-            args: Prisma.RecipeIngredientUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+            args: Prisma.IngredientRecipeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IngredientRecipePayload>
           }
           aggregate: {
-            args: Prisma.RecipeIngredientAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateRecipeIngredient>
+            args: Prisma.IngredientRecipeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateIngredientRecipe>
           }
           groupBy: {
-            args: Prisma.RecipeIngredientGroupByArgs<ExtArgs>
-            result: $Utils.Optional<RecipeIngredientGroupByOutputType>[]
+            args: Prisma.IngredientRecipeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<IngredientRecipeGroupByOutputType>[]
           }
           count: {
-            args: Prisma.RecipeIngredientCountArgs<ExtArgs>
-            result: $Utils.Optional<RecipeIngredientCountAggregateOutputType> | number
+            args: Prisma.IngredientRecipeCountArgs<ExtArgs>
+            result: $Utils.Optional<IngredientRecipeCountAggregateOutputType> | number
           }
         }
       }
@@ -1358,77 +1358,77 @@ export namespace Prisma {
           }
         }
       }
-      RecipeUstensil: {
-        payload: Prisma.$RecipeUstensilPayload<ExtArgs>
-        fields: Prisma.RecipeUstensilFieldRefs
+      UstensilRecipe: {
+        payload: Prisma.$UstensilRecipePayload<ExtArgs>
+        fields: Prisma.UstensilRecipeFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.RecipeUstensilFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload> | null
+            args: Prisma.UstensilRecipeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.RecipeUstensilFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload>
+            args: Prisma.UstensilRecipeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload>
           }
           findFirst: {
-            args: Prisma.RecipeUstensilFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload> | null
+            args: Prisma.UstensilRecipeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.RecipeUstensilFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload>
+            args: Prisma.UstensilRecipeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload>
           }
           findMany: {
-            args: Prisma.RecipeUstensilFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload>[]
+            args: Prisma.UstensilRecipeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload>[]
           }
           create: {
-            args: Prisma.RecipeUstensilCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload>
+            args: Prisma.UstensilRecipeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload>
           }
           createMany: {
-            args: Prisma.RecipeUstensilCreateManyArgs<ExtArgs>
+            args: Prisma.UstensilRecipeCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.RecipeUstensilCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload>[]
+            args: Prisma.UstensilRecipeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload>[]
           }
           delete: {
-            args: Prisma.RecipeUstensilDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload>
+            args: Prisma.UstensilRecipeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload>
           }
           update: {
-            args: Prisma.RecipeUstensilUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload>
+            args: Prisma.UstensilRecipeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload>
           }
           deleteMany: {
-            args: Prisma.RecipeUstensilDeleteManyArgs<ExtArgs>
+            args: Prisma.UstensilRecipeDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.RecipeUstensilUpdateManyArgs<ExtArgs>
+            args: Prisma.UstensilRecipeUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.RecipeUstensilUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload>[]
+            args: Prisma.UstensilRecipeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload>[]
           }
           upsert: {
-            args: Prisma.RecipeUstensilUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RecipeUstensilPayload>
+            args: Prisma.UstensilRecipeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UstensilRecipePayload>
           }
           aggregate: {
-            args: Prisma.RecipeUstensilAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateRecipeUstensil>
+            args: Prisma.UstensilRecipeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUstensilRecipe>
           }
           groupBy: {
-            args: Prisma.RecipeUstensilGroupByArgs<ExtArgs>
-            result: $Utils.Optional<RecipeUstensilGroupByOutputType>[]
+            args: Prisma.UstensilRecipeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UstensilRecipeGroupByOutputType>[]
           }
           count: {
-            args: Prisma.RecipeUstensilCountArgs<ExtArgs>
-            result: $Utils.Optional<RecipeUstensilCountAggregateOutputType> | number
+            args: Prisma.UstensilRecipeCountArgs<ExtArgs>
+            result: $Utils.Optional<UstensilRecipeCountAggregateOutputType> | number
           }
         }
       }
@@ -2039,9 +2039,9 @@ export namespace Prisma {
     recipe?: RecipeOmit
     type?: TypeOmit
     ingredient?: IngredientOmit
-    recipeIngredient?: RecipeIngredientOmit
+    ingredientRecipe?: IngredientRecipeOmit
     ustensil?: UstensilOmit
-    recipeUstensil?: RecipeUstensilOmit
+    ustensilRecipe?: UstensilRecipeOmit
     mood?: MoodOmit
     moodRecipe?: MoodRecipeOmit
     diet?: DietOmit
@@ -2246,14 +2246,14 @@ export namespace Prisma {
    * RecipeCountOutputType without action
    */
   export type RecipeCountOutputTypeCountIngredientsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RecipeIngredientWhereInput
+    where?: IngredientRecipeWhereInput
   }
 
   /**
    * RecipeCountOutputType without action
    */
   export type RecipeCountOutputTypeCountUstensilsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RecipeUstensilWhereInput
+    where?: UstensilRecipeWhereInput
   }
 
   /**
@@ -2343,7 +2343,7 @@ export namespace Prisma {
    * IngredientCountOutputType without action
    */
   export type IngredientCountOutputTypeCountRecipesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RecipeIngredientWhereInput
+    where?: IngredientRecipeWhereInput
   }
 
 
@@ -2374,7 +2374,7 @@ export namespace Prisma {
    * UstensilCountOutputType without action
    */
   export type UstensilCountOutputTypeCountRecipesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RecipeUstensilWhereInput
+    where?: UstensilRecipeWhereInput
   }
 
 
@@ -4997,8 +4997,8 @@ export namespace Prisma {
     name: "Recipe"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      ingredients: Prisma.$RecipeIngredientPayload<ExtArgs>[]
-      ustensils: Prisma.$RecipeUstensilPayload<ExtArgs>[]
+      ingredients: Prisma.$IngredientRecipePayload<ExtArgs>[]
+      ustensils: Prisma.$UstensilRecipePayload<ExtArgs>[]
       type: Prisma.$TypePayload<ExtArgs>
       moods: Prisma.$MoodRecipePayload<ExtArgs>[]
       diets: Prisma.$DietRecipePayload<ExtArgs>[]
@@ -5412,8 +5412,8 @@ export namespace Prisma {
   export interface Prisma__RecipeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    ingredients<T extends Recipe$ingredientsArgs<ExtArgs> = {}>(args?: Subset<T, Recipe$ingredientsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    ustensils<T extends Recipe$ustensilsArgs<ExtArgs> = {}>(args?: Subset<T, Recipe$ustensilsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ingredients<T extends Recipe$ingredientsArgs<ExtArgs> = {}>(args?: Subset<T, Recipe$ingredientsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ustensils<T extends Recipe$ustensilsArgs<ExtArgs> = {}>(args?: Subset<T, Recipe$ustensilsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     type<T extends TypeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TypeDefaultArgs<ExtArgs>>): Prisma__TypeClient<$Result.GetResult<Prisma.$TypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     moods<T extends Recipe$moodsArgs<ExtArgs> = {}>(args?: Subset<T, Recipe$moodsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MoodRecipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     diets<T extends Recipe$dietsArgs<ExtArgs> = {}>(args?: Subset<T, Recipe$dietsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DietRecipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -5859,23 +5859,23 @@ export namespace Prisma {
    */
   export type Recipe$ingredientsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
-    where?: RecipeIngredientWhereInput
-    orderBy?: RecipeIngredientOrderByWithRelationInput | RecipeIngredientOrderByWithRelationInput[]
-    cursor?: RecipeIngredientWhereUniqueInput
+    include?: IngredientRecipeInclude<ExtArgs> | null
+    where?: IngredientRecipeWhereInput
+    orderBy?: IngredientRecipeOrderByWithRelationInput | IngredientRecipeOrderByWithRelationInput[]
+    cursor?: IngredientRecipeWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: RecipeIngredientScalarFieldEnum | RecipeIngredientScalarFieldEnum[]
+    distinct?: IngredientRecipeScalarFieldEnum | IngredientRecipeScalarFieldEnum[]
   }
 
   /**
@@ -5883,23 +5883,23 @@ export namespace Prisma {
    */
   export type Recipe$ustensilsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
-    where?: RecipeUstensilWhereInput
-    orderBy?: RecipeUstensilOrderByWithRelationInput | RecipeUstensilOrderByWithRelationInput[]
-    cursor?: RecipeUstensilWhereUniqueInput
+    include?: UstensilRecipeInclude<ExtArgs> | null
+    where?: UstensilRecipeWhereInput
+    orderBy?: UstensilRecipeOrderByWithRelationInput | UstensilRecipeOrderByWithRelationInput[]
+    cursor?: UstensilRecipeWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: RecipeUstensilScalarFieldEnum | RecipeUstensilScalarFieldEnum[]
+    distinct?: UstensilRecipeScalarFieldEnum | UstensilRecipeScalarFieldEnum[]
   }
 
   /**
@@ -7218,7 +7218,7 @@ export namespace Prisma {
   export type $IngredientPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Ingredient"
     objects: {
-      recipes: Prisma.$RecipeIngredientPayload<ExtArgs>[]
+      recipes: Prisma.$IngredientRecipePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7617,7 +7617,7 @@ export namespace Prisma {
    */
   export interface Prisma__IngredientClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    recipes<T extends Ingredient$recipesArgs<ExtArgs> = {}>(args?: Subset<T, Ingredient$recipesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    recipes<T extends Ingredient$recipesArgs<ExtArgs> = {}>(args?: Subset<T, Ingredient$recipesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8041,23 +8041,23 @@ export namespace Prisma {
    */
   export type Ingredient$recipesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
-    where?: RecipeIngredientWhereInput
-    orderBy?: RecipeIngredientOrderByWithRelationInput | RecipeIngredientOrderByWithRelationInput[]
-    cursor?: RecipeIngredientWhereUniqueInput
+    include?: IngredientRecipeInclude<ExtArgs> | null
+    where?: IngredientRecipeWhereInput
+    orderBy?: IngredientRecipeOrderByWithRelationInput | IngredientRecipeOrderByWithRelationInput[]
+    cursor?: IngredientRecipeWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: RecipeIngredientScalarFieldEnum | RecipeIngredientScalarFieldEnum[]
+    distinct?: IngredientRecipeScalarFieldEnum | IngredientRecipeScalarFieldEnum[]
   }
 
   /**
@@ -8080,30 +8080,30 @@ export namespace Prisma {
 
 
   /**
-   * Model RecipeIngredient
+   * Model IngredientRecipe
    */
 
-  export type AggregateRecipeIngredient = {
-    _count: RecipeIngredientCountAggregateOutputType | null
-    _min: RecipeIngredientMinAggregateOutputType | null
-    _max: RecipeIngredientMaxAggregateOutputType | null
+  export type AggregateIngredientRecipe = {
+    _count: IngredientRecipeCountAggregateOutputType | null
+    _min: IngredientRecipeMinAggregateOutputType | null
+    _max: IngredientRecipeMaxAggregateOutputType | null
   }
 
-  export type RecipeIngredientMinAggregateOutputType = {
+  export type IngredientRecipeMinAggregateOutputType = {
     id: string | null
     recipeId: string | null
     ingredientId: string | null
     quantity: string | null
   }
 
-  export type RecipeIngredientMaxAggregateOutputType = {
+  export type IngredientRecipeMaxAggregateOutputType = {
     id: string | null
     recipeId: string | null
     ingredientId: string | null
     quantity: string | null
   }
 
-  export type RecipeIngredientCountAggregateOutputType = {
+  export type IngredientRecipeCountAggregateOutputType = {
     id: number
     recipeId: number
     ingredientId: number
@@ -8112,21 +8112,21 @@ export namespace Prisma {
   }
 
 
-  export type RecipeIngredientMinAggregateInputType = {
+  export type IngredientRecipeMinAggregateInputType = {
     id?: true
     recipeId?: true
     ingredientId?: true
     quantity?: true
   }
 
-  export type RecipeIngredientMaxAggregateInputType = {
+  export type IngredientRecipeMaxAggregateInputType = {
     id?: true
     recipeId?: true
     ingredientId?: true
     quantity?: true
   }
 
-  export type RecipeIngredientCountAggregateInputType = {
+  export type IngredientRecipeCountAggregateInputType = {
     id?: true
     recipeId?: true
     ingredientId?: true
@@ -8134,152 +8134,152 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type RecipeIngredientAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which RecipeIngredient to aggregate.
+     * Filter which IngredientRecipe to aggregate.
      */
-    where?: RecipeIngredientWhereInput
+    where?: IngredientRecipeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of RecipeIngredients to fetch.
+     * Determine the order of IngredientRecipes to fetch.
      */
-    orderBy?: RecipeIngredientOrderByWithRelationInput | RecipeIngredientOrderByWithRelationInput[]
+    orderBy?: IngredientRecipeOrderByWithRelationInput | IngredientRecipeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: RecipeIngredientWhereUniqueInput
+    cursor?: IngredientRecipeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` RecipeIngredients from the position of the cursor.
+     * Take `±n` IngredientRecipes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` RecipeIngredients.
+     * Skip the first `n` IngredientRecipes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned RecipeIngredients
+     * Count returned IngredientRecipes
     **/
-    _count?: true | RecipeIngredientCountAggregateInputType
+    _count?: true | IngredientRecipeCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: RecipeIngredientMinAggregateInputType
+    _min?: IngredientRecipeMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: RecipeIngredientMaxAggregateInputType
+    _max?: IngredientRecipeMaxAggregateInputType
   }
 
-  export type GetRecipeIngredientAggregateType<T extends RecipeIngredientAggregateArgs> = {
-        [P in keyof T & keyof AggregateRecipeIngredient]: P extends '_count' | 'count'
+  export type GetIngredientRecipeAggregateType<T extends IngredientRecipeAggregateArgs> = {
+        [P in keyof T & keyof AggregateIngredientRecipe]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateRecipeIngredient[P]>
-      : GetScalarType<T[P], AggregateRecipeIngredient[P]>
+        : GetScalarType<T[P], AggregateIngredientRecipe[P]>
+      : GetScalarType<T[P], AggregateIngredientRecipe[P]>
   }
 
 
 
 
-  export type RecipeIngredientGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RecipeIngredientWhereInput
-    orderBy?: RecipeIngredientOrderByWithAggregationInput | RecipeIngredientOrderByWithAggregationInput[]
-    by: RecipeIngredientScalarFieldEnum[] | RecipeIngredientScalarFieldEnum
-    having?: RecipeIngredientScalarWhereWithAggregatesInput
+  export type IngredientRecipeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: IngredientRecipeWhereInput
+    orderBy?: IngredientRecipeOrderByWithAggregationInput | IngredientRecipeOrderByWithAggregationInput[]
+    by: IngredientRecipeScalarFieldEnum[] | IngredientRecipeScalarFieldEnum
+    having?: IngredientRecipeScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: RecipeIngredientCountAggregateInputType | true
-    _min?: RecipeIngredientMinAggregateInputType
-    _max?: RecipeIngredientMaxAggregateInputType
+    _count?: IngredientRecipeCountAggregateInputType | true
+    _min?: IngredientRecipeMinAggregateInputType
+    _max?: IngredientRecipeMaxAggregateInputType
   }
 
-  export type RecipeIngredientGroupByOutputType = {
+  export type IngredientRecipeGroupByOutputType = {
     id: string
     recipeId: string
     ingredientId: string
     quantity: string
-    _count: RecipeIngredientCountAggregateOutputType | null
-    _min: RecipeIngredientMinAggregateOutputType | null
-    _max: RecipeIngredientMaxAggregateOutputType | null
+    _count: IngredientRecipeCountAggregateOutputType | null
+    _min: IngredientRecipeMinAggregateOutputType | null
+    _max: IngredientRecipeMaxAggregateOutputType | null
   }
 
-  type GetRecipeIngredientGroupByPayload<T extends RecipeIngredientGroupByArgs> = Prisma.PrismaPromise<
+  type GetIngredientRecipeGroupByPayload<T extends IngredientRecipeGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<RecipeIngredientGroupByOutputType, T['by']> &
+      PickEnumerable<IngredientRecipeGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof RecipeIngredientGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof IngredientRecipeGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], RecipeIngredientGroupByOutputType[P]>
-            : GetScalarType<T[P], RecipeIngredientGroupByOutputType[P]>
+              : GetScalarType<T[P], IngredientRecipeGroupByOutputType[P]>
+            : GetScalarType<T[P], IngredientRecipeGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type RecipeIngredientSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IngredientRecipeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     recipeId?: boolean
     ingredientId?: boolean
     quantity?: boolean
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ingredient?: boolean | IngredientDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["recipeIngredient"]>
+  }, ExtArgs["result"]["ingredientRecipe"]>
 
-  export type RecipeIngredientSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IngredientRecipeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     recipeId?: boolean
     ingredientId?: boolean
     quantity?: boolean
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ingredient?: boolean | IngredientDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["recipeIngredient"]>
+  }, ExtArgs["result"]["ingredientRecipe"]>
 
-  export type RecipeIngredientSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IngredientRecipeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     recipeId?: boolean
     ingredientId?: boolean
     quantity?: boolean
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ingredient?: boolean | IngredientDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["recipeIngredient"]>
+  }, ExtArgs["result"]["ingredientRecipe"]>
 
-  export type RecipeIngredientSelectScalar = {
+  export type IngredientRecipeSelectScalar = {
     id?: boolean
     recipeId?: boolean
     ingredientId?: boolean
     quantity?: boolean
   }
 
-  export type RecipeIngredientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "recipeId" | "ingredientId" | "quantity", ExtArgs["result"]["recipeIngredient"]>
-  export type RecipeIngredientInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "recipeId" | "ingredientId" | "quantity", ExtArgs["result"]["ingredientRecipe"]>
+  export type IngredientRecipeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ingredient?: boolean | IngredientDefaultArgs<ExtArgs>
   }
-  export type RecipeIngredientIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ingredient?: boolean | IngredientDefaultArgs<ExtArgs>
   }
-  export type RecipeIngredientIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ingredient?: boolean | IngredientDefaultArgs<ExtArgs>
   }
 
-  export type $RecipeIngredientPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "RecipeIngredient"
+  export type $IngredientRecipePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "IngredientRecipe"
     objects: {
       recipe: Prisma.$RecipePayload<ExtArgs>
       ingredient: Prisma.$IngredientPayload<ExtArgs>
@@ -8289,136 +8289,136 @@ export namespace Prisma {
       recipeId: string
       ingredientId: string
       quantity: string
-    }, ExtArgs["result"]["recipeIngredient"]>
+    }, ExtArgs["result"]["ingredientRecipe"]>
     composites: {}
   }
 
-  type RecipeIngredientGetPayload<S extends boolean | null | undefined | RecipeIngredientDefaultArgs> = $Result.GetResult<Prisma.$RecipeIngredientPayload, S>
+  type IngredientRecipeGetPayload<S extends boolean | null | undefined | IngredientRecipeDefaultArgs> = $Result.GetResult<Prisma.$IngredientRecipePayload, S>
 
-  type RecipeIngredientCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<RecipeIngredientFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: RecipeIngredientCountAggregateInputType | true
+  type IngredientRecipeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<IngredientRecipeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: IngredientRecipeCountAggregateInputType | true
     }
 
-  export interface RecipeIngredientDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RecipeIngredient'], meta: { name: 'RecipeIngredient' } }
+  export interface IngredientRecipeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['IngredientRecipe'], meta: { name: 'IngredientRecipe' } }
     /**
-     * Find zero or one RecipeIngredient that matches the filter.
-     * @param {RecipeIngredientFindUniqueArgs} args - Arguments to find a RecipeIngredient
+     * Find zero or one IngredientRecipe that matches the filter.
+     * @param {IngredientRecipeFindUniqueArgs} args - Arguments to find a IngredientRecipe
      * @example
-     * // Get one RecipeIngredient
-     * const recipeIngredient = await prisma.recipeIngredient.findUnique({
+     * // Get one IngredientRecipe
+     * const ingredientRecipe = await prisma.ingredientRecipe.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends RecipeIngredientFindUniqueArgs>(args: SelectSubset<T, RecipeIngredientFindUniqueArgs<ExtArgs>>): Prisma__RecipeIngredientClient<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends IngredientRecipeFindUniqueArgs>(args: SelectSubset<T, IngredientRecipeFindUniqueArgs<ExtArgs>>): Prisma__IngredientRecipeClient<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one RecipeIngredient that matches the filter or throw an error with `error.code='P2025'`
+     * Find one IngredientRecipe that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {RecipeIngredientFindUniqueOrThrowArgs} args - Arguments to find a RecipeIngredient
+     * @param {IngredientRecipeFindUniqueOrThrowArgs} args - Arguments to find a IngredientRecipe
      * @example
-     * // Get one RecipeIngredient
-     * const recipeIngredient = await prisma.recipeIngredient.findUniqueOrThrow({
+     * // Get one IngredientRecipe
+     * const ingredientRecipe = await prisma.ingredientRecipe.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends RecipeIngredientFindUniqueOrThrowArgs>(args: SelectSubset<T, RecipeIngredientFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RecipeIngredientClient<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends IngredientRecipeFindUniqueOrThrowArgs>(args: SelectSubset<T, IngredientRecipeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__IngredientRecipeClient<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first RecipeIngredient that matches the filter.
+     * Find the first IngredientRecipe that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeIngredientFindFirstArgs} args - Arguments to find a RecipeIngredient
+     * @param {IngredientRecipeFindFirstArgs} args - Arguments to find a IngredientRecipe
      * @example
-     * // Get one RecipeIngredient
-     * const recipeIngredient = await prisma.recipeIngredient.findFirst({
+     * // Get one IngredientRecipe
+     * const ingredientRecipe = await prisma.ingredientRecipe.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends RecipeIngredientFindFirstArgs>(args?: SelectSubset<T, RecipeIngredientFindFirstArgs<ExtArgs>>): Prisma__RecipeIngredientClient<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends IngredientRecipeFindFirstArgs>(args?: SelectSubset<T, IngredientRecipeFindFirstArgs<ExtArgs>>): Prisma__IngredientRecipeClient<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first RecipeIngredient that matches the filter or
+     * Find the first IngredientRecipe that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeIngredientFindFirstOrThrowArgs} args - Arguments to find a RecipeIngredient
+     * @param {IngredientRecipeFindFirstOrThrowArgs} args - Arguments to find a IngredientRecipe
      * @example
-     * // Get one RecipeIngredient
-     * const recipeIngredient = await prisma.recipeIngredient.findFirstOrThrow({
+     * // Get one IngredientRecipe
+     * const ingredientRecipe = await prisma.ingredientRecipe.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends RecipeIngredientFindFirstOrThrowArgs>(args?: SelectSubset<T, RecipeIngredientFindFirstOrThrowArgs<ExtArgs>>): Prisma__RecipeIngredientClient<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends IngredientRecipeFindFirstOrThrowArgs>(args?: SelectSubset<T, IngredientRecipeFindFirstOrThrowArgs<ExtArgs>>): Prisma__IngredientRecipeClient<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more RecipeIngredients that matches the filter.
+     * Find zero or more IngredientRecipes that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeIngredientFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {IngredientRecipeFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all RecipeIngredients
-     * const recipeIngredients = await prisma.recipeIngredient.findMany()
+     * // Get all IngredientRecipes
+     * const ingredientRecipes = await prisma.ingredientRecipe.findMany()
      * 
-     * // Get first 10 RecipeIngredients
-     * const recipeIngredients = await prisma.recipeIngredient.findMany({ take: 10 })
+     * // Get first 10 IngredientRecipes
+     * const ingredientRecipes = await prisma.ingredientRecipe.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const recipeIngredientWithIdOnly = await prisma.recipeIngredient.findMany({ select: { id: true } })
+     * const ingredientRecipeWithIdOnly = await prisma.ingredientRecipe.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends RecipeIngredientFindManyArgs>(args?: SelectSubset<T, RecipeIngredientFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends IngredientRecipeFindManyArgs>(args?: SelectSubset<T, IngredientRecipeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a RecipeIngredient.
-     * @param {RecipeIngredientCreateArgs} args - Arguments to create a RecipeIngredient.
+     * Create a IngredientRecipe.
+     * @param {IngredientRecipeCreateArgs} args - Arguments to create a IngredientRecipe.
      * @example
-     * // Create one RecipeIngredient
-     * const RecipeIngredient = await prisma.recipeIngredient.create({
+     * // Create one IngredientRecipe
+     * const IngredientRecipe = await prisma.ingredientRecipe.create({
      *   data: {
-     *     // ... data to create a RecipeIngredient
+     *     // ... data to create a IngredientRecipe
      *   }
      * })
      * 
      */
-    create<T extends RecipeIngredientCreateArgs>(args: SelectSubset<T, RecipeIngredientCreateArgs<ExtArgs>>): Prisma__RecipeIngredientClient<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends IngredientRecipeCreateArgs>(args: SelectSubset<T, IngredientRecipeCreateArgs<ExtArgs>>): Prisma__IngredientRecipeClient<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many RecipeIngredients.
-     * @param {RecipeIngredientCreateManyArgs} args - Arguments to create many RecipeIngredients.
+     * Create many IngredientRecipes.
+     * @param {IngredientRecipeCreateManyArgs} args - Arguments to create many IngredientRecipes.
      * @example
-     * // Create many RecipeIngredients
-     * const recipeIngredient = await prisma.recipeIngredient.createMany({
+     * // Create many IngredientRecipes
+     * const ingredientRecipe = await prisma.ingredientRecipe.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends RecipeIngredientCreateManyArgs>(args?: SelectSubset<T, RecipeIngredientCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends IngredientRecipeCreateManyArgs>(args?: SelectSubset<T, IngredientRecipeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many RecipeIngredients and returns the data saved in the database.
-     * @param {RecipeIngredientCreateManyAndReturnArgs} args - Arguments to create many RecipeIngredients.
+     * Create many IngredientRecipes and returns the data saved in the database.
+     * @param {IngredientRecipeCreateManyAndReturnArgs} args - Arguments to create many IngredientRecipes.
      * @example
-     * // Create many RecipeIngredients
-     * const recipeIngredient = await prisma.recipeIngredient.createManyAndReturn({
+     * // Create many IngredientRecipes
+     * const ingredientRecipe = await prisma.ingredientRecipe.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many RecipeIngredients and only return the `id`
-     * const recipeIngredientWithIdOnly = await prisma.recipeIngredient.createManyAndReturn({
+     * // Create many IngredientRecipes and only return the `id`
+     * const ingredientRecipeWithIdOnly = await prisma.ingredientRecipe.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -8428,28 +8428,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends RecipeIngredientCreateManyAndReturnArgs>(args?: SelectSubset<T, RecipeIngredientCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends IngredientRecipeCreateManyAndReturnArgs>(args?: SelectSubset<T, IngredientRecipeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a RecipeIngredient.
-     * @param {RecipeIngredientDeleteArgs} args - Arguments to delete one RecipeIngredient.
+     * Delete a IngredientRecipe.
+     * @param {IngredientRecipeDeleteArgs} args - Arguments to delete one IngredientRecipe.
      * @example
-     * // Delete one RecipeIngredient
-     * const RecipeIngredient = await prisma.recipeIngredient.delete({
+     * // Delete one IngredientRecipe
+     * const IngredientRecipe = await prisma.ingredientRecipe.delete({
      *   where: {
-     *     // ... filter to delete one RecipeIngredient
+     *     // ... filter to delete one IngredientRecipe
      *   }
      * })
      * 
      */
-    delete<T extends RecipeIngredientDeleteArgs>(args: SelectSubset<T, RecipeIngredientDeleteArgs<ExtArgs>>): Prisma__RecipeIngredientClient<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends IngredientRecipeDeleteArgs>(args: SelectSubset<T, IngredientRecipeDeleteArgs<ExtArgs>>): Prisma__IngredientRecipeClient<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one RecipeIngredient.
-     * @param {RecipeIngredientUpdateArgs} args - Arguments to update one RecipeIngredient.
+     * Update one IngredientRecipe.
+     * @param {IngredientRecipeUpdateArgs} args - Arguments to update one IngredientRecipe.
      * @example
-     * // Update one RecipeIngredient
-     * const recipeIngredient = await prisma.recipeIngredient.update({
+     * // Update one IngredientRecipe
+     * const ingredientRecipe = await prisma.ingredientRecipe.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -8459,30 +8459,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends RecipeIngredientUpdateArgs>(args: SelectSubset<T, RecipeIngredientUpdateArgs<ExtArgs>>): Prisma__RecipeIngredientClient<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends IngredientRecipeUpdateArgs>(args: SelectSubset<T, IngredientRecipeUpdateArgs<ExtArgs>>): Prisma__IngredientRecipeClient<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more RecipeIngredients.
-     * @param {RecipeIngredientDeleteManyArgs} args - Arguments to filter RecipeIngredients to delete.
+     * Delete zero or more IngredientRecipes.
+     * @param {IngredientRecipeDeleteManyArgs} args - Arguments to filter IngredientRecipes to delete.
      * @example
-     * // Delete a few RecipeIngredients
-     * const { count } = await prisma.recipeIngredient.deleteMany({
+     * // Delete a few IngredientRecipes
+     * const { count } = await prisma.ingredientRecipe.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends RecipeIngredientDeleteManyArgs>(args?: SelectSubset<T, RecipeIngredientDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends IngredientRecipeDeleteManyArgs>(args?: SelectSubset<T, IngredientRecipeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more RecipeIngredients.
+     * Update zero or more IngredientRecipes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeIngredientUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {IngredientRecipeUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many RecipeIngredients
-     * const recipeIngredient = await prisma.recipeIngredient.updateMany({
+     * // Update many IngredientRecipes
+     * const ingredientRecipe = await prisma.ingredientRecipe.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -8492,14 +8492,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends RecipeIngredientUpdateManyArgs>(args: SelectSubset<T, RecipeIngredientUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends IngredientRecipeUpdateManyArgs>(args: SelectSubset<T, IngredientRecipeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more RecipeIngredients and returns the data updated in the database.
-     * @param {RecipeIngredientUpdateManyAndReturnArgs} args - Arguments to update many RecipeIngredients.
+     * Update zero or more IngredientRecipes and returns the data updated in the database.
+     * @param {IngredientRecipeUpdateManyAndReturnArgs} args - Arguments to update many IngredientRecipes.
      * @example
-     * // Update many RecipeIngredients
-     * const recipeIngredient = await prisma.recipeIngredient.updateManyAndReturn({
+     * // Update many IngredientRecipes
+     * const ingredientRecipe = await prisma.ingredientRecipe.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -8508,8 +8508,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more RecipeIngredients and only return the `id`
-     * const recipeIngredientWithIdOnly = await prisma.recipeIngredient.updateManyAndReturn({
+     * // Update zero or more IngredientRecipes and only return the `id`
+     * const ingredientRecipeWithIdOnly = await prisma.ingredientRecipe.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -8522,56 +8522,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends RecipeIngredientUpdateManyAndReturnArgs>(args: SelectSubset<T, RecipeIngredientUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends IngredientRecipeUpdateManyAndReturnArgs>(args: SelectSubset<T, IngredientRecipeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one RecipeIngredient.
-     * @param {RecipeIngredientUpsertArgs} args - Arguments to update or create a RecipeIngredient.
+     * Create or update one IngredientRecipe.
+     * @param {IngredientRecipeUpsertArgs} args - Arguments to update or create a IngredientRecipe.
      * @example
-     * // Update or create a RecipeIngredient
-     * const recipeIngredient = await prisma.recipeIngredient.upsert({
+     * // Update or create a IngredientRecipe
+     * const ingredientRecipe = await prisma.ingredientRecipe.upsert({
      *   create: {
-     *     // ... data to create a RecipeIngredient
+     *     // ... data to create a IngredientRecipe
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the RecipeIngredient we want to update
+     *     // ... the filter for the IngredientRecipe we want to update
      *   }
      * })
      */
-    upsert<T extends RecipeIngredientUpsertArgs>(args: SelectSubset<T, RecipeIngredientUpsertArgs<ExtArgs>>): Prisma__RecipeIngredientClient<$Result.GetResult<Prisma.$RecipeIngredientPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends IngredientRecipeUpsertArgs>(args: SelectSubset<T, IngredientRecipeUpsertArgs<ExtArgs>>): Prisma__IngredientRecipeClient<$Result.GetResult<Prisma.$IngredientRecipePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of RecipeIngredients.
+     * Count the number of IngredientRecipes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeIngredientCountArgs} args - Arguments to filter RecipeIngredients to count.
+     * @param {IngredientRecipeCountArgs} args - Arguments to filter IngredientRecipes to count.
      * @example
-     * // Count the number of RecipeIngredients
-     * const count = await prisma.recipeIngredient.count({
+     * // Count the number of IngredientRecipes
+     * const count = await prisma.ingredientRecipe.count({
      *   where: {
-     *     // ... the filter for the RecipeIngredients we want to count
+     *     // ... the filter for the IngredientRecipes we want to count
      *   }
      * })
     **/
-    count<T extends RecipeIngredientCountArgs>(
-      args?: Subset<T, RecipeIngredientCountArgs>,
+    count<T extends IngredientRecipeCountArgs>(
+      args?: Subset<T, IngredientRecipeCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], RecipeIngredientCountAggregateOutputType>
+          : GetScalarType<T['select'], IngredientRecipeCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a RecipeIngredient.
+     * Allows you to perform aggregations operations on a IngredientRecipe.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeIngredientAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {IngredientRecipeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -8591,13 +8591,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends RecipeIngredientAggregateArgs>(args: Subset<T, RecipeIngredientAggregateArgs>): Prisma.PrismaPromise<GetRecipeIngredientAggregateType<T>>
+    aggregate<T extends IngredientRecipeAggregateArgs>(args: Subset<T, IngredientRecipeAggregateArgs>): Prisma.PrismaPromise<GetIngredientRecipeAggregateType<T>>
 
     /**
-     * Group by RecipeIngredient.
+     * Group by IngredientRecipe.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeIngredientGroupByArgs} args - Group by arguments.
+     * @param {IngredientRecipeGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -8612,14 +8612,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends RecipeIngredientGroupByArgs,
+      T extends IngredientRecipeGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: RecipeIngredientGroupByArgs['orderBy'] }
-        : { orderBy?: RecipeIngredientGroupByArgs['orderBy'] },
+        ? { orderBy: IngredientRecipeGroupByArgs['orderBy'] }
+        : { orderBy?: IngredientRecipeGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -8668,20 +8668,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, RecipeIngredientGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRecipeIngredientGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, IngredientRecipeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIngredientRecipeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the RecipeIngredient model
+   * Fields of the IngredientRecipe model
    */
-  readonly fields: RecipeIngredientFieldRefs;
+  readonly fields: IngredientRecipeFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for RecipeIngredient.
+   * The delegate class that acts as a "Promise-like" for IngredientRecipe.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__RecipeIngredientClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__IngredientRecipeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     recipe<T extends RecipeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RecipeDefaultArgs<ExtArgs>>): Prisma__RecipeClient<$Result.GetResult<Prisma.$RecipePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     ingredient<T extends IngredientDefaultArgs<ExtArgs> = {}>(args?: Subset<T, IngredientDefaultArgs<ExtArgs>>): Prisma__IngredientClient<$Result.GetResult<Prisma.$IngredientPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
@@ -8711,424 +8711,424 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the RecipeIngredient model
+   * Fields of the IngredientRecipe model
    */
-  interface RecipeIngredientFieldRefs {
-    readonly id: FieldRef<"RecipeIngredient", 'String'>
-    readonly recipeId: FieldRef<"RecipeIngredient", 'String'>
-    readonly ingredientId: FieldRef<"RecipeIngredient", 'String'>
-    readonly quantity: FieldRef<"RecipeIngredient", 'String'>
+  interface IngredientRecipeFieldRefs {
+    readonly id: FieldRef<"IngredientRecipe", 'String'>
+    readonly recipeId: FieldRef<"IngredientRecipe", 'String'>
+    readonly ingredientId: FieldRef<"IngredientRecipe", 'String'>
+    readonly quantity: FieldRef<"IngredientRecipe", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * RecipeIngredient findUnique
+   * IngredientRecipe findUnique
    */
-  export type RecipeIngredientFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeIngredient to fetch.
+     * Filter, which IngredientRecipe to fetch.
      */
-    where: RecipeIngredientWhereUniqueInput
+    where: IngredientRecipeWhereUniqueInput
   }
 
   /**
-   * RecipeIngredient findUniqueOrThrow
+   * IngredientRecipe findUniqueOrThrow
    */
-  export type RecipeIngredientFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeIngredient to fetch.
+     * Filter, which IngredientRecipe to fetch.
      */
-    where: RecipeIngredientWhereUniqueInput
+    where: IngredientRecipeWhereUniqueInput
   }
 
   /**
-   * RecipeIngredient findFirst
+   * IngredientRecipe findFirst
    */
-  export type RecipeIngredientFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeIngredient to fetch.
+     * Filter, which IngredientRecipe to fetch.
      */
-    where?: RecipeIngredientWhereInput
+    where?: IngredientRecipeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of RecipeIngredients to fetch.
+     * Determine the order of IngredientRecipes to fetch.
      */
-    orderBy?: RecipeIngredientOrderByWithRelationInput | RecipeIngredientOrderByWithRelationInput[]
+    orderBy?: IngredientRecipeOrderByWithRelationInput | IngredientRecipeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for RecipeIngredients.
+     * Sets the position for searching for IngredientRecipes.
      */
-    cursor?: RecipeIngredientWhereUniqueInput
+    cursor?: IngredientRecipeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` RecipeIngredients from the position of the cursor.
+     * Take `±n` IngredientRecipes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` RecipeIngredients.
+     * Skip the first `n` IngredientRecipes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of RecipeIngredients.
+     * Filter by unique combinations of IngredientRecipes.
      */
-    distinct?: RecipeIngredientScalarFieldEnum | RecipeIngredientScalarFieldEnum[]
+    distinct?: IngredientRecipeScalarFieldEnum | IngredientRecipeScalarFieldEnum[]
   }
 
   /**
-   * RecipeIngredient findFirstOrThrow
+   * IngredientRecipe findFirstOrThrow
    */
-  export type RecipeIngredientFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeIngredient to fetch.
+     * Filter, which IngredientRecipe to fetch.
      */
-    where?: RecipeIngredientWhereInput
+    where?: IngredientRecipeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of RecipeIngredients to fetch.
+     * Determine the order of IngredientRecipes to fetch.
      */
-    orderBy?: RecipeIngredientOrderByWithRelationInput | RecipeIngredientOrderByWithRelationInput[]
+    orderBy?: IngredientRecipeOrderByWithRelationInput | IngredientRecipeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for RecipeIngredients.
+     * Sets the position for searching for IngredientRecipes.
      */
-    cursor?: RecipeIngredientWhereUniqueInput
+    cursor?: IngredientRecipeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` RecipeIngredients from the position of the cursor.
+     * Take `±n` IngredientRecipes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` RecipeIngredients.
+     * Skip the first `n` IngredientRecipes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of RecipeIngredients.
+     * Filter by unique combinations of IngredientRecipes.
      */
-    distinct?: RecipeIngredientScalarFieldEnum | RecipeIngredientScalarFieldEnum[]
+    distinct?: IngredientRecipeScalarFieldEnum | IngredientRecipeScalarFieldEnum[]
   }
 
   /**
-   * RecipeIngredient findMany
+   * IngredientRecipe findMany
    */
-  export type RecipeIngredientFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeIngredients to fetch.
+     * Filter, which IngredientRecipes to fetch.
      */
-    where?: RecipeIngredientWhereInput
+    where?: IngredientRecipeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of RecipeIngredients to fetch.
+     * Determine the order of IngredientRecipes to fetch.
      */
-    orderBy?: RecipeIngredientOrderByWithRelationInput | RecipeIngredientOrderByWithRelationInput[]
+    orderBy?: IngredientRecipeOrderByWithRelationInput | IngredientRecipeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing RecipeIngredients.
+     * Sets the position for listing IngredientRecipes.
      */
-    cursor?: RecipeIngredientWhereUniqueInput
+    cursor?: IngredientRecipeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` RecipeIngredients from the position of the cursor.
+     * Take `±n` IngredientRecipes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` RecipeIngredients.
+     * Skip the first `n` IngredientRecipes.
      */
     skip?: number
-    distinct?: RecipeIngredientScalarFieldEnum | RecipeIngredientScalarFieldEnum[]
+    distinct?: IngredientRecipeScalarFieldEnum | IngredientRecipeScalarFieldEnum[]
   }
 
   /**
-   * RecipeIngredient create
+   * IngredientRecipe create
    */
-  export type RecipeIngredientCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
     /**
-     * The data needed to create a RecipeIngredient.
+     * The data needed to create a IngredientRecipe.
      */
-    data: XOR<RecipeIngredientCreateInput, RecipeIngredientUncheckedCreateInput>
+    data: XOR<IngredientRecipeCreateInput, IngredientRecipeUncheckedCreateInput>
   }
 
   /**
-   * RecipeIngredient createMany
+   * IngredientRecipe createMany
    */
-  export type RecipeIngredientCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many RecipeIngredients.
+     * The data used to create many IngredientRecipes.
      */
-    data: RecipeIngredientCreateManyInput | RecipeIngredientCreateManyInput[]
+    data: IngredientRecipeCreateManyInput | IngredientRecipeCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * RecipeIngredient createManyAndReturn
+   * IngredientRecipe createManyAndReturn
    */
-  export type RecipeIngredientCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelectCreateManyAndReturn<ExtArgs> | null
+    select?: IngredientRecipeSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
-     * The data used to create many RecipeIngredients.
+     * The data used to create many IngredientRecipes.
      */
-    data: RecipeIngredientCreateManyInput | RecipeIngredientCreateManyInput[]
+    data: IngredientRecipeCreateManyInput | IngredientRecipeCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: IngredientRecipeIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * RecipeIngredient update
+   * IngredientRecipe update
    */
-  export type RecipeIngredientUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
     /**
-     * The data needed to update a RecipeIngredient.
+     * The data needed to update a IngredientRecipe.
      */
-    data: XOR<RecipeIngredientUpdateInput, RecipeIngredientUncheckedUpdateInput>
+    data: XOR<IngredientRecipeUpdateInput, IngredientRecipeUncheckedUpdateInput>
     /**
-     * Choose, which RecipeIngredient to update.
+     * Choose, which IngredientRecipe to update.
      */
-    where: RecipeIngredientWhereUniqueInput
+    where: IngredientRecipeWhereUniqueInput
   }
 
   /**
-   * RecipeIngredient updateMany
+   * IngredientRecipe updateMany
    */
-  export type RecipeIngredientUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update RecipeIngredients.
+     * The data used to update IngredientRecipes.
      */
-    data: XOR<RecipeIngredientUpdateManyMutationInput, RecipeIngredientUncheckedUpdateManyInput>
+    data: XOR<IngredientRecipeUpdateManyMutationInput, IngredientRecipeUncheckedUpdateManyInput>
     /**
-     * Filter which RecipeIngredients to update
+     * Filter which IngredientRecipes to update
      */
-    where?: RecipeIngredientWhereInput
+    where?: IngredientRecipeWhereInput
     /**
-     * Limit how many RecipeIngredients to update.
+     * Limit how many IngredientRecipes to update.
      */
     limit?: number
   }
 
   /**
-   * RecipeIngredient updateManyAndReturn
+   * IngredientRecipe updateManyAndReturn
    */
-  export type RecipeIngredientUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: IngredientRecipeSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
-     * The data used to update RecipeIngredients.
+     * The data used to update IngredientRecipes.
      */
-    data: XOR<RecipeIngredientUpdateManyMutationInput, RecipeIngredientUncheckedUpdateManyInput>
+    data: XOR<IngredientRecipeUpdateManyMutationInput, IngredientRecipeUncheckedUpdateManyInput>
     /**
-     * Filter which RecipeIngredients to update
+     * Filter which IngredientRecipes to update
      */
-    where?: RecipeIngredientWhereInput
+    where?: IngredientRecipeWhereInput
     /**
-     * Limit how many RecipeIngredients to update.
+     * Limit how many IngredientRecipes to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: IngredientRecipeIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * RecipeIngredient upsert
+   * IngredientRecipe upsert
    */
-  export type RecipeIngredientUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
     /**
-     * The filter to search for the RecipeIngredient to update in case it exists.
+     * The filter to search for the IngredientRecipe to update in case it exists.
      */
-    where: RecipeIngredientWhereUniqueInput
+    where: IngredientRecipeWhereUniqueInput
     /**
-     * In case the RecipeIngredient found by the `where` argument doesn't exist, create a new RecipeIngredient with this data.
+     * In case the IngredientRecipe found by the `where` argument doesn't exist, create a new IngredientRecipe with this data.
      */
-    create: XOR<RecipeIngredientCreateInput, RecipeIngredientUncheckedCreateInput>
+    create: XOR<IngredientRecipeCreateInput, IngredientRecipeUncheckedCreateInput>
     /**
-     * In case the RecipeIngredient was found with the provided `where` argument, update it with this data.
+     * In case the IngredientRecipe was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<RecipeIngredientUpdateInput, RecipeIngredientUncheckedUpdateInput>
+    update: XOR<IngredientRecipeUpdateInput, IngredientRecipeUncheckedUpdateInput>
   }
 
   /**
-   * RecipeIngredient delete
+   * IngredientRecipe delete
    */
-  export type RecipeIngredientDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
     /**
-     * Filter which RecipeIngredient to delete.
+     * Filter which IngredientRecipe to delete.
      */
-    where: RecipeIngredientWhereUniqueInput
+    where: IngredientRecipeWhereUniqueInput
   }
 
   /**
-   * RecipeIngredient deleteMany
+   * IngredientRecipe deleteMany
    */
-  export type RecipeIngredientDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which RecipeIngredients to delete
+     * Filter which IngredientRecipes to delete
      */
-    where?: RecipeIngredientWhereInput
+    where?: IngredientRecipeWhereInput
     /**
-     * Limit how many RecipeIngredients to delete.
+     * Limit how many IngredientRecipes to delete.
      */
     limit?: number
   }
 
   /**
-   * RecipeIngredient without action
+   * IngredientRecipe without action
    */
-  export type RecipeIngredientDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IngredientRecipeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeIngredient
+     * Select specific fields to fetch from the IngredientRecipe
      */
-    select?: RecipeIngredientSelect<ExtArgs> | null
+    select?: IngredientRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeIngredient
+     * Omit specific fields from the IngredientRecipe
      */
-    omit?: RecipeIngredientOmit<ExtArgs> | null
+    omit?: IngredientRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeIngredientInclude<ExtArgs> | null
+    include?: IngredientRecipeInclude<ExtArgs> | null
   }
 
 
@@ -9302,7 +9302,7 @@ export namespace Prisma {
   export type $UstensilPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Ustensil"
     objects: {
-      recipes: Prisma.$RecipeUstensilPayload<ExtArgs>[]
+      recipes: Prisma.$UstensilRecipePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -9701,7 +9701,7 @@ export namespace Prisma {
    */
   export interface Prisma__UstensilClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    recipes<T extends Ustensil$recipesArgs<ExtArgs> = {}>(args?: Subset<T, Ustensil$recipesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    recipes<T extends Ustensil$recipesArgs<ExtArgs> = {}>(args?: Subset<T, Ustensil$recipesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10125,23 +10125,23 @@ export namespace Prisma {
    */
   export type Ustensil$recipesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
-    where?: RecipeUstensilWhereInput
-    orderBy?: RecipeUstensilOrderByWithRelationInput | RecipeUstensilOrderByWithRelationInput[]
-    cursor?: RecipeUstensilWhereUniqueInput
+    include?: UstensilRecipeInclude<ExtArgs> | null
+    where?: UstensilRecipeWhereInput
+    orderBy?: UstensilRecipeOrderByWithRelationInput | UstensilRecipeOrderByWithRelationInput[]
+    cursor?: UstensilRecipeWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: RecipeUstensilScalarFieldEnum | RecipeUstensilScalarFieldEnum[]
+    distinct?: UstensilRecipeScalarFieldEnum | UstensilRecipeScalarFieldEnum[]
   }
 
   /**
@@ -10164,28 +10164,28 @@ export namespace Prisma {
 
 
   /**
-   * Model RecipeUstensil
+   * Model UstensilRecipe
    */
 
-  export type AggregateRecipeUstensil = {
-    _count: RecipeUstensilCountAggregateOutputType | null
-    _min: RecipeUstensilMinAggregateOutputType | null
-    _max: RecipeUstensilMaxAggregateOutputType | null
+  export type AggregateUstensilRecipe = {
+    _count: UstensilRecipeCountAggregateOutputType | null
+    _min: UstensilRecipeMinAggregateOutputType | null
+    _max: UstensilRecipeMaxAggregateOutputType | null
   }
 
-  export type RecipeUstensilMinAggregateOutputType = {
+  export type UstensilRecipeMinAggregateOutputType = {
     id: string | null
     recipeId: string | null
     ustensilId: string | null
   }
 
-  export type RecipeUstensilMaxAggregateOutputType = {
+  export type UstensilRecipeMaxAggregateOutputType = {
     id: string | null
     recipeId: string | null
     ustensilId: string | null
   }
 
-  export type RecipeUstensilCountAggregateOutputType = {
+  export type UstensilRecipeCountAggregateOutputType = {
     id: number
     recipeId: number
     ustensilId: number
@@ -10193,166 +10193,166 @@ export namespace Prisma {
   }
 
 
-  export type RecipeUstensilMinAggregateInputType = {
+  export type UstensilRecipeMinAggregateInputType = {
     id?: true
     recipeId?: true
     ustensilId?: true
   }
 
-  export type RecipeUstensilMaxAggregateInputType = {
+  export type UstensilRecipeMaxAggregateInputType = {
     id?: true
     recipeId?: true
     ustensilId?: true
   }
 
-  export type RecipeUstensilCountAggregateInputType = {
+  export type UstensilRecipeCountAggregateInputType = {
     id?: true
     recipeId?: true
     ustensilId?: true
     _all?: true
   }
 
-  export type RecipeUstensilAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which RecipeUstensil to aggregate.
+     * Filter which UstensilRecipe to aggregate.
      */
-    where?: RecipeUstensilWhereInput
+    where?: UstensilRecipeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of RecipeUstensils to fetch.
+     * Determine the order of UstensilRecipes to fetch.
      */
-    orderBy?: RecipeUstensilOrderByWithRelationInput | RecipeUstensilOrderByWithRelationInput[]
+    orderBy?: UstensilRecipeOrderByWithRelationInput | UstensilRecipeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: RecipeUstensilWhereUniqueInput
+    cursor?: UstensilRecipeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` RecipeUstensils from the position of the cursor.
+     * Take `±n` UstensilRecipes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` RecipeUstensils.
+     * Skip the first `n` UstensilRecipes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned RecipeUstensils
+     * Count returned UstensilRecipes
     **/
-    _count?: true | RecipeUstensilCountAggregateInputType
+    _count?: true | UstensilRecipeCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: RecipeUstensilMinAggregateInputType
+    _min?: UstensilRecipeMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: RecipeUstensilMaxAggregateInputType
+    _max?: UstensilRecipeMaxAggregateInputType
   }
 
-  export type GetRecipeUstensilAggregateType<T extends RecipeUstensilAggregateArgs> = {
-        [P in keyof T & keyof AggregateRecipeUstensil]: P extends '_count' | 'count'
+  export type GetUstensilRecipeAggregateType<T extends UstensilRecipeAggregateArgs> = {
+        [P in keyof T & keyof AggregateUstensilRecipe]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateRecipeUstensil[P]>
-      : GetScalarType<T[P], AggregateRecipeUstensil[P]>
+        : GetScalarType<T[P], AggregateUstensilRecipe[P]>
+      : GetScalarType<T[P], AggregateUstensilRecipe[P]>
   }
 
 
 
 
-  export type RecipeUstensilGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RecipeUstensilWhereInput
-    orderBy?: RecipeUstensilOrderByWithAggregationInput | RecipeUstensilOrderByWithAggregationInput[]
-    by: RecipeUstensilScalarFieldEnum[] | RecipeUstensilScalarFieldEnum
-    having?: RecipeUstensilScalarWhereWithAggregatesInput
+  export type UstensilRecipeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UstensilRecipeWhereInput
+    orderBy?: UstensilRecipeOrderByWithAggregationInput | UstensilRecipeOrderByWithAggregationInput[]
+    by: UstensilRecipeScalarFieldEnum[] | UstensilRecipeScalarFieldEnum
+    having?: UstensilRecipeScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: RecipeUstensilCountAggregateInputType | true
-    _min?: RecipeUstensilMinAggregateInputType
-    _max?: RecipeUstensilMaxAggregateInputType
+    _count?: UstensilRecipeCountAggregateInputType | true
+    _min?: UstensilRecipeMinAggregateInputType
+    _max?: UstensilRecipeMaxAggregateInputType
   }
 
-  export type RecipeUstensilGroupByOutputType = {
+  export type UstensilRecipeGroupByOutputType = {
     id: string
     recipeId: string
     ustensilId: string
-    _count: RecipeUstensilCountAggregateOutputType | null
-    _min: RecipeUstensilMinAggregateOutputType | null
-    _max: RecipeUstensilMaxAggregateOutputType | null
+    _count: UstensilRecipeCountAggregateOutputType | null
+    _min: UstensilRecipeMinAggregateOutputType | null
+    _max: UstensilRecipeMaxAggregateOutputType | null
   }
 
-  type GetRecipeUstensilGroupByPayload<T extends RecipeUstensilGroupByArgs> = Prisma.PrismaPromise<
+  type GetUstensilRecipeGroupByPayload<T extends UstensilRecipeGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<RecipeUstensilGroupByOutputType, T['by']> &
+      PickEnumerable<UstensilRecipeGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof RecipeUstensilGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof UstensilRecipeGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], RecipeUstensilGroupByOutputType[P]>
-            : GetScalarType<T[P], RecipeUstensilGroupByOutputType[P]>
+              : GetScalarType<T[P], UstensilRecipeGroupByOutputType[P]>
+            : GetScalarType<T[P], UstensilRecipeGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type RecipeUstensilSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type UstensilRecipeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     recipeId?: boolean
     ustensilId?: boolean
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ustensil?: boolean | UstensilDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["recipeUstensil"]>
+  }, ExtArgs["result"]["ustensilRecipe"]>
 
-  export type RecipeUstensilSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type UstensilRecipeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     recipeId?: boolean
     ustensilId?: boolean
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ustensil?: boolean | UstensilDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["recipeUstensil"]>
+  }, ExtArgs["result"]["ustensilRecipe"]>
 
-  export type RecipeUstensilSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type UstensilRecipeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     recipeId?: boolean
     ustensilId?: boolean
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ustensil?: boolean | UstensilDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["recipeUstensil"]>
+  }, ExtArgs["result"]["ustensilRecipe"]>
 
-  export type RecipeUstensilSelectScalar = {
+  export type UstensilRecipeSelectScalar = {
     id?: boolean
     recipeId?: boolean
     ustensilId?: boolean
   }
 
-  export type RecipeUstensilOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "recipeId" | "ustensilId", ExtArgs["result"]["recipeUstensil"]>
-  export type RecipeUstensilInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "recipeId" | "ustensilId", ExtArgs["result"]["ustensilRecipe"]>
+  export type UstensilRecipeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ustensil?: boolean | UstensilDefaultArgs<ExtArgs>
   }
-  export type RecipeUstensilIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ustensil?: boolean | UstensilDefaultArgs<ExtArgs>
   }
-  export type RecipeUstensilIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     ustensil?: boolean | UstensilDefaultArgs<ExtArgs>
   }
 
-  export type $RecipeUstensilPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "RecipeUstensil"
+  export type $UstensilRecipePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UstensilRecipe"
     objects: {
       recipe: Prisma.$RecipePayload<ExtArgs>
       ustensil: Prisma.$UstensilPayload<ExtArgs>
@@ -10361,136 +10361,136 @@ export namespace Prisma {
       id: string
       recipeId: string
       ustensilId: string
-    }, ExtArgs["result"]["recipeUstensil"]>
+    }, ExtArgs["result"]["ustensilRecipe"]>
     composites: {}
   }
 
-  type RecipeUstensilGetPayload<S extends boolean | null | undefined | RecipeUstensilDefaultArgs> = $Result.GetResult<Prisma.$RecipeUstensilPayload, S>
+  type UstensilRecipeGetPayload<S extends boolean | null | undefined | UstensilRecipeDefaultArgs> = $Result.GetResult<Prisma.$UstensilRecipePayload, S>
 
-  type RecipeUstensilCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<RecipeUstensilFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: RecipeUstensilCountAggregateInputType | true
+  type UstensilRecipeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UstensilRecipeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UstensilRecipeCountAggregateInputType | true
     }
 
-  export interface RecipeUstensilDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RecipeUstensil'], meta: { name: 'RecipeUstensil' } }
+  export interface UstensilRecipeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UstensilRecipe'], meta: { name: 'UstensilRecipe' } }
     /**
-     * Find zero or one RecipeUstensil that matches the filter.
-     * @param {RecipeUstensilFindUniqueArgs} args - Arguments to find a RecipeUstensil
+     * Find zero or one UstensilRecipe that matches the filter.
+     * @param {UstensilRecipeFindUniqueArgs} args - Arguments to find a UstensilRecipe
      * @example
-     * // Get one RecipeUstensil
-     * const recipeUstensil = await prisma.recipeUstensil.findUnique({
+     * // Get one UstensilRecipe
+     * const ustensilRecipe = await prisma.ustensilRecipe.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends RecipeUstensilFindUniqueArgs>(args: SelectSubset<T, RecipeUstensilFindUniqueArgs<ExtArgs>>): Prisma__RecipeUstensilClient<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends UstensilRecipeFindUniqueArgs>(args: SelectSubset<T, UstensilRecipeFindUniqueArgs<ExtArgs>>): Prisma__UstensilRecipeClient<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one RecipeUstensil that matches the filter or throw an error with `error.code='P2025'`
+     * Find one UstensilRecipe that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {RecipeUstensilFindUniqueOrThrowArgs} args - Arguments to find a RecipeUstensil
+     * @param {UstensilRecipeFindUniqueOrThrowArgs} args - Arguments to find a UstensilRecipe
      * @example
-     * // Get one RecipeUstensil
-     * const recipeUstensil = await prisma.recipeUstensil.findUniqueOrThrow({
+     * // Get one UstensilRecipe
+     * const ustensilRecipe = await prisma.ustensilRecipe.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends RecipeUstensilFindUniqueOrThrowArgs>(args: SelectSubset<T, RecipeUstensilFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RecipeUstensilClient<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends UstensilRecipeFindUniqueOrThrowArgs>(args: SelectSubset<T, UstensilRecipeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UstensilRecipeClient<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first RecipeUstensil that matches the filter.
+     * Find the first UstensilRecipe that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeUstensilFindFirstArgs} args - Arguments to find a RecipeUstensil
+     * @param {UstensilRecipeFindFirstArgs} args - Arguments to find a UstensilRecipe
      * @example
-     * // Get one RecipeUstensil
-     * const recipeUstensil = await prisma.recipeUstensil.findFirst({
+     * // Get one UstensilRecipe
+     * const ustensilRecipe = await prisma.ustensilRecipe.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends RecipeUstensilFindFirstArgs>(args?: SelectSubset<T, RecipeUstensilFindFirstArgs<ExtArgs>>): Prisma__RecipeUstensilClient<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends UstensilRecipeFindFirstArgs>(args?: SelectSubset<T, UstensilRecipeFindFirstArgs<ExtArgs>>): Prisma__UstensilRecipeClient<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first RecipeUstensil that matches the filter or
+     * Find the first UstensilRecipe that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeUstensilFindFirstOrThrowArgs} args - Arguments to find a RecipeUstensil
+     * @param {UstensilRecipeFindFirstOrThrowArgs} args - Arguments to find a UstensilRecipe
      * @example
-     * // Get one RecipeUstensil
-     * const recipeUstensil = await prisma.recipeUstensil.findFirstOrThrow({
+     * // Get one UstensilRecipe
+     * const ustensilRecipe = await prisma.ustensilRecipe.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends RecipeUstensilFindFirstOrThrowArgs>(args?: SelectSubset<T, RecipeUstensilFindFirstOrThrowArgs<ExtArgs>>): Prisma__RecipeUstensilClient<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends UstensilRecipeFindFirstOrThrowArgs>(args?: SelectSubset<T, UstensilRecipeFindFirstOrThrowArgs<ExtArgs>>): Prisma__UstensilRecipeClient<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more RecipeUstensils that matches the filter.
+     * Find zero or more UstensilRecipes that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeUstensilFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {UstensilRecipeFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all RecipeUstensils
-     * const recipeUstensils = await prisma.recipeUstensil.findMany()
+     * // Get all UstensilRecipes
+     * const ustensilRecipes = await prisma.ustensilRecipe.findMany()
      * 
-     * // Get first 10 RecipeUstensils
-     * const recipeUstensils = await prisma.recipeUstensil.findMany({ take: 10 })
+     * // Get first 10 UstensilRecipes
+     * const ustensilRecipes = await prisma.ustensilRecipe.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const recipeUstensilWithIdOnly = await prisma.recipeUstensil.findMany({ select: { id: true } })
+     * const ustensilRecipeWithIdOnly = await prisma.ustensilRecipe.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends RecipeUstensilFindManyArgs>(args?: SelectSubset<T, RecipeUstensilFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends UstensilRecipeFindManyArgs>(args?: SelectSubset<T, UstensilRecipeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a RecipeUstensil.
-     * @param {RecipeUstensilCreateArgs} args - Arguments to create a RecipeUstensil.
+     * Create a UstensilRecipe.
+     * @param {UstensilRecipeCreateArgs} args - Arguments to create a UstensilRecipe.
      * @example
-     * // Create one RecipeUstensil
-     * const RecipeUstensil = await prisma.recipeUstensil.create({
+     * // Create one UstensilRecipe
+     * const UstensilRecipe = await prisma.ustensilRecipe.create({
      *   data: {
-     *     // ... data to create a RecipeUstensil
+     *     // ... data to create a UstensilRecipe
      *   }
      * })
      * 
      */
-    create<T extends RecipeUstensilCreateArgs>(args: SelectSubset<T, RecipeUstensilCreateArgs<ExtArgs>>): Prisma__RecipeUstensilClient<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends UstensilRecipeCreateArgs>(args: SelectSubset<T, UstensilRecipeCreateArgs<ExtArgs>>): Prisma__UstensilRecipeClient<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many RecipeUstensils.
-     * @param {RecipeUstensilCreateManyArgs} args - Arguments to create many RecipeUstensils.
+     * Create many UstensilRecipes.
+     * @param {UstensilRecipeCreateManyArgs} args - Arguments to create many UstensilRecipes.
      * @example
-     * // Create many RecipeUstensils
-     * const recipeUstensil = await prisma.recipeUstensil.createMany({
+     * // Create many UstensilRecipes
+     * const ustensilRecipe = await prisma.ustensilRecipe.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends RecipeUstensilCreateManyArgs>(args?: SelectSubset<T, RecipeUstensilCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends UstensilRecipeCreateManyArgs>(args?: SelectSubset<T, UstensilRecipeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many RecipeUstensils and returns the data saved in the database.
-     * @param {RecipeUstensilCreateManyAndReturnArgs} args - Arguments to create many RecipeUstensils.
+     * Create many UstensilRecipes and returns the data saved in the database.
+     * @param {UstensilRecipeCreateManyAndReturnArgs} args - Arguments to create many UstensilRecipes.
      * @example
-     * // Create many RecipeUstensils
-     * const recipeUstensil = await prisma.recipeUstensil.createManyAndReturn({
+     * // Create many UstensilRecipes
+     * const ustensilRecipe = await prisma.ustensilRecipe.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many RecipeUstensils and only return the `id`
-     * const recipeUstensilWithIdOnly = await prisma.recipeUstensil.createManyAndReturn({
+     * // Create many UstensilRecipes and only return the `id`
+     * const ustensilRecipeWithIdOnly = await prisma.ustensilRecipe.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -10500,28 +10500,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends RecipeUstensilCreateManyAndReturnArgs>(args?: SelectSubset<T, RecipeUstensilCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends UstensilRecipeCreateManyAndReturnArgs>(args?: SelectSubset<T, UstensilRecipeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a RecipeUstensil.
-     * @param {RecipeUstensilDeleteArgs} args - Arguments to delete one RecipeUstensil.
+     * Delete a UstensilRecipe.
+     * @param {UstensilRecipeDeleteArgs} args - Arguments to delete one UstensilRecipe.
      * @example
-     * // Delete one RecipeUstensil
-     * const RecipeUstensil = await prisma.recipeUstensil.delete({
+     * // Delete one UstensilRecipe
+     * const UstensilRecipe = await prisma.ustensilRecipe.delete({
      *   where: {
-     *     // ... filter to delete one RecipeUstensil
+     *     // ... filter to delete one UstensilRecipe
      *   }
      * })
      * 
      */
-    delete<T extends RecipeUstensilDeleteArgs>(args: SelectSubset<T, RecipeUstensilDeleteArgs<ExtArgs>>): Prisma__RecipeUstensilClient<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends UstensilRecipeDeleteArgs>(args: SelectSubset<T, UstensilRecipeDeleteArgs<ExtArgs>>): Prisma__UstensilRecipeClient<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one RecipeUstensil.
-     * @param {RecipeUstensilUpdateArgs} args - Arguments to update one RecipeUstensil.
+     * Update one UstensilRecipe.
+     * @param {UstensilRecipeUpdateArgs} args - Arguments to update one UstensilRecipe.
      * @example
-     * // Update one RecipeUstensil
-     * const recipeUstensil = await prisma.recipeUstensil.update({
+     * // Update one UstensilRecipe
+     * const ustensilRecipe = await prisma.ustensilRecipe.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10531,30 +10531,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends RecipeUstensilUpdateArgs>(args: SelectSubset<T, RecipeUstensilUpdateArgs<ExtArgs>>): Prisma__RecipeUstensilClient<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends UstensilRecipeUpdateArgs>(args: SelectSubset<T, UstensilRecipeUpdateArgs<ExtArgs>>): Prisma__UstensilRecipeClient<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more RecipeUstensils.
-     * @param {RecipeUstensilDeleteManyArgs} args - Arguments to filter RecipeUstensils to delete.
+     * Delete zero or more UstensilRecipes.
+     * @param {UstensilRecipeDeleteManyArgs} args - Arguments to filter UstensilRecipes to delete.
      * @example
-     * // Delete a few RecipeUstensils
-     * const { count } = await prisma.recipeUstensil.deleteMany({
+     * // Delete a few UstensilRecipes
+     * const { count } = await prisma.ustensilRecipe.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends RecipeUstensilDeleteManyArgs>(args?: SelectSubset<T, RecipeUstensilDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends UstensilRecipeDeleteManyArgs>(args?: SelectSubset<T, UstensilRecipeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more RecipeUstensils.
+     * Update zero or more UstensilRecipes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeUstensilUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {UstensilRecipeUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many RecipeUstensils
-     * const recipeUstensil = await prisma.recipeUstensil.updateMany({
+     * // Update many UstensilRecipes
+     * const ustensilRecipe = await prisma.ustensilRecipe.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10564,14 +10564,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends RecipeUstensilUpdateManyArgs>(args: SelectSubset<T, RecipeUstensilUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends UstensilRecipeUpdateManyArgs>(args: SelectSubset<T, UstensilRecipeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more RecipeUstensils and returns the data updated in the database.
-     * @param {RecipeUstensilUpdateManyAndReturnArgs} args - Arguments to update many RecipeUstensils.
+     * Update zero or more UstensilRecipes and returns the data updated in the database.
+     * @param {UstensilRecipeUpdateManyAndReturnArgs} args - Arguments to update many UstensilRecipes.
      * @example
-     * // Update many RecipeUstensils
-     * const recipeUstensil = await prisma.recipeUstensil.updateManyAndReturn({
+     * // Update many UstensilRecipes
+     * const ustensilRecipe = await prisma.ustensilRecipe.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10580,8 +10580,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more RecipeUstensils and only return the `id`
-     * const recipeUstensilWithIdOnly = await prisma.recipeUstensil.updateManyAndReturn({
+     * // Update zero or more UstensilRecipes and only return the `id`
+     * const ustensilRecipeWithIdOnly = await prisma.ustensilRecipe.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -10594,56 +10594,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends RecipeUstensilUpdateManyAndReturnArgs>(args: SelectSubset<T, RecipeUstensilUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends UstensilRecipeUpdateManyAndReturnArgs>(args: SelectSubset<T, UstensilRecipeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one RecipeUstensil.
-     * @param {RecipeUstensilUpsertArgs} args - Arguments to update or create a RecipeUstensil.
+     * Create or update one UstensilRecipe.
+     * @param {UstensilRecipeUpsertArgs} args - Arguments to update or create a UstensilRecipe.
      * @example
-     * // Update or create a RecipeUstensil
-     * const recipeUstensil = await prisma.recipeUstensil.upsert({
+     * // Update or create a UstensilRecipe
+     * const ustensilRecipe = await prisma.ustensilRecipe.upsert({
      *   create: {
-     *     // ... data to create a RecipeUstensil
+     *     // ... data to create a UstensilRecipe
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the RecipeUstensil we want to update
+     *     // ... the filter for the UstensilRecipe we want to update
      *   }
      * })
      */
-    upsert<T extends RecipeUstensilUpsertArgs>(args: SelectSubset<T, RecipeUstensilUpsertArgs<ExtArgs>>): Prisma__RecipeUstensilClient<$Result.GetResult<Prisma.$RecipeUstensilPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends UstensilRecipeUpsertArgs>(args: SelectSubset<T, UstensilRecipeUpsertArgs<ExtArgs>>): Prisma__UstensilRecipeClient<$Result.GetResult<Prisma.$UstensilRecipePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of RecipeUstensils.
+     * Count the number of UstensilRecipes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeUstensilCountArgs} args - Arguments to filter RecipeUstensils to count.
+     * @param {UstensilRecipeCountArgs} args - Arguments to filter UstensilRecipes to count.
      * @example
-     * // Count the number of RecipeUstensils
-     * const count = await prisma.recipeUstensil.count({
+     * // Count the number of UstensilRecipes
+     * const count = await prisma.ustensilRecipe.count({
      *   where: {
-     *     // ... the filter for the RecipeUstensils we want to count
+     *     // ... the filter for the UstensilRecipes we want to count
      *   }
      * })
     **/
-    count<T extends RecipeUstensilCountArgs>(
-      args?: Subset<T, RecipeUstensilCountArgs>,
+    count<T extends UstensilRecipeCountArgs>(
+      args?: Subset<T, UstensilRecipeCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], RecipeUstensilCountAggregateOutputType>
+          : GetScalarType<T['select'], UstensilRecipeCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a RecipeUstensil.
+     * Allows you to perform aggregations operations on a UstensilRecipe.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeUstensilAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {UstensilRecipeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -10663,13 +10663,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends RecipeUstensilAggregateArgs>(args: Subset<T, RecipeUstensilAggregateArgs>): Prisma.PrismaPromise<GetRecipeUstensilAggregateType<T>>
+    aggregate<T extends UstensilRecipeAggregateArgs>(args: Subset<T, UstensilRecipeAggregateArgs>): Prisma.PrismaPromise<GetUstensilRecipeAggregateType<T>>
 
     /**
-     * Group by RecipeUstensil.
+     * Group by UstensilRecipe.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {RecipeUstensilGroupByArgs} args - Group by arguments.
+     * @param {UstensilRecipeGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -10684,14 +10684,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends RecipeUstensilGroupByArgs,
+      T extends UstensilRecipeGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: RecipeUstensilGroupByArgs['orderBy'] }
-        : { orderBy?: RecipeUstensilGroupByArgs['orderBy'] },
+        ? { orderBy: UstensilRecipeGroupByArgs['orderBy'] }
+        : { orderBy?: UstensilRecipeGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -10740,20 +10740,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, RecipeUstensilGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRecipeUstensilGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, UstensilRecipeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUstensilRecipeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the RecipeUstensil model
+   * Fields of the UstensilRecipe model
    */
-  readonly fields: RecipeUstensilFieldRefs;
+  readonly fields: UstensilRecipeFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for RecipeUstensil.
+   * The delegate class that acts as a "Promise-like" for UstensilRecipe.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__RecipeUstensilClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__UstensilRecipeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     recipe<T extends RecipeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RecipeDefaultArgs<ExtArgs>>): Prisma__RecipeClient<$Result.GetResult<Prisma.$RecipePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     ustensil<T extends UstensilDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UstensilDefaultArgs<ExtArgs>>): Prisma__UstensilClient<$Result.GetResult<Prisma.$UstensilPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
@@ -10783,423 +10783,423 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the RecipeUstensil model
+   * Fields of the UstensilRecipe model
    */
-  interface RecipeUstensilFieldRefs {
-    readonly id: FieldRef<"RecipeUstensil", 'String'>
-    readonly recipeId: FieldRef<"RecipeUstensil", 'String'>
-    readonly ustensilId: FieldRef<"RecipeUstensil", 'String'>
+  interface UstensilRecipeFieldRefs {
+    readonly id: FieldRef<"UstensilRecipe", 'String'>
+    readonly recipeId: FieldRef<"UstensilRecipe", 'String'>
+    readonly ustensilId: FieldRef<"UstensilRecipe", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * RecipeUstensil findUnique
+   * UstensilRecipe findUnique
    */
-  export type RecipeUstensilFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeUstensil to fetch.
+     * Filter, which UstensilRecipe to fetch.
      */
-    where: RecipeUstensilWhereUniqueInput
+    where: UstensilRecipeWhereUniqueInput
   }
 
   /**
-   * RecipeUstensil findUniqueOrThrow
+   * UstensilRecipe findUniqueOrThrow
    */
-  export type RecipeUstensilFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeUstensil to fetch.
+     * Filter, which UstensilRecipe to fetch.
      */
-    where: RecipeUstensilWhereUniqueInput
+    where: UstensilRecipeWhereUniqueInput
   }
 
   /**
-   * RecipeUstensil findFirst
+   * UstensilRecipe findFirst
    */
-  export type RecipeUstensilFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeUstensil to fetch.
+     * Filter, which UstensilRecipe to fetch.
      */
-    where?: RecipeUstensilWhereInput
+    where?: UstensilRecipeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of RecipeUstensils to fetch.
+     * Determine the order of UstensilRecipes to fetch.
      */
-    orderBy?: RecipeUstensilOrderByWithRelationInput | RecipeUstensilOrderByWithRelationInput[]
+    orderBy?: UstensilRecipeOrderByWithRelationInput | UstensilRecipeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for RecipeUstensils.
+     * Sets the position for searching for UstensilRecipes.
      */
-    cursor?: RecipeUstensilWhereUniqueInput
+    cursor?: UstensilRecipeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` RecipeUstensils from the position of the cursor.
+     * Take `±n` UstensilRecipes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` RecipeUstensils.
+     * Skip the first `n` UstensilRecipes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of RecipeUstensils.
+     * Filter by unique combinations of UstensilRecipes.
      */
-    distinct?: RecipeUstensilScalarFieldEnum | RecipeUstensilScalarFieldEnum[]
+    distinct?: UstensilRecipeScalarFieldEnum | UstensilRecipeScalarFieldEnum[]
   }
 
   /**
-   * RecipeUstensil findFirstOrThrow
+   * UstensilRecipe findFirstOrThrow
    */
-  export type RecipeUstensilFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeUstensil to fetch.
+     * Filter, which UstensilRecipe to fetch.
      */
-    where?: RecipeUstensilWhereInput
+    where?: UstensilRecipeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of RecipeUstensils to fetch.
+     * Determine the order of UstensilRecipes to fetch.
      */
-    orderBy?: RecipeUstensilOrderByWithRelationInput | RecipeUstensilOrderByWithRelationInput[]
+    orderBy?: UstensilRecipeOrderByWithRelationInput | UstensilRecipeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for RecipeUstensils.
+     * Sets the position for searching for UstensilRecipes.
      */
-    cursor?: RecipeUstensilWhereUniqueInput
+    cursor?: UstensilRecipeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` RecipeUstensils from the position of the cursor.
+     * Take `±n` UstensilRecipes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` RecipeUstensils.
+     * Skip the first `n` UstensilRecipes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of RecipeUstensils.
+     * Filter by unique combinations of UstensilRecipes.
      */
-    distinct?: RecipeUstensilScalarFieldEnum | RecipeUstensilScalarFieldEnum[]
+    distinct?: UstensilRecipeScalarFieldEnum | UstensilRecipeScalarFieldEnum[]
   }
 
   /**
-   * RecipeUstensil findMany
+   * UstensilRecipe findMany
    */
-  export type RecipeUstensilFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
     /**
-     * Filter, which RecipeUstensils to fetch.
+     * Filter, which UstensilRecipes to fetch.
      */
-    where?: RecipeUstensilWhereInput
+    where?: UstensilRecipeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of RecipeUstensils to fetch.
+     * Determine the order of UstensilRecipes to fetch.
      */
-    orderBy?: RecipeUstensilOrderByWithRelationInput | RecipeUstensilOrderByWithRelationInput[]
+    orderBy?: UstensilRecipeOrderByWithRelationInput | UstensilRecipeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing RecipeUstensils.
+     * Sets the position for listing UstensilRecipes.
      */
-    cursor?: RecipeUstensilWhereUniqueInput
+    cursor?: UstensilRecipeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` RecipeUstensils from the position of the cursor.
+     * Take `±n` UstensilRecipes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` RecipeUstensils.
+     * Skip the first `n` UstensilRecipes.
      */
     skip?: number
-    distinct?: RecipeUstensilScalarFieldEnum | RecipeUstensilScalarFieldEnum[]
+    distinct?: UstensilRecipeScalarFieldEnum | UstensilRecipeScalarFieldEnum[]
   }
 
   /**
-   * RecipeUstensil create
+   * UstensilRecipe create
    */
-  export type RecipeUstensilCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
     /**
-     * The data needed to create a RecipeUstensil.
+     * The data needed to create a UstensilRecipe.
      */
-    data: XOR<RecipeUstensilCreateInput, RecipeUstensilUncheckedCreateInput>
+    data: XOR<UstensilRecipeCreateInput, UstensilRecipeUncheckedCreateInput>
   }
 
   /**
-   * RecipeUstensil createMany
+   * UstensilRecipe createMany
    */
-  export type RecipeUstensilCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many RecipeUstensils.
+     * The data used to create many UstensilRecipes.
      */
-    data: RecipeUstensilCreateManyInput | RecipeUstensilCreateManyInput[]
+    data: UstensilRecipeCreateManyInput | UstensilRecipeCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * RecipeUstensil createManyAndReturn
+   * UstensilRecipe createManyAndReturn
    */
-  export type RecipeUstensilCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelectCreateManyAndReturn<ExtArgs> | null
+    select?: UstensilRecipeSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
-     * The data used to create many RecipeUstensils.
+     * The data used to create many UstensilRecipes.
      */
-    data: RecipeUstensilCreateManyInput | RecipeUstensilCreateManyInput[]
+    data: UstensilRecipeCreateManyInput | UstensilRecipeCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: UstensilRecipeIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * RecipeUstensil update
+   * UstensilRecipe update
    */
-  export type RecipeUstensilUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
     /**
-     * The data needed to update a RecipeUstensil.
+     * The data needed to update a UstensilRecipe.
      */
-    data: XOR<RecipeUstensilUpdateInput, RecipeUstensilUncheckedUpdateInput>
+    data: XOR<UstensilRecipeUpdateInput, UstensilRecipeUncheckedUpdateInput>
     /**
-     * Choose, which RecipeUstensil to update.
+     * Choose, which UstensilRecipe to update.
      */
-    where: RecipeUstensilWhereUniqueInput
+    where: UstensilRecipeWhereUniqueInput
   }
 
   /**
-   * RecipeUstensil updateMany
+   * UstensilRecipe updateMany
    */
-  export type RecipeUstensilUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update RecipeUstensils.
+     * The data used to update UstensilRecipes.
      */
-    data: XOR<RecipeUstensilUpdateManyMutationInput, RecipeUstensilUncheckedUpdateManyInput>
+    data: XOR<UstensilRecipeUpdateManyMutationInput, UstensilRecipeUncheckedUpdateManyInput>
     /**
-     * Filter which RecipeUstensils to update
+     * Filter which UstensilRecipes to update
      */
-    where?: RecipeUstensilWhereInput
+    where?: UstensilRecipeWhereInput
     /**
-     * Limit how many RecipeUstensils to update.
+     * Limit how many UstensilRecipes to update.
      */
     limit?: number
   }
 
   /**
-   * RecipeUstensil updateManyAndReturn
+   * UstensilRecipe updateManyAndReturn
    */
-  export type RecipeUstensilUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: UstensilRecipeSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
-     * The data used to update RecipeUstensils.
+     * The data used to update UstensilRecipes.
      */
-    data: XOR<RecipeUstensilUpdateManyMutationInput, RecipeUstensilUncheckedUpdateManyInput>
+    data: XOR<UstensilRecipeUpdateManyMutationInput, UstensilRecipeUncheckedUpdateManyInput>
     /**
-     * Filter which RecipeUstensils to update
+     * Filter which UstensilRecipes to update
      */
-    where?: RecipeUstensilWhereInput
+    where?: UstensilRecipeWhereInput
     /**
-     * Limit how many RecipeUstensils to update.
+     * Limit how many UstensilRecipes to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: UstensilRecipeIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * RecipeUstensil upsert
+   * UstensilRecipe upsert
    */
-  export type RecipeUstensilUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
     /**
-     * The filter to search for the RecipeUstensil to update in case it exists.
+     * The filter to search for the UstensilRecipe to update in case it exists.
      */
-    where: RecipeUstensilWhereUniqueInput
+    where: UstensilRecipeWhereUniqueInput
     /**
-     * In case the RecipeUstensil found by the `where` argument doesn't exist, create a new RecipeUstensil with this data.
+     * In case the UstensilRecipe found by the `where` argument doesn't exist, create a new UstensilRecipe with this data.
      */
-    create: XOR<RecipeUstensilCreateInput, RecipeUstensilUncheckedCreateInput>
+    create: XOR<UstensilRecipeCreateInput, UstensilRecipeUncheckedCreateInput>
     /**
-     * In case the RecipeUstensil was found with the provided `where` argument, update it with this data.
+     * In case the UstensilRecipe was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<RecipeUstensilUpdateInput, RecipeUstensilUncheckedUpdateInput>
+    update: XOR<UstensilRecipeUpdateInput, UstensilRecipeUncheckedUpdateInput>
   }
 
   /**
-   * RecipeUstensil delete
+   * UstensilRecipe delete
    */
-  export type RecipeUstensilDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
     /**
-     * Filter which RecipeUstensil to delete.
+     * Filter which UstensilRecipe to delete.
      */
-    where: RecipeUstensilWhereUniqueInput
+    where: UstensilRecipeWhereUniqueInput
   }
 
   /**
-   * RecipeUstensil deleteMany
+   * UstensilRecipe deleteMany
    */
-  export type RecipeUstensilDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which RecipeUstensils to delete
+     * Filter which UstensilRecipes to delete
      */
-    where?: RecipeUstensilWhereInput
+    where?: UstensilRecipeWhereInput
     /**
-     * Limit how many RecipeUstensils to delete.
+     * Limit how many UstensilRecipes to delete.
      */
     limit?: number
   }
 
   /**
-   * RecipeUstensil without action
+   * UstensilRecipe without action
    */
-  export type RecipeUstensilDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UstensilRecipeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the RecipeUstensil
+     * Select specific fields to fetch from the UstensilRecipe
      */
-    select?: RecipeUstensilSelect<ExtArgs> | null
+    select?: UstensilRecipeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the RecipeUstensil
+     * Omit specific fields from the UstensilRecipe
      */
-    omit?: RecipeUstensilOmit<ExtArgs> | null
+    omit?: UstensilRecipeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RecipeUstensilInclude<ExtArgs> | null
+    include?: UstensilRecipeInclude<ExtArgs> | null
   }
 
 
@@ -18538,14 +18538,14 @@ export namespace Prisma {
   export type IngredientScalarFieldEnum = (typeof IngredientScalarFieldEnum)[keyof typeof IngredientScalarFieldEnum]
 
 
-  export const RecipeIngredientScalarFieldEnum: {
+  export const IngredientRecipeScalarFieldEnum: {
     id: 'id',
     recipeId: 'recipeId',
     ingredientId: 'ingredientId',
     quantity: 'quantity'
   };
 
-  export type RecipeIngredientScalarFieldEnum = (typeof RecipeIngredientScalarFieldEnum)[keyof typeof RecipeIngredientScalarFieldEnum]
+  export type IngredientRecipeScalarFieldEnum = (typeof IngredientRecipeScalarFieldEnum)[keyof typeof IngredientRecipeScalarFieldEnum]
 
 
   export const UstensilScalarFieldEnum: {
@@ -18556,13 +18556,13 @@ export namespace Prisma {
   export type UstensilScalarFieldEnum = (typeof UstensilScalarFieldEnum)[keyof typeof UstensilScalarFieldEnum]
 
 
-  export const RecipeUstensilScalarFieldEnum: {
+  export const UstensilRecipeScalarFieldEnum: {
     id: 'id',
     recipeId: 'recipeId',
     ustensilId: 'ustensilId'
   };
 
-  export type RecipeUstensilScalarFieldEnum = (typeof RecipeUstensilScalarFieldEnum)[keyof typeof RecipeUstensilScalarFieldEnum]
+  export type UstensilRecipeScalarFieldEnum = (typeof UstensilRecipeScalarFieldEnum)[keyof typeof UstensilRecipeScalarFieldEnum]
 
 
   export const MoodScalarFieldEnum: {
@@ -18853,8 +18853,8 @@ export namespace Prisma {
     cookTime?: IntFilter<"Recipe"> | number
     createAt?: DateTimeFilter<"Recipe"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    ingredients?: RecipeIngredientListRelationFilter
-    ustensils?: RecipeUstensilListRelationFilter
+    ingredients?: IngredientRecipeListRelationFilter
+    ustensils?: UstensilRecipeListRelationFilter
     type?: XOR<TypeScalarRelationFilter, TypeWhereInput>
     moods?: MoodRecipeListRelationFilter
     diets?: DietRecipeListRelationFilter
@@ -18875,8 +18875,8 @@ export namespace Prisma {
     cookTime?: SortOrder
     createAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    ingredients?: RecipeIngredientOrderByRelationAggregateInput
-    ustensils?: RecipeUstensilOrderByRelationAggregateInput
+    ingredients?: IngredientRecipeOrderByRelationAggregateInput
+    ustensils?: UstensilRecipeOrderByRelationAggregateInput
     type?: TypeOrderByWithRelationInput
     moods?: MoodRecipeOrderByRelationAggregateInput
     diets?: DietRecipeOrderByRelationAggregateInput
@@ -18900,8 +18900,8 @@ export namespace Prisma {
     cookTime?: IntFilter<"Recipe"> | number
     createAt?: DateTimeFilter<"Recipe"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    ingredients?: RecipeIngredientListRelationFilter
-    ustensils?: RecipeUstensilListRelationFilter
+    ingredients?: IngredientRecipeListRelationFilter
+    ustensils?: UstensilRecipeListRelationFilter
     type?: XOR<TypeScalarRelationFilter, TypeWhereInput>
     moods?: MoodRecipeListRelationFilter
     diets?: DietRecipeListRelationFilter
@@ -18991,13 +18991,13 @@ export namespace Prisma {
     NOT?: IngredientWhereInput | IngredientWhereInput[]
     id?: StringFilter<"Ingredient"> | string
     name?: StringFilter<"Ingredient"> | string
-    recipes?: RecipeIngredientListRelationFilter
+    recipes?: IngredientRecipeListRelationFilter
   }
 
   export type IngredientOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    recipes?: RecipeIngredientOrderByRelationAggregateInput
+    recipes?: IngredientRecipeOrderByRelationAggregateInput
   }
 
   export type IngredientWhereUniqueInput = Prisma.AtLeast<{
@@ -19006,7 +19006,7 @@ export namespace Prisma {
     AND?: IngredientWhereInput | IngredientWhereInput[]
     OR?: IngredientWhereInput[]
     NOT?: IngredientWhereInput | IngredientWhereInput[]
-    recipes?: RecipeIngredientListRelationFilter
+    recipes?: IngredientRecipeListRelationFilter
   }, "id" | "name">
 
   export type IngredientOrderByWithAggregationInput = {
@@ -19025,19 +19025,19 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Ingredient"> | string
   }
 
-  export type RecipeIngredientWhereInput = {
-    AND?: RecipeIngredientWhereInput | RecipeIngredientWhereInput[]
-    OR?: RecipeIngredientWhereInput[]
-    NOT?: RecipeIngredientWhereInput | RecipeIngredientWhereInput[]
-    id?: StringFilter<"RecipeIngredient"> | string
-    recipeId?: StringFilter<"RecipeIngredient"> | string
-    ingredientId?: StringFilter<"RecipeIngredient"> | string
-    quantity?: StringFilter<"RecipeIngredient"> | string
+  export type IngredientRecipeWhereInput = {
+    AND?: IngredientRecipeWhereInput | IngredientRecipeWhereInput[]
+    OR?: IngredientRecipeWhereInput[]
+    NOT?: IngredientRecipeWhereInput | IngredientRecipeWhereInput[]
+    id?: StringFilter<"IngredientRecipe"> | string
+    recipeId?: StringFilter<"IngredientRecipe"> | string
+    ingredientId?: StringFilter<"IngredientRecipe"> | string
+    quantity?: StringFilter<"IngredientRecipe"> | string
     recipe?: XOR<RecipeScalarRelationFilter, RecipeWhereInput>
     ingredient?: XOR<IngredientScalarRelationFilter, IngredientWhereInput>
   }
 
-  export type RecipeIngredientOrderByWithRelationInput = {
+  export type IngredientRecipeOrderByWithRelationInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ingredientId?: SortOrder
@@ -19046,36 +19046,36 @@ export namespace Prisma {
     ingredient?: IngredientOrderByWithRelationInput
   }
 
-  export type RecipeIngredientWhereUniqueInput = Prisma.AtLeast<{
+  export type IngredientRecipeWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: RecipeIngredientWhereInput | RecipeIngredientWhereInput[]
-    OR?: RecipeIngredientWhereInput[]
-    NOT?: RecipeIngredientWhereInput | RecipeIngredientWhereInput[]
-    recipeId?: StringFilter<"RecipeIngredient"> | string
-    ingredientId?: StringFilter<"RecipeIngredient"> | string
-    quantity?: StringFilter<"RecipeIngredient"> | string
+    AND?: IngredientRecipeWhereInput | IngredientRecipeWhereInput[]
+    OR?: IngredientRecipeWhereInput[]
+    NOT?: IngredientRecipeWhereInput | IngredientRecipeWhereInput[]
+    recipeId?: StringFilter<"IngredientRecipe"> | string
+    ingredientId?: StringFilter<"IngredientRecipe"> | string
+    quantity?: StringFilter<"IngredientRecipe"> | string
     recipe?: XOR<RecipeScalarRelationFilter, RecipeWhereInput>
     ingredient?: XOR<IngredientScalarRelationFilter, IngredientWhereInput>
   }, "id">
 
-  export type RecipeIngredientOrderByWithAggregationInput = {
+  export type IngredientRecipeOrderByWithAggregationInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ingredientId?: SortOrder
     quantity?: SortOrder
-    _count?: RecipeIngredientCountOrderByAggregateInput
-    _max?: RecipeIngredientMaxOrderByAggregateInput
-    _min?: RecipeIngredientMinOrderByAggregateInput
+    _count?: IngredientRecipeCountOrderByAggregateInput
+    _max?: IngredientRecipeMaxOrderByAggregateInput
+    _min?: IngredientRecipeMinOrderByAggregateInput
   }
 
-  export type RecipeIngredientScalarWhereWithAggregatesInput = {
-    AND?: RecipeIngredientScalarWhereWithAggregatesInput | RecipeIngredientScalarWhereWithAggregatesInput[]
-    OR?: RecipeIngredientScalarWhereWithAggregatesInput[]
-    NOT?: RecipeIngredientScalarWhereWithAggregatesInput | RecipeIngredientScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"RecipeIngredient"> | string
-    recipeId?: StringWithAggregatesFilter<"RecipeIngredient"> | string
-    ingredientId?: StringWithAggregatesFilter<"RecipeIngredient"> | string
-    quantity?: StringWithAggregatesFilter<"RecipeIngredient"> | string
+  export type IngredientRecipeScalarWhereWithAggregatesInput = {
+    AND?: IngredientRecipeScalarWhereWithAggregatesInput | IngredientRecipeScalarWhereWithAggregatesInput[]
+    OR?: IngredientRecipeScalarWhereWithAggregatesInput[]
+    NOT?: IngredientRecipeScalarWhereWithAggregatesInput | IngredientRecipeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"IngredientRecipe"> | string
+    recipeId?: StringWithAggregatesFilter<"IngredientRecipe"> | string
+    ingredientId?: StringWithAggregatesFilter<"IngredientRecipe"> | string
+    quantity?: StringWithAggregatesFilter<"IngredientRecipe"> | string
   }
 
   export type UstensilWhereInput = {
@@ -19084,13 +19084,13 @@ export namespace Prisma {
     NOT?: UstensilWhereInput | UstensilWhereInput[]
     id?: StringFilter<"Ustensil"> | string
     name?: StringFilter<"Ustensil"> | string
-    recipes?: RecipeUstensilListRelationFilter
+    recipes?: UstensilRecipeListRelationFilter
   }
 
   export type UstensilOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    recipes?: RecipeUstensilOrderByRelationAggregateInput
+    recipes?: UstensilRecipeOrderByRelationAggregateInput
   }
 
   export type UstensilWhereUniqueInput = Prisma.AtLeast<{
@@ -19099,7 +19099,7 @@ export namespace Prisma {
     AND?: UstensilWhereInput | UstensilWhereInput[]
     OR?: UstensilWhereInput[]
     NOT?: UstensilWhereInput | UstensilWhereInput[]
-    recipes?: RecipeUstensilListRelationFilter
+    recipes?: UstensilRecipeListRelationFilter
   }, "id" | "name">
 
   export type UstensilOrderByWithAggregationInput = {
@@ -19118,18 +19118,18 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Ustensil"> | string
   }
 
-  export type RecipeUstensilWhereInput = {
-    AND?: RecipeUstensilWhereInput | RecipeUstensilWhereInput[]
-    OR?: RecipeUstensilWhereInput[]
-    NOT?: RecipeUstensilWhereInput | RecipeUstensilWhereInput[]
-    id?: StringFilter<"RecipeUstensil"> | string
-    recipeId?: StringFilter<"RecipeUstensil"> | string
-    ustensilId?: StringFilter<"RecipeUstensil"> | string
+  export type UstensilRecipeWhereInput = {
+    AND?: UstensilRecipeWhereInput | UstensilRecipeWhereInput[]
+    OR?: UstensilRecipeWhereInput[]
+    NOT?: UstensilRecipeWhereInput | UstensilRecipeWhereInput[]
+    id?: StringFilter<"UstensilRecipe"> | string
+    recipeId?: StringFilter<"UstensilRecipe"> | string
+    ustensilId?: StringFilter<"UstensilRecipe"> | string
     recipe?: XOR<RecipeScalarRelationFilter, RecipeWhereInput>
     ustensil?: XOR<UstensilScalarRelationFilter, UstensilWhereInput>
   }
 
-  export type RecipeUstensilOrderByWithRelationInput = {
+  export type UstensilRecipeOrderByWithRelationInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ustensilId?: SortOrder
@@ -19137,33 +19137,33 @@ export namespace Prisma {
     ustensil?: UstensilOrderByWithRelationInput
   }
 
-  export type RecipeUstensilWhereUniqueInput = Prisma.AtLeast<{
+  export type UstensilRecipeWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: RecipeUstensilWhereInput | RecipeUstensilWhereInput[]
-    OR?: RecipeUstensilWhereInput[]
-    NOT?: RecipeUstensilWhereInput | RecipeUstensilWhereInput[]
-    recipeId?: StringFilter<"RecipeUstensil"> | string
-    ustensilId?: StringFilter<"RecipeUstensil"> | string
+    AND?: UstensilRecipeWhereInput | UstensilRecipeWhereInput[]
+    OR?: UstensilRecipeWhereInput[]
+    NOT?: UstensilRecipeWhereInput | UstensilRecipeWhereInput[]
+    recipeId?: StringFilter<"UstensilRecipe"> | string
+    ustensilId?: StringFilter<"UstensilRecipe"> | string
     recipe?: XOR<RecipeScalarRelationFilter, RecipeWhereInput>
     ustensil?: XOR<UstensilScalarRelationFilter, UstensilWhereInput>
   }, "id">
 
-  export type RecipeUstensilOrderByWithAggregationInput = {
+  export type UstensilRecipeOrderByWithAggregationInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ustensilId?: SortOrder
-    _count?: RecipeUstensilCountOrderByAggregateInput
-    _max?: RecipeUstensilMaxOrderByAggregateInput
-    _min?: RecipeUstensilMinOrderByAggregateInput
+    _count?: UstensilRecipeCountOrderByAggregateInput
+    _max?: UstensilRecipeMaxOrderByAggregateInput
+    _min?: UstensilRecipeMinOrderByAggregateInput
   }
 
-  export type RecipeUstensilScalarWhereWithAggregatesInput = {
-    AND?: RecipeUstensilScalarWhereWithAggregatesInput | RecipeUstensilScalarWhereWithAggregatesInput[]
-    OR?: RecipeUstensilScalarWhereWithAggregatesInput[]
-    NOT?: RecipeUstensilScalarWhereWithAggregatesInput | RecipeUstensilScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"RecipeUstensil"> | string
-    recipeId?: StringWithAggregatesFilter<"RecipeUstensil"> | string
-    ustensilId?: StringWithAggregatesFilter<"RecipeUstensil"> | string
+  export type UstensilRecipeScalarWhereWithAggregatesInput = {
+    AND?: UstensilRecipeScalarWhereWithAggregatesInput | UstensilRecipeScalarWhereWithAggregatesInput[]
+    OR?: UstensilRecipeScalarWhereWithAggregatesInput[]
+    NOT?: UstensilRecipeScalarWhereWithAggregatesInput | UstensilRecipeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UstensilRecipe"> | string
+    recipeId?: StringWithAggregatesFilter<"UstensilRecipe"> | string
+    ustensilId?: StringWithAggregatesFilter<"UstensilRecipe"> | string
   }
 
   export type MoodWhereInput = {
@@ -19617,8 +19617,8 @@ export namespace Prisma {
     cookTime: number
     createAt?: Date | string
     user: UserCreateNestedOneWithoutRecipesInput
-    ingredients?: RecipeIngredientCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeCreateNestedManyWithoutRecipeInput
     type: TypeCreateNestedOneWithoutRecipesInput
     moods?: MoodRecipeCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeCreateNestedManyWithoutRecipeInput
@@ -19638,8 +19638,8 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ingredients?: RecipeIngredientUncheckedCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilUncheckedCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeUncheckedCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeUncheckedCreateNestedManyWithoutRecipeInput
     moods?: MoodRecipeUncheckedCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeUncheckedCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeUncheckedCreateNestedManyWithoutRecipeInput
@@ -19657,8 +19657,8 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutRecipesNestedInput
-    ingredients?: RecipeIngredientUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUpdateManyWithoutRecipeNestedInput
     type?: TypeUpdateOneRequiredWithoutRecipesNestedInput
     moods?: MoodRecipeUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUpdateManyWithoutRecipeNestedInput
@@ -19678,8 +19678,8 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ingredients?: RecipeIngredientUncheckedUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUncheckedUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUncheckedUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     moods?: MoodRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUncheckedUpdateManyWithoutRecipeNestedInput
@@ -19768,25 +19768,25 @@ export namespace Prisma {
   export type IngredientCreateInput = {
     id?: string
     name: string
-    recipes?: RecipeIngredientCreateNestedManyWithoutIngredientInput
+    recipes?: IngredientRecipeCreateNestedManyWithoutIngredientInput
   }
 
   export type IngredientUncheckedCreateInput = {
     id?: string
     name: string
-    recipes?: RecipeIngredientUncheckedCreateNestedManyWithoutIngredientInput
+    recipes?: IngredientRecipeUncheckedCreateNestedManyWithoutIngredientInput
   }
 
   export type IngredientUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    recipes?: RecipeIngredientUpdateManyWithoutIngredientNestedInput
+    recipes?: IngredientRecipeUpdateManyWithoutIngredientNestedInput
   }
 
   export type IngredientUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    recipes?: RecipeIngredientUncheckedUpdateManyWithoutIngredientNestedInput
+    recipes?: IngredientRecipeUncheckedUpdateManyWithoutIngredientNestedInput
   }
 
   export type IngredientCreateManyInput = {
@@ -19804,47 +19804,47 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeIngredientCreateInput = {
+  export type IngredientRecipeCreateInput = {
     id?: string
     quantity: string
     recipe: RecipeCreateNestedOneWithoutIngredientsInput
     ingredient: IngredientCreateNestedOneWithoutRecipesInput
   }
 
-  export type RecipeIngredientUncheckedCreateInput = {
+  export type IngredientRecipeUncheckedCreateInput = {
     id?: string
     recipeId: string
     ingredientId: string
     quantity: string
   }
 
-  export type RecipeIngredientUpdateInput = {
+  export type IngredientRecipeUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: StringFieldUpdateOperationsInput | string
     recipe?: RecipeUpdateOneRequiredWithoutIngredientsNestedInput
     ingredient?: IngredientUpdateOneRequiredWithoutRecipesNestedInput
   }
 
-  export type RecipeIngredientUncheckedUpdateInput = {
+  export type IngredientRecipeUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     ingredientId?: StringFieldUpdateOperationsInput | string
     quantity?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeIngredientCreateManyInput = {
+  export type IngredientRecipeCreateManyInput = {
     id?: string
     recipeId: string
     ingredientId: string
     quantity: string
   }
 
-  export type RecipeIngredientUpdateManyMutationInput = {
+  export type IngredientRecipeUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeIngredientUncheckedUpdateManyInput = {
+  export type IngredientRecipeUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     ingredientId?: StringFieldUpdateOperationsInput | string
@@ -19854,25 +19854,25 @@ export namespace Prisma {
   export type UstensilCreateInput = {
     id?: string
     name: string
-    recipes?: RecipeUstensilCreateNestedManyWithoutUstensilInput
+    recipes?: UstensilRecipeCreateNestedManyWithoutUstensilInput
   }
 
   export type UstensilUncheckedCreateInput = {
     id?: string
     name: string
-    recipes?: RecipeUstensilUncheckedCreateNestedManyWithoutUstensilInput
+    recipes?: UstensilRecipeUncheckedCreateNestedManyWithoutUstensilInput
   }
 
   export type UstensilUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    recipes?: RecipeUstensilUpdateManyWithoutUstensilNestedInput
+    recipes?: UstensilRecipeUpdateManyWithoutUstensilNestedInput
   }
 
   export type UstensilUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    recipes?: RecipeUstensilUncheckedUpdateManyWithoutUstensilNestedInput
+    recipes?: UstensilRecipeUncheckedUpdateManyWithoutUstensilNestedInput
   }
 
   export type UstensilCreateManyInput = {
@@ -19890,41 +19890,41 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeUstensilCreateInput = {
+  export type UstensilRecipeCreateInput = {
     id?: string
     recipe: RecipeCreateNestedOneWithoutUstensilsInput
     ustensil: UstensilCreateNestedOneWithoutRecipesInput
   }
 
-  export type RecipeUstensilUncheckedCreateInput = {
+  export type UstensilRecipeUncheckedCreateInput = {
     id?: string
     recipeId: string
     ustensilId: string
   }
 
-  export type RecipeUstensilUpdateInput = {
+  export type UstensilRecipeUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipe?: RecipeUpdateOneRequiredWithoutUstensilsNestedInput
     ustensil?: UstensilUpdateOneRequiredWithoutRecipesNestedInput
   }
 
-  export type RecipeUstensilUncheckedUpdateInput = {
+  export type UstensilRecipeUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     ustensilId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeUstensilCreateManyInput = {
+  export type UstensilRecipeCreateManyInput = {
     id?: string
     recipeId: string
     ustensilId: string
   }
 
-  export type RecipeUstensilUpdateManyMutationInput = {
+  export type UstensilRecipeUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeUstensilUncheckedUpdateManyInput = {
+  export type UstensilRecipeUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     ustensilId?: StringFieldUpdateOperationsInput | string
@@ -20433,16 +20433,16 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type RecipeIngredientListRelationFilter = {
-    every?: RecipeIngredientWhereInput
-    some?: RecipeIngredientWhereInput
-    none?: RecipeIngredientWhereInput
+  export type IngredientRecipeListRelationFilter = {
+    every?: IngredientRecipeWhereInput
+    some?: IngredientRecipeWhereInput
+    none?: IngredientRecipeWhereInput
   }
 
-  export type RecipeUstensilListRelationFilter = {
-    every?: RecipeUstensilWhereInput
-    some?: RecipeUstensilWhereInput
-    none?: RecipeUstensilWhereInput
+  export type UstensilRecipeListRelationFilter = {
+    every?: UstensilRecipeWhereInput
+    some?: UstensilRecipeWhereInput
+    none?: UstensilRecipeWhereInput
   }
 
   export type TypeScalarRelationFilter = {
@@ -20468,11 +20468,11 @@ export namespace Prisma {
     none?: OriginRecipeWhereInput
   }
 
-  export type RecipeIngredientOrderByRelationAggregateInput = {
+  export type IngredientRecipeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type RecipeUstensilOrderByRelationAggregateInput = {
+  export type UstensilRecipeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -20614,21 +20614,21 @@ export namespace Prisma {
     isNot?: IngredientWhereInput
   }
 
-  export type RecipeIngredientCountOrderByAggregateInput = {
+  export type IngredientRecipeCountOrderByAggregateInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ingredientId?: SortOrder
     quantity?: SortOrder
   }
 
-  export type RecipeIngredientMaxOrderByAggregateInput = {
+  export type IngredientRecipeMaxOrderByAggregateInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ingredientId?: SortOrder
     quantity?: SortOrder
   }
 
-  export type RecipeIngredientMinOrderByAggregateInput = {
+  export type IngredientRecipeMinOrderByAggregateInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ingredientId?: SortOrder
@@ -20655,19 +20655,19 @@ export namespace Prisma {
     isNot?: UstensilWhereInput
   }
 
-  export type RecipeUstensilCountOrderByAggregateInput = {
+  export type UstensilRecipeCountOrderByAggregateInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ustensilId?: SortOrder
   }
 
-  export type RecipeUstensilMaxOrderByAggregateInput = {
+  export type UstensilRecipeMaxOrderByAggregateInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ustensilId?: SortOrder
   }
 
-  export type RecipeUstensilMinOrderByAggregateInput = {
+  export type UstensilRecipeMinOrderByAggregateInput = {
     id?: SortOrder
     recipeId?: SortOrder
     ustensilId?: SortOrder
@@ -20970,18 +20970,18 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type RecipeIngredientCreateNestedManyWithoutRecipeInput = {
-    create?: XOR<RecipeIngredientCreateWithoutRecipeInput, RecipeIngredientUncheckedCreateWithoutRecipeInput> | RecipeIngredientCreateWithoutRecipeInput[] | RecipeIngredientUncheckedCreateWithoutRecipeInput[]
-    connectOrCreate?: RecipeIngredientCreateOrConnectWithoutRecipeInput | RecipeIngredientCreateOrConnectWithoutRecipeInput[]
-    createMany?: RecipeIngredientCreateManyRecipeInputEnvelope
-    connect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
+  export type IngredientRecipeCreateNestedManyWithoutRecipeInput = {
+    create?: XOR<IngredientRecipeCreateWithoutRecipeInput, IngredientRecipeUncheckedCreateWithoutRecipeInput> | IngredientRecipeCreateWithoutRecipeInput[] | IngredientRecipeUncheckedCreateWithoutRecipeInput[]
+    connectOrCreate?: IngredientRecipeCreateOrConnectWithoutRecipeInput | IngredientRecipeCreateOrConnectWithoutRecipeInput[]
+    createMany?: IngredientRecipeCreateManyRecipeInputEnvelope
+    connect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
   }
 
-  export type RecipeUstensilCreateNestedManyWithoutRecipeInput = {
-    create?: XOR<RecipeUstensilCreateWithoutRecipeInput, RecipeUstensilUncheckedCreateWithoutRecipeInput> | RecipeUstensilCreateWithoutRecipeInput[] | RecipeUstensilUncheckedCreateWithoutRecipeInput[]
-    connectOrCreate?: RecipeUstensilCreateOrConnectWithoutRecipeInput | RecipeUstensilCreateOrConnectWithoutRecipeInput[]
-    createMany?: RecipeUstensilCreateManyRecipeInputEnvelope
-    connect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
+  export type UstensilRecipeCreateNestedManyWithoutRecipeInput = {
+    create?: XOR<UstensilRecipeCreateWithoutRecipeInput, UstensilRecipeUncheckedCreateWithoutRecipeInput> | UstensilRecipeCreateWithoutRecipeInput[] | UstensilRecipeUncheckedCreateWithoutRecipeInput[]
+    connectOrCreate?: UstensilRecipeCreateOrConnectWithoutRecipeInput | UstensilRecipeCreateOrConnectWithoutRecipeInput[]
+    createMany?: UstensilRecipeCreateManyRecipeInputEnvelope
+    connect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
   }
 
   export type TypeCreateNestedOneWithoutRecipesInput = {
@@ -21018,18 +21018,18 @@ export namespace Prisma {
     connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
   }
 
-  export type RecipeIngredientUncheckedCreateNestedManyWithoutRecipeInput = {
-    create?: XOR<RecipeIngredientCreateWithoutRecipeInput, RecipeIngredientUncheckedCreateWithoutRecipeInput> | RecipeIngredientCreateWithoutRecipeInput[] | RecipeIngredientUncheckedCreateWithoutRecipeInput[]
-    connectOrCreate?: RecipeIngredientCreateOrConnectWithoutRecipeInput | RecipeIngredientCreateOrConnectWithoutRecipeInput[]
-    createMany?: RecipeIngredientCreateManyRecipeInputEnvelope
-    connect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
+  export type IngredientRecipeUncheckedCreateNestedManyWithoutRecipeInput = {
+    create?: XOR<IngredientRecipeCreateWithoutRecipeInput, IngredientRecipeUncheckedCreateWithoutRecipeInput> | IngredientRecipeCreateWithoutRecipeInput[] | IngredientRecipeUncheckedCreateWithoutRecipeInput[]
+    connectOrCreate?: IngredientRecipeCreateOrConnectWithoutRecipeInput | IngredientRecipeCreateOrConnectWithoutRecipeInput[]
+    createMany?: IngredientRecipeCreateManyRecipeInputEnvelope
+    connect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
   }
 
-  export type RecipeUstensilUncheckedCreateNestedManyWithoutRecipeInput = {
-    create?: XOR<RecipeUstensilCreateWithoutRecipeInput, RecipeUstensilUncheckedCreateWithoutRecipeInput> | RecipeUstensilCreateWithoutRecipeInput[] | RecipeUstensilUncheckedCreateWithoutRecipeInput[]
-    connectOrCreate?: RecipeUstensilCreateOrConnectWithoutRecipeInput | RecipeUstensilCreateOrConnectWithoutRecipeInput[]
-    createMany?: RecipeUstensilCreateManyRecipeInputEnvelope
-    connect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
+  export type UstensilRecipeUncheckedCreateNestedManyWithoutRecipeInput = {
+    create?: XOR<UstensilRecipeCreateWithoutRecipeInput, UstensilRecipeUncheckedCreateWithoutRecipeInput> | UstensilRecipeCreateWithoutRecipeInput[] | UstensilRecipeUncheckedCreateWithoutRecipeInput[]
+    connectOrCreate?: UstensilRecipeCreateOrConnectWithoutRecipeInput | UstensilRecipeCreateOrConnectWithoutRecipeInput[]
+    createMany?: UstensilRecipeCreateManyRecipeInputEnvelope
+    connect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
   }
 
   export type MoodRecipeUncheckedCreateNestedManyWithoutRecipeInput = {
@@ -21084,32 +21084,32 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRecipesInput, UserUpdateWithoutRecipesInput>, UserUncheckedUpdateWithoutRecipesInput>
   }
 
-  export type RecipeIngredientUpdateManyWithoutRecipeNestedInput = {
-    create?: XOR<RecipeIngredientCreateWithoutRecipeInput, RecipeIngredientUncheckedCreateWithoutRecipeInput> | RecipeIngredientCreateWithoutRecipeInput[] | RecipeIngredientUncheckedCreateWithoutRecipeInput[]
-    connectOrCreate?: RecipeIngredientCreateOrConnectWithoutRecipeInput | RecipeIngredientCreateOrConnectWithoutRecipeInput[]
-    upsert?: RecipeIngredientUpsertWithWhereUniqueWithoutRecipeInput | RecipeIngredientUpsertWithWhereUniqueWithoutRecipeInput[]
-    createMany?: RecipeIngredientCreateManyRecipeInputEnvelope
-    set?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    disconnect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    delete?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    connect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    update?: RecipeIngredientUpdateWithWhereUniqueWithoutRecipeInput | RecipeIngredientUpdateWithWhereUniqueWithoutRecipeInput[]
-    updateMany?: RecipeIngredientUpdateManyWithWhereWithoutRecipeInput | RecipeIngredientUpdateManyWithWhereWithoutRecipeInput[]
-    deleteMany?: RecipeIngredientScalarWhereInput | RecipeIngredientScalarWhereInput[]
+  export type IngredientRecipeUpdateManyWithoutRecipeNestedInput = {
+    create?: XOR<IngredientRecipeCreateWithoutRecipeInput, IngredientRecipeUncheckedCreateWithoutRecipeInput> | IngredientRecipeCreateWithoutRecipeInput[] | IngredientRecipeUncheckedCreateWithoutRecipeInput[]
+    connectOrCreate?: IngredientRecipeCreateOrConnectWithoutRecipeInput | IngredientRecipeCreateOrConnectWithoutRecipeInput[]
+    upsert?: IngredientRecipeUpsertWithWhereUniqueWithoutRecipeInput | IngredientRecipeUpsertWithWhereUniqueWithoutRecipeInput[]
+    createMany?: IngredientRecipeCreateManyRecipeInputEnvelope
+    set?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    disconnect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    delete?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    connect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    update?: IngredientRecipeUpdateWithWhereUniqueWithoutRecipeInput | IngredientRecipeUpdateWithWhereUniqueWithoutRecipeInput[]
+    updateMany?: IngredientRecipeUpdateManyWithWhereWithoutRecipeInput | IngredientRecipeUpdateManyWithWhereWithoutRecipeInput[]
+    deleteMany?: IngredientRecipeScalarWhereInput | IngredientRecipeScalarWhereInput[]
   }
 
-  export type RecipeUstensilUpdateManyWithoutRecipeNestedInput = {
-    create?: XOR<RecipeUstensilCreateWithoutRecipeInput, RecipeUstensilUncheckedCreateWithoutRecipeInput> | RecipeUstensilCreateWithoutRecipeInput[] | RecipeUstensilUncheckedCreateWithoutRecipeInput[]
-    connectOrCreate?: RecipeUstensilCreateOrConnectWithoutRecipeInput | RecipeUstensilCreateOrConnectWithoutRecipeInput[]
-    upsert?: RecipeUstensilUpsertWithWhereUniqueWithoutRecipeInput | RecipeUstensilUpsertWithWhereUniqueWithoutRecipeInput[]
-    createMany?: RecipeUstensilCreateManyRecipeInputEnvelope
-    set?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    disconnect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    delete?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    connect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    update?: RecipeUstensilUpdateWithWhereUniqueWithoutRecipeInput | RecipeUstensilUpdateWithWhereUniqueWithoutRecipeInput[]
-    updateMany?: RecipeUstensilUpdateManyWithWhereWithoutRecipeInput | RecipeUstensilUpdateManyWithWhereWithoutRecipeInput[]
-    deleteMany?: RecipeUstensilScalarWhereInput | RecipeUstensilScalarWhereInput[]
+  export type UstensilRecipeUpdateManyWithoutRecipeNestedInput = {
+    create?: XOR<UstensilRecipeCreateWithoutRecipeInput, UstensilRecipeUncheckedCreateWithoutRecipeInput> | UstensilRecipeCreateWithoutRecipeInput[] | UstensilRecipeUncheckedCreateWithoutRecipeInput[]
+    connectOrCreate?: UstensilRecipeCreateOrConnectWithoutRecipeInput | UstensilRecipeCreateOrConnectWithoutRecipeInput[]
+    upsert?: UstensilRecipeUpsertWithWhereUniqueWithoutRecipeInput | UstensilRecipeUpsertWithWhereUniqueWithoutRecipeInput[]
+    createMany?: UstensilRecipeCreateManyRecipeInputEnvelope
+    set?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    disconnect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    delete?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    connect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    update?: UstensilRecipeUpdateWithWhereUniqueWithoutRecipeInput | UstensilRecipeUpdateWithWhereUniqueWithoutRecipeInput[]
+    updateMany?: UstensilRecipeUpdateManyWithWhereWithoutRecipeInput | UstensilRecipeUpdateManyWithWhereWithoutRecipeInput[]
+    deleteMany?: UstensilRecipeScalarWhereInput | UstensilRecipeScalarWhereInput[]
   }
 
   export type TypeUpdateOneRequiredWithoutRecipesNestedInput = {
@@ -21176,32 +21176,32 @@ export namespace Prisma {
     deleteMany?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
   }
 
-  export type RecipeIngredientUncheckedUpdateManyWithoutRecipeNestedInput = {
-    create?: XOR<RecipeIngredientCreateWithoutRecipeInput, RecipeIngredientUncheckedCreateWithoutRecipeInput> | RecipeIngredientCreateWithoutRecipeInput[] | RecipeIngredientUncheckedCreateWithoutRecipeInput[]
-    connectOrCreate?: RecipeIngredientCreateOrConnectWithoutRecipeInput | RecipeIngredientCreateOrConnectWithoutRecipeInput[]
-    upsert?: RecipeIngredientUpsertWithWhereUniqueWithoutRecipeInput | RecipeIngredientUpsertWithWhereUniqueWithoutRecipeInput[]
-    createMany?: RecipeIngredientCreateManyRecipeInputEnvelope
-    set?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    disconnect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    delete?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    connect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    update?: RecipeIngredientUpdateWithWhereUniqueWithoutRecipeInput | RecipeIngredientUpdateWithWhereUniqueWithoutRecipeInput[]
-    updateMany?: RecipeIngredientUpdateManyWithWhereWithoutRecipeInput | RecipeIngredientUpdateManyWithWhereWithoutRecipeInput[]
-    deleteMany?: RecipeIngredientScalarWhereInput | RecipeIngredientScalarWhereInput[]
+  export type IngredientRecipeUncheckedUpdateManyWithoutRecipeNestedInput = {
+    create?: XOR<IngredientRecipeCreateWithoutRecipeInput, IngredientRecipeUncheckedCreateWithoutRecipeInput> | IngredientRecipeCreateWithoutRecipeInput[] | IngredientRecipeUncheckedCreateWithoutRecipeInput[]
+    connectOrCreate?: IngredientRecipeCreateOrConnectWithoutRecipeInput | IngredientRecipeCreateOrConnectWithoutRecipeInput[]
+    upsert?: IngredientRecipeUpsertWithWhereUniqueWithoutRecipeInput | IngredientRecipeUpsertWithWhereUniqueWithoutRecipeInput[]
+    createMany?: IngredientRecipeCreateManyRecipeInputEnvelope
+    set?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    disconnect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    delete?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    connect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    update?: IngredientRecipeUpdateWithWhereUniqueWithoutRecipeInput | IngredientRecipeUpdateWithWhereUniqueWithoutRecipeInput[]
+    updateMany?: IngredientRecipeUpdateManyWithWhereWithoutRecipeInput | IngredientRecipeUpdateManyWithWhereWithoutRecipeInput[]
+    deleteMany?: IngredientRecipeScalarWhereInput | IngredientRecipeScalarWhereInput[]
   }
 
-  export type RecipeUstensilUncheckedUpdateManyWithoutRecipeNestedInput = {
-    create?: XOR<RecipeUstensilCreateWithoutRecipeInput, RecipeUstensilUncheckedCreateWithoutRecipeInput> | RecipeUstensilCreateWithoutRecipeInput[] | RecipeUstensilUncheckedCreateWithoutRecipeInput[]
-    connectOrCreate?: RecipeUstensilCreateOrConnectWithoutRecipeInput | RecipeUstensilCreateOrConnectWithoutRecipeInput[]
-    upsert?: RecipeUstensilUpsertWithWhereUniqueWithoutRecipeInput | RecipeUstensilUpsertWithWhereUniqueWithoutRecipeInput[]
-    createMany?: RecipeUstensilCreateManyRecipeInputEnvelope
-    set?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    disconnect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    delete?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    connect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    update?: RecipeUstensilUpdateWithWhereUniqueWithoutRecipeInput | RecipeUstensilUpdateWithWhereUniqueWithoutRecipeInput[]
-    updateMany?: RecipeUstensilUpdateManyWithWhereWithoutRecipeInput | RecipeUstensilUpdateManyWithWhereWithoutRecipeInput[]
-    deleteMany?: RecipeUstensilScalarWhereInput | RecipeUstensilScalarWhereInput[]
+  export type UstensilRecipeUncheckedUpdateManyWithoutRecipeNestedInput = {
+    create?: XOR<UstensilRecipeCreateWithoutRecipeInput, UstensilRecipeUncheckedCreateWithoutRecipeInput> | UstensilRecipeCreateWithoutRecipeInput[] | UstensilRecipeUncheckedCreateWithoutRecipeInput[]
+    connectOrCreate?: UstensilRecipeCreateOrConnectWithoutRecipeInput | UstensilRecipeCreateOrConnectWithoutRecipeInput[]
+    upsert?: UstensilRecipeUpsertWithWhereUniqueWithoutRecipeInput | UstensilRecipeUpsertWithWhereUniqueWithoutRecipeInput[]
+    createMany?: UstensilRecipeCreateManyRecipeInputEnvelope
+    set?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    disconnect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    delete?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    connect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    update?: UstensilRecipeUpdateWithWhereUniqueWithoutRecipeInput | UstensilRecipeUpdateWithWhereUniqueWithoutRecipeInput[]
+    updateMany?: UstensilRecipeUpdateManyWithWhereWithoutRecipeInput | UstensilRecipeUpdateManyWithWhereWithoutRecipeInput[]
+    deleteMany?: UstensilRecipeScalarWhereInput | UstensilRecipeScalarWhereInput[]
   }
 
   export type MoodRecipeUncheckedUpdateManyWithoutRecipeNestedInput = {
@@ -21302,46 +21302,46 @@ export namespace Prisma {
     deleteMany?: RecipeScalarWhereInput | RecipeScalarWhereInput[]
   }
 
-  export type RecipeIngredientCreateNestedManyWithoutIngredientInput = {
-    create?: XOR<RecipeIngredientCreateWithoutIngredientInput, RecipeIngredientUncheckedCreateWithoutIngredientInput> | RecipeIngredientCreateWithoutIngredientInput[] | RecipeIngredientUncheckedCreateWithoutIngredientInput[]
-    connectOrCreate?: RecipeIngredientCreateOrConnectWithoutIngredientInput | RecipeIngredientCreateOrConnectWithoutIngredientInput[]
-    createMany?: RecipeIngredientCreateManyIngredientInputEnvelope
-    connect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
+  export type IngredientRecipeCreateNestedManyWithoutIngredientInput = {
+    create?: XOR<IngredientRecipeCreateWithoutIngredientInput, IngredientRecipeUncheckedCreateWithoutIngredientInput> | IngredientRecipeCreateWithoutIngredientInput[] | IngredientRecipeUncheckedCreateWithoutIngredientInput[]
+    connectOrCreate?: IngredientRecipeCreateOrConnectWithoutIngredientInput | IngredientRecipeCreateOrConnectWithoutIngredientInput[]
+    createMany?: IngredientRecipeCreateManyIngredientInputEnvelope
+    connect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
   }
 
-  export type RecipeIngredientUncheckedCreateNestedManyWithoutIngredientInput = {
-    create?: XOR<RecipeIngredientCreateWithoutIngredientInput, RecipeIngredientUncheckedCreateWithoutIngredientInput> | RecipeIngredientCreateWithoutIngredientInput[] | RecipeIngredientUncheckedCreateWithoutIngredientInput[]
-    connectOrCreate?: RecipeIngredientCreateOrConnectWithoutIngredientInput | RecipeIngredientCreateOrConnectWithoutIngredientInput[]
-    createMany?: RecipeIngredientCreateManyIngredientInputEnvelope
-    connect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
+  export type IngredientRecipeUncheckedCreateNestedManyWithoutIngredientInput = {
+    create?: XOR<IngredientRecipeCreateWithoutIngredientInput, IngredientRecipeUncheckedCreateWithoutIngredientInput> | IngredientRecipeCreateWithoutIngredientInput[] | IngredientRecipeUncheckedCreateWithoutIngredientInput[]
+    connectOrCreate?: IngredientRecipeCreateOrConnectWithoutIngredientInput | IngredientRecipeCreateOrConnectWithoutIngredientInput[]
+    createMany?: IngredientRecipeCreateManyIngredientInputEnvelope
+    connect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
   }
 
-  export type RecipeIngredientUpdateManyWithoutIngredientNestedInput = {
-    create?: XOR<RecipeIngredientCreateWithoutIngredientInput, RecipeIngredientUncheckedCreateWithoutIngredientInput> | RecipeIngredientCreateWithoutIngredientInput[] | RecipeIngredientUncheckedCreateWithoutIngredientInput[]
-    connectOrCreate?: RecipeIngredientCreateOrConnectWithoutIngredientInput | RecipeIngredientCreateOrConnectWithoutIngredientInput[]
-    upsert?: RecipeIngredientUpsertWithWhereUniqueWithoutIngredientInput | RecipeIngredientUpsertWithWhereUniqueWithoutIngredientInput[]
-    createMany?: RecipeIngredientCreateManyIngredientInputEnvelope
-    set?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    disconnect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    delete?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    connect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    update?: RecipeIngredientUpdateWithWhereUniqueWithoutIngredientInput | RecipeIngredientUpdateWithWhereUniqueWithoutIngredientInput[]
-    updateMany?: RecipeIngredientUpdateManyWithWhereWithoutIngredientInput | RecipeIngredientUpdateManyWithWhereWithoutIngredientInput[]
-    deleteMany?: RecipeIngredientScalarWhereInput | RecipeIngredientScalarWhereInput[]
+  export type IngredientRecipeUpdateManyWithoutIngredientNestedInput = {
+    create?: XOR<IngredientRecipeCreateWithoutIngredientInput, IngredientRecipeUncheckedCreateWithoutIngredientInput> | IngredientRecipeCreateWithoutIngredientInput[] | IngredientRecipeUncheckedCreateWithoutIngredientInput[]
+    connectOrCreate?: IngredientRecipeCreateOrConnectWithoutIngredientInput | IngredientRecipeCreateOrConnectWithoutIngredientInput[]
+    upsert?: IngredientRecipeUpsertWithWhereUniqueWithoutIngredientInput | IngredientRecipeUpsertWithWhereUniqueWithoutIngredientInput[]
+    createMany?: IngredientRecipeCreateManyIngredientInputEnvelope
+    set?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    disconnect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    delete?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    connect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    update?: IngredientRecipeUpdateWithWhereUniqueWithoutIngredientInput | IngredientRecipeUpdateWithWhereUniqueWithoutIngredientInput[]
+    updateMany?: IngredientRecipeUpdateManyWithWhereWithoutIngredientInput | IngredientRecipeUpdateManyWithWhereWithoutIngredientInput[]
+    deleteMany?: IngredientRecipeScalarWhereInput | IngredientRecipeScalarWhereInput[]
   }
 
-  export type RecipeIngredientUncheckedUpdateManyWithoutIngredientNestedInput = {
-    create?: XOR<RecipeIngredientCreateWithoutIngredientInput, RecipeIngredientUncheckedCreateWithoutIngredientInput> | RecipeIngredientCreateWithoutIngredientInput[] | RecipeIngredientUncheckedCreateWithoutIngredientInput[]
-    connectOrCreate?: RecipeIngredientCreateOrConnectWithoutIngredientInput | RecipeIngredientCreateOrConnectWithoutIngredientInput[]
-    upsert?: RecipeIngredientUpsertWithWhereUniqueWithoutIngredientInput | RecipeIngredientUpsertWithWhereUniqueWithoutIngredientInput[]
-    createMany?: RecipeIngredientCreateManyIngredientInputEnvelope
-    set?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    disconnect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    delete?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    connect?: RecipeIngredientWhereUniqueInput | RecipeIngredientWhereUniqueInput[]
-    update?: RecipeIngredientUpdateWithWhereUniqueWithoutIngredientInput | RecipeIngredientUpdateWithWhereUniqueWithoutIngredientInput[]
-    updateMany?: RecipeIngredientUpdateManyWithWhereWithoutIngredientInput | RecipeIngredientUpdateManyWithWhereWithoutIngredientInput[]
-    deleteMany?: RecipeIngredientScalarWhereInput | RecipeIngredientScalarWhereInput[]
+  export type IngredientRecipeUncheckedUpdateManyWithoutIngredientNestedInput = {
+    create?: XOR<IngredientRecipeCreateWithoutIngredientInput, IngredientRecipeUncheckedCreateWithoutIngredientInput> | IngredientRecipeCreateWithoutIngredientInput[] | IngredientRecipeUncheckedCreateWithoutIngredientInput[]
+    connectOrCreate?: IngredientRecipeCreateOrConnectWithoutIngredientInput | IngredientRecipeCreateOrConnectWithoutIngredientInput[]
+    upsert?: IngredientRecipeUpsertWithWhereUniqueWithoutIngredientInput | IngredientRecipeUpsertWithWhereUniqueWithoutIngredientInput[]
+    createMany?: IngredientRecipeCreateManyIngredientInputEnvelope
+    set?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    disconnect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    delete?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    connect?: IngredientRecipeWhereUniqueInput | IngredientRecipeWhereUniqueInput[]
+    update?: IngredientRecipeUpdateWithWhereUniqueWithoutIngredientInput | IngredientRecipeUpdateWithWhereUniqueWithoutIngredientInput[]
+    updateMany?: IngredientRecipeUpdateManyWithWhereWithoutIngredientInput | IngredientRecipeUpdateManyWithWhereWithoutIngredientInput[]
+    deleteMany?: IngredientRecipeScalarWhereInput | IngredientRecipeScalarWhereInput[]
   }
 
   export type RecipeCreateNestedOneWithoutIngredientsInput = {
@@ -21372,46 +21372,46 @@ export namespace Prisma {
     update?: XOR<XOR<IngredientUpdateToOneWithWhereWithoutRecipesInput, IngredientUpdateWithoutRecipesInput>, IngredientUncheckedUpdateWithoutRecipesInput>
   }
 
-  export type RecipeUstensilCreateNestedManyWithoutUstensilInput = {
-    create?: XOR<RecipeUstensilCreateWithoutUstensilInput, RecipeUstensilUncheckedCreateWithoutUstensilInput> | RecipeUstensilCreateWithoutUstensilInput[] | RecipeUstensilUncheckedCreateWithoutUstensilInput[]
-    connectOrCreate?: RecipeUstensilCreateOrConnectWithoutUstensilInput | RecipeUstensilCreateOrConnectWithoutUstensilInput[]
-    createMany?: RecipeUstensilCreateManyUstensilInputEnvelope
-    connect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
+  export type UstensilRecipeCreateNestedManyWithoutUstensilInput = {
+    create?: XOR<UstensilRecipeCreateWithoutUstensilInput, UstensilRecipeUncheckedCreateWithoutUstensilInput> | UstensilRecipeCreateWithoutUstensilInput[] | UstensilRecipeUncheckedCreateWithoutUstensilInput[]
+    connectOrCreate?: UstensilRecipeCreateOrConnectWithoutUstensilInput | UstensilRecipeCreateOrConnectWithoutUstensilInput[]
+    createMany?: UstensilRecipeCreateManyUstensilInputEnvelope
+    connect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
   }
 
-  export type RecipeUstensilUncheckedCreateNestedManyWithoutUstensilInput = {
-    create?: XOR<RecipeUstensilCreateWithoutUstensilInput, RecipeUstensilUncheckedCreateWithoutUstensilInput> | RecipeUstensilCreateWithoutUstensilInput[] | RecipeUstensilUncheckedCreateWithoutUstensilInput[]
-    connectOrCreate?: RecipeUstensilCreateOrConnectWithoutUstensilInput | RecipeUstensilCreateOrConnectWithoutUstensilInput[]
-    createMany?: RecipeUstensilCreateManyUstensilInputEnvelope
-    connect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
+  export type UstensilRecipeUncheckedCreateNestedManyWithoutUstensilInput = {
+    create?: XOR<UstensilRecipeCreateWithoutUstensilInput, UstensilRecipeUncheckedCreateWithoutUstensilInput> | UstensilRecipeCreateWithoutUstensilInput[] | UstensilRecipeUncheckedCreateWithoutUstensilInput[]
+    connectOrCreate?: UstensilRecipeCreateOrConnectWithoutUstensilInput | UstensilRecipeCreateOrConnectWithoutUstensilInput[]
+    createMany?: UstensilRecipeCreateManyUstensilInputEnvelope
+    connect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
   }
 
-  export type RecipeUstensilUpdateManyWithoutUstensilNestedInput = {
-    create?: XOR<RecipeUstensilCreateWithoutUstensilInput, RecipeUstensilUncheckedCreateWithoutUstensilInput> | RecipeUstensilCreateWithoutUstensilInput[] | RecipeUstensilUncheckedCreateWithoutUstensilInput[]
-    connectOrCreate?: RecipeUstensilCreateOrConnectWithoutUstensilInput | RecipeUstensilCreateOrConnectWithoutUstensilInput[]
-    upsert?: RecipeUstensilUpsertWithWhereUniqueWithoutUstensilInput | RecipeUstensilUpsertWithWhereUniqueWithoutUstensilInput[]
-    createMany?: RecipeUstensilCreateManyUstensilInputEnvelope
-    set?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    disconnect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    delete?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    connect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    update?: RecipeUstensilUpdateWithWhereUniqueWithoutUstensilInput | RecipeUstensilUpdateWithWhereUniqueWithoutUstensilInput[]
-    updateMany?: RecipeUstensilUpdateManyWithWhereWithoutUstensilInput | RecipeUstensilUpdateManyWithWhereWithoutUstensilInput[]
-    deleteMany?: RecipeUstensilScalarWhereInput | RecipeUstensilScalarWhereInput[]
+  export type UstensilRecipeUpdateManyWithoutUstensilNestedInput = {
+    create?: XOR<UstensilRecipeCreateWithoutUstensilInput, UstensilRecipeUncheckedCreateWithoutUstensilInput> | UstensilRecipeCreateWithoutUstensilInput[] | UstensilRecipeUncheckedCreateWithoutUstensilInput[]
+    connectOrCreate?: UstensilRecipeCreateOrConnectWithoutUstensilInput | UstensilRecipeCreateOrConnectWithoutUstensilInput[]
+    upsert?: UstensilRecipeUpsertWithWhereUniqueWithoutUstensilInput | UstensilRecipeUpsertWithWhereUniqueWithoutUstensilInput[]
+    createMany?: UstensilRecipeCreateManyUstensilInputEnvelope
+    set?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    disconnect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    delete?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    connect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    update?: UstensilRecipeUpdateWithWhereUniqueWithoutUstensilInput | UstensilRecipeUpdateWithWhereUniqueWithoutUstensilInput[]
+    updateMany?: UstensilRecipeUpdateManyWithWhereWithoutUstensilInput | UstensilRecipeUpdateManyWithWhereWithoutUstensilInput[]
+    deleteMany?: UstensilRecipeScalarWhereInput | UstensilRecipeScalarWhereInput[]
   }
 
-  export type RecipeUstensilUncheckedUpdateManyWithoutUstensilNestedInput = {
-    create?: XOR<RecipeUstensilCreateWithoutUstensilInput, RecipeUstensilUncheckedCreateWithoutUstensilInput> | RecipeUstensilCreateWithoutUstensilInput[] | RecipeUstensilUncheckedCreateWithoutUstensilInput[]
-    connectOrCreate?: RecipeUstensilCreateOrConnectWithoutUstensilInput | RecipeUstensilCreateOrConnectWithoutUstensilInput[]
-    upsert?: RecipeUstensilUpsertWithWhereUniqueWithoutUstensilInput | RecipeUstensilUpsertWithWhereUniqueWithoutUstensilInput[]
-    createMany?: RecipeUstensilCreateManyUstensilInputEnvelope
-    set?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    disconnect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    delete?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    connect?: RecipeUstensilWhereUniqueInput | RecipeUstensilWhereUniqueInput[]
-    update?: RecipeUstensilUpdateWithWhereUniqueWithoutUstensilInput | RecipeUstensilUpdateWithWhereUniqueWithoutUstensilInput[]
-    updateMany?: RecipeUstensilUpdateManyWithWhereWithoutUstensilInput | RecipeUstensilUpdateManyWithWhereWithoutUstensilInput[]
-    deleteMany?: RecipeUstensilScalarWhereInput | RecipeUstensilScalarWhereInput[]
+  export type UstensilRecipeUncheckedUpdateManyWithoutUstensilNestedInput = {
+    create?: XOR<UstensilRecipeCreateWithoutUstensilInput, UstensilRecipeUncheckedCreateWithoutUstensilInput> | UstensilRecipeCreateWithoutUstensilInput[] | UstensilRecipeUncheckedCreateWithoutUstensilInput[]
+    connectOrCreate?: UstensilRecipeCreateOrConnectWithoutUstensilInput | UstensilRecipeCreateOrConnectWithoutUstensilInput[]
+    upsert?: UstensilRecipeUpsertWithWhereUniqueWithoutUstensilInput | UstensilRecipeUpsertWithWhereUniqueWithoutUstensilInput[]
+    createMany?: UstensilRecipeCreateManyUstensilInputEnvelope
+    set?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    disconnect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    delete?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    connect?: UstensilRecipeWhereUniqueInput | UstensilRecipeWhereUniqueInput[]
+    update?: UstensilRecipeUpdateWithWhereUniqueWithoutUstensilInput | UstensilRecipeUpdateWithWhereUniqueWithoutUstensilInput[]
+    updateMany?: UstensilRecipeUpdateManyWithWhereWithoutUstensilInput | UstensilRecipeUpdateManyWithWhereWithoutUstensilInput[]
+    deleteMany?: UstensilRecipeScalarWhereInput | UstensilRecipeScalarWhereInput[]
   }
 
   export type RecipeCreateNestedOneWithoutUstensilsInput = {
@@ -21881,8 +21881,8 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ingredients?: RecipeIngredientCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeCreateNestedManyWithoutRecipeInput
     type: TypeCreateNestedOneWithoutRecipesInput
     moods?: MoodRecipeCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeCreateNestedManyWithoutRecipeInput
@@ -21901,8 +21901,8 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ingredients?: RecipeIngredientUncheckedCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilUncheckedCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeUncheckedCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeUncheckedCreateNestedManyWithoutRecipeInput
     moods?: MoodRecipeUncheckedCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeUncheckedCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeUncheckedCreateNestedManyWithoutRecipeInput
@@ -22114,45 +22114,45 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutRecipesInput, UserUncheckedCreateWithoutRecipesInput>
   }
 
-  export type RecipeIngredientCreateWithoutRecipeInput = {
+  export type IngredientRecipeCreateWithoutRecipeInput = {
     id?: string
     quantity: string
     ingredient: IngredientCreateNestedOneWithoutRecipesInput
   }
 
-  export type RecipeIngredientUncheckedCreateWithoutRecipeInput = {
+  export type IngredientRecipeUncheckedCreateWithoutRecipeInput = {
     id?: string
     ingredientId: string
     quantity: string
   }
 
-  export type RecipeIngredientCreateOrConnectWithoutRecipeInput = {
-    where: RecipeIngredientWhereUniqueInput
-    create: XOR<RecipeIngredientCreateWithoutRecipeInput, RecipeIngredientUncheckedCreateWithoutRecipeInput>
+  export type IngredientRecipeCreateOrConnectWithoutRecipeInput = {
+    where: IngredientRecipeWhereUniqueInput
+    create: XOR<IngredientRecipeCreateWithoutRecipeInput, IngredientRecipeUncheckedCreateWithoutRecipeInput>
   }
 
-  export type RecipeIngredientCreateManyRecipeInputEnvelope = {
-    data: RecipeIngredientCreateManyRecipeInput | RecipeIngredientCreateManyRecipeInput[]
+  export type IngredientRecipeCreateManyRecipeInputEnvelope = {
+    data: IngredientRecipeCreateManyRecipeInput | IngredientRecipeCreateManyRecipeInput[]
     skipDuplicates?: boolean
   }
 
-  export type RecipeUstensilCreateWithoutRecipeInput = {
+  export type UstensilRecipeCreateWithoutRecipeInput = {
     id?: string
     ustensil: UstensilCreateNestedOneWithoutRecipesInput
   }
 
-  export type RecipeUstensilUncheckedCreateWithoutRecipeInput = {
+  export type UstensilRecipeUncheckedCreateWithoutRecipeInput = {
     id?: string
     ustensilId: string
   }
 
-  export type RecipeUstensilCreateOrConnectWithoutRecipeInput = {
-    where: RecipeUstensilWhereUniqueInput
-    create: XOR<RecipeUstensilCreateWithoutRecipeInput, RecipeUstensilUncheckedCreateWithoutRecipeInput>
+  export type UstensilRecipeCreateOrConnectWithoutRecipeInput = {
+    where: UstensilRecipeWhereUniqueInput
+    create: XOR<UstensilRecipeCreateWithoutRecipeInput, UstensilRecipeUncheckedCreateWithoutRecipeInput>
   }
 
-  export type RecipeUstensilCreateManyRecipeInputEnvelope = {
-    data: RecipeUstensilCreateManyRecipeInput | RecipeUstensilCreateManyRecipeInput[]
+  export type UstensilRecipeCreateManyRecipeInputEnvelope = {
+    data: UstensilRecipeCreateManyRecipeInput | UstensilRecipeCreateManyRecipeInput[]
     skipDuplicates?: boolean
   }
 
@@ -22288,55 +22288,55 @@ export namespace Prisma {
     favorites?: FavoriteUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type RecipeIngredientUpsertWithWhereUniqueWithoutRecipeInput = {
-    where: RecipeIngredientWhereUniqueInput
-    update: XOR<RecipeIngredientUpdateWithoutRecipeInput, RecipeIngredientUncheckedUpdateWithoutRecipeInput>
-    create: XOR<RecipeIngredientCreateWithoutRecipeInput, RecipeIngredientUncheckedCreateWithoutRecipeInput>
+  export type IngredientRecipeUpsertWithWhereUniqueWithoutRecipeInput = {
+    where: IngredientRecipeWhereUniqueInput
+    update: XOR<IngredientRecipeUpdateWithoutRecipeInput, IngredientRecipeUncheckedUpdateWithoutRecipeInput>
+    create: XOR<IngredientRecipeCreateWithoutRecipeInput, IngredientRecipeUncheckedCreateWithoutRecipeInput>
   }
 
-  export type RecipeIngredientUpdateWithWhereUniqueWithoutRecipeInput = {
-    where: RecipeIngredientWhereUniqueInput
-    data: XOR<RecipeIngredientUpdateWithoutRecipeInput, RecipeIngredientUncheckedUpdateWithoutRecipeInput>
+  export type IngredientRecipeUpdateWithWhereUniqueWithoutRecipeInput = {
+    where: IngredientRecipeWhereUniqueInput
+    data: XOR<IngredientRecipeUpdateWithoutRecipeInput, IngredientRecipeUncheckedUpdateWithoutRecipeInput>
   }
 
-  export type RecipeIngredientUpdateManyWithWhereWithoutRecipeInput = {
-    where: RecipeIngredientScalarWhereInput
-    data: XOR<RecipeIngredientUpdateManyMutationInput, RecipeIngredientUncheckedUpdateManyWithoutRecipeInput>
+  export type IngredientRecipeUpdateManyWithWhereWithoutRecipeInput = {
+    where: IngredientRecipeScalarWhereInput
+    data: XOR<IngredientRecipeUpdateManyMutationInput, IngredientRecipeUncheckedUpdateManyWithoutRecipeInput>
   }
 
-  export type RecipeIngredientScalarWhereInput = {
-    AND?: RecipeIngredientScalarWhereInput | RecipeIngredientScalarWhereInput[]
-    OR?: RecipeIngredientScalarWhereInput[]
-    NOT?: RecipeIngredientScalarWhereInput | RecipeIngredientScalarWhereInput[]
-    id?: StringFilter<"RecipeIngredient"> | string
-    recipeId?: StringFilter<"RecipeIngredient"> | string
-    ingredientId?: StringFilter<"RecipeIngredient"> | string
-    quantity?: StringFilter<"RecipeIngredient"> | string
+  export type IngredientRecipeScalarWhereInput = {
+    AND?: IngredientRecipeScalarWhereInput | IngredientRecipeScalarWhereInput[]
+    OR?: IngredientRecipeScalarWhereInput[]
+    NOT?: IngredientRecipeScalarWhereInput | IngredientRecipeScalarWhereInput[]
+    id?: StringFilter<"IngredientRecipe"> | string
+    recipeId?: StringFilter<"IngredientRecipe"> | string
+    ingredientId?: StringFilter<"IngredientRecipe"> | string
+    quantity?: StringFilter<"IngredientRecipe"> | string
   }
 
-  export type RecipeUstensilUpsertWithWhereUniqueWithoutRecipeInput = {
-    where: RecipeUstensilWhereUniqueInput
-    update: XOR<RecipeUstensilUpdateWithoutRecipeInput, RecipeUstensilUncheckedUpdateWithoutRecipeInput>
-    create: XOR<RecipeUstensilCreateWithoutRecipeInput, RecipeUstensilUncheckedCreateWithoutRecipeInput>
+  export type UstensilRecipeUpsertWithWhereUniqueWithoutRecipeInput = {
+    where: UstensilRecipeWhereUniqueInput
+    update: XOR<UstensilRecipeUpdateWithoutRecipeInput, UstensilRecipeUncheckedUpdateWithoutRecipeInput>
+    create: XOR<UstensilRecipeCreateWithoutRecipeInput, UstensilRecipeUncheckedCreateWithoutRecipeInput>
   }
 
-  export type RecipeUstensilUpdateWithWhereUniqueWithoutRecipeInput = {
-    where: RecipeUstensilWhereUniqueInput
-    data: XOR<RecipeUstensilUpdateWithoutRecipeInput, RecipeUstensilUncheckedUpdateWithoutRecipeInput>
+  export type UstensilRecipeUpdateWithWhereUniqueWithoutRecipeInput = {
+    where: UstensilRecipeWhereUniqueInput
+    data: XOR<UstensilRecipeUpdateWithoutRecipeInput, UstensilRecipeUncheckedUpdateWithoutRecipeInput>
   }
 
-  export type RecipeUstensilUpdateManyWithWhereWithoutRecipeInput = {
-    where: RecipeUstensilScalarWhereInput
-    data: XOR<RecipeUstensilUpdateManyMutationInput, RecipeUstensilUncheckedUpdateManyWithoutRecipeInput>
+  export type UstensilRecipeUpdateManyWithWhereWithoutRecipeInput = {
+    where: UstensilRecipeScalarWhereInput
+    data: XOR<UstensilRecipeUpdateManyMutationInput, UstensilRecipeUncheckedUpdateManyWithoutRecipeInput>
   }
 
-  export type RecipeUstensilScalarWhereInput = {
-    AND?: RecipeUstensilScalarWhereInput | RecipeUstensilScalarWhereInput[]
-    OR?: RecipeUstensilScalarWhereInput[]
-    NOT?: RecipeUstensilScalarWhereInput | RecipeUstensilScalarWhereInput[]
-    id?: StringFilter<"RecipeUstensil"> | string
-    recipeId?: StringFilter<"RecipeUstensil"> | string
-    ustensilId?: StringFilter<"RecipeUstensil"> | string
+  export type UstensilRecipeScalarWhereInput = {
+    AND?: UstensilRecipeScalarWhereInput | UstensilRecipeScalarWhereInput[]
+    OR?: UstensilRecipeScalarWhereInput[]
+    NOT?: UstensilRecipeScalarWhereInput | UstensilRecipeScalarWhereInput[]
+    id?: StringFilter<"UstensilRecipe"> | string
+    recipeId?: StringFilter<"UstensilRecipe"> | string
+    ustensilId?: StringFilter<"UstensilRecipe"> | string
   }
 
   export type TypeUpsertWithoutRecipesInput = {
@@ -22462,8 +22462,8 @@ export namespace Prisma {
     cookTime: number
     createAt?: Date | string
     user: UserCreateNestedOneWithoutRecipesInput
-    ingredients?: RecipeIngredientCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeCreateNestedManyWithoutRecipeInput
     moods?: MoodRecipeCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeCreateNestedManyWithoutRecipeInput
@@ -22481,8 +22481,8 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ingredients?: RecipeIngredientUncheckedCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilUncheckedCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeUncheckedCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeUncheckedCreateNestedManyWithoutRecipeInput
     moods?: MoodRecipeUncheckedCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeUncheckedCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeUncheckedCreateNestedManyWithoutRecipeInput
@@ -22515,42 +22515,42 @@ export namespace Prisma {
     data: XOR<RecipeUpdateManyMutationInput, RecipeUncheckedUpdateManyWithoutTypeInput>
   }
 
-  export type RecipeIngredientCreateWithoutIngredientInput = {
+  export type IngredientRecipeCreateWithoutIngredientInput = {
     id?: string
     quantity: string
     recipe: RecipeCreateNestedOneWithoutIngredientsInput
   }
 
-  export type RecipeIngredientUncheckedCreateWithoutIngredientInput = {
+  export type IngredientRecipeUncheckedCreateWithoutIngredientInput = {
     id?: string
     recipeId: string
     quantity: string
   }
 
-  export type RecipeIngredientCreateOrConnectWithoutIngredientInput = {
-    where: RecipeIngredientWhereUniqueInput
-    create: XOR<RecipeIngredientCreateWithoutIngredientInput, RecipeIngredientUncheckedCreateWithoutIngredientInput>
+  export type IngredientRecipeCreateOrConnectWithoutIngredientInput = {
+    where: IngredientRecipeWhereUniqueInput
+    create: XOR<IngredientRecipeCreateWithoutIngredientInput, IngredientRecipeUncheckedCreateWithoutIngredientInput>
   }
 
-  export type RecipeIngredientCreateManyIngredientInputEnvelope = {
-    data: RecipeIngredientCreateManyIngredientInput | RecipeIngredientCreateManyIngredientInput[]
+  export type IngredientRecipeCreateManyIngredientInputEnvelope = {
+    data: IngredientRecipeCreateManyIngredientInput | IngredientRecipeCreateManyIngredientInput[]
     skipDuplicates?: boolean
   }
 
-  export type RecipeIngredientUpsertWithWhereUniqueWithoutIngredientInput = {
-    where: RecipeIngredientWhereUniqueInput
-    update: XOR<RecipeIngredientUpdateWithoutIngredientInput, RecipeIngredientUncheckedUpdateWithoutIngredientInput>
-    create: XOR<RecipeIngredientCreateWithoutIngredientInput, RecipeIngredientUncheckedCreateWithoutIngredientInput>
+  export type IngredientRecipeUpsertWithWhereUniqueWithoutIngredientInput = {
+    where: IngredientRecipeWhereUniqueInput
+    update: XOR<IngredientRecipeUpdateWithoutIngredientInput, IngredientRecipeUncheckedUpdateWithoutIngredientInput>
+    create: XOR<IngredientRecipeCreateWithoutIngredientInput, IngredientRecipeUncheckedCreateWithoutIngredientInput>
   }
 
-  export type RecipeIngredientUpdateWithWhereUniqueWithoutIngredientInput = {
-    where: RecipeIngredientWhereUniqueInput
-    data: XOR<RecipeIngredientUpdateWithoutIngredientInput, RecipeIngredientUncheckedUpdateWithoutIngredientInput>
+  export type IngredientRecipeUpdateWithWhereUniqueWithoutIngredientInput = {
+    where: IngredientRecipeWhereUniqueInput
+    data: XOR<IngredientRecipeUpdateWithoutIngredientInput, IngredientRecipeUncheckedUpdateWithoutIngredientInput>
   }
 
-  export type RecipeIngredientUpdateManyWithWhereWithoutIngredientInput = {
-    where: RecipeIngredientScalarWhereInput
-    data: XOR<RecipeIngredientUpdateManyMutationInput, RecipeIngredientUncheckedUpdateManyWithoutIngredientInput>
+  export type IngredientRecipeUpdateManyWithWhereWithoutIngredientInput = {
+    where: IngredientRecipeScalarWhereInput
+    data: XOR<IngredientRecipeUpdateManyMutationInput, IngredientRecipeUncheckedUpdateManyWithoutIngredientInput>
   }
 
   export type RecipeCreateWithoutIngredientsInput = {
@@ -22564,7 +22564,7 @@ export namespace Prisma {
     cookTime: number
     createAt?: Date | string
     user: UserCreateNestedOneWithoutRecipesInput
-    ustensils?: RecipeUstensilCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeCreateNestedManyWithoutRecipeInput
     type: TypeCreateNestedOneWithoutRecipesInput
     moods?: MoodRecipeCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeCreateNestedManyWithoutRecipeInput
@@ -22584,7 +22584,7 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ustensils?: RecipeUstensilUncheckedCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeUncheckedCreateNestedManyWithoutRecipeInput
     moods?: MoodRecipeUncheckedCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeUncheckedCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeUncheckedCreateNestedManyWithoutRecipeInput
@@ -22633,7 +22633,7 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutRecipesNestedInput
-    ustensils?: RecipeUstensilUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUpdateManyWithoutRecipeNestedInput
     type?: TypeUpdateOneRequiredWithoutRecipesNestedInput
     moods?: MoodRecipeUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUpdateManyWithoutRecipeNestedInput
@@ -22653,7 +22653,7 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ustensils?: RecipeUstensilUncheckedUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     moods?: MoodRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUncheckedUpdateManyWithoutRecipeNestedInput
@@ -22681,40 +22681,40 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeUstensilCreateWithoutUstensilInput = {
+  export type UstensilRecipeCreateWithoutUstensilInput = {
     id?: string
     recipe: RecipeCreateNestedOneWithoutUstensilsInput
   }
 
-  export type RecipeUstensilUncheckedCreateWithoutUstensilInput = {
+  export type UstensilRecipeUncheckedCreateWithoutUstensilInput = {
     id?: string
     recipeId: string
   }
 
-  export type RecipeUstensilCreateOrConnectWithoutUstensilInput = {
-    where: RecipeUstensilWhereUniqueInput
-    create: XOR<RecipeUstensilCreateWithoutUstensilInput, RecipeUstensilUncheckedCreateWithoutUstensilInput>
+  export type UstensilRecipeCreateOrConnectWithoutUstensilInput = {
+    where: UstensilRecipeWhereUniqueInput
+    create: XOR<UstensilRecipeCreateWithoutUstensilInput, UstensilRecipeUncheckedCreateWithoutUstensilInput>
   }
 
-  export type RecipeUstensilCreateManyUstensilInputEnvelope = {
-    data: RecipeUstensilCreateManyUstensilInput | RecipeUstensilCreateManyUstensilInput[]
+  export type UstensilRecipeCreateManyUstensilInputEnvelope = {
+    data: UstensilRecipeCreateManyUstensilInput | UstensilRecipeCreateManyUstensilInput[]
     skipDuplicates?: boolean
   }
 
-  export type RecipeUstensilUpsertWithWhereUniqueWithoutUstensilInput = {
-    where: RecipeUstensilWhereUniqueInput
-    update: XOR<RecipeUstensilUpdateWithoutUstensilInput, RecipeUstensilUncheckedUpdateWithoutUstensilInput>
-    create: XOR<RecipeUstensilCreateWithoutUstensilInput, RecipeUstensilUncheckedCreateWithoutUstensilInput>
+  export type UstensilRecipeUpsertWithWhereUniqueWithoutUstensilInput = {
+    where: UstensilRecipeWhereUniqueInput
+    update: XOR<UstensilRecipeUpdateWithoutUstensilInput, UstensilRecipeUncheckedUpdateWithoutUstensilInput>
+    create: XOR<UstensilRecipeCreateWithoutUstensilInput, UstensilRecipeUncheckedCreateWithoutUstensilInput>
   }
 
-  export type RecipeUstensilUpdateWithWhereUniqueWithoutUstensilInput = {
-    where: RecipeUstensilWhereUniqueInput
-    data: XOR<RecipeUstensilUpdateWithoutUstensilInput, RecipeUstensilUncheckedUpdateWithoutUstensilInput>
+  export type UstensilRecipeUpdateWithWhereUniqueWithoutUstensilInput = {
+    where: UstensilRecipeWhereUniqueInput
+    data: XOR<UstensilRecipeUpdateWithoutUstensilInput, UstensilRecipeUncheckedUpdateWithoutUstensilInput>
   }
 
-  export type RecipeUstensilUpdateManyWithWhereWithoutUstensilInput = {
-    where: RecipeUstensilScalarWhereInput
-    data: XOR<RecipeUstensilUpdateManyMutationInput, RecipeUstensilUncheckedUpdateManyWithoutUstensilInput>
+  export type UstensilRecipeUpdateManyWithWhereWithoutUstensilInput = {
+    where: UstensilRecipeScalarWhereInput
+    data: XOR<UstensilRecipeUpdateManyMutationInput, UstensilRecipeUncheckedUpdateManyWithoutUstensilInput>
   }
 
   export type RecipeCreateWithoutUstensilsInput = {
@@ -22728,7 +22728,7 @@ export namespace Prisma {
     cookTime: number
     createAt?: Date | string
     user: UserCreateNestedOneWithoutRecipesInput
-    ingredients?: RecipeIngredientCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeCreateNestedManyWithoutRecipeInput
     type: TypeCreateNestedOneWithoutRecipesInput
     moods?: MoodRecipeCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeCreateNestedManyWithoutRecipeInput
@@ -22748,7 +22748,7 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ingredients?: RecipeIngredientUncheckedCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeUncheckedCreateNestedManyWithoutRecipeInput
     moods?: MoodRecipeUncheckedCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeUncheckedCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeUncheckedCreateNestedManyWithoutRecipeInput
@@ -22797,7 +22797,7 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutRecipesNestedInput
-    ingredients?: RecipeIngredientUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUpdateManyWithoutRecipeNestedInput
     type?: TypeUpdateOneRequiredWithoutRecipesNestedInput
     moods?: MoodRecipeUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUpdateManyWithoutRecipeNestedInput
@@ -22817,7 +22817,7 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ingredients?: RecipeIngredientUncheckedUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     moods?: MoodRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUncheckedUpdateManyWithoutRecipeNestedInput
@@ -22892,8 +22892,8 @@ export namespace Prisma {
     cookTime: number
     createAt?: Date | string
     user: UserCreateNestedOneWithoutRecipesInput
-    ingredients?: RecipeIngredientCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeCreateNestedManyWithoutRecipeInput
     type: TypeCreateNestedOneWithoutRecipesInput
     diets?: DietRecipeCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeCreateNestedManyWithoutRecipeInput
@@ -22912,8 +22912,8 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ingredients?: RecipeIngredientUncheckedCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilUncheckedCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeUncheckedCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeUncheckedCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeUncheckedCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeUncheckedCreateNestedManyWithoutRecipeInput
     favorites?: FavoriteUncheckedCreateNestedManyWithoutRecipeInput
@@ -22961,8 +22961,8 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutRecipesNestedInput
-    ingredients?: RecipeIngredientUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUpdateManyWithoutRecipeNestedInput
     type?: TypeUpdateOneRequiredWithoutRecipesNestedInput
     diets?: DietRecipeUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUpdateManyWithoutRecipeNestedInput
@@ -22981,8 +22981,8 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ingredients?: RecipeIngredientUncheckedUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUncheckedUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUncheckedUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     favorites?: FavoriteUncheckedUpdateManyWithoutRecipeNestedInput
@@ -23056,8 +23056,8 @@ export namespace Prisma {
     cookTime: number
     createAt?: Date | string
     user: UserCreateNestedOneWithoutRecipesInput
-    ingredients?: RecipeIngredientCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeCreateNestedManyWithoutRecipeInput
     type: TypeCreateNestedOneWithoutRecipesInput
     moods?: MoodRecipeCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeCreateNestedManyWithoutRecipeInput
@@ -23076,8 +23076,8 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ingredients?: RecipeIngredientUncheckedCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilUncheckedCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeUncheckedCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeUncheckedCreateNestedManyWithoutRecipeInput
     moods?: MoodRecipeUncheckedCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeUncheckedCreateNestedManyWithoutRecipeInput
     favorites?: FavoriteUncheckedCreateNestedManyWithoutRecipeInput
@@ -23125,8 +23125,8 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutRecipesNestedInput
-    ingredients?: RecipeIngredientUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUpdateManyWithoutRecipeNestedInput
     type?: TypeUpdateOneRequiredWithoutRecipesNestedInput
     moods?: MoodRecipeUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUpdateManyWithoutRecipeNestedInput
@@ -23145,8 +23145,8 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ingredients?: RecipeIngredientUncheckedUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUncheckedUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUncheckedUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     moods?: MoodRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     favorites?: FavoriteUncheckedUpdateManyWithoutRecipeNestedInput
@@ -23220,8 +23220,8 @@ export namespace Prisma {
     cookTime: number
     createAt?: Date | string
     user: UserCreateNestedOneWithoutRecipesInput
-    ingredients?: RecipeIngredientCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeCreateNestedManyWithoutRecipeInput
     type: TypeCreateNestedOneWithoutRecipesInput
     moods?: MoodRecipeCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeCreateNestedManyWithoutRecipeInput
@@ -23240,8 +23240,8 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ingredients?: RecipeIngredientUncheckedCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilUncheckedCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeUncheckedCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeUncheckedCreateNestedManyWithoutRecipeInput
     moods?: MoodRecipeUncheckedCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeUncheckedCreateNestedManyWithoutRecipeInput
     favorites?: FavoriteUncheckedCreateNestedManyWithoutRecipeInput
@@ -23289,8 +23289,8 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutRecipesNestedInput
-    ingredients?: RecipeIngredientUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUpdateManyWithoutRecipeNestedInput
     type?: TypeUpdateOneRequiredWithoutRecipesNestedInput
     moods?: MoodRecipeUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUpdateManyWithoutRecipeNestedInput
@@ -23309,8 +23309,8 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ingredients?: RecipeIngredientUncheckedUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUncheckedUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUncheckedUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     moods?: MoodRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     favorites?: FavoriteUncheckedUpdateManyWithoutRecipeNestedInput
@@ -23377,8 +23377,8 @@ export namespace Prisma {
     cookTime: number
     createAt?: Date | string
     user: UserCreateNestedOneWithoutRecipesInput
-    ingredients?: RecipeIngredientCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeCreateNestedManyWithoutRecipeInput
     type: TypeCreateNestedOneWithoutRecipesInput
     moods?: MoodRecipeCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeCreateNestedManyWithoutRecipeInput
@@ -23397,8 +23397,8 @@ export namespace Prisma {
     prepTime: number
     cookTime: number
     createAt?: Date | string
-    ingredients?: RecipeIngredientUncheckedCreateNestedManyWithoutRecipeInput
-    ustensils?: RecipeUstensilUncheckedCreateNestedManyWithoutRecipeInput
+    ingredients?: IngredientRecipeUncheckedCreateNestedManyWithoutRecipeInput
+    ustensils?: UstensilRecipeUncheckedCreateNestedManyWithoutRecipeInput
     moods?: MoodRecipeUncheckedCreateNestedManyWithoutRecipeInput
     diets?: DietRecipeUncheckedCreateNestedManyWithoutRecipeInput
     origins?: OriginRecipeUncheckedCreateNestedManyWithoutRecipeInput
@@ -23466,8 +23466,8 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutRecipesNestedInput
-    ingredients?: RecipeIngredientUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUpdateManyWithoutRecipeNestedInput
     type?: TypeUpdateOneRequiredWithoutRecipesNestedInput
     moods?: MoodRecipeUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUpdateManyWithoutRecipeNestedInput
@@ -23486,8 +23486,8 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ingredients?: RecipeIngredientUncheckedUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUncheckedUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUncheckedUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     moods?: MoodRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUncheckedUpdateManyWithoutRecipeNestedInput
@@ -23522,8 +23522,8 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ingredients?: RecipeIngredientUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUpdateManyWithoutRecipeNestedInput
     type?: TypeUpdateOneRequiredWithoutRecipesNestedInput
     moods?: MoodRecipeUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUpdateManyWithoutRecipeNestedInput
@@ -23542,8 +23542,8 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ingredients?: RecipeIngredientUncheckedUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUncheckedUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUncheckedUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     moods?: MoodRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUncheckedUpdateManyWithoutRecipeNestedInput
@@ -23625,13 +23625,13 @@ export namespace Prisma {
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type RecipeIngredientCreateManyRecipeInput = {
+  export type IngredientRecipeCreateManyRecipeInput = {
     id?: string
     ingredientId: string
     quantity: string
   }
 
-  export type RecipeUstensilCreateManyRecipeInput = {
+  export type UstensilRecipeCreateManyRecipeInput = {
     id?: string
     ustensilId: string
   }
@@ -23657,35 +23657,35 @@ export namespace Prisma {
     createAt?: Date | string
   }
 
-  export type RecipeIngredientUpdateWithoutRecipeInput = {
+  export type IngredientRecipeUpdateWithoutRecipeInput = {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: StringFieldUpdateOperationsInput | string
     ingredient?: IngredientUpdateOneRequiredWithoutRecipesNestedInput
   }
 
-  export type RecipeIngredientUncheckedUpdateWithoutRecipeInput = {
+  export type IngredientRecipeUncheckedUpdateWithoutRecipeInput = {
     id?: StringFieldUpdateOperationsInput | string
     ingredientId?: StringFieldUpdateOperationsInput | string
     quantity?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeIngredientUncheckedUpdateManyWithoutRecipeInput = {
+  export type IngredientRecipeUncheckedUpdateManyWithoutRecipeInput = {
     id?: StringFieldUpdateOperationsInput | string
     ingredientId?: StringFieldUpdateOperationsInput | string
     quantity?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeUstensilUpdateWithoutRecipeInput = {
+  export type UstensilRecipeUpdateWithoutRecipeInput = {
     id?: StringFieldUpdateOperationsInput | string
     ustensil?: UstensilUpdateOneRequiredWithoutRecipesNestedInput
   }
 
-  export type RecipeUstensilUncheckedUpdateWithoutRecipeInput = {
+  export type UstensilRecipeUncheckedUpdateWithoutRecipeInput = {
     id?: StringFieldUpdateOperationsInput | string
     ustensilId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeUstensilUncheckedUpdateManyWithoutRecipeInput = {
+  export type UstensilRecipeUncheckedUpdateManyWithoutRecipeInput = {
     id?: StringFieldUpdateOperationsInput | string
     ustensilId?: StringFieldUpdateOperationsInput | string
   }
@@ -23777,8 +23777,8 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutRecipesNestedInput
-    ingredients?: RecipeIngredientUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUpdateManyWithoutRecipeNestedInput
     moods?: MoodRecipeUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUpdateManyWithoutRecipeNestedInput
@@ -23796,8 +23796,8 @@ export namespace Prisma {
     prepTime?: IntFieldUpdateOperationsInput | number
     cookTime?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ingredients?: RecipeIngredientUncheckedUpdateManyWithoutRecipeNestedInput
-    ustensils?: RecipeUstensilUncheckedUpdateManyWithoutRecipeNestedInput
+    ingredients?: IngredientRecipeUncheckedUpdateManyWithoutRecipeNestedInput
+    ustensils?: UstensilRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     moods?: MoodRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     diets?: DietRecipeUncheckedUpdateManyWithoutRecipeNestedInput
     origins?: OriginRecipeUncheckedUpdateManyWithoutRecipeNestedInput
@@ -23817,46 +23817,46 @@ export namespace Prisma {
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type RecipeIngredientCreateManyIngredientInput = {
+  export type IngredientRecipeCreateManyIngredientInput = {
     id?: string
     recipeId: string
     quantity: string
   }
 
-  export type RecipeIngredientUpdateWithoutIngredientInput = {
+  export type IngredientRecipeUpdateWithoutIngredientInput = {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: StringFieldUpdateOperationsInput | string
     recipe?: RecipeUpdateOneRequiredWithoutIngredientsNestedInput
   }
 
-  export type RecipeIngredientUncheckedUpdateWithoutIngredientInput = {
+  export type IngredientRecipeUncheckedUpdateWithoutIngredientInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     quantity?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeIngredientUncheckedUpdateManyWithoutIngredientInput = {
+  export type IngredientRecipeUncheckedUpdateManyWithoutIngredientInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     quantity?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeUstensilCreateManyUstensilInput = {
+  export type UstensilRecipeCreateManyUstensilInput = {
     id?: string
     recipeId: string
   }
 
-  export type RecipeUstensilUpdateWithoutUstensilInput = {
+  export type UstensilRecipeUpdateWithoutUstensilInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipe?: RecipeUpdateOneRequiredWithoutUstensilsNestedInput
   }
 
-  export type RecipeUstensilUncheckedUpdateWithoutUstensilInput = {
+  export type UstensilRecipeUncheckedUpdateWithoutUstensilInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type RecipeUstensilUncheckedUpdateManyWithoutUstensilInput = {
+  export type UstensilRecipeUncheckedUpdateManyWithoutUstensilInput = {
     id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
   }
