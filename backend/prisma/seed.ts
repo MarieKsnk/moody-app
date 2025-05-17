@@ -1,29 +1,37 @@
-import { PrismaClient } from "../generated/prisma"
-import { ingredients } from "./ingredients"
+import { PrismaClient } from "../generated/prisma";
+import { ingredients } from "./ingredients";
 import { ustensils } from "./ustensils";
 
 const prisma = new PrismaClient();
 
 async function main() {
+  await prisma.role.upsert({
+    where: { id: "USER" },
+    update: {},
+    create: {
+      id: "USER",
+      name: "Utilisateur",
+    },
+  });
 
-  await prisma.role.createMany({
-    data: [
-      { name: "USER" },
-      { name: "ADMIN" },
-    ],
-    skipDuplicates: true,
-  })
+  await prisma.role.upsert({
+    where: { id: "ADMIN" },
+    update: {},
+    create: {
+      id: "ADMIN",
+      name: "Administrateur",
+    },
+  });
 
   await prisma.ingredient.createMany({
     data: ingredients,
     skipDuplicates: true,
-  })
+  });
 
   await prisma.ustensil.createMany({
     data: ustensils,
     skipDuplicates: true,
-  })
-
+  });
 
   await prisma.type.createMany({
     data: [
@@ -36,7 +44,7 @@ async function main() {
       { name: "Boisson" },
     ],
     skipDuplicates: true,
-  })
+  });
 
   await prisma.diet.createMany({
     data: [
@@ -50,7 +58,7 @@ async function main() {
       { name: "Low FODMAP" },
     ],
     skipDuplicates: true,
-  })
+  });
 
   await prisma.mood.createMany({
     data: [
@@ -64,7 +72,7 @@ async function main() {
       { name: "Je veux manger healthy" },
     ],
     skipDuplicates: true,
-  })
+  });
 
   await prisma.origin.createMany({
     data: [
@@ -87,15 +95,15 @@ async function main() {
       { name: "Moyen-Orient" },
     ],
     skipDuplicates: true,
-  })
+  });
 }
 
 main()
   .then(async () => {
-    await prisma.$disconnect()
+    await prisma.$disconnect();
   })
   .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
