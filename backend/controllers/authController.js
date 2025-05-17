@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -15,7 +15,7 @@ export const register = async (req, res) => {
     });
 
     if (emailVerification) {
-      res.status(409).json("Email déjà utilisé");
+      res.status(409).json({ error: "Email déjà utilisé" });
       return;
     }
 
@@ -31,9 +31,15 @@ export const register = async (req, res) => {
       },
     });
 
-    return res.status(201).json(`Bienvenue sur Moody, ${firstName}`);
+    const token = await jwt.sign({ id: newUser.id }, JWT_SECRET, {
+      expiresIn: "7d",
+    });
+
+    return res
+      .status(201)
+      .json({ token, message: `Bienvenue sur Moody, ${newUser.firstName} !` });
   } catch (err) {
     console.log(err);
-    return res.status(500).json("Erreur serveur");
+    return res.status(500).json({ error: "Erreur serveur" });
   }
 };

@@ -1,4 +1,4 @@
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from "@prisma/client";
 import { ingredients } from "./ingredients";
 import { ustensils } from "./ustensils";
 
