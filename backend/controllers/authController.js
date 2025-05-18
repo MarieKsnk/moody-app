@@ -43,3 +43,35 @@ export const register = async (req, res) => {
     return res.status(500).json({ error: "Erreur serveur" });
   }
 };
+
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+
+    if (!user) {
+      return res.status(404).json({ error: "Email ou mot de passe incorrect" });
+    }
+
+    const comparePassword = await bcrypt.compare(password, user.password);
+
+    if (!comparePassword) {
+      return res
+        .status(404)
+        .json({ error: "Email ou mot de passe incorrrect" });
+    }
+
+    const token = await jwt.sign({ id: user.id }, JWT_SECRET, {
+      expiresIn: "7d",
+    });
+
+    return res.status(201).json({
+      token,
+      message: `${user.firstName}, vous êtes maintenant connecté(e) !`,
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Erreur serveur" });
+  }
+};
