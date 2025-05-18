@@ -1,9 +1,9 @@
 import { Router } from "express";
+import { getUserProfile } from "../controllers/usersController.js";
+import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 const userRouter = Router();
 
-userRouter.get("/", (req, res) => {
-  res.send("Tous les utilisateurs");
-});
+userRouter.get("/profile", authMiddleware, getUserProfile);
 
 export default userRouter;

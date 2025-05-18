@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -44,6 +45,7 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
+  console.log("Requête login reçue ✅");
   const { email, password } = req.body;
 
   try {
