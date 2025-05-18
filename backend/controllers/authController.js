@@ -38,8 +38,7 @@ export const register = async (req, res) => {
     return res
       .status(201)
       .json({ token, message: `Bienvenue sur Moody, ${newUser.firstName} !` });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
     return res.status(500).json({ error: "Erreur serveur" });
   }
 };
@@ -70,8 +69,7 @@ export const login = async (req, res) => {
       token,
       message: `${user.firstName}, vous êtes maintenant connecté(e) !`,
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
     return res.status(500).json({ error: "Erreur serveur" });
   }
 };
