@@ -16,7 +16,9 @@ export const getUserProfile = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "Utilisateur non trouvé" });
     }
-    return res.status(200).json(user);
+    return res
+      .status(200)
+      .json({ user, message: `${user.firstName}, voici votre profil` });
   } catch (error) {
     return res.status(500).json({ error: "Erreur serveur" });
   }
@@ -34,7 +36,9 @@ export const getAllUsers = async (req, res) => {
     if (users.length === 0) {
       return res.status(404).json({ message: "Aucun utilisateur trouvé" });
     }
-    return res.status(200).json(users);
+    return res
+      .status(200)
+      .json({ users, message: "Liste des utilisateurs récupérée avec succès" });
   } catch (error) {
     return res.status(500).json({ error: "Erreur serveur" });
   }
