@@ -4,8 +4,8 @@ import { RegisterFormData } from "@/types/atoms/RegisterFormData";
 
 export default function RegisterForm() {
     const [ formData, setFormData ] = useState<RegisterFormData>({
-        firstname:"",
-        lastname:"",
+        firstName:"",
+        lastName:"",
         email:"",
         password:"",
     })
@@ -15,18 +15,32 @@ export default function RegisterForm() {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
 
-    // Rajouter handleSubmit
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            const newUser = await axios.post("http://localhost:8000/api/auth/register", formData)
+
+            if (newUser.status === 201) {
+                alert(`${formData.firstName}, vous etes maintenant inscrit sur Moody ! `)
+            } else {
+                alert("Une erreure est survenue.");
+            }
+
+        } catch(error) {
+            console.log("Erreur lors de l'inscription :", error)
+        }
+    }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="firstnane">Prénom</label>
-                <input type="text" name="firstname" id="firstname" onChange={handleChange} value={formData.firstname} required maxLength={20} />
+                <label htmlFor="firstName">Prénom</label>
+                <input type="text" name="firstName" id="firstName" onChange={handleChange} value={formData.firstName} required maxLength={20} />
             </div>
 
             <div>
-                <label htmlFor="lastname">Nom</label>
-                <input type="text" name="firstname" id="lastname" onChange={handleChange} value={formData.lastname} required maxLength={30} />
+                <label htmlFor="lastName">Nom</label>
+                <input type="text" name="lastName" id="lastName" onChange={handleChange} value={formData.lastName} required maxLength={30} />
             </div>
 
             <div>
