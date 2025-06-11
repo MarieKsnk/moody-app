@@ -180,5 +180,5 @@ export const ingredients = [
   { name: "Vinaigre" },
   { name: "Vodka" },
   { name: "Whisky" },
-  { name: "Yaourt" }
+  { name: "Yaourt" },
 ];

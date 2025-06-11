@@ -9,17 +9,17 @@ datasource db {
 
 model User {
   id String @id @default(uuid())
-  firstName String
-  lastName String
-  email String @unique
-  password String
-  image String?
+  firstName String @db.VarChar(50)
+  lastName String @db.VarChar(50)
+  email String @unique @db.VarChar(100)
+  password String @db.VarChar(60)
+  profilePicture String? @db.VarChar(255)
   consent Boolean @default(false)
   roleId String @default("USER")
   role Role @relation(fields: [roleId], references: [id])
   recipes Recipe[]
   favorites Favorite[]
-  createAt DateTime @default(now())
+  createdAt DateTime @default(now())
 }
 
 model Role {
@@ -32,33 +32,35 @@ model Recipe {
   id String @id @default(uuid())
   userId String
   user User @relation(fields: [userId], references: [id])
-  title String
+  title String @db.VarChar(200)
   serve Int?
   ingredients IngredientRecipe[]
   ustensils UstensilRecipe[]
-  description String?
-  instructions String
+  description String? @db.Text
+  instructions String @db.Text
   typeId String
   type Type @relation(fields: [typeId], references: [id])
-  imageUrl String
+  recipePicture String @db.VarChar(255)
+  recipeUrl String? @db.VarChar(255)
   prepTime Int
   cookTime Int 
   moods MoodRecipe[]
   diets DietRecipe[]
   origins OriginRecipe[]
   favorites Favorite[]
-  createAt DateTime @default(now())
+  status String @default("pending") @db.VarChar(20)
+  createdAt DateTime @default(now())
 }
 
 model Type {
   id String @id @default(uuid())
-  name String @unique
+  name String @unique @db.VarChar(100)
   recipes Recipe[]
 }
 
 model Ingredient {
   id String @id @default(uuid())
-  name String @unique
+  name String @unique @db.VarChar(100)
   recipes IngredientRecipe[]
 }
 
@@ -68,12 +70,12 @@ model IngredientRecipe {
   recipe Recipe @relation(fields: [recipeId], references: [id])
   ingredientId String
   ingredient Ingredient @relation(fields: [ingredientId], references: [id])
-  quantity String
+  quantity String @db.VarChar(50)
 }
 
 model Ustensil {
   id String @id @default(uuid())
-  name String @unique
+  name String @unique @db.VarChar(100)
   recipes UstensilRecipe[]
 }
 
@@ -87,7 +89,7 @@ model UstensilRecipe {
 
 model Mood {
   id String @id @default(uuid())
-  name String @unique
+  name String @unique @db.VarChar(100)
   recipes MoodRecipe[]
 }
 
@@ -101,7 +103,7 @@ model MoodRecipe {
 
 model Diet {
   id String @id @default(uuid())
-  name String @unique
+  name String @unique @db.VarChar(100)
   recipes DietRecipe[]
 }
 
@@ -115,7 +117,7 @@ model DietRecipe {
 
 model Origin {
   id String @id @default(uuid())
-  name String @unique
+  name String @unique @db.VarChar(100)
   recipes OriginRecipe[]
 }
 
@@ -133,5 +135,5 @@ model Favorite {
   user User @relation(fields: [userId], references: [id])
   recipeId String
   recipe Recipe @relation(fields: [recipeId], references: [id])
-  createAt DateTime @default(now())
+  createdAt DateTime @default(now())
 }

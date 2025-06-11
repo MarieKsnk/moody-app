@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { ingredients } from "./ingredients";
-import { ustensils } from "./ustensils";
+import { ingredients } from "./ingredients.js";
+import { ustensils } from "./ustensils.js";
 
 const prisma = new PrismaClient();
 
@@ -39,7 +39,6 @@ async function main() {
       { name: "Apero" },
       { name: "Plat principal" },
       { name: "Dessert" },
-      { name: "Gateau" },
       { name: "Snack" },
       { name: "Boisson" },
     ],
@@ -56,6 +55,7 @@ async function main() {
       { name: "Protéiné" },
       { name: "Viandard" },
       { name: "Low FODMAP" },
+      { name: "Anti-inflammatoire" },
     ],
     skipDuplicates: true,
   });

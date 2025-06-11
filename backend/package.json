@@ -8,7 +8,7 @@
     "dev": "nodemon index.js"
   },
   "prisma": {
-    "seed": "tsx prisma/seed.ts "
+    "seed": "node prisma/seed.js "
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,9 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
+    "imagekit": "^6.0.0",
     "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.0",
     "node-fetch": "^3.3.2",
     "prisma": "^6.7.0"
   },

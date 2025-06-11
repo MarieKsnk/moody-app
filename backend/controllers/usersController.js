@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const getUserProfile = async (req, res) => {
+export const getMe = async (req, res) => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.user.id },
@@ -10,6 +10,7 @@ export const getUserProfile = async (req, res) => {
         firstName: true,
         lastName: true,
         email: true,
+        profilePicture: true,
       },
     });
 

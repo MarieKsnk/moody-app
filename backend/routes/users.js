@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { getAllUsers, getUserProfile } from "../controllers/usersController.js";
+import { getAllUsers, getMe } from "../controllers/usersController.js";
 import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 const userRouter = Router();
 
-userRouter.get("/profile", authMiddleware, getUserProfile);
+userRouter.get("/me", authMiddleware, getMe);
 userRouter.get("/", authMiddleware, getAllUsers);
 
 export default userRouter;

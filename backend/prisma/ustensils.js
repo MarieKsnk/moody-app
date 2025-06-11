@@ -52,5 +52,5 @@ export const ustensils = [
   { name: "Verre doseur" },
   { name: "Wok" },
   { name: "Zesteur" },
-  { name: "Écumoire" }
+  { name: "Écumoire" },
 ];
