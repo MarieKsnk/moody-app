@@ -1,5 +1,4 @@
 import { useAuth } from "@/hooks/useAuth";
-import { useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAuthStore } from "@/stores/authStore";
 import { useRouter } from "next/router";
@@ -9,7 +8,7 @@ import { AuthWrapper } from "@/wrappers/AuthWrapper";
 export default function ProfilePage() {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const { user, isAuthenticated, isLoading } = useAuth();
+  const { user } = useAuth();
   const logout = useAuthStore((s) => s.logout);
 
   const handleLogout = () => {
@@ -17,16 +16,6 @@ export default function ProfilePage() {
     queryClient.clear();
     router.replace("/");
   };
-
-  useEffect(() => {
-    if (!isLoading && (!isAuthenticated || !user)) {
-      router.replace("/login");
-    }
-  }, [isAuthenticated, isLoading, user]);
-
-  if (isLoading || (!isAuthenticated && !user)) {
-    return <p>Chargement…</p>;
-  }
 
   return (
     <AuthWrapper>
@@ -42,15 +31,15 @@ export default function ProfilePage() {
           />
 
           <div>
-            <p>{user!.firstName}</p>
+            <p>{user?.firstName}</p>
           </div>
 
           <div>
-            <p>{user!.lastName}</p>
+            <p>{user?.lastName}</p>
           </div>
 
           <div>
-            <p>{user!.email}</p>
+            <p>{user?.email}</p>
           </div>
         </div>
         <div>

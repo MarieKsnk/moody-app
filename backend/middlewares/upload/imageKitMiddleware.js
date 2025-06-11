@@ -18,7 +18,7 @@ export const imageKitMiddleware = async (req, res, next) => {
       folder: "/profile-pics",
       useUniqueFileName: true,
     });
-    req.body.profilePictureUrl = uploadResponse.url;
+    req.body.profilePicture = uploadResponse.url;
     req.body.profilePictureId = uploadResponse.fileId;
     next();
   } catch (err) {

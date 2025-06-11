@@ -1,21 +1,27 @@
 "use client";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import type { ReactNode } from "react";
+import LoginPage from "@/pages/login";
 
 export const AuthWrapper = ({ children }: { children: ReactNode }) => {
+  
   const router = useRouter();
   const { isLoading, isAuthenticated } = useAuth();
 
-  useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
-      router.replace("/login");
-    }
-  }, [isLoading, isAuthenticated]);
+  const [hydrated, setHydrated] = useState(false);
 
-  if (isLoading || !isAuthenticated) {
-    return <p>Chargement sécurisé…</p>;
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  if (!hydrated || isLoading) {
+    return <p>Chargement…</p>;
+  }
+
+  if (!isAuthenticated) {
+    return <LoginPage />;
   }
 
   return <>{children}</>;

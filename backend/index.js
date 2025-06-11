@@ -20,6 +20,16 @@ app.get("/", (req, res) => {
   res.send("Welcome to Moody app");
 });
 
+app.use((err, res,) => {
+  if (err instanceof multer.MulterError || err.message?.includes("JPEG, PNG et WebP")) {
+    return res.status(400).json({
+      field: "profilePicture",
+      message: err.message,
+    });
+  }
+  res.status(500).json({ message: "Erreur serveur" });
+});
+
 app.listen(PORT, () => {
   console.log(`server run on port ${PORT}`);
 });

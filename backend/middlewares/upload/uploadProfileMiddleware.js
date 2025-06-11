@@ -10,7 +10,7 @@ export const uploadProfileMiddleware = multer({
     if (allowed.includes(file.mimetype)) {
       cb(null, true);
     } else {
-      cb(new Error("Seuls JPEG, PNG et WebP sont autorisés !"));
+      cb(new Error("Seuls les fichiers JPEG, PNG et WebP sont autorisés !"));
     }
   },
 }).single("profilePicture");

@@ -31,13 +31,22 @@ export default function RegisterForm() {
   }, [profilePictureFile]);
 
   const onSubmit = async (data: RegisterFormData) => {
+    console.log("data.profilePicture", data.profilePicture);
     const formData = new FormData();
     formData.append("firstName", data.firstName);
     formData.append("lastName", data.lastName);
     formData.append("email", data.email);
     formData.append("password", data.password);
+    const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
     if (data.profilePicture && data.profilePicture.length > 0) {
-      formData.append("profilePicture", data.profilePicture[0]);
+      const file = data.profilePicture[0];
+      if (!allowedTypes.includes(file.type)) {
+        setError("profilePicture", {
+          message: "Seuls les fichiers JPEG, PNG et WebP sont autorisés !",
+        });
+        return;
+      }
+      formData.append("profilePicture", file);
     }
 
     try {
@@ -56,17 +65,20 @@ export default function RegisterForm() {
         router.push("/login");
       }
     } catch (error: any) {
-      console.error("Erreur axios :", error);
-
       const errorFile = error?.response?.data;
-
-      if (errorFile.field && errorFile.message) {
-        setError(errorFile.field, {
-          message: errorFile.message,
-        });
-      } else {
-        alert("Erreur lors de l'inscription.");
+  
+      if (errorFile?.field && errorFile?.message) {
+        setError(errorFile.field, { message: errorFile.message });
+        return;
       }
+  
+      if (error.response?.status === 409 && errorFile?.error) {
+        setError("email", { message: errorFile.error });
+        return; 
+      }
+  
+      alert("Erreur lors de l'inscription.");
+      return;
     }
   };
 
@@ -118,6 +130,7 @@ export default function RegisterForm() {
         error={errors.profilePicture}
         aria-label="Uploader une photo de profil (JPEG, PNG, WebP, max 2 Mo)"
       />
+      
 
       {previewUrl && (
         <img

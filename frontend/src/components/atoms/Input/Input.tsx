@@ -6,6 +6,8 @@ export const Input: React.FC<IInputProps> = ({
   type,
   error,
   register,
+  accept,
+  ...rest
 }) => {
   return (
     <div>
@@ -15,8 +17,10 @@ export const Input: React.FC<IInputProps> = ({
         id={id}
         type={type}
         {...register}
+        accept={accept}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
+        {...rest}
       />
       
       {error && (

@@ -8,4 +8,5 @@ export interface IInputProps {
   register: UseFormRegisterReturn;
   ariaDescribedBy?: string;
   accept? : string;
+  [x: string]: any;
 }
