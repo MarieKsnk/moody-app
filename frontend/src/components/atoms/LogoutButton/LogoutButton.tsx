@@ -1,6 +1,6 @@
-import { ISubmitProps } from './Submit.props';
+import { ILogoutButtonProps } from "./LogoutButton.props"
 
-export const Submit: React.FC<ISubmitProps> = ({ 
+export const LogoutButton: React.FC<ILogoutButtonProps> = ({ 
     label, 
     onClick, 
     disabled,

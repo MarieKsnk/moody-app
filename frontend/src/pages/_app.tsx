@@ -1,16 +1,12 @@
-import type { AppProps } from 'next/app';
-import { QueryClient, QueryClientProvider} from '@tanstack/react-query';
-import Header from '@/components/organisms/Header';
-
-const queryClient = new QueryClient();
+import type { AppProps } from "next/app";
+import Header from "@/components/organisms/Header";
+import QueryProvider from "@/providers/QueryClient";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-    <QueryClientProvider client={queryClient}>
+    <QueryProvider>
       <Header />
       <Component {...pageProps} />
-    </QueryClientProvider>
-    </>
+    </QueryProvider>
   );
 }

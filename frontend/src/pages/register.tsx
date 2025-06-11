@@ -1,4 +1,4 @@
-import RegisterForm from "@/components/molecules/RegisterForm";
+import RegisterForm from "@/components/molecules/Forms/RegisterForm";
 
 export default function RegisterPage() {
     return (
