@@ -1,14 +1,14 @@
 import { Router } from "express";
 import { register, login } from "../controllers/authController.js";
-import { uploadProfileMiddleware } from "../middlewares/upload/uploadProfileMiddleware.js";
-import { imageKitMiddleware } from "../middlewares/upload/imageKitMiddleware.js";
+import { uploadProfileMiddleware } from "../middlewares/upload_profile/uploadProfileMiddleware.js";
+import { imageKitProfileMiddleware } from "../middlewares/upload_profile/imageKitProfileMiddleware.js";
 
 const authRouter = Router();
 
 authRouter.post(
   "/register",
   uploadProfileMiddleware,
-  imageKitMiddleware,
+  imageKitProfileMiddleware,
   register
 );
 authRouter.post("/login", login);

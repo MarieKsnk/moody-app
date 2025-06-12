@@ -1,10 +1,10 @@
-import LoginForm from "@/components/molecules/Forms/LoginForm"
+import LoginForm from "@/components/organisms/Forms/LoginForm";
 
 export default function LoginPage() {
-    return (
-        <>
-        <h1>Je me connecte</h1>
-        <LoginForm />
-        </>
-    )
+  return (
+    <>
+      <h1>Je me connecte</h1>
+      <LoginForm />
+    </>
+  );
 }

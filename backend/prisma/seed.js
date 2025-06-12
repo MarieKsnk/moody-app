@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import { ingredients } from "./ingredients.js";
-import { ustensils } from "./ustensils.js";
 
 const prisma = new PrismaClient();
 
@@ -25,11 +24,6 @@ async function main() {
 
   await prisma.ingredient.createMany({
     data: ingredients,
-    skipDuplicates: true,
-  });
-
-  await prisma.ustensil.createMany({
-    data: ustensils,
     skipDuplicates: true,
   });
 

@@ -35,7 +35,6 @@ model Recipe {
   title String @db.VarChar(200)
   serve Int?
   ingredients IngredientRecipe[]
-  ustensils UstensilRecipe[]
   description String? @db.Text
   instructions String @db.Text
   typeId String
@@ -71,20 +70,6 @@ model IngredientRecipe {
   ingredientId String
   ingredient Ingredient @relation(fields: [ingredientId], references: [id])
   quantity String @db.VarChar(50)
-}
-
-model Ustensil {
-  id String @id @default(uuid())
-  name String @unique @db.VarChar(100)
-  recipes UstensilRecipe[]
-}
-
-model UstensilRecipe {
-  id String @id @default(uuid())
-  recipeId String
-  recipe Recipe @relation(fields: [recipeId], references: [id])
-  ustensilId String
-  ustensil Ustensil @relation(fields: [ustensilId], references: [id])
 }
 
 model Mood {

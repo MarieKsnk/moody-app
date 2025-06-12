@@ -7,7 +7,7 @@ const imagekit = new ImageKit({
   urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 });
 
-export const imageKitMiddleware = async (req, res, next) => {
+export const imageKitProfileMiddleware = async (req, res, next) => {
   if (!req.file) return next();
 
   try {
