@@ -2,7 +2,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAuthStore } from "@/stores/authStore";
 import { useRouter } from "next/router";
-import { LogoutButton } from "@/components/atoms/LogoutButton";
+import { LogoutButton } from "@/components/atoms/Buttons/LogoutButton";
 import { AuthWrapper } from "@/wrappers/AuthWrapper";
 
 export default function ProfilePage() {

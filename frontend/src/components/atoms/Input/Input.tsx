@@ -1,33 +1,37 @@
+import React from "react";
 import { IInputProps } from "./Input.props";
 
 export const Input: React.FC<IInputProps> = ({
   id,
-  label,
   type,
-  error,
   register,
+  autoComplete,
+  error,
+  ariaDescribedBy,
+  tabIndex,
   accept,
-  ...rest
-}) => {
-  return (
-    <div>
-      <label htmlFor={id}>{label}</label>
+  placeholder,
+  autoFocus,
+  maxLength,
+  minLength,
+  min,
+  max,
+}) => (
+  <input
+    id={id}
+    type={type}
+    {...register}
+    autoComplete={autoComplete}
+    tabIndex={tabIndex}
+    accept={accept}
+    placeholder={placeholder}
+    autoFocus={autoFocus}
+    maxLength={maxLength}
+    minLength={minLength}
+    min={min}
+    max={max}
+    aria-invalid={!!error}
+    aria-describedby={ariaDescribedBy}
+  />
+);
 
-      <input
-        id={id}
-        type={type}
-        {...register}
-        accept={accept}
-        aria-invalid={!!error}
-        aria-describedby={error ? `${id}-error` : undefined}
-        {...rest}
-      />
-      
-      {error && (
-        <p role="alert" id={`${id}-error`} style={{ color: "red" }}>
-          {error.message}
-        </p>
-      )}
-    </div>
-  );
-};

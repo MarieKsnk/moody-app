@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { LoginFormData } from "@/types/forms/Login";
 import { Input } from "@/components/atoms/Input";
-import { Submit } from "@/components/atoms/Submit";
+import { Submit } from "@/components/atoms/Buttons/SubmitButton";
 import { useRouter } from "next/router";
 import { useAuthStore } from "@/stores/authStore";
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { RegisterFormData } from "@/types/forms/Register";
 import { Input } from "../../atoms/Input";
 import { Checkbox } from "../../atoms/Checkbox";
-import { Submit } from "../../atoms/Submit/Submit";
+import { Submit } from "../../atoms/Buttons/SubmitButton/SubmitButton";
 import { useRouter } from "next/router";
 
 export default function RegisterForm() {
