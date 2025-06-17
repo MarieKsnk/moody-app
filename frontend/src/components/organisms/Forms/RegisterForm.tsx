@@ -3,8 +3,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { RegisterFormData } from "@/types/forms/Register";
 import { Input } from "../../atoms/Input";
+import { Label } from "@/components/atoms/Label";
 import { Checkbox } from "../../atoms/Checkbox";
-import { Submit } from "../../atoms/Buttons/SubmitButton/SubmitButton";
+import { SubmitButton } from "@/components/atoms/Buttons/SubmitButton";
 import { useRouter } from "next/router";
 
 export default function RegisterForm() {
@@ -31,13 +32,15 @@ export default function RegisterForm() {
   }, [profilePictureFile]);
 
   const onSubmit = async (data: RegisterFormData) => {
-    console.log("data.profilePicture", data.profilePicture);
     const formData = new FormData();
+
     formData.append("firstName", data.firstName);
     formData.append("lastName", data.lastName);
     formData.append("email", data.email);
     formData.append("password", data.password);
+
     const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+
     if (data.profilePicture && data.profilePicture.length > 0) {
       const file = data.profilePicture[0];
       if (!allowedTypes.includes(file.type)) {
@@ -66,17 +69,17 @@ export default function RegisterForm() {
       }
     } catch (error: any) {
       const errorFile = error?.response?.data;
-  
+
       if (errorFile?.field && errorFile?.message) {
         setError(errorFile.field, { message: errorFile.message });
         return;
       }
-  
+
       if (error.response?.status === 409 && errorFile?.error) {
         setError("email", { message: errorFile.error });
-        return; 
+        return;
       }
-  
+
       alert("Erreur lors de l'inscription.");
       return;
     }
@@ -84,10 +87,12 @@ export default function RegisterForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Label htmlFor="firstName" required={true}>
+        Nom
+      </Label>
       <Input
         id="firstName"
         type="text"
-        label="Mon prénom :"
         register={register("firstName", {
           required: "Le prénom est requis",
           maxLength: { value: 20, message: "20 caractères maximum" },
@@ -95,10 +100,12 @@ export default function RegisterForm() {
         error={errors.firstName}
       />
 
+      <Label htmlFor="lastName" required={true}>
+        Prenom
+      </Label>
       <Input
         id="lastName"
         type="text"
-        label="Mon nom :"
         register={register("lastName", {
           required: "Le nom est requis",
           maxLength: { value: 30, message: "30 caractères maximum" },
@@ -106,10 +113,12 @@ export default function RegisterForm() {
         error={errors.lastName}
       />
 
+      <Label htmlFor="email" required={true}>
+        Adresse email
+      </Label>
       <Input
         id="email"
         type="email"
-        label="Mon adresse email :"
         register={register("email", {
           required: "L'email est requis",
           pattern: {
@@ -121,16 +130,30 @@ export default function RegisterForm() {
         error={errors.email}
       />
 
+      <Label htmlFor="password" required={true}>
+        Mot de passe
+      </Label>
+      <Input
+        id="password"
+        type="password"
+        register={register("password", {
+          required: "Le mot de passe est requis",
+          minLength: { value: 6, message: "Minimum 6 caractères" },
+          maxLength: { value: 15, message: "Maximum 15 caractères" },
+        })}
+        error={errors.password}
+      />
+
+      <Label htmlFor="profilePicture" required={false}>
+        Photo de profil
+      </Label>
       <Input
         id="profilePicture"
         type="file"
-        label="Ma photo de profil (non obligatoire) :"
         accept="image/png,image/jpeg,image/webp"
         register={register("profilePicture")}
         error={errors.profilePicture}
-        aria-label="Uploader une photo de profil (JPEG, PNG, WebP, max 2 Mo)"
       />
-      
 
       {previewUrl && (
         <img
@@ -145,31 +168,16 @@ export default function RegisterForm() {
         />
       )}
 
-      <Input
-        id="password"
-        type="password"
-        label="Mon mot de passe :"
-        register={register("password", {
-          required: "Le mot de passe est requis",
-          minLength: { value: 6, message: "Minimum 6 caractères" },
-          maxLength: { value: 15, message: "Maximum 15 caractères" },
-        })}
-        error={errors.password}
-      />
-
       <Checkbox
         id="rgpdAccepted"
-        label="J’accepte la politique de confidentialité et les conditions d’utilisation."
+        label="J’accepte les Conditions Générales d'Utilisation et reconnais avoir été informé que mes données personnelles seront utilisées tel que détaillé dans la Politique de protection des données personnelles *"
         register={register("rgpdAccepted", {
           required: "Vous devez accepter les conditions pour continuer",
         })}
         error={errors.rgpdAccepted}
       />
 
-      <Submit
-        label="Je crée mon compte sur Moody"
-        ariaLabel="Créer un compte sur Moody"
-      />
+      <SubmitButton label="Je crée mon compte sur Moody" type="submit" />
     </form>
   );
 }

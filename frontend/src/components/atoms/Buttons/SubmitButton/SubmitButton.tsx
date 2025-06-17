@@ -1,14 +1,13 @@
-import { ISubmitButtonProps } from './SubmitButton.props';
+import { ISubmitButtonProps } from "./SubmitButton.props";
 
-export const Submit: React.FC<ISubmitButtonProps> = ({ 
-    label, 
-    type = "submit",
-    ariaLabel
+export const SubmitButton: React.FC<ISubmitButtonProps> = ({
+  label,
+  type = "submit",
+  ariaLabel,
 }) => {
-    return (
-        <button      
-            type={type}
-            aria-label={ariaLabel}>
-        { label }</button>
-    )
-}
+  return (
+    <button type={type} aria-label={ariaLabel}>
+      {label}
+    </button>
+  );
+};

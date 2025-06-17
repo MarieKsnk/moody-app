@@ -2,7 +2,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { LoginFormData } from "@/types/forms/Login";
 import { Input } from "@/components/atoms/Input";
-import { Submit } from "@/components/atoms/Buttons/SubmitButton";
+import { Label } from "@/components/atoms/Label";
+import { SubmitButton } from "@/components/atoms/Buttons/SubmitButton";
 import { useRouter } from "next/router";
 import { useAuthStore } from "@/stores/authStore";
 
@@ -40,10 +41,12 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Label htmlFor="email" required={true}>
+        Adresse email
+      </Label>
       <Input
         id="email"
         type="email"
-        label="Mon adresse email :"
         register={register("email", {
           required: "L'email est requis",
           pattern: {
@@ -54,17 +57,19 @@ export default function LoginForm() {
         error={errors.email}
       />
 
+      <Label htmlFor="password" required={true}>
+        Mot de passe
+      </Label>
       <Input
         id="password"
         type="password"
-        label="Mon mot de passe :"
         register={register("password", {
           required: "Le mot de passe est requis",
         })}
         error={errors.password}
       />
 
-      <Submit label="Je me connecte" ariaLabel="Se connecter sur Moody" />
+      <SubmitButton label="Je me connecte" />
 
       <div>
         <p>Pas encore de compte ?</p>

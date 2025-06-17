@@ -29,7 +29,7 @@ async function main() {
 
   await prisma.type.createMany({
     data: [
-      { name: "Entree" },
+      { name: "Entrée" },
       { name: "Apero" },
       { name: "Plat principal" },
       { name: "Dessert" },
@@ -46,6 +46,7 @@ async function main() {
       { name: "Sans gluten" },
       { name: "Sans lactose" },
       { name: "Sans sucre" },
+      { name: "IG bas" },
       { name: "Protéiné" },
       { name: "Viandard" },
       { name: "Low FODMAP" },
@@ -61,32 +62,20 @@ async function main() {
       { name: "J'ai envie de voyager" },
       { name: "J'ai plus de thune" },
       { name: "J'ai pas le temps" },
-      { name: "Je veux faire genre" },
-      { name: "J'ai besoin de réconfort" },
-      { name: "Je veux manger healthy" },
+      { name: "Je veux flexer" },
+      { name: "J'ai envie de douceur" },
+      { name: "Je suis healthy" },
     ],
     skipDuplicates: true,
   });
 
   await prisma.origin.createMany({
     data: [
-      { name: "France" },
-      { name: "Italie" },
-      { name: "Espagne" },
-      { name: "Grèce" },
-      { name: "Allemagne" },
-      { name: "Belgique" },
-      { name: "Portugal" },
-      { name: "Royaume-Uni" },
-      { name: "Europe du Nord" },
-      { name: "Europe de l'Est" },
-      { name: "Asie centrale" },
-      { name: "Asie de l'Est" },
-      { name: "Amérique du nord" },
-      { name: "Amérique latine" },
-      { name: "Australie" },
+      { name: "Europe" },
+      { name: "Asie" },
+      { name: "Amérique du Sud" },
+      { name: "Amérique du Nord" },
       { name: "Afrique" },
-      { name: "Moyen-Orient" },
     ],
     skipDuplicates: true,
   });

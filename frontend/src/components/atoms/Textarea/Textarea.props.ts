@@ -1,18 +1,15 @@
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
-export interface IInputProps {
+export interface ITextareaProps {
   id: string;
-  type: "text" | "email" | "password" | "file" | "number" | "url" | "text-area";
-  register?: UseFormRegisterReturn;
-  autoComplete?: string;
+  register: UseFormRegisterReturn;
   error?: FieldError;
   ariaDescribedBy?: string;
   tabIndex?: number;
-  accept?: string;
   placeholder?: string;
   autoFocus?: boolean;
   maxLength?: number;
   minLength?: number;
-  min?: number;
-  max?: number;
+  rows?: number;
+  cols?: number;
 }

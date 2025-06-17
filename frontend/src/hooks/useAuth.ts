@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { fetchMe } from "@/api/auth";
+import { fetchMe } from "@/api/authAPI";
 import { useAuthStore } from "@/stores/authStore";
 import { useIsClient } from "@/hooks/useIsClient";
 
