@@ -5,15 +5,15 @@ import { ILogoutButtonProps } from "./LogoutButton.props";
 export const LogoutButton: React.FC<ILogoutButtonProps> = ({
   label,
   onClick,
-  disabled,
   className,
+  ariaLabel,
 }) => {
   return (
     <li>
       <button
         onClick={onClick}
-        disabled={disabled}
         className={clsx("logout-button", className)}
+        aria-label={ariaLabel || label}
       >
         <Image
           src="/icons/logout.svg"

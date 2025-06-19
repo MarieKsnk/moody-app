@@ -1,0 +1,34 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+
+  &__photo {
+    margin-bottom: 1rem;
+  }
+
+  &__info {
+    font-family: $font-title;
+
+    .profile-section__name {
+      font-size: 2rem;
+      font-weight: 600;
+      color: $dark-text;
+    }
+
+    .profile-section__email {
+      font-size: 1.4rem;
+      color: $dark-text;
+      opacity: 0.8;
+    }
+  }
+
+  &__logout {
+    margin-top: 1.5rem;
+  }
+}

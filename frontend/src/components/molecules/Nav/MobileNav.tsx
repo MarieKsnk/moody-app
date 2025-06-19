@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Logo from "@/components/atoms/Logo/Logo";
 import BurgerButton from "@/components/atoms/BurgerButton/BurgerButton";
-import NavLink from "@/components/atoms/NavLink/NavLink";
+import { NavLink } from "@/components/atoms/NavLink";
 import ProfileLink from "@/components/atoms/ProfileLink/ProfileLink";
 import { LogoutButton } from "@/components/atoms/LogoutButton";
 import { useAuth } from "@/hooks/useAuth";

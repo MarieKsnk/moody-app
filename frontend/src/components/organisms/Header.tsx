@@ -1,7 +1,7 @@
 import { NavBar } from "../molecules/Nav/NavBar";
 import MobileMenu from "../molecules/Nav/MobileNav";
 
-export default function Header() {
+export const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="mobile-menu">
@@ -13,4 +13,4 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};

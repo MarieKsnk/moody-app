@@ -2,7 +2,11 @@ import Link from "next/link";
 import clsx from "clsx";
 import { INavLinkProps } from "./NavLink.props";
 
-export default function NavLink({ href, label, className }: INavLinkProps) {
+export const NavLink: React.FC<INavLinkProps> = ({
+  href, 
+  label, 
+  className
+}) => {
   return (
     <li>
       <Link href={href} className={clsx("nav-link", className)}>
@@ -10,4 +14,4 @@ export default function NavLink({ href, label, className }: INavLinkProps) {
       </Link>
     </li>
   );
-}
+};
