@@ -1,0 +1,23 @@
+@use "@/styles/abstracts/mixins" as *;
+
+.header {
+  padding: 0 2rem;
+}
+
+.mobile-menu {
+  display: block;
+
+  @include respond(lg) {
+    display: none;
+  }
+}
+
+.desktop-nav {
+  display: none;
+
+  @include respond(lg) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

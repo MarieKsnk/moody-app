@@ -42,9 +42,6 @@ export const NavBar: React.FC = () => {
             <li>
               <Link href="/profile">Mon profil</Link>
             </li>
-            <li>
-              <Link href="/add-recipe">Ajouter une recette</Link>
-            </li>
             <li onClick={handleLogout} className="cursor-pointer">
               Logout
             </li>

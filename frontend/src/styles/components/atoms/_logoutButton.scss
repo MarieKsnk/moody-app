@@ -1,0 +1,30 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $dark-text;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    color: $pink-hover;
+    outline: none;
+  }
+
+  img {
+    display: block;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

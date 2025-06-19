@@ -1,16 +1,19 @@
-import Head from 'next/head';
+import Head from "next/head";
+import AppLayout from "@/components/layout/AppLayout";
+import HeroSection from "@/components/organisms/HeroSection";
+import HomeBanner from "@/components/molecules/HomeBanner";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Page accueil Moody</title>
+        <title>Accueil Moody</title>
       </Head>
-      <main>
-        <h1>Bienvenue sur Moody app!</h1>
-      </main>
+
+      <AppLayout>
+        <HeroSection />
+        <HomeBanner />
+      </AppLayout>
     </>
   );
 }
-
-
