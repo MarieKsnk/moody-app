@@ -15,10 +15,13 @@
 @use "./components/atoms/profileLink";
 @use "./components/atoms/navLink";
 @use "./components/atoms/logoutButton";
+@use "./components/atoms/profilePicture";
+@use "./components/atoms/darkButton";
 
 @use "./components/molecules/heroContent";
 @use "./components/molecules/mobileNav";
 @use "./components/molecules/homeBanner";
+@use "./components/molecules/profilePreview";
 
 @use "./components/organisms/header";
 @use "./components/organisms/heroSection";

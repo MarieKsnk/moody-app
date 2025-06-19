@@ -1,0 +1,41 @@
+@use "@/styles/abstracts/variables" as *;
+
+.dark-button {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.6rem 2rem;
+  background-color: $dark;
+  color: $light-text;
+  font-family: $font-button;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-radius: 5rem;
+  box-shadow: 0 5px 0 $pink;
+  max-width: 100%;
+
+  transition:
+    padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s ease;
+
+  &__label {
+    position: relative;
+    top: -2px;
+  }
+
+  &__icon {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover,
+  &:focus {
+    padding-right: 3rem;
+    outline: none;
+  }
+
+  &:hover &__icon,
+  &:focus &__icon {
+    transform: translateX(1rem);
+  }
+}
