@@ -8,7 +8,6 @@ import authRouter from "./routes/authRoute.js";
 import recipeRouter from "./routes/recipesRoute.js";
 import ingredientsRouter from "./routes/ingredientsRoute.js";
 import categoriesRouter from "./routes/categoriesRoute.js";
-
 const app = express();
 const PORT = process.env.PORT || 8000;
 

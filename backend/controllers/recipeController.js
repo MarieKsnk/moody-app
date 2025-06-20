@@ -13,21 +13,19 @@ export const createRecipe = async (req, res) => {
     cookTime,
     serve,
     instructions,
-    typeId,
     ingredientList,
+    typeIds,
     moodIds,
     dietIds,
     originIds,
   } = req.body;
 
   const recipePicture = req.body.recipePicture;
-  console.log("Contenu reçu dans req.body :", req.body);
-  console.log("Contenu du fichier :", req.file);
 
   try {
     if (
-      !title ||
-      !typeId ||
+      !typeIds || 
+      typeIds.length === 0 ||
       !recipePicture ||
       !ingredientList ||
       !instructions
@@ -56,6 +54,10 @@ export const createRecipe = async (req, res) => {
     const parsedOriginIds =
       typeof originIds === "string" ? JSON.parse(originIds) : originIds || [];
 
+    const parsedTypeIds =
+      typeof typeIds === "string" ? JSON.parse(typeIds) : typeIds || [];
+
+
     const newRecipe = await prisma.recipe.create({
       data: {
         userId,
@@ -69,7 +71,6 @@ export const createRecipe = async (req, res) => {
         instructions: Array.isArray(parsedInstructions)
           ? parsedInstructions.join("\n")
           : parsedInstructions,
-        typeId,
 
         ingredients: {
           create: parsedIngredients.map((item) => ({
@@ -87,13 +88,16 @@ export const createRecipe = async (req, res) => {
         origins: {
           create: parsedOriginIds.map((id) => ({ originId: id })),
         },
+        types: {
+          create: parsedTypeIds.map((id) => ({ typeId: id })),
+        },
       },
       include: {
         ingredients: { include: { ingredient: true } },
         moods: { include: { mood: true } },
         diets: { include: { diet: true } },
         origins: { include: { origin: true } },
-        type: true,
+        types: { include: { type: true } },
       },
     });
 
@@ -105,6 +109,34 @@ export const createRecipe = async (req, res) => {
     console.error("Erreur lors de la création de la recette :", error);
     res
       .status(500)
-      .json({ error: "Erreur serveur lors de la création de la recette." });
+      .json({ error: "Erreur serveur" });
   }
 };
+
+
+export const getUserRecipes = async (req, res) => {
+
+  const userId = req.params.id;
+
+  if (!userId) {
+    return res.status(400).json({ error: "L'id utilisateur est requis" });
+  }
+
+  try {
+    const recipes = await prisma.recipe.findMany({
+      where: { userId },
+      include: {
+        moods: { include: { mood: true } },
+        diets: { include: { diet: true } },
+        origins: { include: { origin: true } },
+        types: { include: { type: true } },
+      },
+    });
+
+    res.status(200).json(recipes);
+  } catch (error) {
+    console.error("Erreur lors de la récupération des recettes :", error);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+};
+

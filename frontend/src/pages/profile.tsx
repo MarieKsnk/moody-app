@@ -1,16 +1,25 @@
-import { useAuth } from "@/hooks/useAuth";
-import { useQueryClient } from "@tanstack/react-query";
-import { useAuthStore } from "@/stores/authStore";
 import { useRouter } from "next/router";
+import { useQueryClient } from "@tanstack/react-query";
+import { useAuth } from "@/hooks/useAuth";
+import { useAuthStore } from "@/stores/authStore";
+import { useUserRecipes } from "@/hooks/useUserRecipes";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { AuthWrapper } from "@/wrappers/AuthWrapper";
 import { ProfileSection } from "@/components/molecules/profileSection";
+import { UserRecipeList } from "@/components/molecules/UserRecipesList";
 
 export default function ProfilePage() {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const logout = useAuthStore((s) => s.logout);
+
+  const logout = useAuthStore((state) => state.logout);
   const { user } = useAuth();
+
+  const {
+    data: recipes,
+    isLoading,
+    error,
+  } = useUserRecipes();
 
   const handleLogout = () => {
     logout();
@@ -22,9 +31,11 @@ export default function ProfilePage() {
     <AuthWrapper>
       <AppLayout>
         <main className="profile-page">
-          {user && (
-            <ProfileSection user={user} onLogout={handleLogout} />
-          )}
+          {user && <ProfileSection user={user} onLogout={handleLogout} />}
+
+          {isLoading && <p>Chargement...</p>}
+          {error && <p>Erreur lors du chargement des recettes</p>}
+          {recipes && <UserRecipeList recipes={recipes} />}
         </main>
       </AppLayout>
     </AuthWrapper>

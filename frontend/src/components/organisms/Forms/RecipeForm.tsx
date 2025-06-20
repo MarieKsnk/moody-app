@@ -18,7 +18,7 @@ const initialFormData: RecipeFormData = {
   cookTime: 0,
   serve: 0,
   moodIds: [],
-  typeId: "",
+  typeIds: [],
   dietIds: [],
   originIds: [],
 };
@@ -66,7 +66,7 @@ export default function RecipeForm() {
         JSON.stringify(data.ingredientList)
       );
       formDataToSend.append("moodIds", JSON.stringify(data.moodIds));
-      formDataToSend.append("typeId", data.typeId);
+      formDataToSend.append("typeIds", JSON.stringify(data.typeIds));
       formDataToSend.append("dietIds", JSON.stringify(data.dietIds));
       formDataToSend.append("originIds", JSON.stringify(data.originIds));
 

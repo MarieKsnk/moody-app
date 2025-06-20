@@ -79,6 +79,49 @@ async function main() {
     ],
     skipDuplicates: true,
   });
+
+  const allTypes = await prisma.type.findMany();
+  const allMoods = await prisma.mood.findMany();
+  const allDiets = await prisma.diet.findMany();
+  const allOrigins = await prisma.origin.findMany();
+  const allRecipes = await prisma.recipe.findMany();
+
+  for (const recipe of allRecipes) {
+    const type = allTypes[Math.floor(Math.random() * allTypes.length)];
+    const moods = allMoods.sort(() => 0.5 - Math.random()).slice(0, 2);
+    const diet = allDiets[Math.floor(Math.random() * allDiets.length)];
+    const origin = allOrigins[Math.floor(Math.random() * allOrigins.length)];
+
+    await prisma.typeRecipe.create({
+      data: {
+        recipeId: recipe.id,
+        typeId: type.id,
+      },
+    });
+
+    for (const mood of moods) {
+      await prisma.moodRecipe.create({
+        data: {
+          recipeId: recipe.id,
+          moodId: mood.id,
+        },
+      });
+    }
+
+    await prisma.dietRecipe.create({
+      data: {
+        recipeId: recipe.id,
+        dietId: diet.id,
+      },
+    });
+
+    await prisma.originRecipe.create({
+      data: {
+        recipeId: recipe.id,
+        originId: origin.id,
+      },
+    });
+  }
 }
 
 main()

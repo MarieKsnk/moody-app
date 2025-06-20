@@ -63,7 +63,8 @@ export default function MobileNav() {
             <li className="nav-bloc">
               <ul>
                 <NavLink href="/" label="ACCUEIL" className="light" />
-                <NavLink href="/" label="LES RECETTES" className="light" />
+                <NavLink href="#" label="LES RECETTES" className="light" />
+                <NavLink href="/add-recipe" label="AJOUTER UNE RECETTE" className="light" />
               </ul>
             </li>
             {!isAuthenticated ? (
