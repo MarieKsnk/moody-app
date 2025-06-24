@@ -23,13 +23,13 @@ export const OwnRecipeCard = ({
       </div>
 
       <div className="own-recipe-card__types">
-        <p>
-          {recipe.types.map((t) => t.type.name).join(", ")}
-        </p>
+        {recipe.types.map((t) => (
+          <p key={t.type.id}>{t.type.name}</p>
+        ))}
       </div>
 
       <div className="own-recipe-card__title">
-        <h3>{recipe.title}</h3>
+        <h2>{recipe.title}</h2>
       </div>
     </li>
   );

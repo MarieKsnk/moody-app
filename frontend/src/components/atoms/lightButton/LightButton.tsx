@@ -1,0 +1,30 @@
+import Link from "next/link";
+import Image from "next/image";
+import clsx from "clsx";
+import { ILightButtonProps } from "./LightButton.props";
+
+export const LightButton: React.FC<ILightButtonProps> = ({
+  label,
+  href,
+  ariaLabel,
+  size = 40,
+  className,
+}) => {
+  return (
+    <Link
+      href={href}
+      className={clsx("light-button", className)}
+      aria-label={ariaLabel || label}
+    >
+      <span className="dark-light__label">{label}</span>
+      <Image
+        src="/icons/pink-arrow-right.svg"
+        alt=""
+        width={size}
+        height={size}
+        className="dark-light__icon"
+        aria-hidden="true"
+      />
+    </Link>
+  );
+};

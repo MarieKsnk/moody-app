@@ -17,5 +17,3 @@ export const LogoutLink: React.FC<ILogoutLinkProps> = ({
     </button>
   );
 };
-
-

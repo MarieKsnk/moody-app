@@ -1,0 +1,25 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.etapes-list {
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: $dark;
+    font-family: $font-title;
+  }
+
+  ol {
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-size: 1.2rem;
+      font-family: $font-main;
+      font-weight: 500;
+      color: $dark-text;
+      margin-bottom: 0.6rem;
+    }
+  }
+}

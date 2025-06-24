@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+// Fonction asynchrone permettant de creer une recette via un formulaire
 export const createRecipe = async (req, res) => {
   const userId = req.user.id;
 
@@ -24,7 +25,7 @@ export const createRecipe = async (req, res) => {
 
   try {
     if (
-      !typeIds || 
+      !typeIds ||
       typeIds.length === 0 ||
       !recipePicture ||
       !ingredientList ||
@@ -56,7 +57,6 @@ export const createRecipe = async (req, res) => {
 
     const parsedTypeIds =
       typeof typeIds === "string" ? JSON.parse(typeIds) : typeIds || [];
-
 
     const newRecipe = await prisma.recipe.create({
       data: {
@@ -107,15 +107,12 @@ export const createRecipe = async (req, res) => {
     });
   } catch (error) {
     console.error("Erreur lors de la création de la recette :", error);
-    res
-      .status(500)
-      .json({ error: "Erreur serveur" });
+    res.status(500).json({ error: "Erreur serveur" });
   }
 };
 
-
+// Fonction asynchrone permettant de recuperer toutes les recettes d'un utilisateur
 export const getUserRecipes = async (req, res) => {
-
   const userId = req.params.id;
 
   if (!userId) {
@@ -140,3 +137,60 @@ export const getUserRecipes = async (req, res) => {
   }
 };
 
+// Fonction asynchrone permettant de recuperer une recette par son ID
+export const getRecipeById = async (req, res) => {
+  const recipeId = req.params.id;
+
+  if (!recipeId) {
+    return res.status(400).json({ error: "L'id de la recette est requis" });
+  }
+
+  try {
+    const recipe = await prisma.recipe.findUnique({
+      where: { id: recipeId },
+      include: {
+        user: {
+          select: {
+            firstName: true,
+            lastName: true,
+            profilePicture: true,
+          },
+        },
+        ingredients: {
+          include: {
+            ingredient: true,
+          },
+        },
+        moods: {
+          include: {
+            mood: true,
+          },
+        },
+        diets: {
+          include: {
+            diet: true,
+          },
+        },
+        origins: {
+          include: {
+            origin: true,
+          },
+        },
+        types: {
+          include: {
+            type: true,
+          },
+        },
+      },
+    });
+
+    if (!recipe) {
+      return res.status(404).json({ error: "Recette non trouvée" });
+    }
+
+    res.status(200).json(recipe);
+  } catch (error) {
+    console.error("Erreur lors de la récupération de la recette :", error);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+};

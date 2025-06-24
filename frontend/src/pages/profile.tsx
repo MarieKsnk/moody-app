@@ -6,7 +6,7 @@ import { useUserRecipes } from "@/hooks/useUserRecipes";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { AuthWrapper } from "@/wrappers/AuthWrapper";
 import { ProfileSection } from "@/components/molecules/profileSection";
-import { UserRecipeList } from "@/components/molecules/UserRecipesList";
+import { OwnRecipesList } from "@/components/molecules/OwnRecipesList";
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -15,17 +15,15 @@ export default function ProfilePage() {
   const logout = useAuthStore((state) => state.logout);
   const { user } = useAuth();
 
-  const {
-    data: recipes,
-    isLoading,
-    error,
-  } = useUserRecipes();
+  const { data: recipes, isLoading, error } = useUserRecipes();
 
   const handleLogout = () => {
     logout();
     queryClient.clear();
     router.replace("/");
   };
+
+  console.log("Recettes récupérées côté profile :", recipes);
 
   return (
     <AuthWrapper>
@@ -35,7 +33,7 @@ export default function ProfilePage() {
 
           {isLoading && <p>Chargement...</p>}
           {error && <p>Erreur lors du chargement des recettes</p>}
-          {recipes && <UserRecipeList recipes={recipes} />}
+          {recipes && <OwnRecipesList title="Mes recettes" recipes={recipes} />}
         </main>
       </AppLayout>
     </AuthWrapper>

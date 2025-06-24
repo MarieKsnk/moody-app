@@ -17,12 +17,26 @@
 @use "./components/atoms/logoutButton";
 @use "./components/atoms/profilePicture";
 @use "./components/atoms/darkButton";
+@use "./components/atoms/lightButton";
+@use "./components/atoms/logoutLink";
+@use "./components/atoms/ownRecipeCard";
+@use "./components/atoms/titleIcon";
+@use "./components/atoms/recipe_id_page/serveRecipe";
+@use "./components/atoms/recipe_id_page/cookRecipe";
+@use "./components/atoms/recipe_id_page/prepRecipe";
+@use "./components/atoms/recipe_id_page/categoryTag";
+@use "./components/atoms/recipe_id_page/titleRecipe";
+@use "./components/atoms/recipe_id_page/ingredientsList";
+@use "./components/atoms/recipe_id_page/etapesList";
+@use "./components/atoms/recipe_id_page/recipeDescription";
 
 @use "./components/molecules/heroContent";
 @use "./components/molecules/mobileNav";
 @use "./components/molecules/homeBanner";
 @use "./components/molecules/profilePreview";
 @use "./components/molecules/profileSection";
+@use "./components/molecules/ownRecipesList";
 
 @use "./components/organisms/header";
 @use "./components/organisms/heroSection";
+@use "./components/organisms/recipeComplete";

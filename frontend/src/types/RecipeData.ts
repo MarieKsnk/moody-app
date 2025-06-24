@@ -2,6 +2,17 @@ import { MoodData, TypeData, DietData, OriginData } from "./CategoriesData";
 import { IngredientItem } from "./RecipeFormData";
 import { User } from "./User";
 
+export type CompleteIngredientItem = {
+  id: string;
+  recipeId: string;
+  ingredientId: string;
+  quantity: string;
+  ingredient: {
+    id: string;
+    name: string;
+  };
+};
+
 export type Recipe = {
   id: string;
   userId: string;
@@ -20,7 +31,7 @@ export type Recipe = {
   status: "pending" | "validated" | "rejected";
   createdAt: string;
 
-  ingredients: IngredientItem[];
+  ingredients: CompleteIngredientItem[];
 
   moods: {
     mood: MoodData;

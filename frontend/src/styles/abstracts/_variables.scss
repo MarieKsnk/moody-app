@@ -1,23 +1,37 @@
+// Presets typos principales
 $font-main: "Montserrat", sans-serif;
 $font-title: "Bunch", cursive;
 $font-button: "Bunch", cursive;
 
+// Presets couleurs principales
 $pink: #f08182;
 $light: #fdf9e8;
 $dark: #333333;
 $orange: #fda41d;
 
+// Presets couleurs des boutons
 $color-button-dark: #333333;
-$pink-shadow: #f08182;
+
+// Presets couleurs des fonds
+$light-principal-background: #fdf9e8;
 $dark-background: #333333;
+$light-background: #fdf9e8;
+$pink-background: #f08182;
 $light-principal-background: #fdf9e8;
 
+// Presets couleurs des ombres
+$pink-shadow: #f08182;
+$dark-shadow: #333333;
+
+// Presets couleurs des textes
 $dark-text: #333333;
 $light-text: #fdf9e8;
 $orange-text: #fda41d;
 $pink-text: #f08182;
 
+// Presets couleurs des survols
 $pink-hover: #f08182;
 
+// BREAKPOINTS
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;

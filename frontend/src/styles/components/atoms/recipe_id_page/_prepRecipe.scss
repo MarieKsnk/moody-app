@@ -1,0 +1,12 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.prep-recipe-icon {
+  display: flex;
+  gap: 0.5rem;
+  p {
+    font-family: $font-main;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}

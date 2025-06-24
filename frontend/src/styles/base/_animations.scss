@@ -1,5 +1,4 @@
 // Animations des textes du hero
-
 @keyframes splitIn {
   0% {
     opacity: 0;
@@ -39,5 +38,17 @@
   100% {
     opacity: 1;
     filter: blur(0);
+  }
+}
+
+// Animation pour les titres
+@keyframes slideFadeTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

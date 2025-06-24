@@ -1,0 +1,29 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.recipe-description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__text {
+    font-size: 1.2rem;
+    font-family: $font-main;
+    font-weight: 500;
+    color: $dark-text;
+    line-height: 1;
+    margin: 0rem;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: $font-main;
+    color: $dark-text;
+    padding: 1rem 0;
+    text-decoration: underline;
+    text-decoration-color: $pink;
+    text-underline-offset: 0.5rem;
+  }
+}
