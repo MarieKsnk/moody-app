@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import { RegisterFormData } from "@/types/forms/Register";
-import { Input } from "../../atoms/Input";
-import { Label } from "@/components/atoms/Label";
-import { Checkbox } from "../../atoms/Checkbox";
-import { SubmitButton } from "@/components/atoms/Buttons/SubmitButton";
 import { useRouter } from "next/router";
+import { RegisterFormData } from "@/types/forms/Register";
+import { Input } from "../../atoms/Forms/input";
+import { Label } from "@/components/atoms/Forms/label";
+import { Checkbox } from "../../atoms/Forms/checkbox";
+import { SubmitButton } from "@/components/atoms/Buttons/submit_button";
+import { AuthModal } from "@/components/molecules/Modals/auth_modal";
 
 export default function RegisterForm() {
   const router = useRouter();
@@ -21,6 +23,7 @@ export default function RegisterForm() {
 
   const profilePictureFile = watch("profilePicture")?.[0];
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (profilePictureFile) {
@@ -64,8 +67,7 @@ export default function RegisterForm() {
       );
 
       if (res.status === 201) {
-        alert(`Bienvenue sur Moody, ${data.firstName} !`);
-        router.push("/login");
+        setShowModal(true);
       }
     } catch (error: any) {
       const errorFile = error?.response?.data;
@@ -86,98 +88,126 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Label htmlFor="firstName" required={true}>
-        Nom
-      </Label>
-      <Input
-        id="firstName"
-        type="text"
-        register={register("firstName", {
-          required: "Le prénom est requis",
-          maxLength: { value: 20, message: "20 caractères maximum" },
-        })}
-        error={errors.firstName}
-      />
+    <section className="form">
+      <div className="form__container">
+        <h1>Je m'inscris sur Moody</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="auth-form__form">
+          <div className="auth-form__group">
+            <Label htmlFor="firstName" required={true}>
+              Nom
+            </Label>
+            <Input
+              id="firstName"
+              type="text"
+              register={register("firstName", {
+                required: "Le prénom est requis",
+                maxLength: { value: 20, message: "20 caractères maximum" },
+              })}
+              error={errors.firstName}
+            />
+          </div>
 
-      <Label htmlFor="lastName" required={true}>
-        Prenom
-      </Label>
-      <Input
-        id="lastName"
-        type="text"
-        register={register("lastName", {
-          required: "Le nom est requis",
-          maxLength: { value: 30, message: "30 caractères maximum" },
-        })}
-        error={errors.lastName}
-      />
+          <div className="auth-form__group">
+            <Label htmlFor="lastName" required={true}>
+              Prenom
+            </Label>
+            <Input
+              id="lastName"
+              type="text"
+              register={register("lastName", {
+                required: "Le nom est requis",
+                maxLength: { value: 30, message: "30 caractères maximum" },
+              })}
+              error={errors.lastName}
+            />
+          </div>
 
-      <Label htmlFor="email" required={true}>
-        Adresse email
-      </Label>
-      <Input
-        id="email"
-        type="email"
-        register={register("email", {
-          required: "L'email est requis",
-          pattern: {
-            value: /\S+@\S+\.\S+/,
-            message: "L'email n'est pas valide",
-          },
-          maxLength: { value: 50, message: "50 caractères maximum" },
-        })}
-        error={errors.email}
-      />
+          <div className="auth-form__group">
+            <Label htmlFor="email" required={true}>
+              Adresse email
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              register={register("email", {
+                required: "L'email est requis",
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "L'email n'est pas valide",
+                },
+                maxLength: { value: 50, message: "50 caractères maximum" },
+              })}
+              error={errors.email}
+            />
+          </div>
 
-      <Label htmlFor="password" required={true}>
-        Mot de passe
-      </Label>
-      <Input
-        id="password"
-        type="password"
-        register={register("password", {
-          required: "Le mot de passe est requis",
-          minLength: { value: 6, message: "Minimum 6 caractères" },
-          maxLength: { value: 15, message: "Maximum 15 caractères" },
-        })}
-        error={errors.password}
-      />
+          <div className="auth-form__group">
+            <Label htmlFor="password" required={true}>
+              Mot de passe
+            </Label>
+            <Input
+              id="password"
+              type="password"
+              register={register("password", {
+                required: "Le mot de passe est requis",
+                minLength: { value: 6, message: "Minimum 6 caractères" },
+                maxLength: { value: 15, message: "Maximum 15 caractères" },
+              })}
+              error={errors.password}
+            />
+          </div>
 
-      <Label htmlFor="profilePicture" required={false}>
-        Photo de profil
-      </Label>
-      <Input
-        id="profilePicture"
-        type="file"
-        accept="image/png,image/jpeg,image/webp"
-        register={register("profilePicture")}
-        error={errors.profilePicture}
-      />
+          <div className="auth-form__group">
+            <Label htmlFor="profilePicture" required={false}>
+              Photo de profil
+            </Label>
+            <Input
+              id="profilePicture"
+              type="file"
+              accept="image/png,image/jpeg,image/webp"
+              register={register("profilePicture")}
+              error={errors.profilePicture}
+            />
+          </div>
 
-      {previewUrl && (
-        <img
-          src={previewUrl}
-          alt="Aperçu de la photo de profil"
-          style={{
-            width: 120,
-            height: 120,
-            objectFit: "cover",
-            borderRadius: "50%",
-          }}
+          {previewUrl && (
+            <div>
+              <Image
+                src={previewUrl}
+                alt="Aperçu de la photo de profil"
+                width={200}
+                height={200}
+                style={{
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
+          )}
+
+          <Checkbox
+            id="rgpdAccepted"
+            label="J’accepte les Conditions Générales d'Utilisation et reconnais avoir été informé que mes données personnelles seront utilisées tel que détaillé dans la Politique de protection des données personnelles"
+            register={register("rgpdAccepted", {
+              required: "Vous devez accepter les conditions pour continuer",
+            })}
+            error={errors.rgpdAccepted}
+          />
+
+          <SubmitButton label="Je cree mon compte sur Moody" type="submit" />
+        </form>
+      </div>
+
+      {showModal && (
+        <AuthModal
+          title="Bienvenue sur Moody !"
+          message="Ton compte a bien été créé."
+          primaryLabel="Je me connecte"
+          primaryHref="/login"
+          secondaryLabel="Accueil"
+          secondaryHref="/"
         />
       )}
-
-      <Checkbox
-        id="rgpdAccepted"
-        label="J’accepte les Conditions Générales d'Utilisation et reconnais avoir été informé que mes données personnelles seront utilisées tel que détaillé dans la Politique de protection des données personnelles *"
-        register={register("rgpdAccepted", {
-          required: "Vous devez accepter les conditions pour continuer",
-        })}
-        error={errors.rgpdAccepted}
-      />
-
-      <SubmitButton label="Je crée mon compte sur Moody" type="submit" />
-    </form>
+    </section>
   );
 }

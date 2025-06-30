@@ -14,16 +14,20 @@ export async function fetchUserRecipes(): Promise<Recipe[]> {
     throw new Error("Token manquant");
   }
 
-
-
-  const res = await fetch(`http://localhost:8000/api/users/${user.id}/recipes`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
+  const res = await fetch(
+    `http://localhost:8000/api/users/${user.id}/recipes`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
   if (!res.ok) {
-    throw new Error(`Erreur lors de la récupération des recettes de ${user.firstName}`);
+    throw new Error(
+      `Erreur lors de la récupération des recettes de ${user.firstName}`
+    );
   }
 
   return res.json();

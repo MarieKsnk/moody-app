@@ -1,10 +1,12 @@
 import RegisterForm from "@/components/organisms/Forms/RegisterForm";
+import { AppLayout } from "@/components/layout/AppLayout";
 
 export default function RegisterPage() {
   return (
     <>
-      <h1>Je m'inscris sur Moody</h1>
-      <RegisterForm />
+      <AppLayout>
+        <RegisterForm />
+      </AppLayout>
     </>
   );
 }

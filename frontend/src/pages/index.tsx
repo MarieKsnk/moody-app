@@ -1,14 +1,12 @@
 import Head from "next/head";
 import { AppLayout } from "@/components/layout/AppLayout";
-import HeroSection from "@/components/organisms/HeroSection";
-import HomeBanner from "@/components/molecules/HomeBanner";
-import ProfilePreview from "@/components/molecules/ProfilePreview";
-import { OwnRecipesList } from "@/components/molecules/OwnRecipesList";
-import { useUserRecipes } from "@/hooks/useUserRecipes";
+import { HeroSection } from "@/components/organisms/Homepage/HeroSection";
+import { HomeMainSection } from "@/components/organisms/Homepage/HomeMainSection";
+import { LatestRecipes } from "@/components/molecules/Homepage/LatestRecipes";
+import { HomeMoodSection } from "@/components/organisms/Homepage/HomeMoodSection";
+import { BannerInspirationDark } from "@/components/molecules/Banners/banner_inspiration_dark";
 
 export default function Home() {
-  const { data: recipes, isLoading, error } = useUserRecipes();
-
   return (
     <>
       <Head>
@@ -17,21 +15,10 @@ export default function Home() {
 
       <AppLayout>
         <HeroSection />
-        <HomeBanner />
-        <ProfilePreview />
-
-        <main className="home-page">
-          {isLoading && <p>Chargement...</p>}
-          {error && <p>Erreur lors du chargement des recettes</p>}
-          {recipes && (
-            <OwnRecipesList
-              title="Mes dernieres recettes"
-              recipes={recipes}
-              showButtons={true}
-              limit={3}
-            />
-          )}
-        </main>
+        <HomeMainSection />
+        <BannerInspirationDark imageUrl="/img/illustration-banniere-inspiration.png" />
+        <LatestRecipes />
+        <HomeMoodSection />
       </AppLayout>
     </>
   );

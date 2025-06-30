@@ -1,6 +1,6 @@
 import React from "react";
 import { IRecipeCategoriesProps } from "./RecipeCategories.props";
-import { CategoryTag } from "@/components/atoms/recipe_id_page/category_tag";
+import { CategoryTag } from "@/components/atoms/Recipe_id_page/category_tag";
 
 export const RecipeCategories: React.FC<IRecipeCategoriesProps> = ({
   moods,

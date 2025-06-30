@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
-import Logo from "@/components/atoms/Logo/Logo";
-import BurgerButton from "@/components/atoms/BurgerButton/BurgerButton";
-import { NavLink } from "@/components/atoms/NavLink";
-import ProfileLink from "@/components/atoms/ProfileLink/ProfileLink";
-import { LogoutButton } from "@/components/atoms/LogoutButton";
+import { Logo } from "@/components/atoms/Nav/logo";
+import { BurgerButton } from "@/components/atoms/Buttons/burger_button";
+import { NavLink } from "@/components/atoms/Nav/nav_link";
+import { ProfileLink } from "@/components/atoms/Buttons/profile_link";
+import { LogoutButtonIcon } from "@/components/atoms/Buttons/logout_button_icon";
 import { useAuth } from "@/hooks/useAuth";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { useAuthStore } from "@/stores/authStore";
+import { SubMenuToggle } from "@/components/atoms/Nav/sub_menu_toggle";
 
-export default function MobileNav() {
+export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isRecipesOpen, setIsRecipesOpen] = useState(false);
   const { isAuthenticated, isLoading } = useAuth();
   const logout = useAuthStore((s) => s.logout);
   const queryClient = useQueryClient();
@@ -63,8 +65,47 @@ export default function MobileNav() {
             <li className="nav-bloc">
               <ul>
                 <NavLink href="/" label="ACCUEIL" className="light" />
-                <NavLink href="#" label="LES RECETTES" className="light" />
-                <NavLink href="/add-recipe" label="AJOUTER UNE RECETTE" className="light" />
+                <li className="mobile-menu__submenu">
+                  <SubMenuToggle
+                    label="LES RECETTES"
+                    isOpen={isRecipesOpen}
+                    onClick={() => setIsRecipesOpen((prev) => !prev)}
+                    id="submenu-recipes"
+                  />
+                  {isRecipesOpen && (
+                    <ul
+                      id="submenu-recipes"
+                      className="mobile-menu__links"
+                      role="menu"
+                      aria-label="Sous-menu Les recettes"
+                    >
+                      <NavLink
+                        href="/recipes/moods"
+                        label="Recettes par mood"
+                        className="light"
+                      />
+                      <NavLink
+                        href="/all-recipes"
+                        label="Toutes les recettes"
+                        className="all-recipes"
+                      />
+                    </ul>
+                  )}
+                </li>
+                {isAuthenticated && (
+                  <>
+                    <NavLink
+                      href="/profile#mes-recettes"
+                      label="MES RECETTES"
+                      className="light"
+                    />
+                    <NavLink
+                      href="/add-recipe"
+                      label="AJOUTER UNE RECETTE"
+                      className="light"
+                    />
+                  </>
+                )}
               </ul>
             </li>
             {!isAuthenticated ? (
@@ -82,7 +123,10 @@ export default function MobileNav() {
               <li className="auth-bloc">
                 <ul>
                   <ProfileLink href="/profile" label="MON PROFIL" />
-                  <LogoutButton onClick={handleLogout} label="DECONNEXION" />
+                  <LogoutButtonIcon
+                    onClick={handleLogout}
+                    label="DECONNEXION"
+                  />
                 </ul>
               </li>
             )}
@@ -91,4 +135,4 @@ export default function MobileNav() {
       )}
     </div>
   );
-}
+};

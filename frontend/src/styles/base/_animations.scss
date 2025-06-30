@@ -41,6 +41,16 @@
   }
 }
 
+//Animation pour le bandeau de la homepage
+@keyframes track_animation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 // Animation pour les titres
 @keyframes slideFadeTop {
   0% {

@@ -11,32 +11,92 @@
 
 @use "./layout/grid";
 
-@use "./components/atoms/burgerButton";
-@use "./components/atoms/profileLink";
-@use "./components/atoms/navLink";
-@use "./components/atoms/logoutButton";
-@use "./components/atoms/profilePicture";
-@use "./components/atoms/darkButton";
-@use "./components/atoms/lightButton";
-@use "./components/atoms/logoutLink";
-@use "./components/atoms/ownRecipeCard";
-@use "./components/atoms/titleIcon";
-@use "./components/atoms/recipe_id_page/serveRecipe";
-@use "./components/atoms/recipe_id_page/cookRecipe";
-@use "./components/atoms/recipe_id_page/prepRecipe";
-@use "./components/atoms/recipe_id_page/categoryTag";
-@use "./components/atoms/recipe_id_page/titleRecipe";
-@use "./components/atoms/recipe_id_page/ingredientsList";
-@use "./components/atoms/recipe_id_page/etapesList";
-@use "./components/atoms/recipe_id_page/recipeDescription";
+///////////////////////////
+//// IMPORT DES ATOMS ////
+// Nav
+@use "./components/atoms/Nav/navLink";
+// Image
+@use "./components/atoms/Image/profilePicture";
+// Cards
+@use "./components/atoms/Cards/recipeCard";
+// Categories
+@use "./components/atoms/Categories/categorieAnchor";
+// Buttons
+@use "./components/atoms/Buttons/profileLink";
+@use "./components/atoms/Buttons/logoutButton";
+@use "./components/atoms/Buttons/burgerButton";
+@use "./components/atoms/Buttons/actionButton";
+@use "./components/atoms/Buttons/darkButton";
+@use "./components/atoms/Buttons/lightButton";
+@use "./components/atoms/Buttons/nextButton";
+@use "./components/atoms/Buttons/prevButton";
+@use "./components/atoms/Buttons/addButton";
+@use "./components/atoms/Buttons/removeButton";
+@use "./components/atoms/Buttons/submitButton";
+@use "./components/atoms/Buttons/subMenuToggle";
+// Form //
+@use "./components/atoms/Form/input";
+@use "./components/atoms/Form/textarea";
+@use "./components/atoms/Form/label";
+@use "./components/atoms/Form/select";
+@use "./components/atoms/Form/itemTag";
+@use "./components/atoms/Form/checkbox";
+// Recipe_id_page //
+@use "./components/atoms/Recipe_id_page/serveRecipe";
+@use "./components/atoms/Recipe_id_page/cookRecipe";
+@use "./components/atoms/Recipe_id_page/prepRecipe";
+@use "./components/atoms/Recipe_id_page/categoryTag";
+@use "./components/atoms/Recipe_id_page/titleRecipe";
+@use "./components/atoms/Recipe_id_page/ingredientsList";
+@use "./components/atoms/Recipe_id_page/etapesList";
+@use "./components/atoms/Recipe_id_page/recipeDescription";
+// Titles //
+@use "./components/atoms/Titles/titleIcon";
+@use "./components/atoms/Titles/titleBanner";
+@use "./components/atoms/Titles/titleHighlight";
+// Mood_illustration //
+@use "./components/atoms/Mood_illustration/moodIllustration";
 
-@use "./components/molecules/heroContent";
-@use "./components/molecules/mobileNav";
-@use "./components/molecules/homeBanner";
-@use "./components/molecules/profilePreview";
-@use "./components/molecules/profileSection";
-@use "./components/molecules/ownRecipesList";
+///////////////////////////////
+//// IMPORT DES MOLECULES ////
+// Navbars
+@use "./components/molecules/Navbars/mobileNav";
+@use "./components/molecules/Navbars/desktopNav";
+// Profile
+@use "./components/molecules/Profile/profileSection";
+// Cards
+@use "./components/molecules/Cards/ownRecipesList";
+@use "./components/molecules/Cards/allRecipesList";
+// Form_steps
+@use "./components/molecules/Form_steps/formSteps";
+// Modals
+@use "./components/molecules/Modals/styleModals";
+// Recipe_id_page
+@use "./components/molecules/Recipe_id_page/recipeButtons";
+// Categories
+@use "./components/molecules/Categories/categorieBlock";
+@use "./components/molecules/Categories/moodAnchorList";
+// Mood_page
+@use "./components/molecules/Mood_page/recipeMoodSection";
+// All_recipes
+@use "./components/molecules/All_recipes/allRecipesMainSection";
+// Homepage
+@use "./components/molecules/Homepage/heroContent";
+@use "./components/molecules/Homepage/profilePreview";
+@use "./components/molecules/Homepage/latestRecipes";
+@use "./components/molecules/Homepage/homeBanner";
+// Banner_inspiration
+@use "./components/molecules/Banner_inspiration/bannerInspiration";
 
-@use "./components/organisms/header";
-@use "./components/organisms/heroSection";
-@use "./components/organisms/recipeComplete";
+///////////////////////////////
+//// IMPORT DES ORGANISMS ////
+// Recipe_id_page
+@use "./components/organisms/Recipe_id_page/recipeComplete";
+// Forms
+@use "./components/organisms/Forms/styleForm";
+@use "./components/organisms/Forms/authForm";
+// Categories
+@use "./components/organisms/Categories/moodsRecipesSection";
+// Homepage
+@use "./components/organisms/Homepage/heroSection";
+@use "./components/organisms/Homepage/homeMainSection";

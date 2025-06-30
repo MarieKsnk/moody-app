@@ -1,5 +1,5 @@
 import { IAppLayoutProps } from "./AppLayout.props";
-import { Header } from "../organisms/Header";
+import { Header } from "../organisms/Nav/Header";
 
 export const AppLayout: React.FC<IAppLayoutProps> = ({ children }) => {
   return (
