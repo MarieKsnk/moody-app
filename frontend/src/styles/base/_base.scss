@@ -1,0 +1,65 @@
+@use "../abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $light-principal-background;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-family: $font-title;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+p,
+input,
+textarea,
+select,
+button {
+  font-family: $font-main;
+  font-size: 1rem;
+}
+
+::placeholder {
+  font-size: 1rem;
+  color: $color-placeholder;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.input-help {
+  display: flex;
+  text-align: left;
+  font-family: $font-main;
+  font-size: 0.9rem;
+  color: $light;
+  margin: 0;
+}
+
+.input-error {
+  display: flex;
+  text-align: left;
+  font-family: $font-main;
+  font-size: 0.9rem;
+  color: $pink-text;
+  margin: 0;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  @include focus-style;
+}

@@ -1,11 +1,10 @@
 import { User } from "@/types/User";
 
 export async function fetchMe(): Promise<User> {
-  const token =
-    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  const token = localStorage.getItem("token");
 
   if (!token) {
-    throw new Error("Aucun token trouvé");
+    throw new Error("Token manquant");
   }
 
   const res = await fetch("http://localhost:8000/api/users/me", {
@@ -16,7 +15,7 @@ export async function fetchMe(): Promise<User> {
 
   if (res.status === 401) {
     localStorage.removeItem("token");
-    throw new Error("Unauthorized");
+    throw new Error("Utilisateur non autorisé");
   }
 
   if (!res.ok) {

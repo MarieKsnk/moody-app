@@ -1,0 +1,19 @@
+@use "@/styles/abstracts/variables" as *;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+@mixin focus-style {
+  outline: none;
+  border-color: $pink;
+  box-shadow: 0 0 0 2px rgba($pink, 0.3);
+}

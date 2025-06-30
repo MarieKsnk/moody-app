@@ -22,4 +22,10 @@ export type RecipeFormData = {
   typeIds: string[];
   dietIds: string[];
   originIds: string[];
+  existingPicture?: string;
 };
+
+export interface SelectOption {
+  label: string;
+  value: string;
+}

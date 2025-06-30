@@ -1,0 +1,24 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.recipe-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.category-tag__item {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.3rem 1.5rem;
+  font-family: $font-main;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  background-color: $light-background;
+  color: $dark-text;
+  border: 1px solid $dark;
+  box-shadow: 0 3px 0 $dark-shadow;
+}

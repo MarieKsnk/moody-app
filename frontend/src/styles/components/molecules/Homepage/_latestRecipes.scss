@@ -1,0 +1,13 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.latest-recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  align-items: center;
+  @include respond(lg) {
+    padding: 2rem 15rem;
+  }
+}

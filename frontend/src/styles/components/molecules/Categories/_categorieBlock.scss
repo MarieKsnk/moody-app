@@ -1,0 +1,63 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.categorie-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+
+    h2 {
+      font-size: 1.8rem;
+      font-family: $font-title;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .underline {
+      display: block;
+      width: 100%;
+      height: 2px;
+    }
+  }
+
+  &__card {
+    width: 100%;
+  }
+
+  &--dark {
+    background-color: $dark-background;
+
+    .categorie-block__title {
+      h2 {
+        color: $light-text;
+      }
+
+      .underline {
+        background-color: $light;
+      }
+    }
+  }
+
+  &--light {
+    background-color: $light-background;
+
+    .categorie-block__title {
+      h2 {
+        color: $dark-text;
+      }
+
+      .underline {
+        background-color: $dark;
+      }
+    }
+  }
+}

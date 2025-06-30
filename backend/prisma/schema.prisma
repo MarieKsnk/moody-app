@@ -7,6 +7,50 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Role {
+  id String @id
+  name String @unique
+  users User[]
+}
+
+model Type {
+  id String @id @default(uuid())
+  name String @unique @db.VarChar(100)
+  recipes TypeRecipe[]
+}
+
+model TypeRecipe {
+  id String @id @default(uuid())
+  recipeId String
+  recipe Recipe @relation(fields: [recipeId], references: [id])
+  typeId String
+  type Type @relation(fields: [typeId], references: [id])
+}
+
+model Ingredient {
+  id String @id @default(uuid())
+  name String @unique @db.VarChar(100)
+  recipes IngredientRecipe[]
+}
+
+model Mood {
+  id String @id @default(uuid())
+  name String @unique @db.VarChar(100)
+  recipes MoodRecipe[]
+}
+
+model Diet {
+  id String @id @default(uuid())
+  name String @unique @db.VarChar(100)
+  recipes DietRecipe[]
+}
+
+model Origin {
+  id String @id @default(uuid())
+  name String @unique @db.VarChar(100)
+  recipes OriginRecipe[]
+}
+
 model User {
   id String @id @default(uuid())
   firstName String @db.VarChar(50)
@@ -21,12 +65,6 @@ model User {
   createdAt DateTime @default(now())
 }
 
-model Role {
-  id String @id
-  name String @unique
-  users User[]
-}
-
 model Recipe {
   id String @id @default(uuid())
   userId String
@@ -36,8 +74,7 @@ model Recipe {
   ingredients IngredientRecipe[]
   description String? @db.Text
   instructions String @db.Text
-  typeId String
-  type Type @relation(fields: [typeId], references: [id])
+  types TypeRecipe[]
   recipePicture String @db.VarChar(255)
   recipeUrl String? @db.VarChar(255)
   prepTime Int
@@ -49,18 +86,6 @@ model Recipe {
   createdAt DateTime @default(now())
 }
 
-model Type {
-  id String @id @default(uuid())
-  name String @unique @db.VarChar(100)
-  recipes Recipe[]
-}
-
-model Ingredient {
-  id String @id @default(uuid())
-  name String @unique @db.VarChar(100)
-  recipes IngredientRecipe[]
-}
-
 model IngredientRecipe {
   id String @id @default(uuid())
   recipeId String
@@ -68,12 +93,6 @@ model IngredientRecipe {
   ingredientId String
   ingredient Ingredient @relation(fields: [ingredientId], references: [id])
   quantity String @db.VarChar(50)
-}
-
-model Mood {
-  id String @id @default(uuid())
-  name String @unique @db.VarChar(100)
-  recipes MoodRecipe[]
 }
 
 model MoodRecipe {
@@ -84,24 +103,12 @@ model MoodRecipe {
   mood Mood @relation(fields: [moodId], references: [id])
 }
 
-model Diet {
-  id String @id @default(uuid())
-  name String @unique @db.VarChar(100)
-  recipes DietRecipe[]
-}
-
 model DietRecipe {
   id String @id @default(uuid())
   recipeId String
   recipe Recipe @relation(fields: [recipeId], references: [id])
   dietId String
   diet Diet @relation(fields: [dietId], references: [id])
-}
-
-model Origin {
-  id String @id @default(uuid())
-  name String @unique @db.VarChar(100)
-  recipes OriginRecipe[]
 }
 
 model OriginRecipe {

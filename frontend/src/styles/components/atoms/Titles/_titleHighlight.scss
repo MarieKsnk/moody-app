@@ -1,0 +1,71 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.title-highlight {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transform: rotate(-3deg);
+  line-height: 1;
+  width: fit-content;
+  animation: zoomBounceRotate 0.8s ease-out forwards;
+
+  &__bg {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    height: 4rem;
+    border-radius: 2px;
+    transform: translateY(-40%);
+    z-index: 1;
+    @include respond(lg) {
+      height: 10rem;
+      top: 60%;
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1;
+    max-width: 100%;
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
+  &--bg-orange &__bg {
+    background-color: $orange-background;
+  }
+  &--bg-pink &__bg {
+    background-color: $pink-background;
+  }
+  &--bg-pink-desktop &__bg {
+    @include respond(lg) {
+      background-color: $pink-background;
+      height: 3rem;
+      top: 60%;
+    }
+  }
+
+  &--text-light &__text {
+    color: $light-text;
+  }
+  &--text-dark &__text {
+    color: $dark-text;
+  }
+
+  &--size-med &__text {
+    font-size: 20vw;
+    @include respond(lg) {
+      font-size: 15vw;
+    }
+  }
+  &--size-sm &__text {
+    font-size: 10vw;
+    @include respond(lg) {
+      font-size: 4vw;
+    }
+  }
+}

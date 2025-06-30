@@ -1,10 +1,12 @@
 import LoginForm from "@/components/organisms/Forms/LoginForm";
+import { AppLayout } from "@/components/layout/AppLayout";
 
 export default function LoginPage() {
   return (
     <>
-      <h1>Je me connecte</h1>
-      <LoginForm />
+      <AppLayout>
+        <LoginForm />
+      </AppLayout>
     </>
   );
 }

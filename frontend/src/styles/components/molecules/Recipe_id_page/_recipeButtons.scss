@@ -1,0 +1,17 @@
+.recipe-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem 2rem;
+  &__author-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    a,
+    button {
+      padding: 0;
+    }
+  }
+}
