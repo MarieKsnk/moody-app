@@ -5,7 +5,7 @@ import { AppLayout } from "@/components/layout/AppLayout";
 import { useAuth } from "@/hooks/useAuth";
 import { useDeleteRecipe } from "@/hooks/useDeleteRecipe";
 import { useState } from "react";
-import { RecipeButtons } from "@/components/molecules/Recipe_id_page/recipe_buttons";
+import { RecipeButtons } from "@/components/molecules/recipe_id_page/recipe_buttons";
 import { ButtonsModal } from "@/components/molecules/Modals/buttons_modal";
 
 export default function RecipePage() {

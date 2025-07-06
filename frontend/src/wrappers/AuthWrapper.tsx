@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import type { ReactNode } from "react";
-import LoginPage from "@/pages/login";
 
 export const AuthWrapper = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
@@ -20,7 +19,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
   }
 
   if (!isAuthenticated) {
-    return <LoginPage />;
+    router.push("/login");
   }
 
   return <>{children}</>;
