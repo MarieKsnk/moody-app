@@ -30,7 +30,6 @@ app.use(
         callback(new Error("Error CORS"));
       }
     },
-    credentials: true,
   })
 );
 
