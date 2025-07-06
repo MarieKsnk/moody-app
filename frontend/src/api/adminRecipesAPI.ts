@@ -5,10 +5,13 @@ export async function fetchAdminPendingRecipes(
 ): Promise<Recipe[]> {
   if (!token) throw new Error("Token manquant");
 
-  const res = await fetch("http://localhost:8000/api/admin/recipes/pending", {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/admin/recipes/pending`,
+    {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    }
+  );
 
   if (!res.ok) throw new Error("Erreur de récupération des recettes à valider");
   return res.json();
@@ -21,7 +24,7 @@ export async function acceptAdminRecipe(
   if (!token) throw new Error("Token manquant");
 
   const res = await fetch(
-    `http://localhost:8000/api/admin/recipes/${id}/accept`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/admin/recipes/${id}/accept`,
     {
       method: "PATCH",
       headers: { Authorization: `Bearer ${token}` },
@@ -39,7 +42,7 @@ export async function rejectAdminRecipe(
   if (!token) throw new Error("Token manquant");
 
   const res = await fetch(
-    `http://localhost:8000/api/admin/recipes/${id}/reject`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/admin/recipes/${id}/reject`,
     {
       method: "PATCH",
       headers: { Authorization: `Bearer ${token}` },
@@ -55,9 +58,12 @@ export async function fetchAdminAllAcceptedRecipes(
 ): Promise<Recipe[]> {
   if (!token) throw new Error("Token manquant");
 
-  const res = await fetch("http://localhost:8000/api/admin/recipes", {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/admin/recipes`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    }
+  );
 
   if (!res.ok) throw new Error("Erreur lors de la récupération des recettes");
   const data = await res.json();

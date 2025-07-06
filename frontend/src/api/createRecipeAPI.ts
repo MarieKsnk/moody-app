@@ -6,13 +6,16 @@ export async function fetchCreateRecipe(
 ): Promise<Recipe> {
   if (!token) throw new Error("Token manquant");
 
-  const res = await fetch("http://localhost:8000/api/recipes/add-recipe", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    body: formData,
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/recipes/add-recipe`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    }
+  );
 
   if (!res.ok) throw new Error("Erreur serveur");
   return res.json();

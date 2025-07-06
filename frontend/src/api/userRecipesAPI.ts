@@ -12,13 +12,16 @@ export async function fetchUserRecipes(
     throw new Error("Token manquant");
   }
 
-  const res = await fetch(`http://localhost:8000/api/users/${userId}/recipes`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/users/${userId}/recipes`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
   if (!res.ok) {
     throw new Error("Erreur lors de la récupération des recettes");
   }

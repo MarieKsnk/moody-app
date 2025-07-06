@@ -1,7 +1,7 @@
 export async function fetchDeleteMe(token: string | null) {
   if (!token) throw new Error("Token manquant");
 
-  const res = await fetch("http://localhost:8000/api/users/me", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/me`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,

@@ -51,10 +51,13 @@ export async function fetchRegister(data: RegisterFormData) {
     formData.append("rgpdAccepted", String(data.rgpdAccepted));
   }
 
-  const res = await fetch("http://localhost:8000/api/auth/register", {
-    method: "POST",
-    body: formData,
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`,
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
 
   if (!res.ok) throw new Error("Erreur serveur");
   return res.json();

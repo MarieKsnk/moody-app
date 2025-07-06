@@ -1,11 +1,14 @@
 export async function fetchUsersCount(token: string | null): Promise<number> {
   if (!token) throw new Error("Token manquant");
 
-  const res = await fetch("http://localhost:8000/api/admin/stats/users", {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/admin/stats/users`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Erreur lors de la récupération du nombre d'utilisateurs");
@@ -17,11 +20,14 @@ export async function fetchUsersCount(token: string | null): Promise<number> {
 export async function fetchRecipesCount(token: string | null): Promise<number> {
   if (!token) throw new Error("Token manquant");
 
-  const res = await fetch("http://localhost:8000/api/admin/stats/recipes", {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/admin/stats/recipes`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Erreur lors de la récupération du nombre de recettes");
@@ -36,7 +42,7 @@ export async function fetchPendingRecipesCount(
   if (!token) throw new Error("Token manquant");
 
   const res = await fetch(
-    "http://localhost:8000/api/admin/stats/pending-recipes",
+    `${process.env.NEXT_PUBLIC_API_URL}/api/admin/stats/pending-recipes`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
