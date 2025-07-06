@@ -1,0 +1,36 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.submenu-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  &__label {
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: $font-main;
+    color: $light-text;
+  }
+  &__icon {
+    color: $light;
+  }
+
+  @include respond(lg) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    &__label {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}

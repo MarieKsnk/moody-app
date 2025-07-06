@@ -1,0 +1,51 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $dark-text;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    color: $pink-hover;
+    outline: none;
+  }
+
+  img {
+    display: block;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@include respond(lg) {
+  .logout-button {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .desktop-menu__top .right .logout-button {
+    flex-direction: row-reverse;
+  }
+  .logout-button--light {
+    color: $light-text;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+    text-decoration-color: $light-text;
+    &:hover,
+    &:focus {
+      color: $pink-hover;
+      text-decoration-color: $pink;
+    }
+  }
+}

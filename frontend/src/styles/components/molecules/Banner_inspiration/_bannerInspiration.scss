@@ -1,0 +1,84 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.banner-inspiration {
+  background-color: $dark;
+  padding: 3rem 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  @include respond(lg) {
+    flex-direction: row;
+    padding: 2rem 6rem 5rem;
+    gap: 4rem;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  }
+
+  &__image-container {
+    width: 100%;
+    overflow: hidden;
+    @include respond(lg) {
+      flex: 1 1 40%;
+      max-width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner-inspiration__image {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      display: block;
+      @include respond(lg) {
+        width: 80%;
+      }
+    }
+  }
+
+  &__title-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    @include respond(lg) {
+      display: none;
+    }
+  }
+
+  &__container-desktop {
+    display: none;
+    @include respond(lg) {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      width: 100%;
+      text-align: center;
+      align-items: flex-start;
+      flex: 1 1 60%;
+      max-width: 60%;
+    }
+  }
+
+  &__title-desktop {
+    display: none;
+
+    @include respond(lg) {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  &__button-mobile {
+    margin-top: 1.5rem;
+    @include respond(lg) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: $light-background;
+  border: 0;
+  cursor: pointer;
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

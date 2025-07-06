@@ -1,0 +1,32 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.nav-link {
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: $font-main;
+
+  &:hover,
+  &:focus {
+    color: $pink-hover;
+    outline: none;
+  }
+}
+
+.light {
+  color: $light-text;
+}
+
+.all-recipes {
+  color: $dark-text;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: $light-background;
+  border-radius: 5rem;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+.dark {
+  color: $dark-text;
+}

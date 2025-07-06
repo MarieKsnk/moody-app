@@ -1,0 +1,37 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: $light-background;
+  @include respond(lg) {
+    padding: 2rem 10rem;
+  }
+
+  &__container {
+    background-color: $dark-background;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include respond(lg) {
+      padding: 3rem 10rem;
+    }
+  }
+  h1 {
+    font-size: 2rem;
+  }
+
+  &__light-title {
+    color: $light-text;
+  }
+
+  &__pink-title {
+    color: $pink-text;
+  }
+}

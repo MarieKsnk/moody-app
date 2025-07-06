@@ -1,0 +1,50 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.recipe-categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  @include respond(lg) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+}
+
+.category-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  @include respond(lg) {
+    flex-direction: row;
+    gap: 1rem;
+    width: auto;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.3rem 1.5rem;
+    font-family: $font-main;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 2rem;
+    background-color: $light-background;
+    color: $dark-text;
+    border: 1px solid $dark;
+    box-shadow: 0 3px 0 $dark-shadow;
+    margin: 0;
+    text-align: center;
+  }
+}

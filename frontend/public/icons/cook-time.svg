@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 800 800">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f08182;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)  -->
+  <g>
+    <g id="Calque_1">
+      <path id="hourglass-simple-high-fill-svgrepo-com" class="cls-1" d="M456.5,401.2l209.1-209.1h0l76.2-76.2c26-26,25.9-68,0-94-12.4-12.4-29.3-19.4-46.9-19.5H124.2c-36.7,0-66.5,29.8-66.5,66.5,0,17.6,7,34.5,19.5,47l285.3,285.3L77.2,686.5c-26,26-25.9,68,0,94,12.5,12.5,29.4,19.5,47,19.5h570.6c36.7,0,66.5-29.8,66.5-66.5,0-17.6-7-34.5-19.5-47l-285.3-285.3ZM694.9,68.9l-66.3,66.4H190.7l-66.5-66.4h570.6ZM124.3,733.5l285.3-285.3,285.3,285.3H124.3Z"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.label {
+  display: inline-block;
+  width: 100%;
+  font-family: $font-main;
+  color: $light-text;
+  font-size: 1.2rem;
+  font-weight: 600;
+  @include respond(lg) {
+    font-size: 1rem;
+  }
+  &__required {
+    color: $pink-text;
+  }
+}

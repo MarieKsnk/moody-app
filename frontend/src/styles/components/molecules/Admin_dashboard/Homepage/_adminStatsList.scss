@@ -1,0 +1,14 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.admin-stats-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  @include respond(lg) {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+}

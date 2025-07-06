@@ -1,0 +1,32 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.banner-title-wrapper {
+  width: 100%;
+  padding-top: 0rem;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.banner-title {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 110vw;
+  background-color: $dark-background;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-title__text {
+  font-family: $font-title;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: $light-text;
+  text-align: center;
+  margin: 0;
+}

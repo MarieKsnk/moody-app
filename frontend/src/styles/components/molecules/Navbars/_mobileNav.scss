@@ -1,0 +1,88 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.mobile-menu {
+  width: 100%;
+  padding: 0 2rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6rem;
+    z-index: 50;
+    border-bottom: 1px solid;
+
+    .logomoody {
+      width: 50%;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 6rem);
+    background-color: $dark-background;
+    z-index: 40;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    .nav-bloc {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          border-bottom: 1px solid $pink;
+          padding: 2rem 0;
+        }
+      }
+    }
+
+    .auth-bloc {
+      margin-top: auto;
+      background-color: $light-background;
+      padding: 1rem;
+      border-radius: 5px;
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          padding: 1.5rem 0;
+          display: flex;
+          justify-content: center;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid $dark;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-menu {
+    &__submenu {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  @include respond(lg) {
+    display: none;
+  }
+}

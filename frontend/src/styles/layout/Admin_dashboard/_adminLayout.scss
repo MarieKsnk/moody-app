@@ -1,0 +1,36 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.admin-sidebar {
+  display: none;
+}
+@include respond(lg) {
+  .admin-sidebar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 20rem;
+    height: 100vh;
+    z-index: 100;
+    background: $dark-background;
+  }
+  .admin-content {
+    margin-left: 20rem;
+    width: calc(100vw - 20rem);
+    min-width: 0;
+    min-height: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .admin-main {
+    flex: 1 1 0;
+    min-height: 0;
+    height: 100%;
+    overflow: auto;
+    padding: 3rem;
+  }
+}

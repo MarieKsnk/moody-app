@@ -1,0 +1,14 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.admin-link-redirection {
+  font-family: $font-main;
+  font-size: 1rem;
+  color: $pink-text;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}

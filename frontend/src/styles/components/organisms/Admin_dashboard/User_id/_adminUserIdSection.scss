@@ -1,0 +1,66 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.admin-user-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem;
+  min-height: 0;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    gap: 1rem;
+  }
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  &__name,
+  &__email {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem 4rem;
+    .button-return {
+      margin-top: 2rem;
+    }
+  }
+
+  &__loading,
+  &__error,
+  &__empty {
+    text-align: center;
+  }
+
+  // ---- DESKTOP SEULEMENT ----
+  @include respond(lg) {
+    padding: 0;
+    height: 100%;
+    max-height: 100%;
+    min-height: 0;
+    width: 100%;
+    gap: 2rem;
+
+    &__buttons {
+      margin-top: auto;
+      gap: 2rem;
+      width: 100%;
+      padding: 0;
+      .button-return {
+        margin-top: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@use "@/styles/abstracts/variables" as *;
+
+.select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: $font-main;
+  color: $dark-text;
+  background-color: $light;
+  border-radius: 0.5rem;
+  border: none;
+}
