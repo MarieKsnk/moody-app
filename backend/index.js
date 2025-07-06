@@ -18,9 +18,19 @@ const PORT = process.env.PORT || 8000;
 
 // Sécurité
 app.use(helmet());
+
+const allowedOrigins = ["http://localhost:3000", process.env.FRONTEND_MOODY];
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_MOODY || "http://localhost:3000",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Error CORS"));
+      }
+    },
+    credentials: true,
   })
 );
 
