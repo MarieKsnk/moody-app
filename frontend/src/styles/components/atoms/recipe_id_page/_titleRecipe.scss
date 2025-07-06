@@ -50,7 +50,7 @@
     border: 2px solid $dark;
     box-shadow: 0 4px 0 $dark-shadow;
     @include respond(lg) {
-      width: 80%;
+      width: 100%;
       height: 30rem;
     }
   }

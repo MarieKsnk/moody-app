@@ -21,10 +21,11 @@ export const AdminDesktopNav = () => {
       <div className="admin-sidebar__logo">
         <Link href="/admin">
           <Image
-            src="/assets/logo_moody.svg"
+            src="/assets/logo_moody_light.svg"
             alt="Logo Moody"
-            width={120}
-            height={40}
+            width={200}
+            height={60}
+            priority
           />
         </Link>
       </div>

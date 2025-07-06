@@ -150,7 +150,7 @@ export const updateRecipeValidator = [
     .withMessage("La description doit être une chaîne de caractères"),
 
   body("recipeUrl")
-    .optional({ nullable: true })
+    .optional({ nullable: true, checkFalsy: true })
     .isURL()
     .withMessage("L'URL de la recette n'est pas valide"),
 

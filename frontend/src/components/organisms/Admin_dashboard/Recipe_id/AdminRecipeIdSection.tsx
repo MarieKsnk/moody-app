@@ -1,30 +1,32 @@
+// src/components/sections/AdminRecipeIdSection.tsx
+
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
 import { useRecipeById } from "@/hooks/useRecipeId";
-import { RecipeComplete } from "@/components/organisms/Recipe_id/recipe-complete";
 import { useDeleteRecipe } from "@/hooks/useDeleteRecipe";
 import { useAdminPendingRecipes } from "@/hooks/useAdminRecipes";
-import { useState } from "react";
-import { ActionLinkButton } from "@/components/atoms/Buttons/action_link_button";
-import { ActionClickButton } from "@/components/atoms/Buttons/action_click_button";
+import { RecipeComplete } from "@/components/organisms/Recipe_id/recipe-complete";
 import { ButtonsModal } from "@/components/molecules/Modals/buttons_modal";
 import { AdminModerationButton } from "@/components/atoms/Admin_dashboard/admin_accept_button";
+import { ActionLinkButton } from "@/components/atoms/Buttons/action_link_button";
+import { ActionClickButton } from "@/components/atoms/Buttons/action_click_button";
 import { AdminButton } from "@/components/atoms/Admin_dashboard/admin_button";
 
 export const AdminRecipeIdSection = () => {
   const router = useRouter();
   const { id } = router.query;
 
+  const { token } = useAuth();
   const {
     data: recipe,
     isLoading,
     isError,
     refetch,
-  } = useRecipeById(id as string);
+  } = useRecipeById(id as string, token);
 
   const { mutate: deleteRecipe } = useDeleteRecipe(id as string);
-
   const { accept, reject } = useAdminPendingRecipes();
-
   const [showModal, setShowModal] = useState(false);
 
   if (isLoading) {
@@ -40,7 +42,9 @@ export const AdminRecipeIdSection = () => {
   if (isError || !recipe) {
     return (
       <div className="admin-recipe-section">
-        <p className="admin-recipe-section__error">Recette introuvable.</p>
+        <p className="admin-recipe-section__error">
+          Recette introuvable ou accès interdit.
+        </p>
       </div>
     );
   }
@@ -121,7 +125,7 @@ export const AdminRecipeIdSection = () => {
       {showModal && (
         <ButtonsModal
           title={"Suppression"}
-          message={"Es-tu sur·e de vouloir supprimer la recette ?"}
+          message={"Es-tu sûr·e de vouloir supprimer la recette ?"}
           primaryLabel="Supprimer la recette"
           primaryOnClick={handleDelete}
           secondaryLabel="Annuler"

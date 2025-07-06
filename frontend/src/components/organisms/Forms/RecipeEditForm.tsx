@@ -16,8 +16,8 @@ interface Props {
 }
 
 export default function RecipeEditForm({ recipeId }: Props) {
-  const { user } = useAuth();
-  const { data: recipe, isLoading } = useRecipeById(recipeId);
+  const { user, token } = useAuth();
+  const { data: recipe, isLoading } = useRecipeById(recipeId, token);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<RecipeFormData | null>(null);
   const router = useRouter();
@@ -87,7 +87,7 @@ export default function RecipeEditForm({ recipeId }: Props) {
         if (isAdmin) {
           router.push(`/admin/recipes/${recipeId}`);
         } else {
-          router.push(`/recipes/${recipeId}`);
+          router.push("/all-recipes");
         }
       },
       onError: () => {
@@ -101,7 +101,7 @@ export default function RecipeEditForm({ recipeId }: Props) {
   return (
     <section className="form">
       <div className="form__container">
-        <h1>Modifier ma recette</h1>
+        <h1 className="form__light-title">Modifier ma recette</h1>
         {step === 1 && (
           <StepInformations
             defaultValues={formData}

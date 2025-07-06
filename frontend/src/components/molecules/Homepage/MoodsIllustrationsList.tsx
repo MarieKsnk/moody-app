@@ -35,7 +35,7 @@ export const MoodsIllustrationsList = () => {
         textUnderline="flexer"
       />
       <MoodIllustration
-        imgSrc="/img/illustration-mood-jai-plus-de-thune.png"
+        imgSrc="/img/illustration-mood-jai-plus-de-thne.png"
         text="J'ai"
         textUnderline="plus de thune"
       />

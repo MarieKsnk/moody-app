@@ -11,9 +11,13 @@ import { ButtonsModal } from "@/components/molecules/Modals/buttons_modal";
 export default function RecipePage() {
   const router = useRouter();
   const { id } = router.query;
-  const { user } = useAuth();
+  const { user, token } = useAuth();
 
-  const { data: recipe, isLoading, isError } = useRecipeById(id as string);
+  const {
+    data: recipe,
+    isLoading,
+    isError,
+  } = useRecipeById(id as string, token);
   const { mutate: deleteRecipe } = useDeleteRecipe(id as string);
 
   const [showModal, setShowModal] = useState(false);

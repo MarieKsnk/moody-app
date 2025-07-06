@@ -1,4 +1,5 @@
 import prisma from "../database/prismaClient.js";
+import jwt from "jsonwebtoken";
 import {
   parseRecipeData,
   prismaRelations,
@@ -103,7 +104,6 @@ export const getUserRecipes = async (req, res, next) => {
 // GET - Récupérer une recette par son ID
 export const getRecipeById = async (req, res, next) => {
   const recipeId = req.params.id;
-
   if (!recipeId) {
     return res.status(400).json({ error: "Id requis" });
   }
@@ -121,7 +121,30 @@ export const getRecipeById = async (req, res, next) => {
       return res.status(404).json({ error: "Recette non trouvée" });
     }
 
-    res.status(200).json(recipe);
+    // Récupération du token (s’il y en a un) et vérification
+    let isAdmin = false;
+    const authHeader = req.headers.authorization;
+    if (authHeader?.startsWith("Bearer ")) {
+      const token = authHeader.split(" ")[1];
+      try {
+        const payload = jwt.verify(token, process.env.JWT_SECRET);
+        const role =
+          typeof payload.role === "string" ? payload.role : payload.role?.name;
+        isAdmin = role === "ADMIN";
+      } catch (err) {
+        // token invalide ou expiré → on ignore, isAdmin reste false
+      }
+    }
+
+    // Si la recette n'est pas encore accepted ET pas d'admin, on refuse
+    if (recipe.status !== "accepted" && !isAdmin) {
+      return res
+        .status(403)
+        .json({ error: "Cette recette est en attente de validation" });
+    }
+
+    // OK pour les recettes accepted (public) ou pour l'admin
+    return res.status(200).json(recipe);
   } catch (error) {
     console.error("Erreur lors de la récupération de la recette :", error);
     next(error);
@@ -198,12 +221,17 @@ export const updateRecipe = async (req, res, next) => {
 
     const updatedRecipe = await prisma.recipe.update({
       where: { id: recipeId },
-      data: newUpdatedRecipeData(existingRecipe, req.body, parsedData),
+      data: {
+        ...newUpdatedRecipeData(existingRecipe, req.body, parsedData),
+        status: isAdmin ? existingRecipe.status : "pending",
+      },
       include: includeRecipeData,
     });
 
     res.status(200).json({
-      message: "Recette mise à jour avec succès",
+      message: isAdmin
+        ? "Recette mise à jour avec succès"
+        : "Recette mise à jour, en attente de validation",
       recipe: updatedRecipe,
     });
   } catch (error) {

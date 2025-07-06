@@ -2,16 +2,20 @@
 @use "@/styles/abstracts/mixins" as *;
 
 .moods-recipes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   background-image: linear-gradient(
     to top,
     rgba($pink-background, 0.3) 0%,
     rgba($orange-background, 0.2) 50%,
     transparent 100%
   );
+
   &__title {
     padding: 2rem;
     @include respond(lg) {
-      padding: 5rem 15rem;
+      padding: 5rem 15rem 0rem;
     }
   }
 }

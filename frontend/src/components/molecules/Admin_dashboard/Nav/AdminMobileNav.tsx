@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Logo } from "@/components/atoms/Nav/logo";
+import Image from "next/image";
 import { BurgerButton } from "@/components/atoms/Buttons/burger_button";
 import { NavLink } from "@/components/atoms/Nav/nav_link";
 import { LogoutButtonIcon } from "@/components/atoms/Buttons/logout_button_icon";
@@ -38,13 +38,12 @@ export const AdminMobileNav = () => {
   return (
     <div className="admin-mobile-menu">
       <div className="admin-mobile-menu__header">
-        <Logo
-          href="/admin"
+        <Image
+          src="/assets/logo_moody_light.svg"
           alt="Logo Moody"
           width={120}
           height={40}
-          className="logo-moody"
-          ariaLabel="Accueil admin"
+          priority
         />
 
         <BurgerButton

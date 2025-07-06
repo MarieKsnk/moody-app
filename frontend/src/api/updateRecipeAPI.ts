@@ -17,6 +17,7 @@ export async function fetchUpdateRecipe(
   );
 
   if (!res.ok) {
+    console.error("Réponse échouée :", res.status, await res.text());
     throw new Error("Erreur lors de la mise à jour");
   }
 

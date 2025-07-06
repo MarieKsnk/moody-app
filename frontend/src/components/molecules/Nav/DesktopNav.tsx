@@ -25,7 +25,7 @@ export const DesktopNav: React.FC = () => {
   if (isLoading) return null;
 
   return (
-    <header className="desktop-menu">
+    <div className="desktop-menu">
       <div className="desktop-menu__top">
         <div className="item left">
           {isAuthenticated ? (
@@ -82,23 +82,23 @@ export const DesktopNav: React.FC = () => {
 
         {isAuthenticated && (
           <>
-            <div className="item center">
+            <ul className="item center">
               <NavLink
                 href="/profile#mes-recettes"
                 label="MES RECETTES"
                 className="light"
               />
-            </div>
-            <div className="item right">
+            </ul>
+            <ul className="item right">
               <NavLink
                 href="/add-recipe"
                 label="AJOUTER UNE RECETTE"
                 className="light"
               />
-            </div>
+            </ul>
           </>
         )}
       </nav>
-    </header>
+    </div>
   );
 };

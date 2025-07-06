@@ -12,11 +12,11 @@ export const HomeMainSection = () => {
         <HomeBanner />
       </div>
 
-      <section className="home-main__profile">
+      <div className="home-main__profile">
         <ProfilePreview />
-      </section>
+      </div>
 
-      <section className="home-main__recipes">
+      <div className="home-main__recipes">
         {isLoading && <p>Chargement...</p>}
         {error && <p>Erreur lors du chargement des recettes</p>}
         {recipes && (
@@ -28,7 +28,7 @@ export const HomeMainSection = () => {
             className="own-recipe-list--home"
           />
         )}
-      </section>
+      </div>
     </div>
   );
 };

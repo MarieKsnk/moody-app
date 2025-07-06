@@ -7,4 +7,6 @@ export interface IBurgerButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   ariaLabel?: string;
   className?: string;
+  ariaControls?: string;
+  ariaExpanded?: boolean;
 }

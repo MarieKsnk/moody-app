@@ -32,13 +32,15 @@ export const RecipeCard = ({
         </div>
       )}
 
-      <div className="recipe-card__title">
-        <h2>{recipe.title}</h2>
-      </div>
+      <div className="recipe-card__content">
+        <div className="recipe-card__title">
+          <h2>{recipe.title}</h2>
+        </div>
 
-      <div className="recipe-card__author">
-        <span className="underline" />
-        <p>{author}</p>
+        <div className="recipe-card__author">
+          <span className="underline" />
+          <p>{author}</p>
+        </div>
       </div>
     </div>
   );

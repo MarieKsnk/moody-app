@@ -15,5 +15,6 @@
   @include respond(lg) {
     padding: 5rem 15rem;
     gap: 3rem;
+    align-items: center;
   }
 }

@@ -4,6 +4,7 @@
 .admin-mobile-menu {
   width: 100%;
   padding: 0 2rem;
+  background-color: $dark-background;
 
   &__header {
     display: flex;
@@ -11,7 +12,7 @@
     align-items: center;
     height: 6rem;
     z-index: 50;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid $light;
     .logo-moody {
       width: 50%;
     }

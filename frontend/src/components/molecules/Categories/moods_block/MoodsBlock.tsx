@@ -12,7 +12,7 @@ export const MoodsBlock = ({ moodId, moodName, index }: IMoodsBlockProps) => {
   const buttonHref = `/recipes/moods/${moodUrl}`;
   const { data: recipes, isLoading } = useRecipesByMood(moodId);
 
-  const limit = useLimitRecipe(1, 4, 1024);
+  const limit = useLimitRecipe(1, 3, 1024);
 
   if (isLoading) return <p>Chargement de {moodName}...</p>;
   if (!recipes || recipes.length === 0) return <p>0 recette pour {moodName}</p>;

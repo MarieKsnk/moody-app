@@ -54,14 +54,20 @@ export const MobileNav = () => {
         <BurgerButton
           isOpen={isOpen}
           onClick={() => setIsOpen((prev) => !prev)}
-          ariaLabel="Ouvrir ou fermer le menu"
+          ariaLabel={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
           type="button"
           id="burger-button"
+          ariaControls="mobile-navigation"
+          ariaExpanded={isOpen}
         />
       </div>
 
       {isOpen && (
-        <nav className="mobile-menu__nav" aria-label="Navigation principale">
+        <nav
+          id="mobile-navigation"
+          className="mobile-menu__nav"
+          aria-label="Navigation principale"
+        >
           <div className="nav-bloc">
             <ul>
               <NavLink href="/" label="ACCUEIL" className="light" />
@@ -108,25 +114,29 @@ export const MobileNav = () => {
               )}
             </ul>
           </div>
-          {!isAuthenticated ? (
-            <div className="auth-bloc">
-              <ul>
-                <NavLink href="/login" label="CONNEXION" className="dark" />
-                <NavLink
-                  href="/register"
-                  label="INSCRIPTION"
-                  className="dark"
-                />
-              </ul>
-            </div>
-          ) : (
-            <div className="auth-bloc">
-              <ul>
-                <ProfileLink href="/profile" label="MON PROFIL" />
-                <LogoutButtonIcon onClick={handleLogout} label="DECONNEXION" />
-              </ul>
-            </div>
-          )}
+
+          <div className="auth-bloc">
+            <ul>
+              {!isAuthenticated ? (
+                <>
+                  <NavLink href="/login" label="CONNEXION" className="dark" />
+                  <NavLink
+                    href="/register"
+                    label="INSCRIPTION"
+                    className="dark"
+                  />
+                </>
+              ) : (
+                <>
+                  <ProfileLink href="/profile" label="MON PROFIL" />
+                  <LogoutButtonIcon
+                    onClick={handleLogout}
+                    label="DÉCONNEXION"
+                  />
+                </>
+              )}
+            </ul>
+          </div>
         </nav>
       )}
     </div>

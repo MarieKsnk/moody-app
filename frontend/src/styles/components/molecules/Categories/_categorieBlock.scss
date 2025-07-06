@@ -10,6 +10,9 @@
   text-align: center;
   @include respond(lg) {
     padding: 3rem 15rem;
+    a {
+      margin-top: 1rem;
+    }
   }
 
   &__title {
@@ -72,7 +75,7 @@
 
     @include respond(lg) {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2.5rem;
       justify-items: stretch;
       align-items: stretch;
