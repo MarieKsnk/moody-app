@@ -7,7 +7,7 @@ export const DarkButton: React.FC<IDarkButtonProps> = ({
   label,
   href,
   ariaLabel,
-  size = 40,
+  size = 30,
   className,
 }) => {
   return (

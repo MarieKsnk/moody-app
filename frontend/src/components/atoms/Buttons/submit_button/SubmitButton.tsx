@@ -6,7 +6,7 @@ export const SubmitButton: React.FC<ISubmitButtonProps> = ({
   label,
   type = "submit",
   ariaLabel,
-  size = 40,
+  size = 30,
   className,
 }) => {
   return (

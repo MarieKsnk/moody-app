@@ -7,4 +7,12 @@
   gap: 1rem;
   margin: 0 auto;
   padding: 0 2rem 2rem;
+  @include respond(lg) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include respond(lg) {
+      padding: 0 15rem;
+    }
+  }
 }

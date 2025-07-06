@@ -7,6 +7,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  align-self: center;
+  width: auto;
 
   img {
     display: block;
@@ -34,9 +36,5 @@
     height: 2px;
     background-color: $dark;
     margin: 0.5rem auto 0;
-
-    @include respond(lg) {
-      width: 10%;
-    }
   }
 }

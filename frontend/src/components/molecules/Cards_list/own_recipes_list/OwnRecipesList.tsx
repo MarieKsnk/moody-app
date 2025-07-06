@@ -1,8 +1,9 @@
 import clsx from "clsx";
+import Link from "next/link";
 import { IOwnRecipeListProps } from "./OwnRecipesList.props";
 import { OwnRecipeCard } from "@/components/atoms/Cards/own_recipe_card/OwnRecipeCard";
-import { LightButton } from "../../../atoms/Buttons/light_button";
-import { TitleIcon } from "../../../atoms/Titles/titleIcon";
+import { LightButton } from "@/components/atoms/Buttons/light_button";
+import { TitleIcon } from "@/components/atoms/Titles/titleIcon";
 
 export const OwnRecipesList = ({
   title,
@@ -13,8 +14,9 @@ export const OwnRecipesList = ({
   className,
 }: IOwnRecipeListProps) => {
   const limitation = limit ? [...recipes].slice(0, limit) : recipes;
+
   return (
-    <div
+    <section
       className={clsx(
         "own-recipe-list",
         {
@@ -39,10 +41,12 @@ export const OwnRecipesList = ({
           <ul className="own-recipe-list__grid">
             {limitation.map((recipe) => (
               <li key={recipe.id}>
-                <OwnRecipeCard
-                  recipe={recipe}
-                  className="recipe-card--dark-border"
-                />
+                <Link href={`/recipes/${recipe.id}`}>
+                  <OwnRecipeCard
+                    recipe={recipe}
+                    className="recipe-card--dark-border"
+                  />
+                </Link>
               </li>
             ))}
           </ul>
@@ -63,6 +67,6 @@ export const OwnRecipesList = ({
           )}
         </div>
       )}
-    </div>
+    </section>
   );
 };

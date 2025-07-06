@@ -8,15 +8,19 @@ import { StepSoumission } from "@/components/molecules/FormSteps/step_soumission
 import { RecipeFormData } from "@/types/RecipeFormData";
 import { useUpdateRecipe } from "@/hooks/useUpdateRecipe";
 import { useRecipeById } from "@/hooks/useRecipeId";
+import { useRouter } from "next/router";
+import { useAuth } from "@/hooks/useAuth";
 
 interface Props {
   recipeId: string;
 }
 
 export default function RecipeEditForm({ recipeId }: Props) {
+  const { user } = useAuth();
   const { data: recipe, isLoading } = useRecipeById(recipeId);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<RecipeFormData | null>(null);
+  const router = useRouter();
 
   const { mutate } = useUpdateRecipe(recipeId);
 
@@ -39,7 +43,7 @@ export default function RecipeEditForm({ recipeId }: Props) {
         typeIds: recipe.types.map((t) => t.type.id),
         dietIds: recipe.diets.map((d) => d.diet.id),
         originIds: recipe.origins.map((o) => o.origin.id),
-        existingPicture: recipe.recipePicture, // nouvelle prop
+        existingPicture: recipe.recipePicture,
       });
     }
   }, [recipe]);
@@ -54,9 +58,10 @@ export default function RecipeEditForm({ recipeId }: Props) {
     setStep((s) => s - 1);
   };
 
+  const isAdmin = user?.role?.name === "ADMIN";
+
   const handleSubmit = (data: RecipeFormData) => {
     const formDataToSend = new FormData();
-
     formDataToSend.append("title", data.title);
     formDataToSend.append("description", data.description || "");
     formDataToSend.append("recipeUrl", data.recipeUrl || "");
@@ -64,11 +69,9 @@ export default function RecipeEditForm({ recipeId }: Props) {
     formDataToSend.append("prepTime", String(data.prepTime));
     formDataToSend.append("cookTime", String(data.cookTime));
     formDataToSend.append("serve", String(data.serve));
-
     if (data.recipePicture?.[0]) {
       formDataToSend.append("recipePicture", data.recipePicture[0]);
     }
-
     formDataToSend.append(
       "ingredientList",
       JSON.stringify(data.ingredientList)
@@ -81,6 +84,11 @@ export default function RecipeEditForm({ recipeId }: Props) {
     mutate(formDataToSend, {
       onSuccess: () => {
         alert("La recette a bien été modifiée !");
+        if (isAdmin) {
+          router.push(`/admin/recipes/${recipeId}`);
+        } else {
+          router.push(`/recipes/${recipeId}`);
+        }
       },
       onError: () => {
         alert("Erreur lors de la modification de la recette");

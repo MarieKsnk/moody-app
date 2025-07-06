@@ -34,7 +34,7 @@ export const StepSoumission = ({
           <SubmitButton
             label={
               isUpdateRecipe
-                ? "Mettre à jour la recette"
+                ? "Mettre a jour la recette"
                 : "Soumettre ma recette"
             }
             type="submit"

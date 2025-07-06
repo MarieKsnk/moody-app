@@ -1,0 +1,16 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.admin-title-main {
+  font-size: 2rem;
+  font-weight: 800;
+  color: $dark-text;
+  text-align: center;
+}
+
+.admin-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $dark-text;
+  text-align: center;
+}

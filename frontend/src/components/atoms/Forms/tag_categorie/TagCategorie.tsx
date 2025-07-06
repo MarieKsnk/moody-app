@@ -1,5 +1,5 @@
 import { ITagCategorieProps } from "./TagCategorie.props";
-import { RemoveButton } from "../Buttons/RemoveButton";
+import { RemoveButton } from "../../Buttons/remove_button";
 import clsx from "clsx";
 
 export const TagCategorie: React.FC<ITagCategorieProps> = ({

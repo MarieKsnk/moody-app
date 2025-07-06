@@ -16,7 +16,7 @@ export type CompleteIngredientItem = {
 export type Recipe = {
   id: string;
   userId: string;
-  user?: User;
+  user: User;
 
   title: string;
   description?: string;

@@ -23,7 +23,7 @@ export const TitleRecipe: React.FC<ITitleRecipeProps> = ({
           alt={`Image de la recette ${title}`}
           fill
           className="title-recipe__image"
-          style={{ objectFit: "cover", objectPosition: "center top" }}
+          style={{ objectFit: "cover", objectPosition: "center" }}
         />
       </div>
     </div>

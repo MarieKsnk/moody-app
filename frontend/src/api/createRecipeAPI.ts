@@ -1,11 +1,12 @@
-export async function fetchCreateRecipe(formData: FormData): Promise<any> {
-  const token = localStorage.getItem("token");
+import { Recipe } from "@/types/RecipeData";
 
-  if (!token) {
-    throw new Error("Token manquant");
-  }
+export async function fetchCreateRecipe(
+  formData: FormData,
+  token: string | null
+): Promise<Recipe> {
+  if (!token) throw new Error("Token manquant");
 
-  const response = await fetch("http://localhost:8000/api/recipes/add-recipe", {
+  const res = await fetch("http://localhost:8000/api/recipes/add-recipe", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -13,9 +14,6 @@ export async function fetchCreateRecipe(formData: FormData): Promise<any> {
     body: formData,
   });
 
-  if (!response.ok) {
-    throw new Error("Erreur lors de la création de la recette");
-  }
-
-  return response.json();
+  if (!res.ok) throw new Error("Erreur serveur");
+  return res.json();
 }

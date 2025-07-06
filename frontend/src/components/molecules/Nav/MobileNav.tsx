@@ -27,16 +27,17 @@ export const MobileNav = () => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
     } else {
-      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     }
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     };
   }, [isOpen]);
-
-  if (isLoading) return null;
 
   return (
     <div className="mobile-menu">
@@ -61,76 +62,71 @@ export const MobileNav = () => {
 
       {isOpen && (
         <nav className="mobile-menu__nav" aria-label="Navigation principale">
-          <ul>
-            <li className="nav-bloc">
-              <ul>
-                <NavLink href="/" label="ACCUEIL" className="light" />
-                <li className="mobile-menu__submenu">
-                  <SubMenuToggle
-                    label="LES RECETTES"
-                    isOpen={isRecipesOpen}
-                    onClick={() => setIsRecipesOpen((prev) => !prev)}
+          <div className="nav-bloc">
+            <ul>
+              <NavLink href="/" label="ACCUEIL" className="light" />
+              <li className="mobile-menu__submenu">
+                <SubMenuToggle
+                  label="LES RECETTES"
+                  isOpen={isRecipesOpen}
+                  onClick={() => setIsRecipesOpen((prev) => !prev)}
+                  id="submenu-recipes"
+                />
+                {isRecipesOpen && (
+                  <ul
                     id="submenu-recipes"
-                  />
-                  {isRecipesOpen && (
-                    <ul
-                      id="submenu-recipes"
-                      className="mobile-menu__links"
-                      role="menu"
-                      aria-label="Sous-menu Les recettes"
-                    >
-                      <NavLink
-                        href="/recipes/moods"
-                        label="Recettes par mood"
-                        className="light"
-                      />
-                      <NavLink
-                        href="/all-recipes"
-                        label="Toutes les recettes"
-                        className="all-recipes"
-                      />
-                    </ul>
-                  )}
-                </li>
-                {isAuthenticated && (
-                  <>
+                    className="mobile-menu__links"
+                    role="menu"
+                    aria-label="Sous-menu Les recettes"
+                  >
                     <NavLink
-                      href="/profile#mes-recettes"
-                      label="MES RECETTES"
+                      href="/recipes/moods"
+                      label="Recettes par mood"
                       className="light"
                     />
                     <NavLink
-                      href="/add-recipe"
-                      label="AJOUTER UNE RECETTE"
-                      className="light"
+                      href="/all-recipes"
+                      label="Toutes les recettes"
+                      className="all-recipes"
                     />
-                  </>
+                  </ul>
                 )}
-              </ul>
-            </li>
-            {!isAuthenticated ? (
-              <li className="auth-bloc">
-                <ul>
-                  <NavLink href="/login" label="CONNEXION" className="dark" />
+              </li>
+              {isAuthenticated && (
+                <>
                   <NavLink
-                    href="/register"
-                    label="INSCRIPTION"
-                    className="dark"
+                    href="/profile#mes-recettes"
+                    label="MES RECETTES"
+                    className="light"
                   />
-                </ul>
-              </li>
-            ) : (
-              <li className="auth-bloc">
-                <ul>
-                  <ProfileLink href="/profile" label="MON PROFIL" />
-                  <LogoutButtonIcon
-                    onClick={handleLogout}
-                    label="DECONNEXION"
+                  <NavLink
+                    href="/add-recipe"
+                    label="AJOUTER UNE RECETTE"
+                    className="light"
                   />
-                </ul>
-              </li>
-            )}
-          </ul>
+                </>
+              )}
+            </ul>
+          </div>
+          {!isAuthenticated ? (
+            <div className="auth-bloc">
+              <ul>
+                <NavLink href="/login" label="CONNEXION" className="dark" />
+                <NavLink
+                  href="/register"
+                  label="INSCRIPTION"
+                  className="dark"
+                />
+              </ul>
+            </div>
+          ) : (
+            <div className="auth-bloc">
+              <ul>
+                <ProfileLink href="/profile" label="MON PROFIL" />
+                <LogoutButtonIcon onClick={handleLogout} label="DECONNEXION" />
+              </ul>
+            </div>
+          )}
         </nav>
       )}
     </div>

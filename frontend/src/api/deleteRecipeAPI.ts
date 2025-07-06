@@ -1,6 +1,4 @@
-export async function fetchDeleteRecipe(id: string) {
-  const token = localStorage.getItem("token");
-
+export async function fetchDeleteRecipe(id: string, token: string | null) {
   if (!token) throw new Error("Token manquant");
 
   const res = await fetch(`http://localhost:8000/api/recipes/${id}`, {

@@ -8,6 +8,9 @@
   gap: 1rem;
   padding: 2rem;
   text-align: center;
+  @include respond(lg) {
+    padding: 3rem 15rem;
+  }
 
   &__title {
     display: flex;
@@ -48,7 +51,7 @@
   }
 
   &--light {
-    background-color: $light-background;
+    background-color: transparent;
 
     .categorie-block__title {
       h2 {
@@ -58,6 +61,21 @@
       .underline {
         background-color: $dark;
       }
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+
+    @include respond(lg) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      justify-items: stretch;
+      align-items: stretch;
     }
   }
 }

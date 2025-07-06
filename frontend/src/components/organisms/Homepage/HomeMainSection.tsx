@@ -4,7 +4,7 @@ import { OwnRecipesList } from "@/components/molecules/Cards_list/own_recipes_li
 import { useUserRecipes } from "@/hooks/useUserRecipes";
 
 export const HomeMainSection = () => {
-  const { data: recipes, isLoading, error } = useUserRecipes();
+  const { recipes, isLoading, error } = useUserRecipes();
 
   return (
     <div className="home-main">

@@ -1,4 +1,29 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
 .mood-illustration-list {
   display: flex;
   flex-direction: column;
+  padding: 10rem 2rem;
+  margin-top: -7rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgba($orange-background, 0.3) 0%,
+    transparent 100%
+  );
+
+  @include respond(lg) {
+    padding: 10rem 15rem;
+    margin-top: -7rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    > *:nth-child(odd) {
+      justify-self: end;
+    }
+
+    > *:nth-child(even) {
+      justify-self: flex-start;
+      margin-top: 8rem;
+    }
+  }
 }

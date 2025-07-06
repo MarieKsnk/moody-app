@@ -9,7 +9,8 @@
 @use "./base/typography";
 @use "./base/animations";
 
-@use "./layout/grid";
+@use "./layout/appLayout";
+@use "./layout/Admin_dashboard/adminLayout";
 
 ///////////////////////////
 //// IMPORT DES ATOMS ////
@@ -34,28 +35,32 @@
 @use "./components/atoms/Buttons/removeButton";
 @use "./components/atoms/Buttons/submitButton";
 @use "./components/atoms/Buttons/subMenuToggle";
-// Form //
+@use "./components/atoms/Buttons/modalButton";
+// Form
 @use "./components/atoms/Form/input";
 @use "./components/atoms/Form/textarea";
 @use "./components/atoms/Form/label";
 @use "./components/atoms/Form/select";
 @use "./components/atoms/Form/itemTag";
 @use "./components/atoms/Form/checkbox";
-// Recipe_id_page //
-@use "./components/atoms/Recipe_id_page/serveRecipe";
-@use "./components/atoms/Recipe_id_page/cookRecipe";
-@use "./components/atoms/Recipe_id_page/prepRecipe";
+// Recipe_id_page
+@use "./components/atoms/Recipe_id_page/infosRecipe";
 @use "./components/atoms/Recipe_id_page/categoryTag";
 @use "./components/atoms/Recipe_id_page/titleRecipe";
 @use "./components/atoms/Recipe_id_page/ingredientsList";
 @use "./components/atoms/Recipe_id_page/etapesList";
 @use "./components/atoms/Recipe_id_page/recipeDescription";
-// Titles //
+// Titles
 @use "./components/atoms/Titles/titleIcon";
 @use "./components/atoms/Titles/titleBanner";
 @use "./components/atoms/Titles/titleHighlight";
-// Mood_illustration //
+// Mood_illustration
 @use "./components/atoms/Mood_illustration/moodIllustration";
+// Admin_dashboard
+@use "./components/atoms/Admin_dashboard/adminTitle";
+@use "./components/atoms/Admin_dashboard/adminStatCard";
+@use "./components/atoms/Admin_dashboard/adminButton";
+@use "./components/atoms/Admin_dashboard/adminLinkRedirection";
 
 ///////////////////////////////
 //// IMPORT DES MOLECULES ////
@@ -78,6 +83,8 @@
 @use "./components/molecules/Categories/moodAnchorList";
 // Mood_page
 @use "./components/molecules/Mood_page/recipeMoodSection";
+// Mood_illustration
+@use "./components/molecules/Moods_illustration/moodsIllustrationsList";
 // All_recipes
 @use "./components/molecules/All_recipes/allRecipesMainSection";
 // Homepage
@@ -87,6 +94,14 @@
 @use "./components/molecules/Homepage/homeBanner";
 // Banner_inspiration
 @use "./components/molecules/Banner_inspiration/bannerInspiration";
+// Admin_dashboard
+@use "./components/molecules/Admin_dashboard/Nav/adminMobileNav";
+@use "./components/molecules/Admin_dashboard/Nav/adminDesktopNav";
+@use "./components/molecules/Admin_dashboard/Homepage/adminStatsList";
+@use "./components/molecules/Admin_dashboard/Homepage/adminLatestUsers";
+@use "./components/molecules/Admin_dashboard/Homepage/adminLatestRecipes";
+@use "./components/molecules/Admin_dashboard/Recipes/adminAllRecipes";
+@use "./components/molecules/Admin_dashboard/Users/adminAllUsers";
 
 ///////////////////////////////
 //// IMPORT DES ORGANISMS ////
@@ -100,3 +115,13 @@
 // Homepage
 @use "./components/organisms/Homepage/heroSection";
 @use "./components/organisms/Homepage/homeMainSection";
+// Legals
+@use "./components/organisms/Legals/legalsSection";
+// Footer
+@use "./components/organisms/Footer/footer";
+// Admin_dashboard
+@use "./components/organisms/Admin_dashboard/Homepage/adminHomeSection";
+@use "./components/organisms/Admin_dashboard/Recipes/adminRecipesSection";
+@use "./components/organisms/Admin_dashboard/Users/adminUsersSection";
+@use "./components/organisms/Admin_dashboard/Recipe_id/adminRecipeIdSection";
+@use "./components/organisms/Admin_dashboard/User_id/adminUserIdSection";

@@ -8,6 +8,9 @@
   color: $light-text;
   font-size: 1.2rem;
   font-weight: 600;
+  @include respond(lg) {
+    font-size: 1rem;
+  }
   &__required {
     color: $pink-text;
   }

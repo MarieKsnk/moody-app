@@ -1,14 +1,14 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "../database/prismaClient.js";
+import { getUserWithRoleById } from "./utils/userDataPrisma.js";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-export const register = async (req, res) => {
-
+// POST - Inscription d'un nouvel utilisateur
+// Vérification de l’email, hash du mot de passe, et création du compte
+export const register = async (req, res, next) => {
   const { firstName, lastName, email, password, profilePicture } = req.body;
 
   try {
@@ -17,8 +17,7 @@ export const register = async (req, res) => {
     });
 
     if (emailVerification) {
-      res.status(409).json({ error: "Email déjà utilisé" });
-      return;
+      return res.status(409).json({ error: "Email déjà utilisé" });
     }
 
     const saltPassword = await bcrypt.genSalt(10);
@@ -32,61 +31,76 @@ export const register = async (req, res) => {
         password: hashedPassword,
         profilePicture: profilePicture || null,
       },
+      include: { role: true },
     });
 
-    const token = jwt.sign({ id: newUser.id }, JWT_SECRET, {
-      expiresIn: "7d",
-    });
+    const userWithRole = await getUserWithRoleById(newUser.id);
+
+    const token = jwt.sign(
+      {
+        id: newUser.id,
+        role: userWithRole.role.name,
+      },
+      JWT_SECRET,
+      { expiresIn: "7d" }
+    );
 
     return res.status(201).json({
       token,
       message: `Bienvenue sur Moody, ${newUser.firstName} !`,
-      user: {
-        firstName: newUser.firstName,
-        lastName: newUser.lastName,
-        email: newUser.email,
-        profilePicture: newUser.profilePicture,
-      },
+      user: userWithRole,
     });
   } catch (error) {
     console.error("Erreur dans register :", error);
-
-    return res.status(500).json({ message: "Erreur serveur" });
+    next(error);
   }
 };
 
-export const login = async (req, res) => {
+// POST - Connexion d’un utilisateur
+// Vérification de l’email et du mot de passe, donne le token si les infos sont ok
+export const login = async (req, res, next) => {
   const { email, password } = req.body;
 
   try {
-    const user = await prisma.user.findUnique({ where: { email } });
+    const user = await prisma.user.findUnique({
+      where: { email },
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        password: true,
+        profilePicture: true,
+        role: { select: { id: true, name: true } },
+      },
+    });
 
     if (!user) {
-      return res.status(404).json({ error: "Email ou mot de passe incorrect" });
+      return res.status(401).json({ error: "Email ou mot de passe incorrect" });
     }
 
-    const comparePassword = await bcrypt.compare(password, user.password);
-
-    if (!comparePassword) {
-      return res
-        .status(404)
-        .json({ error: "Email ou mot de passe incorrrect" });
+    const isValid = await bcrypt.compare(password, user.password);
+    if (!isValid) {
+      return res.status(401).json({ error: "Email ou mot de passe incorrect" });
     }
 
-    const token = await jwt.sign({ id: user.id }, JWT_SECRET, {
-      expiresIn: "7d",
-    });
+    const token = jwt.sign(
+      {
+        id: user.id,
+        role: user.role.name,
+      },
+      JWT_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    const { password: _removed, ...userSafe } = user;
 
     return res.status(201).json({
       token,
-      message: `${user.firstName}, vous êtes maintenant connecté(e) !`,
-      user: {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-      },
+      user: userSafe,
     });
   } catch (error) {
-    return res.status(500).json({ error: "Erreur serveur" });
+    console.error("Erreur dans login :", error);
+    next(error);
   }
 };

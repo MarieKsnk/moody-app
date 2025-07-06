@@ -6,6 +6,7 @@ export const ActionClickButton: React.FC<IActionClickButtonProps> = ({
   onClick,
   className,
   ariaLabel,
+  disabled = false,
 }) => {
   return (
     <button
@@ -13,6 +14,7 @@ export const ActionClickButton: React.FC<IActionClickButtonProps> = ({
       onClick={onClick}
       className={clsx("action-button", className)}
       aria-label={ariaLabel || label}
+      disabled={disabled}
     >
       <span>{label}</span>
     </button>

@@ -6,7 +6,7 @@ export const PrevButton: React.FC<IPrevButtonProps> = ({
   onClick,
   ariaLabel,
   type = "button",
-  size = 40,
+  size = 30,
   className,
 }) => {
   return (

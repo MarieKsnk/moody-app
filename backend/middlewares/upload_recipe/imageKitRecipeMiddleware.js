@@ -8,6 +8,8 @@ const imagekit = new ImageKit({
   urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 });
 
+// Middleware d’upload pour la photo d'une recette vers ImageKit
+// L'image est envoyé dans le dossier /recipe-pics et le lien URL et l'ID du fichier sont ajoutés à req.body
 export const imageKitRecipeMiddleware = async (req, res, next) => {
   if (!req.file) return next();
 
@@ -23,7 +25,9 @@ export const imageKitRecipeMiddleware = async (req, res, next) => {
     req.body.recipePictureId = uploadResponse.fileId;
     next();
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Échec de l'upload de l'image de recette." });
+    console.error("Erreur lors de l’upload ImageKit (recette):", err);
+    res.status(502).json({
+      error: "Impossible de téléverser l'image de recette sur ImageKit.",
+    });
   }
 };

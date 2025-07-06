@@ -6,6 +6,6 @@ export function useRecipesByMood(moodId: string) {
   return useQuery<Recipe[]>({
     queryKey: ["recipesByMood", moodId],
     queryFn: () => fetchRecipesByMood(moodId),
-    enabled: !!moodId, // ✅ important pour éviter les appels avec undefined
+    enabled: !!moodId,
   });
 }

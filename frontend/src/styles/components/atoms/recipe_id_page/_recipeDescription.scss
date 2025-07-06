@@ -4,14 +4,19 @@
 .recipe-description {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: center;
   gap: 1rem;
+  @include respond(lg) {
+    justify-content: center;
+    align-items: flex-start;
+  }
 
   &__text {
     font-size: 1.2rem;
     font-family: $font-main;
     font-weight: 500;
     color: $dark-text;
-    line-height: 1;
     margin: 0rem;
   }
 

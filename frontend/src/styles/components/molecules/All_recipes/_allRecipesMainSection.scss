@@ -1,6 +1,19 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
 .all-recipes-section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
+  background-image: linear-gradient(
+    to top,
+    rgba($pink-background, 0.5) 0%,
+    rgba($orange-background, 0.3) 50%,
+    transparent 100%
+  );
+  @include respond(lg) {
+    padding: 5rem 15rem;
+    gap: 3rem;
+  }
 }

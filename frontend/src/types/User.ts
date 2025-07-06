@@ -6,4 +6,6 @@ export interface User {
   password: string;
   profilePicture?: string;
   rgpdAccepted?: boolean;
+  role: { id: string; name: string };
+  createdAt: string;
 }

@@ -1,18 +1,16 @@
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import { RegisterFormData } from "@/types/forms/Register";
 import { Input } from "../../atoms/Forms/input";
 import { Label } from "@/components/atoms/Forms/label";
 import { Checkbox } from "../../atoms/Forms/checkbox";
 import { SubmitButton } from "@/components/atoms/Buttons/submit_button";
-import { AuthModal } from "@/components/molecules/Modals/auth_modal";
+import { LinksModal } from "@/components/molecules/Modals/links_modal";
+import { fetchRegister } from "@/api/authAPI";
 
 export default function RegisterForm() {
-  const router = useRouter();
-
   const {
     register,
     handleSubmit,
@@ -35,62 +33,26 @@ export default function RegisterForm() {
   }, [profilePictureFile]);
 
   const onSubmit = async (data: RegisterFormData) => {
-    const formData = new FormData();
-
-    formData.append("firstName", data.firstName);
-    formData.append("lastName", data.lastName);
-    formData.append("email", data.email);
-    formData.append("password", data.password);
-
-    const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
-
-    if (data.profilePicture && data.profilePicture.length > 0) {
-      const file = data.profilePicture[0];
-      if (!allowedTypes.includes(file.type)) {
-        setError("profilePicture", {
-          message: "Seuls les fichiers JPEG, PNG et WebP sont autorisés !",
-        });
-        return;
-      }
-      formData.append("profilePicture", file);
-    }
-
     try {
-      const res = await axios.post(
-        "http://localhost:8000/api/auth/register",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      if (res.status === 201) {
-        setShowModal(true);
-      }
+      await fetchRegister(data);
+      setShowModal(true);
     } catch (error: any) {
-      const errorFile = error?.response?.data;
-
-      if (errorFile?.field && errorFile?.message) {
-        setError(errorFile.field, { message: errorFile.message });
+      if (error?.field && error?.message) {
+        setError(error.field, { message: error.message });
         return;
       }
-
-      if (error.response?.status === 409 && errorFile?.error) {
-        setError("email", { message: errorFile.error });
+      if (error.status === 409 && error?.error) {
+        setError("email", { message: error.error });
         return;
       }
-
       alert("Erreur lors de l'inscription.");
-      return;
     }
   };
 
   return (
     <section className="form">
       <div className="form__container">
-        <h1>Je m'inscris sur Moody</h1>
+        <h1 className="form__pink-title">INSCRIPTION</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="auth-form__form">
           <div className="auth-form__group">
             <Label htmlFor="firstName" required={true}>
@@ -187,11 +149,24 @@ export default function RegisterForm() {
 
           <Checkbox
             id="rgpdAccepted"
-            label="J’accepte les Conditions Générales d'Utilisation et reconnais avoir été informé que mes données personnelles seront utilisées tel que détaillé dans la Politique de protection des données personnelles"
             register={register("rgpdAccepted", {
               required: "Vous devez accepter les conditions pour continuer",
             })}
             error={errors.rgpdAccepted}
+            label={
+              <div>
+                J’accepte les conditions générales d'utilisation et reconnais
+                avoir été informé que mes données personnelles seront utilisées
+                tel que détaillé dans la{" "}
+                <Link
+                  href="/politique-confidentialite"
+                  className="politique-confidentialite-link"
+                >
+                  politique de confidentialité
+                </Link>{" "}
+                <span>*</span>
+              </div>
+            }
           />
 
           <SubmitButton label="Je cree mon compte sur Moody" type="submit" />
@@ -199,7 +174,7 @@ export default function RegisterForm() {
       </div>
 
       {showModal && (
-        <AuthModal
+        <LinksModal
           title="Bienvenue sur Moody !"
           message="Ton compte a bien été créé."
           primaryLabel="Je me connecte"

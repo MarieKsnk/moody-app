@@ -1,10 +1,10 @@
 import { IRecipeCompleteProps } from "./RecipeComplete.props";
-import { TitleRecipe } from "@/components/atoms/Recipe_id_page/title_recipe";
+import { TitleRecipe } from "@/components/atoms/recipe_id_page/title_recipe";
 import { RecipeCategories } from "@/components/molecules/Recipe_id_page/recipe_categories";
 import { RecipeInfos } from "@/components/molecules/Recipe_id_page/recipe_infos";
-import { IngredientsList } from "@/components/atoms/Recipe_id_page/ingredients_list";
-import { EtapesList } from "@/components/atoms/Recipe_id_page/etapes_list";
-import { RecipeDescription } from "@/components/atoms/Recipe_id_page/recipe_description";
+import { IngredientsList } from "@/components/atoms/recipe_id_page/ingredients_list";
+import { EtapesList } from "@/components/atoms/recipe_id_page/etapes_list";
+import { RecipeDescription } from "@/components/atoms/recipe_id_page/recipe_description";
 
 export const RecipeComplete = ({ recipe }: IRecipeCompleteProps) => {
   return (

@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 export default function CategorieBlock({
   title,
-  recipe,
+  recipes = [],
   className,
   buttonVariant = "dark",
   buttonHref,
@@ -17,8 +17,14 @@ export default function CategorieBlock({
         <h2>{title}</h2>
         <span className="underline" />
       </div>
-      <div className="categorie-block__card">
-        <RecipeCard recipe={recipe} className="recipe-card--pink-border" />
+      <div className="categorie-block__cards">
+        {recipes.map((recipe) => (
+          <RecipeCard
+            key={recipe.id}
+            recipe={recipe}
+            className="recipe-card--pink-border"
+          />
+        ))}
       </div>
       {buttonVariant === "dark" ? (
         <DarkButton href={buttonHref} label="Voir plus" />

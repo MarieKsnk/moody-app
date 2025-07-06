@@ -1,47 +1,60 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from "../database/prismaClient.js";
+import {
+  getUserWithRoleById,
+  getAllUsersWithRole,
+} from "./utils/userDataPrisma.js";
 
-const prisma = new PrismaClient();
-
-export const getMe = async (req, res) => {
+// GET - Récupérer le profil de l'utilisateur connecté
+// Utilise l'ID dans le token pour sécuriser l'accès
+export const getMe = async (req, res, next) => {
   try {
-    const user = await prisma.user.findUnique({
-      where: { id: req.user.id },
-      select: {
-        id: true,
-        firstName: true,
-        lastName: true,
-        email: true,
-        profilePicture: true,
-      },
-    });
+    const user = await getUserWithRoleById(req.user.id);
 
     if (!user) {
       return res.status(404).json({ message: "Utilisateur non trouvé" });
     }
-    return res
+
+    res
       .status(200)
       .json({ user, message: `${user.firstName}, voici votre profil` });
   } catch (error) {
-    return res.status(500).json({ error: "Erreur serveur" });
+    console.error("Erreur dans getMe :", error);
+    next(error);
   }
 };
 
-export const getAllUsers = async (req, res) => {
+// GET - Récupérer la liste de tous les utilisateurs
+export const getAllUsers = async (req, res, next) => {
   try {
-    const users = await prisma.user.findMany({
-      select: {
-        firstName: true,
-        lastName: true,
-      },
-    });
+    const users = await getAllUsersWithRole();
 
-    if (users.length === 0) {
+    if (!users || users.length === 0) {
       return res.status(404).json({ message: "Aucun utilisateur trouvé" });
     }
-    return res
+
+    res
       .status(200)
       .json({ users, message: "Liste des utilisateurs récupérée avec succès" });
   } catch (error) {
-    return res.status(500).json({ error: "Erreur serveur" });
+    console.error("Erreur dans getAllUsers :", error);
+    next(error);
+  }
+};
+
+// DELETE - Supprimer son propre compte utilisateur et toutes ses recettes associées
+export const deleteMe = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+
+    await prisma.recipe.deleteMany({ where: { userId } });
+    await prisma.user.delete({ where: { id: userId } });
+
+    res.status(200).json({
+      message:
+        "Compte et toutes les recettes supprimés (les images sont à supprimer séparément via ImageKit)",
+    });
+  } catch (error) {
+    console.error("Erreur suppression compte user :", error);
+    next(error);
   }
 };

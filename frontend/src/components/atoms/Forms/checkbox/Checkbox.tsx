@@ -20,7 +20,6 @@ export const Checkbox: React.FC<ICheckboxProps> = ({
           className="checkbox__input"
         />
         {label}
-        <span>*</span>
       </label>
     </div>
   );

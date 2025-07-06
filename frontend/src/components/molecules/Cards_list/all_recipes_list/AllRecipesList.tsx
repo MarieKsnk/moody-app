@@ -6,7 +6,7 @@ import Link from "next/link";
 export const AllRecipesList = ({ recipes, limit }: IAllRecipesListProps) => {
   const limitedRecipes = limit ? [...recipes].slice(0, limit) : recipes;
 
-  if (limitedRecipes.length === 0) {
+  if (!Array.isArray(limitedRecipes) || limitedRecipes.length === 0) {
     return (
       <div className="all-recipes-list__empty">
         <p>Tu n’as pas encore de recettes en stock...</p>

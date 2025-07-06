@@ -1,6 +1,68 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
 .recipe-complete-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1.5rem;
   padding: 2rem;
+
+  @include respond(lg) {
+    padding: 5rem 15rem;
+    margin: 0 auto;
+
+    > :nth-child(3),
+    > :nth-child(4) {
+      margin: 0;
+    }
+
+    > :nth-child(3) {
+      grid-area: infos;
+    }
+    > :nth-child(4) {
+      grid-area: description;
+    }
+
+    > :nth-child(5),
+    > :nth-child(6) {
+      margin: 0;
+    }
+
+    > :nth-child(5) {
+      grid-area: ingredients;
+    }
+    > :nth-child(6) {
+      grid-area: steps;
+    }
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto auto auto auto;
+    gap: 2.5rem 3rem;
+
+    grid-template-areas:
+      "title         title"
+      "categories    categories"
+      "infos         description"
+      "ingredients   steps";
+
+    > :nth-child(1) {
+      grid-area: title;
+    }
+    > :nth-child(2) {
+      grid-area: categories;
+    }
+    > :nth-child(3) {
+      grid-area: infos;
+    }
+    > :nth-child(4) {
+      grid-area: description;
+    }
+    > :nth-child(5) {
+      grid-area: ingredients;
+    }
+    > :nth-child(6) {
+      grid-area: steps;
+    }
+  }
 }

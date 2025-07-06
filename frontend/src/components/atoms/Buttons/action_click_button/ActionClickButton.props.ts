@@ -3,4 +3,5 @@ export interface IActionClickButtonProps {
   onClick: () => void;
   className?: string;
   ariaLabel?: string;
+  disabled?: boolean;
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 export const NextButton: React.FC<INextButtonProps> = ({
   ariaLabel,
   type = "submit",
-  size = 40,
+  size = 30,
   className,
 }) => {
   return (

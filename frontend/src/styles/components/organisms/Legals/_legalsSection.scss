@@ -1,0 +1,31 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.legals-page {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  @include respond(lg) {
+    padding: 5rem 15rem;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    h2 {
+      font-family: $font-main;
+      font-size: 1.2rem;
+      margin: 0;
+      padding-bottom: 1rem;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -1,14 +1,15 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from "../database/prismaClient.js";
 
-const prisma = new PrismaClient();
-
-export const getAllIngredients = async (req, res) => {
+// GET - Récupérer tous les ingrédients
+// Utilisé dans le formulaire de création et d'édition de recette
+export const getAllIngredients = async (req, res, next) => {
   try {
     const ingredients = await prisma.ingredient.findMany({
       orderBy: { name: "asc" },
     });
     res.status(200).json({ ingredients });
   } catch (error) {
-    res.status(500).json({ error: "Erreur serveur" });
+    console.error("Erreur lors de la récupération des ingrédients :", error);
+    next(error);
   }
 };

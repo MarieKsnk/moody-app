@@ -1,9 +1,11 @@
 import express from "express";
-import { getAllMoods } from "../controllers/moodsController.js";
-import { getAllTypes } from "../controllers/typesController.js";
-import { getAllDiets } from "../controllers/dietsController.js";
-import { getAllOrigins } from "../controllers/originsController.js";
-
+import {
+  getAllDiets,
+  getAllMoods,
+  getAllOrigins,
+  getAllTypes,
+} from "../controllers/categoriesController.js";
+getAllDiets;
 const categoriesRouter = express.Router();
 
 categoriesRouter.get("/moods", getAllMoods);

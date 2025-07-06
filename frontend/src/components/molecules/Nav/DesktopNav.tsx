@@ -46,56 +46,59 @@ export const DesktopNav: React.FC = () => {
         </div>
       </div>
 
-      {isAuthenticated && (
-        <nav
-          className="desktop-menu__bottom"
-          aria-label="Navigation secondaire"
+      <nav
+        className={`desktop-menu__bottom ${
+          isAuthenticated ? "" : "only-recipes"
+        }`}
+        aria-label="Navigation secondaire"
+      >
+        <div
+          className={`item left with-submenu ${isRecipesOpen ? "open" : ""}`}
         >
-          <div
-            className={`item left with-submenu ${isRecipesOpen ? "open" : ""}`}
+          <SubMenuToggle
+            label="LES RECETTES"
+            isOpen={isRecipesOpen}
+            onClick={() => setIsRecipesOpen((p) => !p)}
+            id="desktop-submenu-recipes"
+          />
+          <ul
+            id="desktop-submenu-recipes"
+            className="submenu"
+            role="menu"
+            aria-label="Sous-menu Les recettes"
           >
-            <SubMenuToggle
-              label="LES RECETTES"
-              isOpen={isRecipesOpen}
-              onClick={() => setIsRecipesOpen((p) => !p)}
-              id="desktop-submenu-recipes"
+            <NavLink
+              href="/recipes/moods"
+              label="Recettes par mood"
+              className="light"
             />
-            <ul
-              id="desktop-submenu-recipes"
-              className="submenu"
-              role="menu"
-              aria-label="Sous-menu Les recettes"
-            >
+            <NavLink
+              href="/all-recipes"
+              label="Toutes les recettes"
+              className="all-recipes"
+            />
+          </ul>
+        </div>
+
+        {isAuthenticated && (
+          <>
+            <div className="item center">
               <NavLink
-                href="/recipes/moods"
-                label="Recettes par mood"
+                href="/profile#mes-recettes"
+                label="MES RECETTES"
                 className="light"
               />
+            </div>
+            <div className="item right">
               <NavLink
-                href="/all-recipes"
-                label="Toutes les recettes"
-                className="all-recipes"
+                href="/add-recipe"
+                label="AJOUTER UNE RECETTE"
+                className="light"
               />
-            </ul>
-          </div>
-
-          <div className="item center">
-            <NavLink
-              href="/profile#mes-recettes"
-              label="MES RECETTES"
-              className="light"
-            />
-          </div>
-
-          <div className="item right">
-            <NavLink
-              href="/add-recipe"
-              label="AJOUTER UNE RECETTE"
-              className="light"
-            />
-          </div>
-        </nav>
-      )}
+            </div>
+          </>
+        )}
+      </nav>
     </header>
   );
 };

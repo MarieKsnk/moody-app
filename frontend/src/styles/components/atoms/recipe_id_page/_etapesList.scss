@@ -3,11 +3,15 @@
 
 .etapes-list {
   h2 {
+    text-align: center;
     font-size: 2rem;
     font-weight: 700;
     margin: 0.5rem 0;
     color: $dark;
     font-family: $font-title;
+    @include respond(lg) {
+      text-align: flex-start;
+    }
   }
 
   ol {
@@ -15,11 +19,15 @@
     margin: 0;
 
     li {
+      text-align: center;
       font-size: 1.2rem;
       font-family: $font-main;
       font-weight: 500;
       color: $dark-text;
       margin-bottom: 0.6rem;
+      @include respond(lg) {
+        text-align: flex-start;
+      }
     }
   }
 }

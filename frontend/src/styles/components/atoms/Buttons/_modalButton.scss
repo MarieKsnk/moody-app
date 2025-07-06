@@ -1,0 +1,46 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 0.5rem 1.2rem;
+  font-family: $font-button;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 5rem;
+  box-shadow: 0 5px 0 $pink-shadow;
+  background-color: $light-background;
+  max-width: 100%;
+  cursor: pointer;
+  border: none;
+  transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s ease, color 0.3s ease;
+
+  @include respond(lg) {
+    padding: 0.2rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  &__label {
+    position: relative;
+    top: -2px;
+  }
+
+  &__icon {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover,
+  &:focus {
+    padding-right: 3rem;
+    outline: none;
+  }
+
+  &:hover &__icon,
+  &:focus &__icon {
+    transform: translateX(1rem);
+  }
+}

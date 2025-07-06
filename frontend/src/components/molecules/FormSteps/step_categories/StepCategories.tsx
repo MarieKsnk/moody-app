@@ -71,7 +71,6 @@ export const StepCategories = ({
       alert("Sélectionne au moins un type de recette.");
       return;
     }
-
     nextStep({
       moodIds: selectedMoodIds,
       typeIds: selectedTypeIds,
@@ -100,7 +99,11 @@ export const StepCategories = ({
           </Label>
           <SelectCategorie
             id="moodId"
-            options={moods.map((m) => ({ value: m.id, label: m.name }))}
+            options={moods.map((m) => ({
+              value: m.id,
+              label: m.name,
+              disabled: selectedMoodIds.includes(m.id),
+            }))}
             placeholder="Choisis un ou plusieurs mood(s)"
             register={register("moodId")}
           />
@@ -112,7 +115,6 @@ export const StepCategories = ({
             type="button"
           />
         </div>
-
         <div className="step-form__items">
           {selectedMoodIds.map((id) => {
             const mood = moods.find((m) => m.id === id);
@@ -134,11 +136,14 @@ export const StepCategories = ({
           </Label>
           <SelectCategorie
             id="typeId"
-            options={types.map((m) => ({ value: m.id, label: m.name }))}
+            options={types.map((t) => ({
+              value: t.id,
+              label: t.name,
+              disabled: selectedTypeIds.includes(t.id),
+            }))}
             placeholder="Choisis un ou plusieurs type(s)"
             register={register("typeId")}
           />
-
           <AddButton
             onClick={() =>
               onAddCategorie("typeId", selectedTypeIds, setSelectedTypeIds)
@@ -147,7 +152,6 @@ export const StepCategories = ({
             type="button"
           />
         </div>
-
         <div className="step-form__items">
           {selectedTypeIds.map((id) => {
             const type = types.find((t) => t.id === id);
@@ -169,7 +173,11 @@ export const StepCategories = ({
           </Label>
           <SelectCategorie
             id="dietId"
-            options={diets.map((m) => ({ value: m.id, label: m.name }))}
+            options={diets.map((d) => ({
+              value: d.id,
+              label: d.name,
+              disabled: selectedDietIds.includes(d.id),
+            }))}
             placeholder="Choisis un ou plusieurs régime(s) alimentaire"
             register={register("dietId")}
           />
@@ -181,7 +189,6 @@ export const StepCategories = ({
             type="button"
           />
         </div>
-
         <div className="step-form__items">
           {selectedDietIds.map((id) => {
             const diet = diets.find((d) => d.id === id);
@@ -203,7 +210,11 @@ export const StepCategories = ({
           </Label>
           <SelectCategorie
             id="originId"
-            options={origins.map((m) => ({ value: m.id, label: m.name }))}
+            options={origins.map((o) => ({
+              value: o.id,
+              label: o.name,
+              disabled: selectedOriginIds.includes(o.id),
+            }))}
             placeholder="Choisis une ou plusieurs origine(s)"
             register={register("originId")}
           />
@@ -219,7 +230,6 @@ export const StepCategories = ({
             type="button"
           />
         </div>
-
         <div className="step-form__items">
           {selectedOriginIds.map((id) => {
             const origin = origins.find((o) => o.id === id);
@@ -249,7 +259,6 @@ export const StepCategories = ({
             ariaLabel="Revenir à l’étape précédente du formulaire d'ajout de recette (détails)"
           />
         </div>
-
         <p className="step-form__required">* champ obligatoire.</p>
       </form>
     </div>

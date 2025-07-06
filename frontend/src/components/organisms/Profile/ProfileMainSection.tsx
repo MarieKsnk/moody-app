@@ -12,7 +12,7 @@ export const ProfileMainSection: React.FC = () => {
 
   const logout = useAuthStore((state) => state.logout);
   const { user } = useAuth();
-  const { data: recipes, isLoading, error } = useUserRecipes();
+  const { recipes, isLoading, error } = useUserRecipes();
 
   const handleLogout = () => {
     logout();
@@ -21,7 +21,7 @@ export const ProfileMainSection: React.FC = () => {
   };
 
   return (
-    <main className="profile-page">
+    <div className="profile-page">
       {user && <ProfileSection user={user} onLogout={handleLogout} />}
 
       {isLoading && <p>Chargement...</p>}
@@ -34,6 +34,6 @@ export const ProfileMainSection: React.FC = () => {
           className="own-recipe-list--profile"
         />
       )}
-    </main>
+    </div>
   );
 };

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { StepInformations } from "@/components/molecules/FormSteps/step_informations";
 import { StepIngredients } from "@/components/molecules/FormSteps/step_ingredients";
 import { StepEtapes } from "@/components/molecules/FormSteps/step_etapes";
@@ -25,6 +26,7 @@ const initialFormData: RecipeFormData = {
 };
 
 export default function RecipeForm() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<RecipeFormData>(initialFormData);
 
@@ -69,6 +71,7 @@ export default function RecipeForm() {
         alert(
           "Super ! Ta recette a bien ete envoye pour validation. Elle sera traitee dans les meilleurs delais."
         );
+        router.push("/");
       },
       onError: () => {
         alert("Erreur lors de la soumission de la recette");
@@ -79,7 +82,7 @@ export default function RecipeForm() {
   return (
     <section className="form">
       <div className="form__container">
-        <h1>Ajouter une nouvelle recette</h1>
+        <h1 className="form__light-title">Ajouter une nouvelle recette</h1>
         {step === 1 && (
           <StepInformations
             defaultValues={formData}

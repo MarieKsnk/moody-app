@@ -1,35 +1,48 @@
-import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { fetchMe } from "@/api/authAPI";
 import { useAuthStore } from "@/stores/authStore";
+import { useQuery } from "@tanstack/react-query";
+import { fetchMe } from "@/api/authAPI";
 import { useIsClient } from "@/hooks/useIsClient";
+
+const setToken = useAuthStore.getState().setToken;
+const setUser = useAuthStore.getState().setUser;
+const toggleAuth = useAuthStore.getState().toggleAuth;
 
 export function useAuth() {
   const isClient = useIsClient();
 
+  useEffect(() => {
+    if (isClient) {
+      const token = localStorage.getItem("token");
+      if (token) setToken(token);
+    }
+  }, [isClient]);
+
+  const token = useAuthStore((s) => s.token);
+
   const { data, isLoading, error } = useQuery({
-    queryKey: ["me"],
-    queryFn: fetchMe,
-    retry: false,
-    enabled: isClient && !!localStorage.getItem("token"),
+    queryKey: ["me", token],
+    queryFn: () => fetchMe(token),
+    enabled: !!token,
     staleTime: 5 * 60 * 1000,
   });
-
-  const setUser = useAuthStore((s) => s.setUser);
-  const toggleAuth = useAuthStore((s) => s.toggleAuth);
 
   useEffect(() => {
     if (data) {
       setUser(data);
       toggleAuth(true);
-    } else if (error) {
+    } else if (error && token) {
       setUser(null);
       toggleAuth(false);
+      setToken(null);
+      localStorage.removeItem("token");
     }
-  }, [data, error, setUser, toggleAuth]);
+  }, [data, error, token]);
 
-  const user = useAuthStore((s) => s.user);
-  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
-
-  return { user, isAuthenticated, isLoading };
+  return {
+    user: useAuthStore((s) => s.user),
+    isAuthenticated: useAuthStore((s) => s.isAuthenticated),
+    isLoading,
+    token,
+  };
 }

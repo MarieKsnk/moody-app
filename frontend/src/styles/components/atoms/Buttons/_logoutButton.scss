@@ -30,9 +30,22 @@
 }
 
 @include respond(lg) {
+  .logout-button {
+    font-size: 1rem;
+    font-weight: 500;
+  }
   .desktop-menu__top .right .logout-button {
     flex-direction: row-reverse;
-    font-size: 1.2rem;
-    font-weight: 500;
+  }
+  .logout-button--light {
+    color: $light-text;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+    text-decoration-color: $light-text;
+    &:hover,
+    &:focus {
+      color: $pink-hover;
+      text-decoration-color: $pink;
+    }
   }
 }

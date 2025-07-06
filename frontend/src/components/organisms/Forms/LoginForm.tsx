@@ -1,20 +1,20 @@
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
-
 import { LoginFormData } from "@/types/forms/Login";
 import { Input } from "@/components/atoms/Forms/input";
 import { Label } from "@/components/atoms/Forms/label";
 import { SubmitButton } from "@/components/atoms/Buttons/submit_button";
 import { useAuthStore } from "@/stores/authStore";
-import { AuthModal } from "@/components/molecules/Modals/auth_modal";
+import { LinksModal } from "@/components/molecules/Modals/links_modal";
+import { fetchLogin } from "@/api/authAPI";
 
 export default function LoginForm() {
   const router = useRouter();
   const setUser = useAuthStore((s) => s.setUser);
   const toggleAuth = useAuthStore((s) => s.toggleAuth);
+  const setToken = useAuthStore((s) => s.setToken);
 
   const [showModal, setShowModal] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -27,17 +27,24 @@ export default function LoginForm() {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      const res = await axios.post(
-        "http://localhost:8000/api/auth/login",
-        data
-      );
+      const res = await fetchLogin(data);
 
-      if (res.status === 201 && res.data.token) {
-        localStorage.setItem("token", res.data.token);
-        setUser(res.data.user);
+      if (res.token && res.user) {
+        setToken(res.token);
+        localStorage.setItem("token", res.token);
+
+        setUser(res.user);
         toggleAuth(true);
-        setFirstName(res.data.user.firstName);
+
+        if (res.user.role?.id === "ADMIN") {
+          router.replace("/admin");
+          return;
+        }
+
+        setFirstName(res.user.firstName);
         setShowModal(true);
+      } else {
+        throw new Error("Réponse inattendue du serveur");
       }
     } catch (error) {
       console.log("Erreur de connexion:", error);
@@ -48,7 +55,7 @@ export default function LoginForm() {
   return (
     <section className="form">
       <div className="form__container">
-        <h1>Je me connecte</h1>
+        <h1 className="form__pink-title">CONNEXION</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="auth-form__form">
           <div className="auth-form__group">
             <Label htmlFor="email" required={true}>
@@ -94,7 +101,7 @@ export default function LoginForm() {
       </div>
 
       {showModal && (
-        <AuthModal
+        <LinksModal
           title={`Ravi·e de te revoir, ${firstName} !`}
           primaryLabel="Mon profil"
           primaryHref="/profile"

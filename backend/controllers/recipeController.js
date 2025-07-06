@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from "../database/prismaClient.js";
 import {
   parseRecipeData,
   prismaRelations,
@@ -7,10 +7,8 @@ import {
   newUpdatedRecipeData,
 } from "./utils/recipeDataPrisma.js";
 
-const prisma = new PrismaClient();
-
-// PUSH - Fonction asynchrone permettant de creer une recette via un formulaire
-export const createRecipe = async (req, res) => {
+// POST - Créer une nouvelle recette par un utilisateur
+export const createRecipe = async (req, res, next) => {
   const userId = req.user.id;
   const {
     title,
@@ -22,9 +20,8 @@ export const createRecipe = async (req, res) => {
     instructions,
     ingredientList,
     typeIds,
+    recipePicture,
   } = req.body;
-
-  const recipePicture = req.body.recipePicture;
 
   try {
     if (
@@ -78,12 +75,12 @@ export const createRecipe = async (req, res) => {
     });
   } catch (error) {
     console.error("Erreur lors de la création de la recette :", error);
-    res.status(500).json({ error: "Erreur serveur" });
+    next(error);
   }
 };
 
-// GET - Fonction asynchrone permettant de recuperer toutes les recettes d'un utilisateur
-export const getUserRecipes = async (req, res) => {
+// GET - Récupérer toutes les recettes créées par un utilisateur
+export const getUserRecipes = async (req, res, next) => {
   const userId = req.params.id;
 
   if (!userId) {
@@ -99,12 +96,12 @@ export const getUserRecipes = async (req, res) => {
     res.status(200).json(recipes);
   } catch (error) {
     console.error("Erreur lors de la récupération des recettes :", error);
-    res.status(500).json({ error: "Erreur serveur" });
+    next(error);
   }
 };
 
-// GET - Fonction asynchrone permettant de recuperer une recette par son ID
-export const getRecipeById = async (req, res) => {
+// GET - Récupérer une recette par son ID
+export const getRecipeById = async (req, res, next) => {
   const recipeId = req.params.id;
 
   if (!recipeId) {
@@ -127,14 +124,15 @@ export const getRecipeById = async (req, res) => {
     res.status(200).json(recipe);
   } catch (error) {
     console.error("Erreur lors de la récupération de la recette :", error);
-    res.status(500).json({ error: "Erreur serveur" });
+    next(error);
   }
 };
 
-// GET - Fonction asynchrone permettant de recuprer toutes les recettes
-export const getAllRecipes = async (req, res) => {
+// GET - Récupérer toutes les recettes acceptées
+export const getAllRecipes = async (req, res, next) => {
   try {
     const recipes = await prisma.recipe.findMany({
+      where: { status: "accepted" },
       include: {
         ...includeUserData,
         ...includeRecipeData,
@@ -147,12 +145,12 @@ export const getAllRecipes = async (req, res) => {
       "Erreur lors de la récupération de toutes les recettes :",
       error
     );
-    res.status(500).json({ error: "Erreur serveur" });
+    next(error);
   }
 };
 
-// PATCH - Fonction asynchrone permettant de modifier une recette (uniquement par son auteur)
-export const updateRecipe = async (req, res) => {
+// PATCH - Mets à jour une recette (seulement par l'auteur de la recette ou l'admin)
+export const updateRecipe = async (req, res, next) => {
   const userId = req.user.id;
   const recipeId = req.params.id;
   const parsedData = parseRecipeData(req.body);
@@ -167,14 +165,16 @@ export const updateRecipe = async (req, res) => {
       return res.status(404).json({ error: "Recette non trouvée" });
     }
 
-    if (existingRecipe.userId !== userId) {
+    const userRole =
+      typeof req.user.role === "string" ? req.user.role : req.user.role?.name;
+    const isAdmin = userRole === "ADMIN";
+
+    if (existingRecipe.userId !== userId && !isAdmin) {
       return res.status(403).json({ error: "Accès interdit" });
     }
 
-    const { parsedTypeIds, parsedIngredients, parsedInstructions } =
-      parseRecipeData(req.body);
+    const { parsedTypeIds, parsedIngredients, parsedInstructions } = parsedData;
 
-    // On accepte la modification que si ces 3 champs sont modifies (ou inchanges)
     if (
       parsedTypeIds.length === 0 ||
       parsedIngredients.length === 0 ||
@@ -185,7 +185,6 @@ export const updateRecipe = async (req, res) => {
       });
     }
 
-    // On supprime dans un premier temps toutes les anciennes relations
     await prisma.recipe.update({
       where: { id: recipeId },
       data: {
@@ -197,7 +196,6 @@ export const updateRecipe = async (req, res) => {
       },
     });
 
-    // On re-creer la recette avec les nouvelles relations (ou les anciennes si elles n'ont pas ete remplacees)
     const updatedRecipe = await prisma.recipe.update({
       where: { id: recipeId },
       data: newUpdatedRecipeData(existingRecipe, req.body, parsedData),
@@ -210,12 +208,12 @@ export const updateRecipe = async (req, res) => {
     });
   } catch (error) {
     console.error("Erreur lors de la modification de la recette :", error);
-    res.status(500).json({ error: "Erreur serveur" });
+    next(error);
   }
 };
 
-// DELETE - Fonction asynchrone permettant de supprimer une recette (uniquement par son auteur)
-export const deleteRecipe = async (req, res) => {
+// DELETE - Supprimer une recette (seulement par l'auteur de la recette)
+export const deleteRecipe = async (req, res, next) => {
   const userId = req.user.id;
   const recipeId = req.params.id;
 
@@ -247,15 +245,15 @@ export const deleteRecipe = async (req, res) => {
       where: { id: recipeId },
     });
 
-    return res.status(200).json({ message: "Recette supprimée avec succès" });
+    res.status(200).json({ message: "Recette supprimée avec succès" });
   } catch (error) {
     console.error("Erreur lors de la suppression de la recette :", error);
-    return res.status(500).json({ error: "Erreur serveur" });
+    next(error);
   }
 };
 
-///////////////////
-export const getRecipesByMood = async (req, res) => {
+// GET - Récupérer toutes les recettes associées à un mood
+export const getRecipesByMood = async (req, res, next) => {
   const moodId = req.params.id;
 
   try {
@@ -281,6 +279,6 @@ export const getRecipesByMood = async (req, res) => {
     res.status(200).json({ recipes });
   } catch (error) {
     console.error("Erreur dans getRecipesByMood:", error);
-    res.status(500).json({ error: "Erreur serveur" });
+    next(error);
   }
 };

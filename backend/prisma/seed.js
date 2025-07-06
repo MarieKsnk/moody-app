@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from "../database/prismaClient.js";
 import { ingredients } from "./ingredients.js";
-
-const prisma = new PrismaClient();
+import bcrypt from "bcryptjs";
 
 async function main() {
   await prisma.role.upsert({

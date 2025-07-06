@@ -1,4 +1,3 @@
-// src/components/molecules/recipe_id_page/RecipeButtons.tsx
 import { ActionClickButton } from "@/components/atoms/Buttons/action_click_button";
 import { ActionLinkButton } from "@/components/atoms/Buttons/action_link_button";
 import { IRecipeButtonsProps } from "./RecipeButtons.props";

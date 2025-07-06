@@ -11,12 +11,22 @@
     flex-direction: column;
     gap: 2rem;
     padding-bottom: 2rem;
+    .politique-confidentialite-link {
+      text-decoration: underline;
+      text-decoration-color: $pink;
+      text-underline-offset: 0.25rem;
+      white-space: nowrap;
+    }
   }
 
   &__group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    @include respond(lg) {
+      width: 40%;
+      align-self: center;
+    }
   }
 
   &__account {

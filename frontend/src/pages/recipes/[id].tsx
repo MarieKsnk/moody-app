@@ -6,7 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useDeleteRecipe } from "@/hooks/useDeleteRecipe";
 import { useState } from "react";
 import { RecipeButtons } from "@/components/molecules/Recipe_id_page/recipe_buttons";
-import { DeleteRecipeModal } from "@/components/molecules/Modals/delete_recipe_modal";
+import { ButtonsModal } from "@/components/molecules/Modals/buttons_modal";
 
 export default function RecipePage() {
   const router = useRouter();
@@ -37,7 +37,7 @@ export default function RecipePage() {
 
   return (
     <AppLayout>
-      <main className="recipe-page">
+      <section className="recipe-page">
         <RecipeComplete recipe={recipe} />
 
         {recipe?.user?.id === user?.id && (
@@ -49,12 +49,16 @@ export default function RecipePage() {
         )}
 
         {showModal && (
-          <DeleteRecipeModal
-            onConfirm={handleDelete}
-            onCancel={() => setShowModal(false)}
+          <ButtonsModal
+            title={"Suppression"}
+            message={"Es-tu sur·e de vouloir supprimer la recette ?"}
+            primaryLabel="Supprimer la recette"
+            primaryOnClick={handleDelete}
+            secondaryLabel="Annuler"
+            secondaryOnClick={() => setShowModal(false)}
           />
         )}
-      </main>
+      </section>
     </AppLayout>
   );
 }

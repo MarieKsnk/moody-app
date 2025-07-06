@@ -7,7 +7,7 @@ export const LightButton: React.FC<ILightButtonProps> = ({
   label,
   href,
   ariaLabel,
-  size = 40,
+  size = 30,
   className,
 }) => {
   return (

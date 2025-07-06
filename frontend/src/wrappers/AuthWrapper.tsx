@@ -6,7 +6,6 @@ import type { ReactNode } from "react";
 import LoginPage from "@/pages/login";
 
 export const AuthWrapper = ({ children }: { children: ReactNode }) => {
-  
   const router = useRouter();
   const { isLoading, isAuthenticated } = useAuth();
 
