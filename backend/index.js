@@ -20,6 +20,12 @@ const PORT = process.env.PORT || 8000;
 app.use(helmet());
 
 const allowedOrigins = ["http://localhost:3000", process.env.FRONTEND_MOODY];
+const corsOptions = {
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsOptions));
 
 app.use(
   cors({
