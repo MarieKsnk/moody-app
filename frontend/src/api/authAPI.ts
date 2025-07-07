@@ -7,7 +7,7 @@ export async function fetchMe(token: string | null): Promise<User> {
     throw new Error("Token manquant");
   }
 
-  const res = await fetch("http://localhost:8000/api/users/me", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/me`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -27,7 +27,7 @@ export async function fetchMe(token: string | null): Promise<User> {
 }
 
 export async function fetchLogin(data: LoginFormData) {
-  const res = await fetch("http://localhost:8000/api/auth/login", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
