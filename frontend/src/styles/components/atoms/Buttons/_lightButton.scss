@@ -16,6 +16,7 @@
   max-width: 100%;
   transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 0.3s ease;
+
   @include respond(lg) {
     padding: 0.2rem 2rem;
     font-size: 1.2rem;
@@ -38,14 +39,16 @@
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     padding-right: 3rem;
-    outline: none;
   }
 
   &:hover &__icon,
   &:focus &__icon {
     transform: translateX(1rem);
+  }
+
+  &:focus {
+    outline: none;
   }
 }

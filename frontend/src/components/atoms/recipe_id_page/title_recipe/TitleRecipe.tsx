@@ -21,7 +21,10 @@ export const TitleRecipe: React.FC<ITitleRecipeProps> = ({
         <Image
           src={imageUrl}
           alt={`Image de la recette ${title}`}
+          priority
           fill
+          quality={75}
+          sizes="100vw"
           className="title-recipe__image"
           style={{ objectFit: "cover", objectPosition: "center" }}
         />

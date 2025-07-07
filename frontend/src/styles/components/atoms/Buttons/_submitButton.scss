@@ -35,14 +35,17 @@
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     padding-right: 3rem;
-    outline: none;
   }
 
   &:hover &__icon,
   &:focus &__icon {
     transform: translateX(1rem);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 5px 0 $pink-shadow;
   }
 }

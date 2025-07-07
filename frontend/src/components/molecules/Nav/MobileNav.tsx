@@ -71,12 +71,13 @@ export const MobileNav = () => {
           <div className="nav-bloc">
             <ul>
               <NavLink href="/" label="ACCUEIL" className="light" />
-              <li className="mobile-menu__submenu">
+              <div className="mobile-menu__submenu">
                 <SubMenuToggle
                   label="LES RECETTES"
                   isOpen={isRecipesOpen}
                   onClick={() => setIsRecipesOpen((prev) => !prev)}
                   id="submenu-recipes"
+                  className="submenu-recipes"
                 />
                 {isRecipesOpen && (
                   <ul
@@ -97,7 +98,7 @@ export const MobileNav = () => {
                     />
                   </ul>
                 )}
-              </li>
+              </div>
               {isAuthenticated && (
                 <>
                   <NavLink

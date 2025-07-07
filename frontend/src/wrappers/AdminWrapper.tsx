@@ -24,7 +24,7 @@ export const AdminWrapper = ({ children }: { children: React.ReactNode }) => {
       <div className="admin-access-denied" role="alert" aria-live="assertive">
         <h2>Accès refusé</h2>
         <p>
-          L’accès à cet espace est strictement réservé aux administrateurs
+          L’accès à cet espace est strictement réservé a l'administrateur de
           Moody.
           <br />
           <br />

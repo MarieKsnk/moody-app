@@ -18,7 +18,7 @@ export const AdminDesktopNav = () => {
   };
   return (
     <aside className="admin-sidebar">
-      <div className="admin-sidebar__logo">
+      <ul className="admin-sidebar__logo">
         <Link href="/admin">
           <Image
             src="/assets/logo_moody_light.svg"
@@ -28,12 +28,12 @@ export const AdminDesktopNav = () => {
             priority
           />
         </Link>
-      </div>
+      </ul>
       <nav
         className="admin-sidebar__menu"
         aria-label="Navigation admin desktop"
       >
-        <div className="admin-nav-bloc">
+        <ul className="admin-nav-bloc">
           <NavLink href="/admin" label="DASHBOARD" className="light" />
           <NavLink href="/admin/users" label="UTILISATEURS" className="light" />
           <NavLink href="/admin/recipes" label="RECETTES" className="light" />
@@ -42,7 +42,7 @@ export const AdminDesktopNav = () => {
             label="RECETTES EN ATTENTES"
             className="light"
           />
-        </div>
+        </ul>
         <div className="admin-auth-bloc">
           <ul>
             <LogoutButtonIcon

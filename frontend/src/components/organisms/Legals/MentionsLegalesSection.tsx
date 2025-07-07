@@ -10,7 +10,7 @@ export const MentionLegalesSection: React.FC = () => (
         <strong>Nom :</strong> Moody App, marque de la société Chefclub
       </p>
       <p>
-        <strong>Forme :</strong> SAS au capital de 20 000 €
+        <strong>Forme :</strong> SAS au capital de 1 000 €
       </p>
       <p>
         <strong>Siège social :</strong> 46 rue René Clair, 75018 Paris, France
@@ -22,7 +22,7 @@ export const MentionLegalesSection: React.FC = () => (
         <strong>TVA intracommunautaire :</strong> FRXX 754047702
       </p>
       <p>
-        <strong>Directrice de la publication :</strong> Julia NELIO
+        <strong>Responsable de la publication :</strong> Marie KLISNICK
       </p>
       <p>
         <strong>Contact :</strong>{" "}
@@ -48,22 +48,21 @@ export const MentionLegalesSection: React.FC = () => (
     <div className="legals-page__block">
       <h2>Propriété intellectuelle</h2>
       <p>
-        Tous les contenus (textes, logos, images, code, design…) de Moody App
-        sont protégés par le droit d’auteur et appartiennent à Chefclub ou à ses
-        ayants droit. Toute reproduction, intégrale ou partielle, est interdite
-        sans autorisation préalable.
+        L’ensemble des contenus (textes, images, logos, code source) est protégé
+        par le droit d’auteur. Toute reproduction, représentation ou diffusion,
+        en tout ou partie, sans autorisation écrite préalable est interdite.
       </p>
     </div>
 
     <div className="legals-page__block">
-      <h2>Responsabilité</h2>
+      <h2>Conditions générales d’utilisation</h2>
       <p>
-        Les informations publiées sur Moody App sont fournies “telles quelles” à
-        titre informatif. Chefclub s’efforce d’assurer leur exactitude et leur
-        mise à jour, mais ne peut en garantir la complétude ni l’actualité.
-        L’utilisateur est seul responsable de l’usage qu’il en fait. Chefclub
-        décline toute responsabilité quant aux dommages directs ou indirects
-        résultant de l’accès ou de l’utilisation de l’application.
+        L’accès et l’utilisation de l’application Moody sont soumis aux
+        présentes conditions :
+        <br /> - Vous vous engagez à ne pas publier de contenus illicites ou
+        contraires à l’ordre public.
+        <br /> - Toute violation peut entraîner la suspension ou la suppression
+        de votre compte.
       </p>
     </div>
   </section>

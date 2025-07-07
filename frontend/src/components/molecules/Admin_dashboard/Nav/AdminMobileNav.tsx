@@ -60,7 +60,7 @@ export const AdminMobileNav = () => {
           className="admin-mobile-menu__nav"
           aria-label="Navigation principale admin"
         >
-          <div className="admin-nav-bloc">
+          <ul className="admin-nav-bloc">
             <NavLink href="/admin" label="DASHBOARD" className="light" />
             <NavLink
               href="/admin/users"
@@ -73,7 +73,7 @@ export const AdminMobileNav = () => {
               label="RECETTES EN ATTENTES"
               className="light"
             />
-          </div>
+          </ul>
           <div className="admin-auth-bloc">
             <ul>
               <LogoutButtonIcon onClick={handleLogout} label="DECONNEXION" />

@@ -20,7 +20,9 @@ export const MoodIllustration: React.FC<IMoodIllustrationProps> = ({
         src={imgSrc}
         alt=""
         width={150}
-        height={0}
+        height={150}
+        quality={60}
+        sizes="100vw"
         className="mood-illustration__image"
         aria-hidden="true"
       />

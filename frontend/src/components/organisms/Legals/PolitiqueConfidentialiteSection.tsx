@@ -5,7 +5,7 @@ export const PolitiqueConfidentialiteSection: React.FC = () => (
     <h1 className="legals-page__title">Politique de confidentialite</h1>
 
     <div className="legals-page__block">
-      <h2>Responsable de traitement</h2>
+      <h2>Responsable</h2>
       <p>
         <strong>Société :</strong> Chefclub (Moody App)
       </p>
@@ -13,8 +13,8 @@ export const PolitiqueConfidentialiteSection: React.FC = () => (
         <strong>Adresse :</strong> 46 rue René Clair, 75018 Paris, France
       </p>
       <p>
-        <strong>Contact DPO :</strong>{" "}
-        <a href="mailto:dpo@chefclub.com">dpo@chefclub.com</a>
+        <strong>Contact :</strong>{" "}
+        <a href="mailto:contact@chefclub.com">contact@chefclub.com</a>
       </p>
     </div>
 

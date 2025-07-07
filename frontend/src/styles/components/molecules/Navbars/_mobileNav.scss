@@ -72,13 +72,12 @@
     &__submenu {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-    }
+      padding-top: 2rem;
 
-    &__links {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      .submenu-recipes {
+        border-bottom: 1px solid $pink;
+        padding-bottom: 2rem;
+      }
     }
   }
 

@@ -27,23 +27,23 @@ export const DesktopNav: React.FC = () => {
   return (
     <div className="desktop-menu">
       <div className="desktop-menu__top">
-        <div className="item left">
+        <ul className="item left">
           {isAuthenticated ? (
             <ProfileLink href="/profile" label="MON PROFIL" />
           ) : (
             <NavLink href="/login" label="CONNEXION" />
           )}
-        </div>
-        <div className="item center">
+        </ul>
+        <ul className="item center">
           <Logo href="/" alt="Logo Moody" width={230} height={60} />
-        </div>
-        <div className="item right">
+        </ul>
+        <ul className="item right">
           {isAuthenticated ? (
             <LogoutButtonIcon onClick={handleLogout} label="DÉCONNEXION" />
           ) : (
             <NavLink href="/register" label="INSCRIPTION" />
           )}
-        </div>
+        </ul>
       </div>
 
       <nav

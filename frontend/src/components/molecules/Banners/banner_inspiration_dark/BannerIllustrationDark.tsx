@@ -19,6 +19,7 @@ export const BannerInspirationDark = ({
           width={500}
           height={300}
           priority
+          sizes="100vw"
         />
       </div>
 

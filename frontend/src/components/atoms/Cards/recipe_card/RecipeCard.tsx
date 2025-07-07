@@ -20,6 +20,7 @@ export const RecipeCard = ({
           alt={imageAlt || `Image de la recette ${recipe.title}`}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          quality={60}
           className="recipe-card__image"
         />
       </div>

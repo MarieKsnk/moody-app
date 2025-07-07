@@ -121,7 +121,6 @@ export const getRecipeById = async (req, res, next) => {
       return res.status(404).json({ error: "Recette non trouvée" });
     }
 
-    // Récupération du token (s’il y en a un) et vérification
     let isAdmin = false;
     const authHeader = req.headers.authorization;
     if (authHeader?.startsWith("Bearer ")) {

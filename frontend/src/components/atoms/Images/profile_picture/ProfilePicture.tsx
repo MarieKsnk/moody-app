@@ -3,22 +3,21 @@ import Image from "next/image";
 import clsx from "clsx";
 
 export const ProfilePicture: React.FC<IProfilePictureProps> = ({
-    src,
-    alt,
-    size = 100,
-    className,
+  src,
+  alt,
+  className,
 }) => {
   return (
-    <div
-      className={clsx("profile-picture", className)}
-    >
+    <div className={clsx("profile-picture", className)}>
       <Image
         src={src}
         alt={alt}
-        width={size}
-        height={size}
         className="profile-picture__image"
-        quality={95}
+        width={160}
+        height={178}
+        quality={75}
+        priority
+        sizes="(max-width: 600px) 100vw, 160px"
       />
     </div>
   );
