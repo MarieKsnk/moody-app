@@ -1,12 +1,9 @@
 @use "./abstracts/variables" as *;
 @use "./abstracts/mixins" as *;
-@use "./abstracts/functions" as *;
-@use "./abstracts/accessibility" as *;
 
 @use "./base/fonts";
 @use "./base/reset";
 @use "./base/base";
-@use "./base/typography";
 @use "./base/animations";
 
 @use "./layout/appLayout";
