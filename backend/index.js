@@ -19,25 +19,25 @@ const PORT = process.env.PORT || 8000;
 // Sécurité
 app.use(helmet());
 
-const allowedOrigins = ["http://localhost:3000", process.env.FRONTEND_MOODY];
+const allowedOrigins = [
+  process.env.FRONTEND_ORIGIN,
+  process.env.FRONTEND_MOODY,
+  process.env.FRONTEND_PREVIEW_1,
+  process.env.FRONTEND_PREVIEW_2,
+];
 const corsOptions = {
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.error("CORS blocage origin:", origin);
+      callback(new Error("Non autorise par CORS"));
+    }
+  },
   methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 app.use(cors(corsOptions));
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Error CORS"));
-      }
-    },
-  })
-);
 
 // Parsing + formulaire
 app.use(express.json());
