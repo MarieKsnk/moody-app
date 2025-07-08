@@ -34,9 +34,9 @@ export const DesktopNav: React.FC = () => {
             <NavLink href="/login" label="CONNEXION" />
           )}
         </ul>
-        <li className="item center">
+        <div className="item center">
           <Logo href="/" alt="Logo Moody" width={230} height={60} />
-        </li>
+        </div>
         <ul className="item right">
           {isAuthenticated ? (
             <LogoutButtonIcon onClick={handleLogout} label="DÉCONNEXION" />

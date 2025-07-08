@@ -59,34 +59,41 @@ export const AdminMobileNav = () => {
         />
       </div>
 
-      {isOpen && (
-        <nav
-          id="admin-mobile-navigation"
-          className="admin-mobile-menu__nav"
-          aria-label="Navigation principale admin"
-          aria-hidden={!isOpen}
-        >
-          <ul className="admin-nav-bloc">
-            <NavLink href="/admin" label="DASHBOARD" className="light" />
-            <NavLink
-              href="/admin/users"
-              label="UTILISATEURS"
-              className="light"
-            />
-            <NavLink href="/admin/recipes" label="RECETTES" className="light" />
-            <NavLink
-              href="/admin/recipes-pending"
-              label="RECETTES EN ATTENTES"
-              className="light"
-            />
-          </ul>
-          <div className="admin-auth-bloc">
-            <ul>
-              <LogoutButtonIcon onClick={handleLogout} label="DECONNEXION" />
+      <nav
+        id="admin-mobile-navigation"
+        className="admin-mobile-menu__nav"
+        aria-label="Navigation principale admin"
+        aria-hidden={!isOpen}
+        style={{ display: isOpen ? "flex" : "none" }}
+      >
+        {isOpen && (
+          <>
+            <ul className="admin-nav-bloc">
+              <NavLink href="/admin" label="DASHBOARD" className="light" />
+              <NavLink
+                href="/admin/users"
+                label="UTILISATEURS"
+                className="light"
+              />
+              <NavLink
+                href="/admin/recipes"
+                label="RECETTES"
+                className="light"
+              />
+              <NavLink
+                href="/admin/recipes-pending"
+                label="RECETTES EN ATTENTES"
+                className="light"
+              />
             </ul>
-          </div>
-        </nav>
-      )}
+            <div className="admin-auth-bloc">
+              <ul>
+                <LogoutButtonIcon onClick={handleLogout} label="DÉCONNEXION" />
+              </ul>
+            </div>
+          </>
+        )}
+      </nav>
     </div>
   );
 };

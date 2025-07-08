@@ -5,7 +5,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="fr">
         <Head>
-          <title>Moody – Application culinaire</title>
           <link
             rel="preload"
             href="/fonts/bunch/Bunch-Regular.woff2"

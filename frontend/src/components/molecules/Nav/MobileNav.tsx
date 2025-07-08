@@ -13,7 +13,7 @@ import { SubMenuToggle } from "@/components/atoms/Nav/sub_menu_toggle";
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRecipesOpen, setIsRecipesOpen] = useState(false);
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated } = useAuth();
   const logout = useAuthStore((s) => s.logout);
   const queryClient = useQueryClient();
   const router = useRouter();
@@ -50,96 +50,99 @@ export const MobileNav = () => {
           className="logo-moody"
           ariaLabel="Accueil"
         />
-
         <BurgerButton
+          id="burger-button"
+          type="button"
           isOpen={isOpen}
           onClick={() => setIsOpen((prev) => !prev)}
           ariaLabel={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          type="button"
-          id="burger-button"
           ariaControls="mobile-navigation"
           ariaExpanded={isOpen}
         />
       </div>
 
-      {isOpen && (
-        <nav
-          id="mobile-navigation"
-          className="mobile-menu__nav"
-          aria-label="Navigation principale"
-        >
-          <div className="nav-bloc">
-            <ul>
-              <NavLink href="/" label="ACCUEIL" className="light" />
-              <div className="mobile-menu__submenu">
-                <SubMenuToggle
-                  label="LES RECETTES"
-                  isOpen={isRecipesOpen}
-                  onClick={() => setIsRecipesOpen((prev) => !prev)}
-                  id="submenu-recipes"
-                  className="submenu-recipes"
-                />
-                {isRecipesOpen && (
-                  <ul
+      <nav
+        id="mobile-navigation"
+        className="mobile-menu__nav"
+        aria-label="Navigation principale"
+        aria-hidden={!isOpen}
+        style={{ display: isOpen ? "flex" : "none" }}
+      >
+        {isOpen && (
+          <>
+            <div className="nav-bloc">
+              <ul>
+                <NavLink href="/" label="ACCUEIL" className="light" />
+                <div className="mobile-menu__submenu">
+                  <SubMenuToggle
+                    label="LES RECETTES"
+                    isOpen={isRecipesOpen}
+                    onClick={() => setIsRecipesOpen((prev) => !prev)}
                     id="submenu-recipes"
-                    className="mobile-menu__links"
-                    role="menu"
-                    aria-label="Sous-menu Les recettes"
-                  >
+                    className="submenu-recipes"
+                  />
+                  {isRecipesOpen && (
+                    <ul
+                      id="submenu-recipes"
+                      className="mobile-menu__links"
+                      role="menu"
+                      aria-label="Sous-menu Les recettes"
+                    >
+                      <NavLink
+                        href="/recipes/moods"
+                        label="Recettes par mood"
+                        className="light"
+                      />
+                      <NavLink
+                        href="/all-recipes"
+                        label="Toutes les recettes"
+                        className="all-recipes"
+                      />
+                    </ul>
+                  )}
+                </div>
+                {isAuthenticated && (
+                  <>
                     <NavLink
-                      href="/recipes/moods"
-                      label="Recettes par mood"
+                      href="/profile#mes-recettes"
+                      label="MES RECETTES"
                       className="light"
                     />
                     <NavLink
-                      href="/all-recipes"
-                      label="Toutes les recettes"
-                      className="all-recipes"
+                      href="/add-recipe"
+                      label="AJOUTER UNE RECETTE"
+                      className="light"
                     />
-                  </ul>
+                  </>
                 )}
-              </div>
-              {isAuthenticated && (
-                <>
-                  <NavLink
-                    href="/profile#mes-recettes"
-                    label="MES RECETTES"
-                    className="light"
-                  />
-                  <NavLink
-                    href="/add-recipe"
-                    label="AJOUTER UNE RECETTE"
-                    className="light"
-                  />
-                </>
-              )}
-            </ul>
-          </div>
+              </ul>
+            </div>
 
-          <div className="auth-bloc">
-            <ul>
-              {!isAuthenticated ? (
-                <>
-                  <NavLink href="/login" label="CONNEXION" className="dark" />
-                  <NavLink
-                    href="/register"
-                    label="INSCRIPTION"
-                    className="dark"
-                  />
-                </>
-              ) : (
-                <>
-                  <ProfileLink href="/profile" label="MON PROFIL" />
-                  <LogoutButtonIcon
-                    onClick={handleLogout}
-                    label="DÉCONNEXION"
-                  />
-                </>
-              )}
-            </ul>
-          </div>
-        </nav>
-      )}
+            <div className="auth-bloc">
+              <ul>
+                {!isAuthenticated ? (
+                  <>
+                    <NavLink href="/login" label="CONNEXION" className="dark" />
+                    <NavLink
+                      href="/register"
+                      label="INSCRIPTION"
+                      className="dark"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <ProfileLink href="/profile" label="MON PROFIL" />
+                    <LogoutButtonIcon
+                      onClick={handleLogout}
+                      label="DÉCONNEXION"
+                    />
+                  </>
+                )}
+              </ul>
+            </div>
+          </>
+        )}
+      </nav>
     </div>
   );
 };
