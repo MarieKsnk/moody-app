@@ -10,48 +10,45 @@ import {
 
 // POST - Créer une nouvelle recette par un utilisateur
 export const createRecipe = async (req, res, next) => {
-  const userId = req.user.id;
-  const {
-    title,
-    description,
-    recipeUrl,
-    prepTime,
-    cookTime,
-    serve,
-    instructions,
-    ingredientList,
-    typeIds,
-    recipePicture,
-  } = req.body;
-
   try {
+    const userId = req.user.id;
+
+    const title = req.body.title;
+    const description = req.body.description;
+    const recipeUrl = req.body.recipeUrl;
+    const recipePicture = req.body.recipePicture;
+    const prepTime = req.body.prepTime;
+    const cookTime = req.body.cookTime;
+    const serve = req.body.serve;
+    const instructions = req.body.instructions;
+
+    const moodIds = JSON.parse(req.body.moodIds || "[]");
+    const typeIds = JSON.parse(req.body.typeIds || "[]");
+    const dietIds = JSON.parse(req.body.dietIds || "[]");
+    const originIds = JSON.parse(req.body.originIds || "[]");
+    const ingredientList = JSON.parse(req.body.ingredientList || "[]");
+
+    const parsedInstructions = instructions ? instructions.split("\n") : [];
+
     if (
-      !typeIds ||
-      typeIds.length === 0 ||
+      !title?.trim() ||
       !recipePicture ||
-      !ingredientList ||
-      !instructions
+      ingredientList.length === 0 ||
+      typeIds.length === 0 ||
+      parsedInstructions.length === 0
     ) {
-      return res
-        .status(400)
-        .json({ error: "Un ou plusieurs champs obligatoires sont manquants" });
+      return res.status(400).json({
+        error:
+          "Certains champs obligatoires sont manquants (titre, image, ingrédients, instructions et type).",
+      });
     }
 
-    const {
-      parsedMoodIds,
-      parsedDietIds,
-      parsedOriginIds,
-      parsedTypeIds,
-      parsedIngredients,
-      parsedInstructions,
-    } = parseRecipeData(req.body);
-
     const relations = prismaRelations({
-      parsedMoodIds,
-      parsedDietIds,
-      parsedOriginIds,
-      parsedTypeIds,
-      parsedIngredients,
+      parsedMoodIds: moodIds,
+      parsedTypeIds: typeIds,
+      parsedDietIds: dietIds,
+      parsedOriginIds: originIds,
+      parsedIngredients: ingredientList,
     });
 
     const newRecipe = await prisma.recipe.create({
@@ -130,19 +127,15 @@ export const getRecipeById = async (req, res, next) => {
         const role =
           typeof payload.role === "string" ? payload.role : payload.role?.name;
         isAdmin = role === "ADMIN";
-      } catch (err) {
-        // token invalide ou expiré → on ignore, isAdmin reste false
-      }
+      } catch (err) {}
     }
 
-    // Si la recette n'est pas encore accepted ET pas d'admin, on refuse
     if (recipe.status !== "accepted" && !isAdmin) {
       return res
         .status(403)
         .json({ error: "Cette recette est en attente de validation" });
     }
 
-    // OK pour les recettes accepted (public) ou pour l'admin
     return res.status(200).json(recipe);
   } catch (error) {
     console.error("Erreur lors de la récupération de la recette :", error);

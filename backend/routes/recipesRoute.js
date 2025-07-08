@@ -5,7 +5,6 @@ import { imageKitRecipeMiddleware } from "../middlewares/upload_recipe/imageKitR
 import { authMiddleware } from "../middlewares/authMiddleware.js";
 import { rateLimiterMiddleware } from "../middlewares/rateLimiterMiddleware.js";
 import {
-  createRecipeValidator,
   idParamValidator,
   updateRecipeValidator,
 } from "../middlewares/validatorsMiddleware.js";
@@ -23,7 +22,6 @@ recipeRouter.post(
   rateLimiterMiddleware,
   uploadRecipeMiddleware,
   imageKitRecipeMiddleware,
-  createRecipeValidator,
   createRecipe
 );
 
