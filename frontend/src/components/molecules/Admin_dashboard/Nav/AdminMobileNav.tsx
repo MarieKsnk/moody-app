@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { BurgerButton } from "@/components/atoms/Buttons/burger_button";
 import { NavLink } from "@/components/atoms/Nav/nav_link";
 import { LogoutButtonIcon } from "@/components/atoms/Buttons/logout_button_icon";
@@ -38,27 +39,32 @@ export const AdminMobileNav = () => {
   return (
     <div className="admin-mobile-menu">
       <div className="admin-mobile-menu__header">
-        <Image
-          src="/assets/logo_moody_light.svg"
-          alt="Logo Moody"
-          width={120}
-          height={40}
-          priority
-        />
-
+        <Link href="/admin">
+          <Image
+            src="/assets/logo_moody_light.svg"
+            alt="Logo Moody"
+            width={120}
+            height={40}
+            priority
+          />
+        </Link>
         <BurgerButton
           isOpen={isOpen}
           onClick={() => setIsOpen((prev) => !prev)}
-          ariaLabel="Ouvrir ou fermer le menu"
+          ariaLabel={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
           type="button"
-          id="burger-button"
+          id="admin-burger-button"
+          ariaControls="admin-mobile-navigation"
+          ariaExpanded={isOpen}
         />
       </div>
 
       {isOpen && (
         <nav
+          id="admin-mobile-navigation"
           className="admin-mobile-menu__nav"
           aria-label="Navigation principale admin"
+          aria-hidden={!isOpen}
         >
           <ul className="admin-nav-bloc">
             <NavLink href="/admin" label="DASHBOARD" className="light" />

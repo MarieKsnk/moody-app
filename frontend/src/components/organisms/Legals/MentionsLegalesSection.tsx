@@ -3,6 +3,7 @@ import React from "react";
 export const MentionLegalesSection: React.FC = () => (
   <section className="legals-page">
     <h1 className="legals-page__title">Mentions legales</h1>
+    <p>Dernière mise à jour : 08/07/2025</p>
 
     <div className="legals-page__block">
       <h2>Éditeur de l’application</h2>

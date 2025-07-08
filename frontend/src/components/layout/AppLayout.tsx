@@ -8,7 +8,6 @@ export const AppLayout: React.FC<IAppLayoutProps> = ({ children }) => {
     <>
       <Head>
         <title>Moody - Application culinaire</title>
-        <link rel="icon" href="/assets/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

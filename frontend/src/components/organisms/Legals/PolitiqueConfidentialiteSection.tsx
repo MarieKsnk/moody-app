@@ -3,9 +3,10 @@ import React from "react";
 export const PolitiqueConfidentialiteSection: React.FC = () => (
   <section className="legals-page">
     <h1 className="legals-page__title">Politique de confidentialite</h1>
+    <p>Dernière mise à jour : 08/07/2025</p>
 
     <div className="legals-page__block">
-      <h2>Responsable</h2>
+      <h2>Responsable de l'application</h2>
       <p>
         <strong>Société :</strong> Chefclub (Moody App)
       </p>
@@ -19,39 +20,28 @@ export const PolitiqueConfidentialiteSection: React.FC = () => (
     </div>
 
     <div className="legals-page__block">
-      <h2>Finalités du traitement</h2>
+      <h2>Finalités du traitement de vos données</h2>
       <p>Nous collectons et traitons vos données pour :</p>
       <p>
         - Créer et gérer votre compte utilisateur (email, mot de passe haché,
-        pseudo).
+        nom, prénom).
       </p>
       <p>
-        - Vous proposer des recommandations de recettes (catégories, moods).
+        - Vous proposer des recommandations de recettes (catégories, moods,
+        etc).
       </p>
-      <p>- Gérer vos préférences et favoris.</p>
       <p>- Assurer la sécurité et la maintenance de la plateforme.</p>
-      <p>
-        - Vous envoyer, avec votre consentement, notre newsletter ou des
-        notifications (validation de recette, nouveautés).
-      </p>
     </div>
 
     <div className="legals-page__block">
       <h2>Données collectées</h2>
       <p>
-        <strong>Données d’identification :</strong>nom d’utilisateur, email.
+        <strong>Données d’identification :</strong> nom, prénom, email, photo de
+        profil (si fournie a l'inscription).
       </p>
       <p>
-        <strong>Données de navigation :</strong> cookies analytiques (durée de
-        session, pages consultées).
-      </p>
-      <p>
-        <strong>Données fonctionnelles :</strong> recettes ajoutées, catégories
-        choisies, état “à tester”/“réalisé”.
-      </p>
-      <p>
-        <strong>Données de contact :</strong> messages via le formulaire ou
-        email.
+        <strong>Données fonctionnelles :</strong> recettes ajoutées (infos &
+        photos), catégories choisies.
       </p>
     </div>
 
@@ -62,8 +52,8 @@ export const PolitiqueConfidentialiteSection: React.FC = () => (
         compte par l’utilisateur ou trois ans d’inactivité.
       </p>
       <p>
-        <strong>Logs de connexion et cookies analytiques :</strong> 13 mois
-        maximum, conformément à la réglementation.
+        <strong>Logs de connexion :</strong> 13 mois maximum, conformément à la
+        réglementation.
       </p>
     </div>
 
@@ -80,11 +70,8 @@ export const PolitiqueConfidentialiteSection: React.FC = () => (
     <div className="legals-page__block">
       <h2>Sécurité</h2>
       <p>- Hébergement sécurisé (HTTPS).</p>
-      <p>- Mots de passe stockés de façon hachée (bcrypt).</p>
-      <p>
-        - Protection contre les attaques courantes (rate limiting, CORS,
-        helmet).
-      </p>
+      <p>- Mots de passe stockés de façon hachée.</p>
+      <p>- Protection contre les attaques courantes.</p>
     </div>
 
     <div className="legals-page__block">
@@ -109,15 +96,15 @@ export const PolitiqueConfidentialiteSection: React.FC = () => (
       </p>
       <p>
         Pour exercer vos droits, contactez :{" "}
-        <a href="mailto:dpo@chefclub.com">dpo@chefclub.com</a>
+        <a href="mailto:contact@chefclub.com">contact@chefclub.com</a>
       </p>
     </div>
 
     <div className="legals-page__block">
       <h2>Modification de la politique</h2>
       <p>
-        Nous pouvons être amenés à mettre à jour cette politique ; la date de
-        dernière révision est indiquée en tête de document. Toute modification
+        Nous pouvons être amenés à mettre à jour cette politique, la date de
+        dernière mise a jour est indiquée en haut de la page. Toute modification
         vous sera signalée lors de votre prochaine connexion.
       </p>
     </div>
