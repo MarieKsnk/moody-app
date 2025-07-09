@@ -12,7 +12,6 @@ import {
 export const createRecipe = async (req, res, next) => {
   try {
     const userId = req.user.id;
-
     const title = req.body.title;
     const description = req.body.description;
     const recipeUrl = req.body.recipeUrl;
