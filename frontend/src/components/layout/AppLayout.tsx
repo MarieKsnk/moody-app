@@ -2,6 +2,7 @@ import Head from "next/head";
 import { IAppLayoutProps } from "./AppLayout.props";
 import { Header } from "../organisms/Nav/Header";
 import { Footer } from "../organisms/Footer/Footer";
+import { CustomCursor } from "../atoms/Cursor/CustomCursor";
 
 export const AppLayout: React.FC<IAppLayoutProps> = ({ children }) => {
   return (
@@ -22,6 +23,7 @@ export const AppLayout: React.FC<IAppLayoutProps> = ({ children }) => {
         <meta name="author" content="Marie Klisnick" />
       </Head>
       <div className="app-layout">
+      <CustomCursor />
         <Header />
         <main className="main-content">{children}</main>
         <Footer />

@@ -7,16 +7,17 @@ export const Logo = ({
   alt = "Logo Moody",
   width,
   height,
-  className,
+  className = "",
   ariaLabel,
 }: ILogoProps) => {
   return (
-    <Link href={href} className={className} aria-label={ariaLabel}>
+    <Link href={href} aria-label={ariaLabel} className={`logo-link ${className}`}>
       <Image
         src="/assets/logo_moody.svg"
         alt={alt}
         width={width}
         height={height}
+        priority
       />
     </Link>
   );

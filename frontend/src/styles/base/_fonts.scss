@@ -1,4 +1,12 @@
 // Police BUNCH
+
+@font-face {
+  font-family: "Bunch";
+  src: url("/fonts/bunch/Bunch-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
 @font-face {
   font-family: "Bunch";
   src: url("/fonts/bunch/Bunch-Light.woff2") format("woff2");
@@ -42,7 +50,7 @@
 @font-face {
   font-family: "Bunch";
   src: url("/fonts/bunch/Bunch-Regular.woff2") format("woff2");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -58,7 +66,7 @@
 @font-face {
   font-family: "Bunch Hairline";
   src: url("/fonts/bunch/Bunch-Hairline.woff2") format("woff2");
-  font-weight: 100;
+  font-weight: 50;
   font-style: normal;
   font-display: swap;
 }

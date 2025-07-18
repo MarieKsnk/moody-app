@@ -1,39 +1,36 @@
-@use "@/styles/abstracts/variables" as *;
-@use "@/styles/abstracts/mixins" as *;
+.hero-nav {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
 
 .hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  width: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 200;
 
-  .title-second {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: $dark-text;
-    line-height: 1;
-    margin-bottom: 1.5rem;
-    animation: splitIn 0.6s ease-out forwards;
-    @include respond(lg) {
-      font-size: 3rem;
-      margin-bottom: 0rem;
-    }
-  }
+  &__logo {
+    width: 400px;
+    height: auto;
+    transition: transform 0.4s ease-out;
+    transform: translateY(50%) scale(3) rotate(-5deg);
 
-  .title-line {
-    font-size: 4rem;
-    font-weight: 900;
-    color: transparent;
-    -webkit-text-stroke: 0.08rem black;
-    line-height: 1;
-    margin-top: 1rem;
-    animation: fadeInBlur 1s ease-out forwards;
-    @include respond(lg) {
-      font-size: 6rem;
-      margin-top: 1rem;
-      -webkit-text-stroke: 0.1rem black;
+    &--scrolled {
+      position: fixed; // devient fixed quand il scrolle pour rester bloqué dans le menu
+      top: 20px; // ajuste exactement cette valeur selon la hauteur réelle de ton menu
+      justify-content: center;
+      transform:  scale(0.5) rotate(0deg);
+      height: auto;
+      z-index: 200; // clairement au-dessus de tout
     }
   }
 }

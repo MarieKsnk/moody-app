@@ -1,71 +1,86 @@
 @use "@/styles/abstracts/variables" as *;
-@use "@/styles/abstracts/mixins" as *;
+@use "@/styles/abstracts/mixins"   as *;
 
+/* ====================================
+   Composant TitleHighlight
+   ==================================== */
 .title-highlight {
   position: relative;
-  display: flex;
+  display: inline-flex;       /* center content horizontally */
   justify-content: center;
-  transform: rotate(-3deg);
-  line-height: 1;
+  align-items: center;        /* center content vertically */
   width: fit-content;
   animation: zoomBounceRotate 0.8s ease-out forwards;
 
-  &__bg {
-    position: absolute;
-    top: 30%;
-    width: 100%;
-    height: 4rem;
-    border-radius: 2px;
-    transform: translateY(-40%);
-    z-index: 1;
-    @include respond(lg) {
-      height: 10rem;
-      top: 60%;
-    }
+  /* Texte droit, pas d’inclinaison */
+  transform: none;
+
+  @include respond(2xl) {
+    margin: -3rem 0 2rem;
   }
 
   &__text {
-    position: relative;
-    z-index: 2;
+    z-index: 1;
+    margin: 0;       /* enlève la marge par défaut du <h1> */
+  padding: 0;      /* si jamais un reset plus large est nécessaire */
+  line-height: 1;
+    font-size: 20rem;
     font-weight: 800;
-    text-transform: uppercase;
-    line-height: 1;
-    max-width: 100%;
     text-align: center;
-    padding: 0 1.5rem;
+    color: $dark-text;           /* valeur par défaut */
+    max-width: 100%;
+
+    @include respond(2xl) {
+      padding: 0 5rem;
+    }
   }
 
-  &--bg-orange &__bg {
-    background-color: $orange-background;
-  }
-  &--bg-pink &__bg {
-    background-color: $pink-background;
-  }
-  &--bg-pink-desktop &__bg {
-    @include respond(lg) {
+  /* ————— Modifiers ————— */
+  /* Background color */
+  &--bg-pink {
+    &__bg {
       background-color: $pink-background;
-      height: 3rem;
-      top: 60%;
+    }
+  }
+  &--bg-orange {
+    &__bg {
+      background-color: $orange-background;
     }
   }
 
-  &--text-light &__text {
-    color: $light-text;
-  }
-  &--text-dark &__text {
-    color: $dark-text;
-  }
-
-  &--size-med &__text {
-    font-size: 20vw;
-    @include respond(lg) {
-      font-size: 15vw;
+  /* Text color */
+  &--text-dark {
+    &__text {
+      color: $dark-text;
     }
   }
-  &--size-sm &__text {
-    font-size: 10vw;
-    @include respond(lg) {
-      font-size: 4vw;
+  &--text-light {
+    &__text {
+      color: $light-text;
+    }
+  }
+
+  /* Size variations */
+  &--size-med {
+    &__text {
+      font-size: 20vw;
+
+      @include respond(lg) {
+        font-size: 15vw;
+      }
+      @include respond(2xl) {
+        font-size: 17vw;
+      }
+    }
+  }
+
+  &--size-sm {
+    &__text {
+      font-size: 10vw;
+
+      @include respond(lg) {
+        font-size: 4vw;
+      }
     }
   }
 }

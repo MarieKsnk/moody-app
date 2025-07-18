@@ -11,13 +11,22 @@ body {
   background-color: $light-principal-background;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  cursor: none;
 }
+
 
 h1 {
   font-family: $font-title;
-  font-size: 2rem;
-  font-weight: bold;
   margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+[class*="__title"] {
+  font-family: $font-title;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 p,

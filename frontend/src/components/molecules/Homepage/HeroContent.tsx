@@ -1,17 +1,26 @@
+// components/organisms/HeroNav/HeroContent/HeroContent.tsx
 import React from "react";
-import { TitleHighlight } from "@/components/atoms/Titles/title_highlight";
+import clsx from "clsx";
+import { Logo } from "@/components/atoms/Nav/logo";
 
-export const HeroContent: React.FC = () => {
+interface HeroContentProps {
+  scrollPosition: number;
+}
+
+const HeroContent: React.FC<HeroContentProps> = ({ scrollPosition }) => {
+  const isScrolled = scrollPosition > 50;
+
   return (
     <div className="hero-content">
-      <h1 className="title-second">QU'EST CE QU'ON</h1>
-
-      <TitleHighlight
-        text="MANGE"
-        className="title-highlight--bg-pink title-highlight--text-dark title-highlight--size-med"
+      <Logo
+        href="/"
+        alt="Logo Moody"
+        width={400}
+        height={100}
+        className={clsx("hero-content__logo", { "hero-content__logo--scrolled": isScrolled })}
       />
-
-      <h1 className="title-line">CE SOIR ?</h1>
     </div>
   );
 };
+
+export default HeroContent;

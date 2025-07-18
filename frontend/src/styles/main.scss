@@ -11,6 +11,8 @@
 
 ///////////////////////////
 //// IMPORT DES ATOMS ////
+// Cursor
+@use "./components/atoms/Cursor/customCursor";
 // Nav
 @use "./components/atoms/Nav/navLink";
 // Image

@@ -35,7 +35,6 @@ export const DesktopNav: React.FC = () => {
           )}
         </ul>
         <div className="item center">
-          <Logo href="/" alt="Logo Moody" width={230} height={60} />
         </div>
         <ul className="item right">
           {isAuthenticated ? (
