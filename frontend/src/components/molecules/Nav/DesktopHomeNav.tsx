@@ -9,7 +9,7 @@ import { LogoutButtonIcon } from "@/components/atoms/Buttons/logout_button_icon"
 import { SubMenuToggle } from "@/components/atoms/Nav/sub_menu_toggle";
 import { NavLink } from "@/components/atoms/Nav/nav_link";
 
-export const DesktopNav: React.FC = () => {
+export const DesktopHomeNav: React.FC = () => {
   const [isRecipesOpen, setIsRecipesOpen] = useState(false);
   const { isAuthenticated, isLoading } = useAuth();
   const logout = useAuthStore((s) => s.logout);
@@ -51,33 +51,11 @@ export const DesktopNav: React.FC = () => {
         }`}
         aria-label="Navigation secondaire"
       >
-        <div
-          className={`item left with-submenu ${isRecipesOpen ? "open" : ""}`}
-        >
-          <SubMenuToggle
-            label="LES RECETTES"
-            isOpen={isRecipesOpen}
-            onClick={() => setIsRecipesOpen((p) => !p)}
-            id="desktop-submenu-recipes"
-          />
-          <ul
-            id="desktop-submenu-recipes"
-            className="submenu"
-            role="menu"
-            aria-label="Sous-menu Les recettes"
-          >
-            <NavLink
+        <NavLink
               href="/recipes/moods"
-              label="Recettes par mood"
+              label="LES RECETTES"
               className="light"
             />
-            <NavLink
-              href="/all-recipes"
-              label="Toutes les recettes"
-              className="all-recipes"
-            />
-          </ul>
-        </div>
 
         {isAuthenticated && (
           <>

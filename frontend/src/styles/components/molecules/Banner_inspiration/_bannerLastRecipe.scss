@@ -1,0 +1,56 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.banner-last-recipe {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: $dark;
+
+  &__left,
+  &__right,
+  &__content {
+    flex: 1 1 33.3333%;
+    height: 100%;
+    position: relative;
+  }
+
+  &__left,
+  &__right {
+    background: transparent;
+  }
+
+  .falling-img {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &__content {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    padding-top: 15rem;
+    padding-bottom: 10rem;
+    text-align: center;
+
+    h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: $light-text;
+    }
+
+    .fake_recipe_card {
+      background: $light;
+      height: 50%;
+      width: 100%;
+    }
+  }
+}

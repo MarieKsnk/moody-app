@@ -2,14 +2,15 @@
 @use "@/styles/abstracts/mixins" as *;
 
 .nav-link {
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 5300;
   font-family: $font-main;
+  letter-spacing: 0.01rem;
+  transition: color 0.3s;
 
   &:hover,
   &:focus {
     color: $pink-hover;
-    outline: none;
   }
 }
 

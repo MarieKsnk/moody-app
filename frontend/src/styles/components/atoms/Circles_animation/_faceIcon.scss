@@ -1,0 +1,148 @@
+@use "@/styles/abstracts/variables" as *;
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(3px, -5px) rotate(10deg);
+  }
+  50% {
+    transform: translate(-2px, 4px) rotate(-10deg);
+  }
+  75% {
+    transform: translate(3px, -3px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.face-icon {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  top: 40%;
+  left: 2%;
+  animation: float 4s ease-in-out infinite;
+  transform: rotate(-10deg);
+
+  &__svg {
+    width: 80%;
+    height: auto;
+    transition: transform 0.4s ease;
+  }
+
+  &__stroke,
+  &__fill,
+  &__mouth {
+    transition: all 0.3s ease;
+  }
+
+  &__stroke {
+    stroke: currentColor;
+    stroke-width: 1;
+    fill: none;
+  }
+
+  &__fill {
+    fill: currentColor;
+  }
+
+  &__mouth {
+    stroke: currentColor;
+    stroke-width: 1;
+    transform-origin: center;
+    transform: scaleX(1) scaleY(1);
+  }
+
+  &:hover {
+    animation-play-state: paused;
+  
+    .face-icon__svg {
+      transform: scale(1.1);
+    }
+  
+    .face-icon__mouth {
+      transform: scaleX(1) scaleY(2);
+    }
+  }
+  
+
+  &--pink   { color: $pink; }
+  &--orange { color: $orange; }
+  &--dark   { color: $dark; }
+  &--white  { color: #fff; }
+
+  &--80  { width: 80px; height: 80px; }
+  &--100 { width: 100px; height: 100px; }
+  &--120 { width: 120px; height: 120px; }
+}
+
+.face-icon2 {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  top: 60%;
+  left: -7%;
+  animation: float 5s ease-in-out infinite;
+  transform: rotate(-10deg);
+
+  &__svg {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+  }
+
+  &__stroke,
+  &__fill,
+  &__mouth {
+    transition: all 0.3s ease;
+  }
+
+  &__stroke {
+    stroke: currentColor;
+    stroke-width: 1;
+    fill: none;
+  }
+
+  &__fill {
+    fill: currentColor;
+  }
+
+  &__mouth {
+    stroke: currentColor;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .mouth2--frown {
+    display: none;
+  }
+
+  &:hover {
+    animation-play-state: paused;
+
+    .face-icon2__svg {
+      transform: scale(1.1);
+    }
+
+    .mouth2--smile {
+      display: none;
+    }
+
+    .mouth2--frown {
+      display: block;
+    }
+  }
+
+  &--pink   { color: $pink; }
+  &--orange { color: $orange; }
+  &--dark   { color: $dark; }
+  &--white  { color: #fff; }
+
+  &--80  { width: 80px; height: 80px; }
+  &--100 { width: 100px; height: 100px; }
+  &--120 { width: 120px; height: 120px; }
+}

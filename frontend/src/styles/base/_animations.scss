@@ -41,6 +41,20 @@
   }
 }
 
+// Animation bounce pour la flèche dans le hero
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(2rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+
 //Animation pour le bandeau de la homepage
 @keyframes track_animation {
   0% {
@@ -60,5 +74,18 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// Rotation infinie
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateReverse {
+  to {
+    transform: rotate(-360deg);
   }
 }

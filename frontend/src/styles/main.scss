@@ -13,6 +13,11 @@
 //// IMPORT DES ATOMS ////
 // Cursor
 @use "./components/atoms/Cursor/customCursor";
+// Arrow
+@use "./components/atoms/Arrow/scrollDownArrow";
+// Circles_animations
+@use "./components/atoms/Circles_animation/circleTextLink";
+@use "./components/atoms/Circles_animation/faceIcon";
 // Nav
 @use "./components/atoms/Nav/navLink";
 // Image
@@ -35,6 +40,7 @@
 @use "./components/atoms/Buttons/submitButton";
 @use "./components/atoms/Buttons/subMenuToggle";
 @use "./components/atoms/Buttons/modalButton";
+@use "./components/atoms/Buttons/mainButton";
 // Form
 @use "./components/atoms/Form/input";
 @use "./components/atoms/Form/textarea";
@@ -93,6 +99,7 @@
 @use "./components/molecules/Homepage/homeBanner";
 // Banner_inspiration
 @use "./components/molecules/Banner_inspiration/bannerInspiration";
+@use "./components/molecules/Banner_inspiration/bannerLastRecipe";
 // Admin_dashboard
 @use "./components/molecules/Admin_dashboard/Nav/adminMobileNav";
 @use "./components/molecules/Admin_dashboard/Nav/adminDesktopNav";

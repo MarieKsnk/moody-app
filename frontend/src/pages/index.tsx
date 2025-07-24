@@ -1,21 +1,23 @@
 import Head from "next/head";
-import { HomeMainSection } from "@/components/organisms/Homepage/HomeMainSection";
-import { LatestRecipes } from "@/components/molecules/Homepage/LatestRecipes";
-import { HomeMoodSection } from "@/components/organisms/Homepage/HomeMoodSection";
-import { BannerInspirationDark } from "@/components/molecules/Banners/banner_inspiration_dark";
 import HeroNav from "@/components/organisms/Homepage/HeroNav";
+import { useScrollSnapping } from "@/hooks/gsap/useScrollSnapping";
+import { BannerLastRecipe } from "@/components/molecules/Banners/BannerLastRecipe";
 
 export default function Home() {
+  useScrollSnapping(".snap-section");
   return (
     <>
       <Head>
         <title>Accueil Moody</title>
       </Head>
-      <HeroNav />
-        <HomeMainSection />
-        <BannerInspirationDark imageUrl="/img/illustration-banniere-inspiration.png" />
-        <LatestRecipes />
-        <HomeMoodSection />
+
+      <section className="snap-section" id="hero">
+        <HeroNav /> 
+      </section>
+
+      <section className="snap-section" id="banner-last-recipe">
+        <BannerLastRecipe />
+      </section>
     </>
   );
 }

@@ -9,15 +9,15 @@
   }
 
   @include respond(lg) {
-    position: fixed; // sticky en haut, bien fixé !
+    position: fixed; 
     top: 0;
     left: 0;
-    z-index: 50; // Doit être inférieur au logo qui arrive au-dessus (100)
+    z-index: 100; 
     display: flex;
     flex-direction: column;
     width: 100%;
     background: $light-background;
-    padding: 2rem 4rem 0.5rem;
+    padding: 2rem 0rem 0rem;
     gap: 2rem;
 
     &__top {
@@ -25,7 +25,7 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      padding: 1rem 4rem;
+      padding: 1rem 5rem;
       background: $light-background;
       z-index: 10;
 
@@ -44,11 +44,10 @@
           font-family: $font-main;
           font-size: 1rem;
           font-weight: 500;
-          cursor: pointer;
           transition: color 0.3s;
 
           &:hover {
-            color: $pink;
+            color: $pink-hover;
           }
         }
       }
@@ -59,10 +58,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: $dark-background;
       padding: 1rem 2rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 5px 0 $pink;
+      border-top: 1px solid $dark;
+      background-color: $dark;
 
       .item {
         flex: 1;
@@ -135,7 +133,7 @@
               display: none;
               flex-direction: column;
               align-items: center;
-              min-width: 260px;
+              min-width: 500px;
               left: 50%;
               transform: translateX(-50%);
             }

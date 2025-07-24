@@ -1,4 +1,4 @@
-import { DesktopNav } from "@/components/molecules/Nav/DesktopNav";
+import { DesktopNav } from "@/components/molecules/Nav/DesktopHomeNav";
 import { MobileNav } from "@/components/molecules/Nav/MobileNav";
 
 export const Header: React.FC = () => {

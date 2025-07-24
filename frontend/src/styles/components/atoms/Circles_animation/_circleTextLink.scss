@@ -1,0 +1,82 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+@use "@/styles/base/animations" as *;
+
+.link {
+  position: absolute;
+  width: 12rem;
+  height: 12rem;
+  display: inline-block;
+  font-family: $font-main;
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  word-spacing: 1rem;
+  text-decoration: none;
+  top: 25%;
+  left: 85%;
+
+  &__svg {
+    width: 100%;
+    height: auto;
+    transform-box: fill-box;
+    fill: $dark;
+    stroke: $dark;
+    stroke-width: 0.05em;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__arrow,
+  &__face {
+    transform-origin: 50% 50%;
+    transition: transform 0.3s ease-out;
+
+    .link:hover & {
+      transform: scale(1.2);
+    }
+  }
+
+  &__arrow {
+    stroke-width: 0.075em;
+  }
+
+  &__text {
+    animation: rotateReverse 20s linear infinite;
+    transform-origin: 50% 50%;
+
+    .link:hover & {
+      animation-play-state: paused;
+    }
+  }
+
+  &--alt {
+    font-size: 1.15rem;
+    letter-spacing: 0;
+    word-spacing: 0;
+  }
+
+  &__face {
+    stroke: $pink;
+    fill: $pink;
+
+    .link__mouth.smile {
+      display: block;
+    }
+
+    .link__mouth.frown {
+      display: none;
+    }
+
+    .link:hover & {
+      .smile {
+        display: none;
+      }
+
+      .frown {
+        display: block;
+      }
+    }
+  }
+}
